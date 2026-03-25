@@ -2218,15 +2218,14 @@ div#mCSB_1_container{
 }
 
 .parallax-bg{
-  position: absolute;
-  left: 0px;
-  top: -30%;
+position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 150%;
+  height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
   z-index: -1;
 }
 
@@ -9613,13 +9612,18 @@ div#mCSB_1_container{
   display: block;
   font-size: 24px;
   line-height: 34px;
-  color: #677289;
+  color: var(--text-color) !important;
   margin-bottom: 13px;
 }
 
+.service-details-content .content-inner h3,h4{
+  margin-bottom: 1rem;
+}
+
 .service-details-content p{
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
+    color: var(--text-color) !important;
 }
 
 .service-details-content .two-column{
@@ -9657,7 +9661,7 @@ div#mCSB_1_container{
     display: block;
     font-size: 16px;
     line-height: 26px;
-    color: #52565b;
+    color: var(--text-color) !important;
     font-weight: 400;
     padding-left: 25px;
     margin-bottom: 12px;

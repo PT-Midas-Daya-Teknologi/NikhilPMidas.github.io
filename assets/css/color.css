@@ -5,6 +5,7 @@
   --accent-red: #FF6D50;
   --dark-gray: #677289;
   --deep-black: #1E1E1E;
+  --text-color: #52565b;
   --gradient-primary: linear-gradient(270deg, var(--primary-blue) -22.92%, var(--primary-orange) 56.63%);
   --gradient-secondary: linear-gradient(306.22deg, var(--primary-blue) -27.65%, var(--primary-orange) 64.42%);
   --gradient-btn-hover: linear-gradient(270deg, var(--primary-orange) 30%, var(--primary-blue) 100%);
