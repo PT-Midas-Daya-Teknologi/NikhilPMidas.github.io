@@ -207,7 +207,7 @@
   }
 
   .page-title{
-    padding: 0px;
+    padding: 0px 30px;
   }
 
   .project-block-two .inner-box:hover .content-box{
@@ -944,6 +944,10 @@
 
   .subscribe-section .form-inner{
     margin-left: 0px;
+  }
+
+  .page-title{
+    padding: 0px 15px;
   }
 
   .page-title .content-box h1{
