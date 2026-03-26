@@ -5,13 +5,13 @@
 	//Hide Loading Box (Preloader)
 	function handlePreloader() {
 		if ($('.loader-wrap').length) {
-			$('.loader-wrap').delay(1000).fadeOut(500);
+			$('.loader-wrap').delay(300).fadeOut(200);
 		}
 	}
 
 	if ($(".preloader-close").length) {
 		$(".preloader-close").on("click", function () {
-			$('.loader-wrap').delay(200).fadeOut(500);
+			$('.loader-wrap').delay(200).fadeOut(100);
 		})
 	}
 
@@ -651,7 +651,7 @@
    ========================================================================== */
 
 	// Load components
-	$(window).on('load', function () {
+	$(function () {
 		handlePreloader();
 
 		// Determine base path for components
@@ -732,6 +732,26 @@
 						headerStyle(); // Update header style after loading
 					}
 				});
+			}
+		});
+
+		// Show preloader on menu click before page render
+		$(document).on('click', '.navigation li a, .mobile-menu .navigation li a', function (e) {
+			var href = $(this).attr('href');
+			var target = $(this).attr('target');
+
+			// Only trigger for internal links that don't have a target="_blank" and are not anchors
+			if (href && href !== '#' && !href.startsWith('#') && target !== '_blank' && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+				// If it's a link to a different page (not just a hash change on the same page)
+				var currentPath = window.location.pathname;
+				var linkPath = this.pathname;
+
+				// Handle cases where pathname might be relative or empty
+				if (linkPath && (linkPath !== currentPath || this.search !== window.location.search)) {
+					if ($('.loader-wrap').length) {
+						$('.loader-wrap').fadeIn(300);
+					}
+				}
 			}
 		});
 
