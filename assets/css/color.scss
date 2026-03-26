@@ -5,6 +5,16 @@
     --accent-red: #FF6D50;
     --dark-gray: #677289;
     --deep-black: #1E1E1E;
+    --text-color: #52565b;
+
+    /* Midas Branding Variables */
+    --primary: #FF9360;
+    --secondary: rgba(12, 125, 252, 0.90);
+    --third: #FCF4ED;
+    --corporate-navy: #28496B;
+    --navy-light: #f4f6f8;
+    --black: #000000;
+    --white: #ffffff;
 
     // Gradients as variables
     --gradient-primary: linear-gradient(270deg, var(--primary-blue) -22.92%, var(--primary-orange) 56.63%);
@@ -1030,4 +1040,96 @@
 
 .news-block-three .inner-box:hover .lower-content .link a {
     color: var(--primary-orange);
+}
+
+/* Midas Branding Colors */
+.theme-btn {
+    background-color: var(--white) !important;
+    color: var(--black) !important;
+    border: 1px solid var(--black) !important;
+    &:hover {
+        background-color: var(--primary) !important;
+        color: var(--white) !important;
+        border-color: var(--primary) !important;
+    }
+    &:before,
+    &:after {
+        display: none !important;
+    }
+}
+
+.main-footer {
+    background-color: var(--corporate-navy) !important;
+    color: var(--white) !important;
+    .footer-widget .widget-title h3,
+    .footer-bottom p,
+    .footer-bottom p a {
+        color: var(--white) !important;
+    }
+}
+
+.service-style-three {
+    background-color: var(--white) !important;
+    .service-block-one .inner-box {
+        .text {
+            background: var(--primary) !important;
+            .icon-box i {
+                color: var(--white) !important;
+            }
+        }
+        .overlay-content {
+            background-color: var(--secondary) !important;
+            .inner {
+                .icon-box i {
+                    color: var(--white) !important;
+                }
+                h3 a,
+                p {
+                    color: var(--white) !important;
+                }
+            }
+        }
+    }
+}
+
+.about-style-four {
+    background-color: var(--navy-light) !important;
+}
+
+.wedo-section {
+    background-color: var(--white) !important;
+    .sec-title h2,
+    .wedo-block-one .inner-box h5 a {
+        color: var(--corporate-navy) !important;
+    }
+    .wedo-block-one .inner-box .icon-box i,
+    .wedo-block-one .inner-box .count-text {
+        color: var(--white) !important;
+    }
+}
+
+.progress-section {
+    background-color: var(--white) !important;
+    .sec-title h2 {
+        color: var(--corporate-navy) !important;
+    }
+    .progress-inner .progress-box .bar .bar-inner {
+        background-color: var(--secondary) !important;
+    }
+}
+
+.project-style-three {
+    background-color: var(--navy-light) !important;
+}
+
+.client-card {
+    background: var(--white);
+    &:hover {
+        border-color: var(--secondary);
+    }
+}
+
+.service-details-content .content-inner .list li:before,
+.bullet-list li:before {
+    background: var(--primary);
 }

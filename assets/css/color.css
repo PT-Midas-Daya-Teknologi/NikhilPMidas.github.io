@@ -6,6 +6,15 @@
   --dark-gray: #677289;
   --deep-black: #1E1E1E;
   --text-color: #52565b;
+
+  /* Midas Branding Variables */
+  --primary: #FF9360;
+  --secondary: rgba(12, 125, 252, 0.90);
+  --third: #FCF4ED;
+  --corporate-navy: #28496B;
+  --navy-light: #f4f6f8;
+  --black: #000000;
+  --white: #ffffff;
   --gradient-primary: linear-gradient(270deg, var(--primary-blue) -22.92%, var(--primary-orange) 56.63%);
   --gradient-secondary: linear-gradient(306.22deg, var(--primary-blue) -27.65%, var(--primary-orange) 64.42%);
   --gradient-btn-hover: linear-gradient(270deg, var(--primary-orange) 30%, var(--primary-blue) 100%);
@@ -469,13 +478,13 @@
 }
 
 .wedo-block-one .inner-box .icon-box {
-  background: var(--gradient-primary);
+  background: var(--primary);
 }
 .wedo-block-one .inner-box h5 a:hover {
   color: var(--primary-orange);
 }
 .wedo-block-one .inner-box .link a {
-  color: var(--primary-blue);
+  color: var(--corporate-navy);
 }
 .wedo-block-one .inner-box .link a:hover {
   color: var(--primary-orange);
@@ -762,6 +771,111 @@
 
 .news-block-three .inner-box:hover .lower-content .link a {
   color: var(--primary-orange);
+}
+
+/* Midas Branding Colors */
+.theme-btn {
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+  border: 1px solid var(--black) !important;
+}
+
+.theme-btn:hover {
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
+  border-color: var(--primary) !important;
+}
+
+.theme-btn:before,
+.theme-btn:after {
+  display: none !important;
+}
+
+.main-footer {
+  background-color: var(--corporate-navy) !important;
+  color: var(--white) !important;
+}
+
+.main-footer .footer-widget .widget-title h3,
+.main-footer .footer-bottom p,
+.main-footer .footer-bottom p a {
+  color: var(--white) !important;
+}
+
+.service-style-three {
+  background-color: var(--white) !important;
+}
+
+.service-style-three .service-block-one .inner-box .text {
+  background: var(--primary) !important;
+}
+
+.service-style-three .service-block-one .inner-box .text .icon-box i {
+  color: var(--white) !important;
+}
+
+.service-style-three .service-block-one .inner-box .overlay-content {
+  background-color: var(--secondary) !important;
+}
+
+.service-style-three .service-block-one .inner-box .overlay-content .inner .icon-box i {
+  color: var(--white) !important;
+}
+
+.service-style-three .service-block-one .inner-box .overlay-content .inner h3 a,
+.service-style-three .service-block-one .inner-box .overlay-content .inner p {
+  color: var(--white) !important;
+}
+
+.service-style-three .service-block-one .inner-box .overlay-content {
+  background: var(--primary) !important;
+}
+
+.about-style-four {
+  background-color: var(--navy-light) !important;
+}
+
+.wedo-section {
+  background-color: var(--white) !important;
+}
+
+.wedo-section .sec-title h2,
+.wedo-section .wedo-block-one .inner-box h5 a {
+  color: var(--corporate-navy) !important;
+}
+
+.wedo-section .wedo-block-one .inner-box .icon-box i,
+.wedo-section .wedo-block-one .inner-box .count-text {
+  color: var(--white) !important;
+}
+
+.progress-section {
+  background-color: var(--white) !important;
+}
+
+.progress-section .sec-title h2 {
+  color: var(--corporate-navy) !important;
+}
+
+.progress-section .progress-inner .progress-box .bar .bar-inner {
+  background-color: var(--secondary) !important;
+}
+
+.project-style-three {
+  background-color: var(--navy-light) !important;
+}
+
+.client-card {
+  background: var(--white);
+}
+
+.client-card:hover {
+  border-color: var(--secondary);
+}
+
+.service-details-content .content-inner .list li:before,
+.bullet-list li:before {
+  background: var(--primary);
 }
 
 /*# sourceMappingURL=color.css.map */
