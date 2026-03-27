@@ -1,261 +1,537 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
 
-    <title>Digital Transformation - Midas Teknologi</title>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-    <!-- Fav Icon -->
-    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <title>Digital Transformation - Midas Teknologi</title>
 
-      <!-- Critical CSS -->
+  <!-- Fav Icon -->
+  <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.webp" />
+
+  <!-- Critical CSS -->
   <style>
-    @font-face{font-family:Ubuntu;src:url('../assets/fonts/ubuntu/ubuntu-light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:Ubuntu;src:url('../assets/fonts/ubuntu/ubuntu-regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Ubuntu;src:url('../assets/fonts/ubuntu/ubuntu-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}@font-face{font-family:Ubuntu;src:url('../assets/fonts/ubuntu/ubuntu-medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:Ubuntu;src:url('../assets/fonts/ubuntu/ubuntu-bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}body{font-family:Ubuntu,sans-serif!important}body{font-size:24px;color:#677289;line-height:34px;font-weight:400;background:#fff;font-family:Ubuntu,sans-serif;background-size:cover;background-repeat:no-repeat;background-position:center top;-webkit-font-smoothing:antialiased}*{margin:0;padding:0;border:none;outline:0}:root{--radius:14px}.loader-wrap{position:fixed;left:0;top:0;width:100%;height:100%;z-index:99999999;background-color:#fff}.preloader .loaded .animation-preloader{opacity:0;transition:.3s ease-out}.handle-preloader{align-items:center;-webkit-align-items:center;display:flex;display:-ms-flexbox;height:100%;justify-content:center;-webkit-justify-content:center;position:fixed;left:0;top:0;width:100%;z-index:9999999}.handle-preloader .animation-preloader{position:absolute;z-index:100}.handle-preloader .animation-preloader .spinner{animation:spinner 1s infinite linear;border-radius:50%;height:150px;margin:0 auto 45px auto;width:150px}.handle-preloader .animation-preloader .txt-loading{text-align:center;user-select:none}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{animation:letters-loading 4s infinite;content:attr(data-text-preloader);left:0;opacity:0;top:0;position:absolute}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-family:Ubuntu,sans-serif;font-weight:400;letter-spacing:15px;display:inline-block;position:relative;font-size:70px;line-height:70px;text-transform:uppercase}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before{animation-delay:.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before{animation-delay:.4s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before{animation-delay:.6s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before{animation-delay:.8s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before{animation-delay:1s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before{animation-delay:1.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before{animation-delay:1.4s}.handle-preloader .loader-section{background-color:#fff;height:100%;position:fixed;top:0;width:calc(50% + 1px)}.handle-preloader .animation-preloader .txt-loading .letters-loading{color:#fff}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{color:#fff}.handle-preloader .animation-preloader .spinner{border:3px solid #fff;border-top-color:rgba(255,255,255,.5)}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-size:40px;letter-spacing:10px}.handle-preloader .animation-preloader{position:absolute;z-index:100}.handle-preloader .animation-preloader .spinner{animation:spinner 1s infinite linear;border-radius:50%;height:150px;margin:0 auto 45px auto;width:150px}.handle-preloader .animation-preloader .txt-loading{text-align:center;user-select:none}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{animation:letters-loading 4s infinite;content:attr(data-text-preloader);left:0;opacity:0;top:0;position:absolute}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-family:Ubuntu,sans-serif;font-weight:400;letter-spacing:15px;display:inline-block;position:relative;font-size:70px;line-height:70px;text-transform:uppercase}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before{animation-delay:.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before{animation-delay:.4s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before{animation-delay:.6s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before{animation-delay:.8s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before{animation-delay:1s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before{animation-delay:1.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before{animation-delay:1.4s}.preloader .loaded .animation-preloader{opacity:0;transition:.3s ease-out}.handle-preloader .animation-preloader .txt-loading .letters-loading{color:#fff}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{color:#fff}.handle-preloader .animation-preloader .spinner{border:3px solid #fff;border-top-color:rgba(255,255,255,.5)}@media screen and (max-width:767px){.handle-preloader .animation-preloader .spinner{height:8em;width:8em}@media screen and (max-width:500px){.handle-preloader .animation-preloader .spinner{height:7em;width:7em}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-size:40px;letter-spacing:10px}.handle-preloader .animation-preloader .spinner{animation:spinner 1s infinite linear;border-radius:50%;height:150px;margin:0 auto 45px auto;width:150px}.handle-preloader .animation-preloader .spinner{border:3px solid #fff;border-top-color:rgba(255,255,255,.5)}@media screen and (max-width:767px){.handle-preloader .animation-preloader .spinner{height:8em;width:8em}@media screen and (max-width:500px){.handle-preloader .animation-preloader .spinner{height:7em;width:7em}.handle-preloader .animation-preloader .txt-loading{text-align:center;user-select:none}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{animation:letters-loading 4s infinite;content:attr(data-text-preloader);left:0;opacity:0;top:0;position:absolute}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-family:Ubuntu,sans-serif;font-weight:400;letter-spacing:15px;display:inline-block;position:relative;font-size:70px;line-height:70px;text-transform:uppercase}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before{animation-delay:.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before{animation-delay:.4s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before{animation-delay:.6s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before{animation-delay:.8s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before{animation-delay:1s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before{animation-delay:1.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before{animation-delay:1.4s}.handle-preloader .animation-preloader .txt-loading .letters-loading{color:#fff}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{color:#fff}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-size:40px;letter-spacing:10px}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-family:Ubuntu,sans-serif;font-weight:400;letter-spacing:15px;display:inline-block;position:relative;font-size:70px;line-height:70px;text-transform:uppercase}.handle-preloader .animation-preloader .txt-loading .letters-loading{color:#fff}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-size:40px;letter-spacing:10px}.banner-style-four{position:relative;padding-top:220px}.banner-style-four .content-box h2{display:block;font-weight:700;font-size:48px;line-height:58px;margin-bottom:36px}.banner-style-four .content-box p{display:block;font-size:24px;line-height:34px;margin-bottom:29px}.banner-style-four .pattern-layer{position:absolute;left:0;top:0;width:100%;height:1001px;background-size:cover;background-repeat:no-repeat}.banner-style-four .image-box{position:relative;width:549px;height:549px;margin-left:30px}.banner-style-four .image-box:before{position:absolute;content:"";width:100%;height:100%;left:0;top:0;border-radius:50%}.banner-style-four .image-box .image{position:absolute;top:-15px;left:10px}.banner-style-four .image-box .image img{width:100%}.banner-style-four .image-box .shape .shape-1{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:535px;height:535px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-2{position:absolute;left:25px;top:25px;width:76px;height:114px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-3{position:absolute;top:40px;right:160px;width:15px;height:15px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-4{position:absolute;top:260px;right:-20px;width:75px;height:97px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-5{position:absolute;right:95px;bottom:-55px;width:89px;height:221px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-6{position:absolute;left:50%;transform:translateX(-50%);bottom:-7px;width:144px;height:58px}.auto-container{position:static;max-width:1400px;padding:0 15px;margin:0 auto}.boxed_wrapper{position:relative;margin:0 auto;overflow:hidden!important;width:100%;min-width:300px}.banner-style-four .content-box h2{display:block;font-weight:700;font-size:48px;line-height:58px;margin-bottom:36px}.banner-style-four .content-box p{display:block;font-size:24px;line-height:34px;margin-bottom:29px}.banner-style-four .image-box{position:relative;width:549px;height:549px;margin-left:30px}.banner-style-four .image-box .image{position:absolute;top:-15px;left:10px}.banner-style-four .image-box .image img{width:100%}.banner-style-four .image-box .shape .shape-1{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:535px;height:535px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-2{position:absolute;left:25px;top:25px;width:76px;height:114px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-3{position:absolute;top:40px;right:160px;width:15px;height:15px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-4{position:absolute;top:260px;right:-20px;width:75px;height:97px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-5{position:absolute;right:95px;bottom:-55px;width:89px;height:221px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-6{position:absolute;left:50%;transform:translateX(-50%);bottom:-7px;width:144px;height:58px}.banner-style-four .content-box h2{display:block;font-weight:700;font-size:48px;line-height:58px;margin-bottom:36px}.banner-style-four .content-box p{display:block;font-size:24px;line-height:34px;margin-bottom:29px}.row{--bs-gutter-x:1.5rem;--bs-gutter-y:0;display:flex;flex-wrap:wrap;margin-top:calc(-1 * var(--bs-gutter-y));margin-right:calc(-.5 * var(--bs-gutter-x));margin-left:calc(-.5 * var(--bs-gutter-x))}.col-lg-6{flex:0 0 auto;width:50%}.col-md-12{flex:0 0 auto;width:100%}.col-sm-12{flex:0 0 auto;width:100%}.align-items-center{align-items:center!important}h2{font-family:Ubuntu,sans-serif;color:#1e1e1e;margin:0}p{font-family:Ubuntu,sans-serif;color:#677289;margin:0}
+    @font-face {
+      font-family: Ubuntu;
+      src: url('assets/fonts/ubuntu/ubuntu-regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Ubuntu;
+      src: url('assets/fonts/ubuntu/ubuntu-bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap
+    }
+
+    :root {
+      --radius: 14px
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      border: none;
+      outline: 0
+    }
+
+    body {
+      font-family: Ubuntu, sans-serif !important;
+      font-size: 24px;
+      color: #677289;
+      line-height: 34px;
+      font-weight: 400;
+      background: #fff;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      -webkit-font-smoothing: antialiased
+    }
+
+    .loader-wrap,
+    .handle-preloader {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%
+    }
+
+    .loader-wrap {
+      z-index: 99999999;
+      background: #fff
+    }
+
+    .handle-preloader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999999
+    }
+
+    .animation-preloader {
+      position: absolute;
+      z-index: 100
+    }
+
+    .spinner {
+      animation: spinner 1s infinite linear;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 45px;
+      border: 3px solid #fff;
+      border-top-color: rgba(255, 255, 255, .5)
+    }
+
+    .txt-loading {
+      text-align: center;
+      user-select: none
+    }
+
+    .letters-loading {
+      font-family: Ubuntu, sans-serif;
+      font-weight: 400;
+      letter-spacing: 10px;
+      display: inline-block;
+      position: relative;
+      font-size: 40px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #fff
+    }
+
+    .letters-loading:before {
+      content: attr(data-text-preloader);
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      color: #fff;
+      animation: letters-loading 4s infinite
+    }
+
+    .letters-loading:nth-child(2):before {
+      animation-delay: .2s
+    }
+
+    .letters-loading:nth-child(3):before {
+      animation-delay: .4s
+    }
+
+    .letters-loading:nth-child(4):before {
+      animation-delay: .6s
+    }
+
+    .letters-loading:nth-child(5):before {
+      animation-delay: .8s
+    }
+
+    .letters-loading:nth-child(6):before {
+      animation-delay: 1s
+    }
+
+    .letters-loading:nth-child(7):before {
+      animation-delay: 1.2s
+    }
+
+    .letters-loading:nth-child(8):before {
+      animation-delay: 1.4s
+    }
+
+    .preloader .loaded .animation-preloader {
+      opacity: 0;
+      transition: .3s ease-out
+    }
+
+    .banner-style-four {
+      position: relative;
+      padding-top: 220px
+    }
+
+    .banner-style-four .content-box h2 {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 58px;
+      margin-bottom: 36px;
+      color: #1e1e1e
+    }
+
+    .banner-style-four .content-box p {
+      font-size: 24px;
+      line-height: 34px;
+      margin-bottom: 29px
+    }
+
+    .banner-style-four .pattern-layer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 1001px;
+      background-size: cover;
+      background-repeat: no-repeat
+    }
+
+    .banner-style-four .image-box {
+      position: relative;
+      width: 549px;
+      height: 549px;
+      margin-left: 30px
+    }
+
+    .banner-style-four .image-box:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      left: 0;
+      top: 0
+    }
+
+    .banner-style-four .image-box .image {
+      position: absolute;
+      top: -15px;
+      left: 10px
+    }
+
+    .banner-style-four .image-box .image img {
+      width: 100%
+    }
+
+    .banner-style-four .shape>* {
+      position: absolute;
+      background-repeat: no-repeat
+    }
+
+    .shape-1 {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 535px;
+      height: 535px
+    }
+
+    .shape-2 {
+      left: 25px;
+      top: 25px;
+      width: 76px;
+      height: 114px
+    }
+
+    .shape-3 {
+      top: 40px;
+      right: 160px;
+      width: 15px;
+      height: 15px
+    }
+
+    .shape-4 {
+      top: 260px;
+      right: -20px;
+      width: 75px;
+      height: 97px
+    }
+
+    .shape-5 {
+      right: 95px;
+      bottom: -55px;
+      width: 89px;
+      height: 221px
+    }
+
+    .shape-6 {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -7px;
+      width: 144px;
+      height: 58px
+    }
+
+    .auto-container {
+      max-width: 1400px;
+      padding: 0 15px;
+      margin: 0 auto
+    }
+
+    .boxed_wrapper {
+      position: relative;
+      margin: 0 auto;
+      overflow: hidden !important;
+      width: 100%;
+      min-width: 300px
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -.75rem
+    }
+
+    .col-lg-6 {
+      width: 50%
+    }
+
+    .col-md-12,
+    .col-sm-12 {
+      width: 100%
+    }
+
+    .align-items-center {
+      align-items: center !important
+    }
+
+    @media(max-width:767px) {
+      .spinner {
+        width: 8em;
+        height: 8em
+      }
+    }
+
+    @media(max-width:500px) {
+      .spinner {
+        width: 7em;
+        height: 7em
+      }
+
+      .letters-loading {
+        font-size: 40px;
+        letter-spacing: 10px
+      }
+    }
   </style>
 
   <!-- Optimized Bundle (Non-blocking) -->
   <link rel="preload" href="../assets/css/bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../assets/css/bundle.min.css"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/bundle.min.css">
+  </noscript>
 </head>
 
-  <!-- page wrapper -->
+<!-- page wrapper -->
 
-  <body>
-    <div class="boxed_wrapper">
-      <!-- preloader -->
-      <div class="loader-wrap">
-        <div class="preloader">
-          <div class="preloader-close">x</div>
-          <div id="handle-preloader" class="handle-preloader">
-            <div class="animation-preloader">
-              <div class="spinner"></div>
-              <div class="txt-loading">
-                <span data-text-preloader="m" class="letters-loading"> m </span>
-                <span data-text-preloader="i" class="letters-loading"> i </span>
-                <span data-text-preloader="d" class="letters-loading"> d </span>
-                <span data-text-preloader="a" class="letters-loading"> a </span>
-                <span data-text-preloader="s" class="letters-loading"> s </span>
-              </div>
+<body>
+  <div class="boxed_wrapper">
+    <!-- preloader -->
+    <div class="loader-wrap">
+      <div class="preloader">
+        <div class="preloader-close">x</div>
+        <div id="handle-preloader" class="handle-preloader">
+          <div class="animation-preloader">
+            <div class="spinner"></div>
+            <div class="txt-loading">
+              <span data-text-preloader="m" class="letters-loading"> m </span>
+              <span data-text-preloader="i" class="letters-loading"> i </span>
+              <span data-text-preloader="d" class="letters-loading"> d </span>
+              <span data-text-preloader="a" class="letters-loading"> a </span>
+              <span data-text-preloader="s" class="letters-loading"> s </span>
             </div>
           </div>
         </div>
       </div>
-      <!-- preloader end -->
-      <div id="header-placeholder"></div>
-      <div id="mobile-menu-placeholder"></div>
+    </div>
+    <!-- preloader end -->
+    <div id="header-placeholder"></div>
+    <div id="mobile-menu-placeholder"></div>
 
-      <!-- Page Title -->
-      <section class="page-title centred">
-        <div class="outer-container">
-          <div
-            class="bg-layer parallax-bg"
-            data-parallax='{"y": 100}'
-            style="
-              background-image: url(../assets/images/banner/digital-transformation.png);
-            "
-          ></div>
-          <div class="auto-container">
-            <div class="content-box">
-              <h1>Digital Transformation</h1>
-              <ul class="bread-crumb clearfix">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="service.html">Services</a></li>
-                <li>Digital Transformation</li>
-              </ul>
-            </div>
+    <!-- Page Title -->
+    <section class="page-title centred">
+      <div class="outer-container">
+        <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="
+              background-image: url(../assets/images/banner/digital-transformation.webp);
+            "></div>
+        <div class="auto-container">
+          <div class="content-box">
+            <h1>Digital Transformation</h1>
+            <ul class="bread-crumb clearfix">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="service.html">Services</a></li>
+              <li>Digital Transformation</li>
+            </ul>
           </div>
         </div>
-      </section>
-      <!-- End Page Title -->
+      </div>
+    </section>
+    <!-- End Page Title -->
 
-      <!-- service-details -->
-      <section class="service-details">
-        <div class="auto-container">
-          <div class="row clearfix">
-            <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-              <div class="service-sidebar">
-                <div class="category-widget">
-                  <h5>All Services</h5>
-                  <ul class="service-list clearfix">
-                    <li><a href="core-banking.html">Core Banking</a></li>
+    <!-- service-details -->
+    <section class="service-details">
+      <div class="auto-container">
+        <div class="row clearfix">
+          <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+            <div class="service-sidebar">
+              <div class="category-widget">
+                <h5>All Services</h5>
+                <ul class="service-list clearfix">
+                  <li><a href="core-banking.html">Core Banking</a></li>
+                  <li>
+                    <a href="digital-transformation.html" class="current">Digital Transformation</a>
+                  </li>
+                  <li>
+                    <a href="application-development.html">Application Development</a>
+                  </li>
+                  <li>
+                    <a href="infrastructure-management.html">Application & Infrastructure Management</a>
+                  </li>
+                  <li>
+                    <a href="elite-it-resources.html">Elite IT Resources</a>
+                  </li>
+                  <li>
+                    <a href="testing-services.html">Testing Services</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+            <div class="service-details-content">
+              <div class="inner-box">
+                <div class="upper-box">
+                  <h2>Digital Transformation</h2>
+                  <h3>
+                    Elevate Customer Engagement Through Digital Transformation
+                    and Omni-Channel Excellence.
+                  </h3>
+                  <p>
+                    At Midas, we believe that exceptional customer experiences
+                    are at the heart of success. Our Digital Transformation
+                    and Omni-Channel services are designed to help you achieve
+                    just that. Our highly committed IT consulting
+                    professionals bring specific expertise in leveraging
+                    digital technologies to enhance every customer
+                    interaction. We develop and implement seamless
+                    omni-channel strategies that provide consistent and
+                    personalized experiences across all touchpoints. With a
+                    value-driven mindset and a focus on tangible results, we
+                    transform your digital landscape to drive customer loyalty
+                    and impactful business growth.
+                  </p>
+                </div>
+                <div class="image-box mt_40 mb_40">
+                  <img src="../assets/images/service/digital-banking-1.webp" alt="Digital Transformation"
+                    style="border-radius: 15px" />
+                </div>
+                <div class="content-inner">
+                  <h3>
+                    Transform Customer Interactions into Lasting Loyalty with
+                    Digital Transformation and Omni-Channel Excellence.
+                  </h3>
+                  <p>
+                    At Midas, we understand that in today's competitive
+                    landscape, exceptional customer experiences are your
+                    greatest differentiator. Our comprehensive Digital
+                    Transformation and Omni-Channel services are meticulously
+                    designed to help you forge stronger customer connections
+                    at every touchpoint. Our dedicated IT consulting
+                    professionals bring specialized expertise in harnessing
+                    the power of digital technologies to elevate each customer
+                    interaction. We craft and implement seamless omni-channel
+                    strategies, ensuring consistent and personalized
+                    experiences across all platforms. With a value-driven
+                    approach and a laser focus on tangible results, we empower
+                    you to transform your digital landscape, cultivate
+                    unwavering customer loyalty, and achieve impactful,
+                    sustainable business growth. Ready to elevate your
+                    customer engagement? Let's discuss your digital
+                    transformation journey.
+                  </p>
+                </div>
+                <div class="content-inner mt_20">
+                  <ul class="list clearfix">
                     <li>
-                      <a href="digital-transformation.html" class="current"
-                        >Digital Transformation</a
-                      >
+                      <strong>Enhanced Customer Satisfaction:</strong> Deliver
+                      consistent and personalized experiences across all
+                      channels.
                     </li>
                     <li>
-                      <a href="application-development.html"
-                        >Application Development</a
-                      >
+                      <strong>Increased Customer Loyalty:</strong> Foster
+                      stronger relationships through seamless and engaging
+                      interactions.
                     </li>
                     <li>
-                      <a href="infrastructure-management.html"
-                        >Application & Infrastructure Management</a
-                      >
+                      <strong>Improved Customer Engagement:</strong> Create
+                      more meaningful and relevant touchpoints.
                     </li>
                     <li>
-                      <a href="elite-it-resources.html">Elite IT Resources</a>
+                      <strong>Data-Driven Insights:</strong> Gain a holistic
+                      view of the customer journey for better decision-making.
+                    </li>
+                  </ul>
+                </div>
+                <div class="image-box mt_40 mb_40">
+                  <img src="../assets/images/service/digital-trasnformation-1.webp" alt="Digital Innovation"
+                    style="border-radius: 15px" />
+                </div>
+                <div class="content-inner">
+                  <ul class="list clearfix">
+                    <li>
+                      <strong>Optimized Customer Journeys:</strong> Streamline
+                      interactions and reduce friction across all channels.
                     </li>
                     <li>
-                      <a href="testing-services.html">Testing Services</a>
+                      <strong>Increased Efficiency:</strong> Optimize
+                      processes and technology for better customer service.
+                    </li>
+                    <li>
+                      <strong>Stronger Brand Consistency:</strong> Ensure a
+                      unified brand experience across all touchpoints.
+                    </li>
+                    <li>
+                      <strong>Sustainable Business Growth:</strong> Drive
+                      revenue through increased customer retention and
+                      acquisition.
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-              <div class="service-details-content">
-                <div class="inner-box">
-                  <div class="upper-box">
-                    <h2>Digital Transformation</h2>
-                    <h3>
-                      Elevate Customer Engagement Through Digital Transformation
-                      and Omni-Channel Excellence.
-                    </h3>
-                    <p>
-                      At Midas, we believe that exceptional customer experiences
-                      are at the heart of success. Our Digital Transformation
-                      and Omni-Channel services are designed to help you achieve
-                      just that. Our highly committed IT consulting
-                      professionals bring specific expertise in leveraging
-                      digital technologies to enhance every customer
-                      interaction. We develop and implement seamless
-                      omni-channel strategies that provide consistent and
-                      personalized experiences across all touchpoints. With a
-                      value-driven mindset and a focus on tangible results, we
-                      transform your digital landscape to drive customer loyalty
-                      and impactful business growth.
-                    </p>
-                  </div>
-                  <div class="image-box mt_40 mb_40">
-                    <img
-                      src="../assets/images/service/digital-banking-1.png"
-                      alt="Digital Transformation"
-                      style="border-radius: 15px"
-                    />
-                  </div>
-                  <div class="content-inner">
-                    <h3>
-                      Transform Customer Interactions into Lasting Loyalty with
-                      Digital Transformation and Omni-Channel Excellence.
-                    </h3>
-                    <p>
-                      At Midas, we understand that in today's competitive
-                      landscape, exceptional customer experiences are your
-                      greatest differentiator. Our comprehensive Digital
-                      Transformation and Omni-Channel services are meticulously
-                      designed to help you forge stronger customer connections
-                      at every touchpoint. Our dedicated IT consulting
-                      professionals bring specialized expertise in harnessing
-                      the power of digital technologies to elevate each customer
-                      interaction. We craft and implement seamless omni-channel
-                      strategies, ensuring consistent and personalized
-                      experiences across all platforms. With a value-driven
-                      approach and a laser focus on tangible results, we empower
-                      you to transform your digital landscape, cultivate
-                      unwavering customer loyalty, and achieve impactful,
-                      sustainable business growth. Ready to elevate your
-                      customer engagement? Let's discuss your digital
-                      transformation journey.
-                    </p>
-                  </div>
-                  <div class="content-inner mt_20">
-                    <ul class="list clearfix">
-                      <li>
-                        <strong>Enhanced Customer Satisfaction:</strong> Deliver
-                        consistent and personalized experiences across all
-                        channels.
-                      </li>
-                      <li>
-                        <strong>Increased Customer Loyalty:</strong> Foster
-                        stronger relationships through seamless and engaging
-                        interactions.
-                      </li>
-                      <li>
-                        <strong>Improved Customer Engagement:</strong> Create
-                        more meaningful and relevant touchpoints.
-                      </li>
-                      <li>
-                        <strong>Data-Driven Insights:</strong> Gain a holistic
-                        view of the customer journey for better decision-making.
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="image-box mt_40 mb_40">
-                    <img
-                      src="../assets/images/service/digital-trasnformation-1.png"
-                      alt="Digital Innovation"
-                      style="border-radius: 15px"
-                    />
-                  </div>
-                  <div class="content-inner">
-                    <ul class="list clearfix">
-                      <li>
-                        <strong>Optimized Customer Journeys:</strong> Streamline
-                        interactions and reduce friction across all channels.
-                      </li>
-                      <li>
-                        <strong>Increased Efficiency:</strong> Optimize
-                        processes and technology for better customer service.
-                      </li>
-                      <li>
-                        <strong>Stronger Brand Consistency:</strong> Ensure a
-                        unified brand experience across all touchpoints.
-                      </li>
-                      <li>
-                        <strong>Sustainable Business Growth:</strong> Drive
-                        revenue through increased customer retention and
-                        acquisition.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- service-details end -->
-
-      <div id="main-footer-placeholder"></div>
-
-      <!--Scroll to top-->
-      <div class="scroll-to-top">
-        <div>
-          <div class="scroll-top-inner">
-            <div class="scroll-bar">
-              <div class="bar-inner"></div>
-            </div>
-            <div class="scroll-bar-text">Go To Top</div>
           </div>
         </div>
       </div>
-      <!-- Scroll to top end -->
+    </section>
+    <!-- service-details end -->
+
+    <div id="main-footer-placeholder"></div>
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top">
+      <div>
+        <div class="scroll-top-inner">
+          <div class="scroll-bar">
+            <div class="bar-inner"></div>
+          </div>
+          <div class="scroll-bar-text">Go To Top</div>
+        </div>
+      </div>
     </div>
+    <!-- Scroll to top end -->
+  </div>
 
-    <!-- jequery plugins -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/owl.js"></script>
-    <script src="../assets/js/wow.js"></script>
-    <script src="../assets/js/validation.js"></script>
-    <script src="../assets/js/jquery.fancybox.js"></script>
-    <script src="../assets/js/appear.js"></script>
-    <script src="../assets/js/parallax-scroll.js"></script>
-    <script src="../assets/js/jquery.nice-select.min.js"></script>
-    <script src="../assets/js/data-animation.js"></script>
-    <script src="../assets/js/bxslider.js"></script>
-    <script src="../assets/js/isotope.js"></script>
+  <!-- jequery plugins -->
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/popper.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/owl.js"></script>
+  <script src="../assets/js/wow.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/jquery.fancybox.js"></script>
+  <script src="../assets/js/appear.js"></script>
+  <script src="../assets/js/parallax-scroll.js"></script>
+  <script src="../assets/js/jquery.nice-select.min.js"></script>
+  <script src="../assets/js/data-animation.js"></script>
+  <script src="../assets/js/bxslider.js"></script>
+  <script src="../assets/js/isotope.js"></script>
 
-    <!-- main-js -->
-    <script src="../assets/js/script.js"></script>
-  </body>
-  <!-- End of .page_wrapper -->
+  <!-- main-js -->
+  <script src="../assets/js/script.js"></script>
+</body>
+<!-- End of .page_wrapper -->
+
 </html>

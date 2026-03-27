@@ -10,38 +10,14 @@
 
   <!-- Fav Icon -->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.webp" />
 
   <!-- Critical CSS -->
   <style>
     @font-face {
       font-family: Ubuntu;
-      src: url('assets/fonts/ubuntu/ubuntu-light.woff2') format('woff2');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap
-    }
-
-    @font-face {
-      font-family: Ubuntu;
       src: url('assets/fonts/ubuntu/ubuntu-regular.woff2') format('woff2');
       font-weight: 400;
-      font-style: normal;
-      font-display: swap
-    }
-
-    @font-face {
-      font-family: Ubuntu;
-      src: url('assets/fonts/ubuntu/ubuntu-italic.woff2') format('woff2');
-      font-weight: 400;
-      font-style: italic;
-      font-display: swap
-    }
-
-    @font-face {
-      font-family: Ubuntu;
-      src: url('assets/fonts/ubuntu/ubuntu-medium.woff2') format('woff2');
-      font-weight: 500;
       font-style: normal;
       font-display: swap
     }
@@ -54,21 +30,8 @@
       font-display: swap
     }
 
-    body {
-      font-family: Ubuntu, sans-serif !important
-    }
-
-    body {
-      font-size: 24px;
-      color: #677289;
-      line-height: 34px;
-      font-weight: 400;
-      background: #fff;
-      font-family: Ubuntu, sans-serif;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center top;
-      -webkit-font-smoothing: antialiased
+    :root {
+      --radius: 14px
     }
 
     * {
@@ -78,195 +41,107 @@
       outline: 0
     }
 
-    :root {
-      --radius: 14px
+    body {
+      font-family: Ubuntu, sans-serif !important;
+      font-size: 24px;
+      color: #677289;
+      line-height: 34px;
+      font-weight: 400;
+      background: #fff;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      -webkit-font-smoothing: antialiased
+    }
+
+    .loader-wrap,
+    .handle-preloader {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%
     }
 
     .loader-wrap {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
       z-index: 99999999;
-      background-color: #fff
-    }
-
-    .preloader .loaded .animation-preloader {
-      opacity: 0;
-      transition: .3s ease-out
+      background: #fff
     }
 
     .handle-preloader {
-      align-items: center;
-      -webkit-align-items: center;
       display: flex;
-      display: -ms-flexbox;
-      height: 100%;
+      align-items: center;
       justify-content: center;
-      -webkit-justify-content: center;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
       z-index: 9999999
     }
 
-    .handle-preloader .animation-preloader {
+    .animation-preloader {
       position: absolute;
       z-index: 100
     }
 
-    .handle-preloader .animation-preloader .spinner {
+    .spinner {
       animation: spinner 1s infinite linear;
       border-radius: 50%;
+      width: 150px;
       height: 150px;
-      margin: 0 auto 45px auto;
-      width: 150px
-    }
-
-    .handle-preloader .animation-preloader .txt-loading {
-      text-align: center;
-      user-select: none
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:before {
-      animation: letters-loading 4s infinite;
-      content: attr(data-text-preloader);
-      left: 0;
-      opacity: 0;
-      top: 0;
-      position: absolute
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading {
-      font-family: Ubuntu, sans-serif;
-      font-weight: 400;
-      letter-spacing: 15px;
-      display: inline-block;
-      position: relative;
-      font-size: 70px;
-      line-height: 70px;
-      text-transform: uppercase
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
-      animation-delay: .2s
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
-      animation-delay: .4s
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
-      animation-delay: .6s
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
-      animation-delay: .8s
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
-      animation-delay: 1s
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
-      animation-delay: 1.2s
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before {
-      animation-delay: 1.4s
-    }
-
-    .handle-preloader .loader-section {
-      background-color: #fff;
-      height: 100%;
-      position: fixed;
-      top: 0;
-      width: calc(50% + 1px)
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading {
-      color: #fff
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:before {
-      color: #fff
-    }
-
-    .handle-preloader .animation-preloader .spinner {
+      margin: 0 auto 45px;
       border: 3px solid #fff;
       border-top-color: rgba(255, 255, 255, .5)
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading {
-      font-size: 40px;
-      letter-spacing: 10px
-    }
-
-    .handle-preloader .animation-preloader {
-      position: absolute;
-      z-index: 100
-    }
-
-    .handle-preloader .animation-preloader .spinner {
-      animation: spinner 1s infinite linear;
-      border-radius: 50%;
-      height: 150px;
-      margin: 0 auto 45px auto;
-      width: 150px
-    }
-
-    .handle-preloader .animation-preloader .txt-loading {
+    .txt-loading {
       text-align: center;
       user-select: none
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:before {
-      animation: letters-loading 4s infinite;
-      content: attr(data-text-preloader);
-      left: 0;
-      opacity: 0;
-      top: 0;
-      position: absolute
-    }
-
-    .handle-preloader .animation-preloader .txt-loading .letters-loading {
+    .letters-loading {
       font-family: Ubuntu, sans-serif;
       font-weight: 400;
-      letter-spacing: 15px;
+      letter-spacing: 10px;
       display: inline-block;
       position: relative;
-      font-size: 70px;
-      line-height: 70px;
-      text-transform: uppercase
+      font-size: 40px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #fff
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
+    .letters-loading:before {
+      content: attr(data-text-preloader);
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      color: #fff;
+      animation: letters-loading 4s infinite
+    }
+
+    .letters-loading:nth-child(2):before {
       animation-delay: .2s
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
+    .letters-loading:nth-child(3):before {
       animation-delay: .4s
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
+    .letters-loading:nth-child(4):before {
       animation-delay: .6s
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
+    .letters-loading:nth-child(5):before {
       animation-delay: .8s
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
+    .letters-loading:nth-child(6):before {
       animation-delay: 1s
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
+    .letters-loading:nth-child(7):before {
       animation-delay: 1.2s
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before {
+    .letters-loading:nth-child(8):before {
       animation-delay: 1.4s
     }
 
@@ -275,416 +150,162 @@
       transition: .3s ease-out
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading {
-      color: #fff
+    .banner-style-four {
+      position: relative;
+      padding-top: 220px
     }
 
-    .handle-preloader .animation-preloader .txt-loading .letters-loading:before {
-      color: #fff
+    .banner-style-four .content-box h2 {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 58px;
+      margin-bottom: 36px;
+      color: #1e1e1e
     }
 
-    .handle-preloader .animation-preloader .spinner {
-      border: 3px solid #fff;
-      border-top-color: rgba(255, 255, 255, .5)
+    .banner-style-four .content-box p {
+      font-size: 24px;
+      line-height: 34px;
+      margin-bottom: 29px
     }
 
-    @media screen and (max-width:767px) {
-      .handle-preloader .animation-preloader .spinner {
-        height: 8em;
-        width: 8em
+    .banner-style-four .pattern-layer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 1001px;
+      background-size: cover;
+      background-repeat: no-repeat
+    }
+
+    .banner-style-four .image-box {
+      position: relative;
+      width: 549px;
+      height: 549px;
+      margin-left: 30px
+    }
+
+    .banner-style-four .image-box:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      left: 0;
+      top: 0
+    }
+
+    .banner-style-four .image-box .image {
+      position: absolute;
+      top: -15px;
+      left: 10px
+    }
+
+    .banner-style-four .image-box .image img {
+      width: 100%
+    }
+
+    .banner-style-four .shape>* {
+      position: absolute;
+      background-repeat: no-repeat
+    }
+
+    .shape-1 {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 535px;
+      height: 535px
+    }
+
+    .shape-2 {
+      left: 25px;
+      top: 25px;
+      width: 76px;
+      height: 114px
+    }
+
+    .shape-3 {
+      top: 40px;
+      right: 160px;
+      width: 15px;
+      height: 15px
+    }
+
+    .shape-4 {
+      top: 260px;
+      right: -20px;
+      width: 75px;
+      height: 97px
+    }
+
+    .shape-5 {
+      right: 95px;
+      bottom: -55px;
+      width: 89px;
+      height: 221px
+    }
+
+    .shape-6 {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -7px;
+      width: 144px;
+      height: 58px
+    }
+
+    .auto-container {
+      max-width: 1400px;
+      padding: 0 15px;
+      margin: 0 auto
+    }
+
+    .boxed_wrapper {
+      position: relative;
+      margin: 0 auto;
+      overflow: hidden !important;
+      width: 100%;
+      min-width: 300px
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -.75rem
+    }
+
+    .col-lg-6 {
+      width: 50%
+    }
+
+    .col-md-12,
+    .col-sm-12 {
+      width: 100%
+    }
+
+    .align-items-center {
+      align-items: center !important
+    }
+
+    @media(max-width:767px) {
+      .spinner {
+        width: 8em;
+        height: 8em
+      }
+    }
+
+    @media(max-width:500px) {
+      .spinner {
+        width: 7em;
+        height: 7em
       }
 
-      @media screen and (max-width:500px) {
-        .handle-preloader .animation-preloader .spinner {
-          height: 7em;
-          width: 7em
-        }
-
-        .handle-preloader .animation-preloader .txt-loading .letters-loading {
-          font-size: 40px;
-          letter-spacing: 10px
-        }
-
-        .handle-preloader .animation-preloader .spinner {
-          animation: spinner 1s infinite linear;
-          border-radius: 50%;
-          height: 150px;
-          margin: 0 auto 45px auto;
-          width: 150px
-        }
-
-        .handle-preloader .animation-preloader .spinner {
-          border: 3px solid #fff;
-          border-top-color: rgba(255, 255, 255, .5)
-        }
-
-        @media screen and (max-width:767px) {
-          .handle-preloader .animation-preloader .spinner {
-            height: 8em;
-            width: 8em
-          }
-
-          @media screen and (max-width:500px) {
-            .handle-preloader .animation-preloader .spinner {
-              height: 7em;
-              width: 7em
-            }
-
-            .handle-preloader .animation-preloader .txt-loading {
-              text-align: center;
-              user-select: none
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading:before {
-              animation: letters-loading 4s infinite;
-              content: attr(data-text-preloader);
-              left: 0;
-              opacity: 0;
-              top: 0;
-              position: absolute
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading {
-              font-family: Ubuntu, sans-serif;
-              font-weight: 400;
-              letter-spacing: 15px;
-              display: inline-block;
-              position: relative;
-              font-size: 70px;
-              line-height: 70px;
-              text-transform: uppercase
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
-              animation-delay: .2s
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
-              animation-delay: .4s
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
-              animation-delay: .6s
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
-              animation-delay: .8s
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
-              animation-delay: 1s
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
-              animation-delay: 1.2s
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before {
-              animation-delay: 1.4s
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading {
-              color: #fff
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading:before {
-              color: #fff
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading {
-              font-size: 40px;
-              letter-spacing: 10px
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading {
-              font-family: Ubuntu, sans-serif;
-              font-weight: 400;
-              letter-spacing: 15px;
-              display: inline-block;
-              position: relative;
-              font-size: 70px;
-              line-height: 70px;
-              text-transform: uppercase
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading {
-              color: #fff
-            }
-
-            .handle-preloader .animation-preloader .txt-loading .letters-loading {
-              font-size: 40px;
-              letter-spacing: 10px
-            }
-
-            .banner-style-four {
-              position: relative;
-              padding-top: 220px
-            }
-
-            .banner-style-four .content-box h2 {
-              display: block;
-              font-weight: 700;
-              font-size: 48px;
-              line-height: 58px;
-              margin-bottom: 36px
-            }
-
-            .banner-style-four .content-box p {
-              display: block;
-              font-size: 24px;
-              line-height: 34px;
-              margin-bottom: 29px
-            }
-
-            .banner-style-four .pattern-layer {
-              position: absolute;
-              left: 0;
-              top: 0;
-              width: 100%;
-              height: 1001px;
-              background-size: cover;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box {
-              position: relative;
-              width: 549px;
-              height: 549px;
-              margin-left: 30px
-            }
-
-            .banner-style-four .image-box:before {
-              position: absolute;
-              content: "";
-              width: 100%;
-              height: 100%;
-              left: 0;
-              top: 0;
-              border-radius: 50%
-            }
-
-            .banner-style-four .image-box .image {
-              position: absolute;
-              top: -15px;
-              left: 10px
-            }
-
-            .banner-style-four .image-box .image img {
-              width: 100%
-            }
-
-            .banner-style-four .image-box .shape .shape-1 {
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%, -50%);
-              width: 535px;
-              height: 535px;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box .shape .shape-2 {
-              position: absolute;
-              left: 25px;
-              top: 25px;
-              width: 76px;
-              height: 114px;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box .shape .shape-3 {
-              position: absolute;
-              top: 40px;
-              right: 160px;
-              width: 15px;
-              height: 15px;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box .shape .shape-4 {
-              position: absolute;
-              top: 260px;
-              right: -20px;
-              width: 75px;
-              height: 97px;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box .shape .shape-5 {
-              position: absolute;
-              right: 95px;
-              bottom: -55px;
-              width: 89px;
-              height: 221px;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box .shape .shape-6 {
-              position: absolute;
-              left: 50%;
-              transform: translateX(-50%);
-              bottom: -7px;
-              width: 144px;
-              height: 58px
-            }
-
-            .auto-container {
-              position: static;
-              max-width: 1400px;
-              padding: 0 15px;
-              margin: 0 auto
-            }
-
-            .boxed_wrapper {
-              position: relative;
-              margin: 0 auto;
-              overflow: hidden !important;
-              width: 100%;
-              min-width: 300px
-            }
-
-            .banner-style-four .content-box h2 {
-              display: block;
-              font-weight: 700;
-              font-size: 48px;
-              line-height: 58px;
-              margin-bottom: 36px
-            }
-
-            .banner-style-four .content-box p {
-              display: block;
-              font-size: 24px;
-              line-height: 34px;
-              margin-bottom: 29px
-            }
-
-            .banner-style-four .image-box {
-              position: relative;
-              width: 549px;
-              height: 549px;
-              margin-left: 30px
-            }
-
-            .banner-style-four .image-box .image {
-              position: absolute;
-              top: -15px;
-              left: 10px
-            }
-
-            .banner-style-four .image-box .image img {
-              width: 100%
-            }
-
-            .banner-style-four .image-box .shape .shape-1 {
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%, -50%);
-              width: 535px;
-              height: 535px;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box .shape .shape-2 {
-              position: absolute;
-              left: 25px;
-              top: 25px;
-              width: 76px;
-              height: 114px;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box .shape .shape-3 {
-              position: absolute;
-              top: 40px;
-              right: 160px;
-              width: 15px;
-              height: 15px;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box .shape .shape-4 {
-              position: absolute;
-              top: 260px;
-              right: -20px;
-              width: 75px;
-              height: 97px;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box .shape .shape-5 {
-              position: absolute;
-              right: 95px;
-              bottom: -55px;
-              width: 89px;
-              height: 221px;
-              background-repeat: no-repeat
-            }
-
-            .banner-style-four .image-box .shape .shape-6 {
-              position: absolute;
-              left: 50%;
-              transform: translateX(-50%);
-              bottom: -7px;
-              width: 144px;
-              height: 58px
-            }
-
-            .banner-style-four .content-box h2 {
-              display: block;
-              font-weight: 700;
-              font-size: 48px;
-              line-height: 58px;
-              margin-bottom: 36px
-            }
-
-            .banner-style-four .content-box p {
-              display: block;
-              font-size: 24px;
-              line-height: 34px;
-              margin-bottom: 29px
-            }
-
-            .row {
-              --bs-gutter-x: 1.5rem;
-              --bs-gutter-y: 0;
-              display: flex;
-              flex-wrap: wrap;
-              margin-top: calc(-1 * var(--bs-gutter-y));
-              margin-right: calc(-.5 * var(--bs-gutter-x));
-              margin-left: calc(-.5 * var(--bs-gutter-x))
-            }
-
-            .col-lg-6 {
-              flex: 0 0 auto;
-              width: 50%
-            }
-
-            .col-md-12 {
-              flex: 0 0 auto;
-              width: 100%
-            }
-
-            .col-sm-12 {
-              flex: 0 0 auto;
-              width: 100%
-            }
-
-            .align-items-center {
-              align-items: center !important
-            }
-
-            h2 {
-              font-family: Ubuntu, sans-serif;
-              color: #1e1e1e;
-              margin: 0
-            }
-
-            p {
-              font-family: Ubuntu, sans-serif;
-              color: #677289;
-              margin: 0
-            }
+      .letters-loading {
+        font-size: 40px;
+        letter-spacing: 10px
+      }
+    }
   </style>
 
   <!-- Optimized Bundle (Non-blocking) -->
@@ -1087,7 +708,7 @@
                     <div class="col-lg-7 col-md-12 col-sm-12 image-column">
                         <div data-animation-box class="image-box">
                             <figure data-animation-text class="overlay-anim-black-bg image"
-                                data-animation="overlay-animation"><img src="assets/images/resource/progress-1.jpg"
+                                data-animation="overlay-animation"><img src="assets/images/resource/progress-1.webp"
                                     alt=""></figure>
                         </div>
                     </div>

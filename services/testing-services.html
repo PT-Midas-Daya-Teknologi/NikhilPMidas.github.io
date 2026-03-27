@@ -1,364 +1,636 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
 
-    <title>Testing Services - Midas Teknologi</title>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-    <!-- Fav Icon -->
-    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png" />
+  <title>Testing Services - Midas Teknologi</title>
 
-      <!-- Critical CSS -->
+  <!-- Fav Icon -->
+  <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.webp" />
+
+  <!-- Critical CSS -->
   <style>
-    @font-face{font-family:Ubuntu;src:url('../assets/fonts/ubuntu/ubuntu-light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:Ubuntu;src:url('../assets/fonts/ubuntu/ubuntu-regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Ubuntu;src:url('../assets/fonts/ubuntu/ubuntu-italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}@font-face{font-family:Ubuntu;src:url('../assets/fonts/ubuntu/ubuntu-medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:Ubuntu;src:url('../assets/fonts/ubuntu/ubuntu-bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}body{font-family:Ubuntu,sans-serif!important}body{font-size:24px;color:#677289;line-height:34px;font-weight:400;background:#fff;font-family:Ubuntu,sans-serif;background-size:cover;background-repeat:no-repeat;background-position:center top;-webkit-font-smoothing:antialiased}*{margin:0;padding:0;border:none;outline:0}:root{--radius:14px}.loader-wrap{position:fixed;left:0;top:0;width:100%;height:100%;z-index:99999999;background-color:#fff}.preloader .loaded .animation-preloader{opacity:0;transition:.3s ease-out}.handle-preloader{align-items:center;-webkit-align-items:center;display:flex;display:-ms-flexbox;height:100%;justify-content:center;-webkit-justify-content:center;position:fixed;left:0;top:0;width:100%;z-index:9999999}.handle-preloader .animation-preloader{position:absolute;z-index:100}.handle-preloader .animation-preloader .spinner{animation:spinner 1s infinite linear;border-radius:50%;height:150px;margin:0 auto 45px auto;width:150px}.handle-preloader .animation-preloader .txt-loading{text-align:center;user-select:none}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{animation:letters-loading 4s infinite;content:attr(data-text-preloader);left:0;opacity:0;top:0;position:absolute}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-family:Ubuntu,sans-serif;font-weight:400;letter-spacing:15px;display:inline-block;position:relative;font-size:70px;line-height:70px;text-transform:uppercase}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before{animation-delay:.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before{animation-delay:.4s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before{animation-delay:.6s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before{animation-delay:.8s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before{animation-delay:1s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before{animation-delay:1.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before{animation-delay:1.4s}.handle-preloader .loader-section{background-color:#fff;height:100%;position:fixed;top:0;width:calc(50% + 1px)}.handle-preloader .animation-preloader .txt-loading .letters-loading{color:#fff}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{color:#fff}.handle-preloader .animation-preloader .spinner{border:3px solid #fff;border-top-color:rgba(255,255,255,.5)}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-size:40px;letter-spacing:10px}.handle-preloader .animation-preloader{position:absolute;z-index:100}.handle-preloader .animation-preloader .spinner{animation:spinner 1s infinite linear;border-radius:50%;height:150px;margin:0 auto 45px auto;width:150px}.handle-preloader .animation-preloader .txt-loading{text-align:center;user-select:none}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{animation:letters-loading 4s infinite;content:attr(data-text-preloader);left:0;opacity:0;top:0;position:absolute}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-family:Ubuntu,sans-serif;font-weight:400;letter-spacing:15px;display:inline-block;position:relative;font-size:70px;line-height:70px;text-transform:uppercase}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before{animation-delay:.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before{animation-delay:.4s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before{animation-delay:.6s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before{animation-delay:.8s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before{animation-delay:1s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before{animation-delay:1.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before{animation-delay:1.4s}.preloader .loaded .animation-preloader{opacity:0;transition:.3s ease-out}.handle-preloader .animation-preloader .txt-loading .letters-loading{color:#fff}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{color:#fff}.handle-preloader .animation-preloader .spinner{border:3px solid #fff;border-top-color:rgba(255,255,255,.5)}@media screen and (max-width:767px){.handle-preloader .animation-preloader .spinner{height:8em;width:8em}@media screen and (max-width:500px){.handle-preloader .animation-preloader .spinner{height:7em;width:7em}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-size:40px;letter-spacing:10px}.handle-preloader .animation-preloader .spinner{animation:spinner 1s infinite linear;border-radius:50%;height:150px;margin:0 auto 45px auto;width:150px}.handle-preloader .animation-preloader .spinner{border:3px solid #fff;border-top-color:rgba(255,255,255,.5)}@media screen and (max-width:767px){.handle-preloader .animation-preloader .spinner{height:8em;width:8em}@media screen and (max-width:500px){.handle-preloader .animation-preloader .spinner{height:7em;width:7em}.handle-preloader .animation-preloader .txt-loading{text-align:center;user-select:none}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{animation:letters-loading 4s infinite;content:attr(data-text-preloader);left:0;opacity:0;top:0;position:absolute}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-family:Ubuntu,sans-serif;font-weight:400;letter-spacing:15px;display:inline-block;position:relative;font-size:70px;line-height:70px;text-transform:uppercase}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before{animation-delay:.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before{animation-delay:.4s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before{animation-delay:.6s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before{animation-delay:.8s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before{animation-delay:1s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before{animation-delay:1.2s}.handle-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before{animation-delay:1.4s}.handle-preloader .animation-preloader .txt-loading .letters-loading{color:#fff}.handle-preloader .animation-preloader .txt-loading .letters-loading:before{color:#fff}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-size:40px;letter-spacing:10px}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-family:Ubuntu,sans-serif;font-weight:400;letter-spacing:15px;display:inline-block;position:relative;font-size:70px;line-height:70px;text-transform:uppercase}.handle-preloader .animation-preloader .txt-loading .letters-loading{color:#fff}.handle-preloader .animation-preloader .txt-loading .letters-loading{font-size:40px;letter-spacing:10px}.banner-style-four{position:relative;padding-top:220px}.banner-style-four .content-box h2{display:block;font-weight:700;font-size:48px;line-height:58px;margin-bottom:36px}.banner-style-four .content-box p{display:block;font-size:24px;line-height:34px;margin-bottom:29px}.banner-style-four .pattern-layer{position:absolute;left:0;top:0;width:100%;height:1001px;background-size:cover;background-repeat:no-repeat}.banner-style-four .image-box{position:relative;width:549px;height:549px;margin-left:30px}.banner-style-four .image-box:before{position:absolute;content:"";width:100%;height:100%;left:0;top:0;border-radius:50%}.banner-style-four .image-box .image{position:absolute;top:-15px;left:10px}.banner-style-four .image-box .image img{width:100%}.banner-style-four .image-box .shape .shape-1{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:535px;height:535px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-2{position:absolute;left:25px;top:25px;width:76px;height:114px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-3{position:absolute;top:40px;right:160px;width:15px;height:15px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-4{position:absolute;top:260px;right:-20px;width:75px;height:97px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-5{position:absolute;right:95px;bottom:-55px;width:89px;height:221px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-6{position:absolute;left:50%;transform:translateX(-50%);bottom:-7px;width:144px;height:58px}.auto-container{position:static;max-width:1400px;padding:0 15px;margin:0 auto}.boxed_wrapper{position:relative;margin:0 auto;overflow:hidden!important;width:100%;min-width:300px}.banner-style-four .content-box h2{display:block;font-weight:700;font-size:48px;line-height:58px;margin-bottom:36px}.banner-style-four .content-box p{display:block;font-size:24px;line-height:34px;margin-bottom:29px}.banner-style-four .image-box{position:relative;width:549px;height:549px;margin-left:30px}.banner-style-four .image-box .image{position:absolute;top:-15px;left:10px}.banner-style-four .image-box .image img{width:100%}.banner-style-four .image-box .shape .shape-1{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:535px;height:535px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-2{position:absolute;left:25px;top:25px;width:76px;height:114px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-3{position:absolute;top:40px;right:160px;width:15px;height:15px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-4{position:absolute;top:260px;right:-20px;width:75px;height:97px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-5{position:absolute;right:95px;bottom:-55px;width:89px;height:221px;background-repeat:no-repeat}.banner-style-four .image-box .shape .shape-6{position:absolute;left:50%;transform:translateX(-50%);bottom:-7px;width:144px;height:58px}.banner-style-four .content-box h2{display:block;font-weight:700;font-size:48px;line-height:58px;margin-bottom:36px}.banner-style-four .content-box p{display:block;font-size:24px;line-height:34px;margin-bottom:29px}.row{--bs-gutter-x:1.5rem;--bs-gutter-y:0;display:flex;flex-wrap:wrap;margin-top:calc(-1 * var(--bs-gutter-y));margin-right:calc(-.5 * var(--bs-gutter-x));margin-left:calc(-.5 * var(--bs-gutter-x))}.col-lg-6{flex:0 0 auto;width:50%}.col-md-12{flex:0 0 auto;width:100%}.col-sm-12{flex:0 0 auto;width:100%}.align-items-center{align-items:center!important}h2{font-family:Ubuntu,sans-serif;color:#1e1e1e;margin:0}p{font-family:Ubuntu,sans-serif;color:#677289;margin:0}
+    @font-face {
+      font-family: Ubuntu;
+      src: url('assets/fonts/ubuntu/ubuntu-regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Ubuntu;
+      src: url('assets/fonts/ubuntu/ubuntu-bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap
+    }
+
+    :root {
+      --radius: 14px
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      border: none;
+      outline: 0
+    }
+
+    body {
+      font-family: Ubuntu, sans-serif !important;
+      font-size: 24px;
+      color: #677289;
+      line-height: 34px;
+      font-weight: 400;
+      background: #fff;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      -webkit-font-smoothing: antialiased
+    }
+
+    .loader-wrap,
+    .handle-preloader {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%
+    }
+
+    .loader-wrap {
+      z-index: 99999999;
+      background: #fff
+    }
+
+    .handle-preloader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999999
+    }
+
+    .animation-preloader {
+      position: absolute;
+      z-index: 100
+    }
+
+    .spinner {
+      animation: spinner 1s infinite linear;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 45px;
+      border: 3px solid #fff;
+      border-top-color: rgba(255, 255, 255, .5)
+    }
+
+    .txt-loading {
+      text-align: center;
+      user-select: none
+    }
+
+    .letters-loading {
+      font-family: Ubuntu, sans-serif;
+      font-weight: 400;
+      letter-spacing: 10px;
+      display: inline-block;
+      position: relative;
+      font-size: 40px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #fff
+    }
+
+    .letters-loading:before {
+      content: attr(data-text-preloader);
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      color: #fff;
+      animation: letters-loading 4s infinite
+    }
+
+    .letters-loading:nth-child(2):before {
+      animation-delay: .2s
+    }
+
+    .letters-loading:nth-child(3):before {
+      animation-delay: .4s
+    }
+
+    .letters-loading:nth-child(4):before {
+      animation-delay: .6s
+    }
+
+    .letters-loading:nth-child(5):before {
+      animation-delay: .8s
+    }
+
+    .letters-loading:nth-child(6):before {
+      animation-delay: 1s
+    }
+
+    .letters-loading:nth-child(7):before {
+      animation-delay: 1.2s
+    }
+
+    .letters-loading:nth-child(8):before {
+      animation-delay: 1.4s
+    }
+
+    .preloader .loaded .animation-preloader {
+      opacity: 0;
+      transition: .3s ease-out
+    }
+
+    .banner-style-four {
+      position: relative;
+      padding-top: 220px
+    }
+
+    .banner-style-four .content-box h2 {
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 58px;
+      margin-bottom: 36px;
+      color: #1e1e1e
+    }
+
+    .banner-style-four .content-box p {
+      font-size: 24px;
+      line-height: 34px;
+      margin-bottom: 29px
+    }
+
+    .banner-style-four .pattern-layer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 1001px;
+      background-size: cover;
+      background-repeat: no-repeat
+    }
+
+    .banner-style-four .image-box {
+      position: relative;
+      width: 549px;
+      height: 549px;
+      margin-left: 30px
+    }
+
+    .banner-style-four .image-box:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      left: 0;
+      top: 0
+    }
+
+    .banner-style-four .image-box .image {
+      position: absolute;
+      top: -15px;
+      left: 10px
+    }
+
+    .banner-style-four .image-box .image img {
+      width: 100%
+    }
+
+    .banner-style-four .shape>* {
+      position: absolute;
+      background-repeat: no-repeat
+    }
+
+    .shape-1 {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 535px;
+      height: 535px
+    }
+
+    .shape-2 {
+      left: 25px;
+      top: 25px;
+      width: 76px;
+      height: 114px
+    }
+
+    .shape-3 {
+      top: 40px;
+      right: 160px;
+      width: 15px;
+      height: 15px
+    }
+
+    .shape-4 {
+      top: 260px;
+      right: -20px;
+      width: 75px;
+      height: 97px
+    }
+
+    .shape-5 {
+      right: 95px;
+      bottom: -55px;
+      width: 89px;
+      height: 221px
+    }
+
+    .shape-6 {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -7px;
+      width: 144px;
+      height: 58px
+    }
+
+    .auto-container {
+      max-width: 1400px;
+      padding: 0 15px;
+      margin: 0 auto
+    }
+
+    .boxed_wrapper {
+      position: relative;
+      margin: 0 auto;
+      overflow: hidden !important;
+      width: 100%;
+      min-width: 300px
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -.75rem
+    }
+
+    .col-lg-6 {
+      width: 50%
+    }
+
+    .col-md-12,
+    .col-sm-12 {
+      width: 100%
+    }
+
+    .align-items-center {
+      align-items: center !important
+    }
+
+    @media(max-width:767px) {
+      .spinner {
+        width: 8em;
+        height: 8em
+      }
+    }
+
+    @media(max-width:500px) {
+      .spinner {
+        width: 7em;
+        height: 7em
+      }
+
+      .letters-loading {
+        font-size: 40px;
+        letter-spacing: 10px
+      }
+    }
   </style>
 
   <!-- Optimized Bundle (Non-blocking) -->
   <link rel="preload" href="../assets/css/bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../assets/css/bundle.min.css"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/bundle.min.css">
+  </noscript>
 </head>
 
-  <!-- page wrapper -->
+<!-- page wrapper -->
 
-  <body>
-    <div class="boxed_wrapper">
-      <!-- preloader -->
-      <div class="loader-wrap">
-        <div class="preloader">
-          <div class="preloader-close">x</div>
-          <div id="handle-preloader" class="handle-preloader">
-            <div class="animation-preloader">
-              <div class="spinner"></div>
-              <div class="txt-loading">
-                <span data-text-preloader="m" class="letters-loading"> m </span>
-                <span data-text-preloader="i" class="letters-loading"> i </span>
-                <span data-text-preloader="d" class="letters-loading"> d </span>
-                <span data-text-preloader="a" class="letters-loading"> a </span>
-                <span data-text-preloader="s" class="letters-loading"> s </span>
-              </div>
+<body>
+  <div class="boxed_wrapper">
+    <!-- preloader -->
+    <div class="loader-wrap">
+      <div class="preloader">
+        <div class="preloader-close">x</div>
+        <div id="handle-preloader" class="handle-preloader">
+          <div class="animation-preloader">
+            <div class="spinner"></div>
+            <div class="txt-loading">
+              <span data-text-preloader="m" class="letters-loading"> m </span>
+              <span data-text-preloader="i" class="letters-loading"> i </span>
+              <span data-text-preloader="d" class="letters-loading"> d </span>
+              <span data-text-preloader="a" class="letters-loading"> a </span>
+              <span data-text-preloader="s" class="letters-loading"> s </span>
             </div>
           </div>
         </div>
       </div>
-      <!-- preloader end -->
-      <div id="header-placeholder"></div>
-      <div id="mobile-menu-placeholder"></div>
+    </div>
+    <!-- preloader end -->
+    <div id="header-placeholder"></div>
+    <div id="mobile-menu-placeholder"></div>
 
-      <!-- Page Title -->
-      <section class="page-title centred">
-        <div class="outer-container">
-          <div
-            class="bg-layer parallax-bg"
-            data-parallax='{"y": 100}'
-            style="
-              background-image: url(../assets/images/banner/testing-service.png);
-            "
-          ></div>
-          <div class="auto-container">
-            <div class="content-box">
-              <h1>Testing Services</h1>
-              <ul class="bread-crumb clearfix">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="service.html">Services</a></li>
-                <li>Testing Services</li>
-              </ul>
-            </div>
+    <!-- Page Title -->
+    <section class="page-title centred">
+      <div class="outer-container">
+        <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="
+              background-image: url(../assets/images/banner/testing-service.webp);
+            "></div>
+        <div class="auto-container">
+          <div class="content-box">
+            <h1>Testing Services</h1>
+            <ul class="bread-crumb clearfix">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="service.html">Services</a></li>
+              <li>Testing Services</li>
+            </ul>
           </div>
         </div>
-      </section>
-      <!-- End Page Title -->
+      </div>
+    </section>
+    <!-- End Page Title -->
 
-      <!-- service-details -->
-      <section class="service-details">
-        <div class="auto-container">
-          <div class="row clearfix">
-            <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-              <div class="service-sidebar">
-                <div class="category-widget">
-                  <h5>All Services</h5>
-                  <ul class="service-list clearfix">
-                    <li><a href="core-banking.html">Core Banking</a></li>
-                    <li>
-                      <a href="digital-transformation.html"
-                        >Digital Transformation</a
-                      >
-                    </li>
-                    <li>
-                      <a href="application-development.html"
-                        >Application Development</a
-                      >
-                    </li>
-                    <li>
-                      <a href="infrastructure-management.html"
-                        >Application & Infrastructure Management</a
-                      >
-                    </li>
-                    <li>
-                      <a href="elite-it-resources.html">Elite IT Resources</a>
-                    </li>
-                    <li>
-                      <a href="testing-services.html" class="current"
-                        >Testing Services</a
-                      >
-                    </li>
-                  </ul>
-                </div>
+    <!-- service-details -->
+    <section class="service-details">
+      <div class="auto-container">
+        <div class="row clearfix">
+          <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+            <div class="service-sidebar">
+              <div class="category-widget">
+                <h5>All Services</h5>
+                <ul class="service-list clearfix">
+                  <li><a href="core-banking.html">Core Banking</a></li>
+                  <li>
+                    <a href="digital-transformation.html">Digital Transformation</a>
+                  </li>
+                  <li>
+                    <a href="application-development.html">Application Development</a>
+                  </li>
+                  <li>
+                    <a href="infrastructure-management.html">Application & Infrastructure Management</a>
+                  </li>
+                  <li>
+                    <a href="elite-it-resources.html">Elite IT Resources</a>
+                  </li>
+                  <li>
+                    <a href="testing-services.html" class="current">Testing Services</a>
+                  </li>
+                </ul>
               </div>
             </div>
-            <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-              <div class="service-details-content">
-                <div class="inner-box">
-                  <div class="upper-box">
-                    <h2>Testing Services</h2>
-                    <p>
-                      In today's accelerating financial landscape, the
-                      integrity, security, and performance of your banking
-                      applications aren't just critical—they're paramount.
-                      Digital transformation demands robust, continuous testing.
-                      At Midas we specialize in delivering cutting-edge,
-                      automated and manual testing services tailored exclusively
-                      for the banking sector, ensuring your systems are
-                      resilient, compliant, and deliver a flawless customer
-                      experience.
-                    </p>
-                  </div>
-                  <div class="image-box mt_40 mb_40">
-                    <img
-                      src="../assets/images/service/testing-service-1.png"
-                      alt="Testing Services"
-                      style="border-radius: 15px"
-                    />
-                  </div>
-                  <div class="content-inner">
-                    <h3>Why Banking Demands Specialized Testing</h3>
-                    <p>
-                      The financial industry presents unique, high-stakes
-                      challenges:
-                    </p>
-                  </div>
-                  <div class="content-inner mt_20">
-                    <ul class="list clearfix">
-                      <li>
-                        <strong>Unwavering Regulatory Compliance:</strong>
-                        Navigate stringent regulations like PCI DSS, GDPR, and
-                        local banking laws with verifiable adherence and clear
-                        audit trails.
-                      </li>
-                      <li>
-                        <strong>Ironclad Data Security:</strong> Protect
-                        sensitive financial and personal data with robust
-                        protocols and continuous vulnerability assessments.
-                      </li>
-                      <li>
-                        <strong>Flawless Transaction Integrity:</strong>
-                        Guarantee every single transaction is executed perfectly
-                        and recorded with absolute accuracy.
-                      </li>
-                      <li>
-                        <strong>Peak Performance & Scalability:</strong> Ensure
-                        your systems operate optimally under immense loads and
-                        scale seamlessly to meet growing demands.
-                      </li>
-                      <li>
-                        <strong>Complex Ecosystem Integration:</strong> Validate
-                        intricate connections between systems, APIs, and
-                        third-party services with meticulous precision.
-                      </li>
-                      <li>
-                        <strong>Accelerated Speed to Market:</strong> Launch new
-                        features and services rapidly without compromising
-                        quality or security.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="content-inner mt_20">
-                  <h3>
-                    Our Approach: Intelligent Blend of Automation & Human
-                    Expertise
-                  </h3>
+          </div>
+          <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+            <div class="service-details-content">
+              <div class="inner-box">
+                <div class="upper-box">
+                  <h2>Testing Services</h2>
                   <p>
-                    We combine our deep understanding of banking operations with
-                    advanced technology and human insight to deliver
-                    unparalleled testing results.
+                    In today's accelerating financial landscape, the
+                    integrity, security, and performance of your banking
+                    applications aren't just critical—they're paramount.
+                    Digital transformation demands robust, continuous testing.
+                    At Midas we specialize in delivering cutting-edge,
+                    automated and manual testing services tailored exclusively
+                    for the banking sector, ensuring your systems are
+                    resilient, compliant, and deliver a flawless customer
+                    experience.
+                  </p>
+                </div>
+                <div class="image-box mt_40 mb_40">
+                  <img src="../assets/images/service/testing-service-1.webp" alt="Testing Services"
+                    style="border-radius: 15px" />
+                </div>
+                <div class="content-inner">
+                  <h3>Why Banking Demands Specialized Testing</h3>
+                  <p>
+                    The financial industry presents unique, high-stakes
+                    challenges:
                   </p>
                 </div>
                 <div class="content-inner mt_20">
                   <ul class="list clearfix">
                     <li>
-                      <strong>Strategic Testing Methodologies:</strong> We
-                      employ a multi-faceted strategy for complete,
-                      uncompromised test coverage:
+                      <strong>Unwavering Regulatory Compliance:</strong>
+                      Navigate stringent regulations like PCI DSS, GDPR, and
+                      local banking laws with verifiable adherence and clear
+                      audit trails.
                     </li>
-                    <ul class="list-style-one ml_20 mt_10">
-                      <li>
-                        <strong>Black Box Testing:</strong> Validates end-user
-                        functionality (UIs, workflows, transactions) from a
-                        customer's perspective, ensuring intuitive and accurate
-                        experiences.
-                      </li>
-                      <li>
-                        <strong>White Box Testing:</strong> Examines internal
-                        code, logic, and design to verify financial
-                        calculations, data encryption, and robust error
-                        handling—crucial for security and integrity.
-                      </li>
-                      <li>
-                        <strong>Gray Box Testing:</strong> A hybrid approach
-                        that leverages partial internal knowledge for targeted,
-                        efficient testing of APIs, middleware, and complex
-                        integrations.
-                      </li>
-                      <li>
-                        <strong>Manual Testing:</strong> Indispensable for
-                        exploratory testing, usability validation, ad-hoc
-                        scenarios, and User Acceptance Testing (UAT). Our
-                        skilled testers apply human intuition to uncover subtle
-                        issues and ensure critical user journeys are seamless.
-                      </li>
-                      <li>
-                        <strong>Functional & Non-Functional Testing:</strong>
-                        Comprehensive validation that every feature works
-                        correctly, alongside rigorous assessment of Performance,
-                        Security, Usability, Reliability, and Compliance.
-                      </li>
-                    </ul>
-
                     <li>
-                      <strong>Leveraging Latest Tools & AI: </strong>We utilize
-                      sophisticated, industry-leading tools and AI to empower
-                      our testing efforts:
+                      <strong>Ironclad Data Security:</strong> Protect
+                      sensitive financial and personal data with robust
+                      protocols and continuous vulnerability assessments.
                     </li>
-                    <ul class="list-style-one ml_20 mt_10">
-                      <li>
-                        <strong>Test Automation Frameworks:</strong> Leverage
-                        Selenium, Cypress, Playwright, Appium, Tricentis Tosca,
-                        and others for efficient functional, regression, and
-                        cross-platform automation.
-                      </li>
-                      <li>
-                        <strong>Performance Engineering:</strong> Employ JMeter,
-                        LoadRunner for robust scalability, responsiveness, and
-                        stability testing under peak loads.
-                      </li>
-                      <li>
-                        <strong>Advanced Security Testing:</strong> Utilize IBM
-                        AppScan, OWASP ZAP, Burp Suite for vulnerability and
-                        penetration testing, ensuring compliance with security
-                        standards.
-                      </li>
-                      <li>
-                        <strong>API & Integration Testing:</strong> Conduct
-                        thorough validation of critical banking APIs with
-                        Postman, SoapUI, and custom scripting.
-                      </li>
-                      <li>
-                        <strong>AI/ML-Powered Testing:</strong> Integrate AI for
-                        intelligent test case generation, self-healing scripts,
-                        and predictive analytics to enhance defect detection and
-                        optimize coverage.
-                      </li>
-                    </ul>
+                    <li>
+                      <strong>Flawless Transaction Integrity:</strong>
+                      Guarantee every single transaction is executed perfectly
+                      and recorded with absolute accuracy.
+                    </li>
+                    <li>
+                      <strong>Peak Performance & Scalability:</strong> Ensure
+                      your systems operate optimally under immense loads and
+                      scale seamlessly to meet growing demands.
+                    </li>
+                    <li>
+                      <strong>Complex Ecosystem Integration:</strong> Validate
+                      intricate connections between systems, APIs, and
+                      third-party services with meticulous precision.
+                    </li>
+                    <li>
+                      <strong>Accelerated Speed to Market:</strong> Launch new
+                      features and services rapidly without compromising
+                      quality or security.
+                    </li>
                   </ul>
                 </div>
+              </div>
 
-                <div class="image-box mt_40 mb_40">
-                  <img
-                    src="../assets/images/service/testing-service-2.png"
-                    alt="Quality Assurance"
-                    style="border-radius: 15px"
-                  />
-                </div>
-
-                <div class="content-inner">
-                  <h3>
-                    Empowering Your Internal Capabilities for Lasting Value
-                  </h3>
-                </div>
-                <div class="content-inner mt_20">
-                  <ul class="list clearfix">
+              <div class="content-inner mt_20">
+                <h3>
+                  Our Approach: Intelligent Blend of Automation & Human
+                  Expertise
+                </h3>
+                <p>
+                  We combine our deep understanding of banking operations with
+                  advanced technology and human insight to deliver
+                  unparalleled testing results.
+                </p>
+              </div>
+              <div class="content-inner mt_20">
+                <ul class="list clearfix">
+                  <li>
+                    <strong>Strategic Testing Methodologies:</strong> We
+                    employ a multi-faceted strategy for complete,
+                    uncompromised test coverage:
+                  </li>
+                  <ul class="list-style-one ml_20 mt_10">
                     <li>
-                      <strong>
-                        <p>
-                          Beyond delivering immediate results, we empower your
-                          team for long-term success:
-                        </p>
-                      </strong>
+                      <strong>Black Box Testing:</strong> Validates end-user
+                      functionality (UIs, workflows, transactions) from a
+                      customer's perspective, ensuring intuitive and accurate
+                      experiences.
                     </li>
-                    <ul class="list-style-one ml_20 mt_10">
-                      <li>
-                        <strong>Custom Test Script Development:</strong> We
-                        develop robust, reusable test scripts precisely tailored
-                        to your banking applications. These are designed for
-                        clarity, maintainability, and scalability.
-                      </li>
-                      <li>
-                        <strong>Comprehensive Knowledge Transfer:</strong> Our
-                        experts work closely with your internal teams, providing
-                        thorough documentation and training. This builds your
-                        internal knowledge base, fostering self-sufficiency.
-                      </li>
-                      <li>
-                        <strong
-                          >Enabling Repetitive & Regression Testing:</strong
-                        >
-                        The scripts we develop are engineered for efficient,
-                        automated regression testing. This allows your teams to
-                        execute frequent, confident checks, ensuring new
-                        features don't introduce regressions and maintaining
-                        high quality across all releases without continuous
-                        external reliance.
-                      </li>
-                    </ul>
+                    <li>
+                      <strong>White Box Testing:</strong> Examines internal
+                      code, logic, and design to verify financial
+                      calculations, data encryption, and robust error
+                      handling—crucial for security and integrity.
+                    </li>
+                    <li>
+                      <strong>Gray Box Testing:</strong> A hybrid approach
+                      that leverages partial internal knowledge for targeted,
+                      efficient testing of APIs, middleware, and complex
+                      integrations.
+                    </li>
+                    <li>
+                      <strong>Manual Testing:</strong> Indispensable for
+                      exploratory testing, usability validation, ad-hoc
+                      scenarios, and User Acceptance Testing (UAT). Our
+                      skilled testers apply human intuition to uncover subtle
+                      issues and ensure critical user journeys are seamless.
+                    </li>
+                    <li>
+                      <strong>Functional & Non-Functional Testing:</strong>
+                      Comprehensive validation that every feature works
+                      correctly, alongside rigorous assessment of Performance,
+                      Security, Usability, Reliability, and Compliance.
+                    </li>
                   </ul>
-                </div>
+
+                  <li>
+                    <strong>Leveraging Latest Tools & AI: </strong>We utilize
+                    sophisticated, industry-leading tools and AI to empower
+                    our testing efforts:
+                  </li>
+                  <ul class="list-style-one ml_20 mt_10">
+                    <li>
+                      <strong>Test Automation Frameworks:</strong> Leverage
+                      Selenium, Cypress, Playwright, Appium, Tricentis Tosca,
+                      and others for efficient functional, regression, and
+                      cross-platform automation.
+                    </li>
+                    <li>
+                      <strong>Performance Engineering:</strong> Employ JMeter,
+                      LoadRunner for robust scalability, responsiveness, and
+                      stability testing under peak loads.
+                    </li>
+                    <li>
+                      <strong>Advanced Security Testing:</strong> Utilize IBM
+                      AppScan, OWASP ZAP, Burp Suite for vulnerability and
+                      penetration testing, ensuring compliance with security
+                      standards.
+                    </li>
+                    <li>
+                      <strong>API & Integration Testing:</strong> Conduct
+                      thorough validation of critical banking APIs with
+                      Postman, SoapUI, and custom scripting.
+                    </li>
+                    <li>
+                      <strong>AI/ML-Powered Testing:</strong> Integrate AI for
+                      intelligent test case generation, self-healing scripts,
+                      and predictive analytics to enhance defect detection and
+                      optimize coverage.
+                    </li>
+                  </ul>
+                </ul>
+              </div>
+
+              <div class="image-box mt_40 mb_40">
+                <img src="../assets/images/service/testing-service-2.webp" alt="Quality Assurance"
+                  style="border-radius: 15px" />
+              </div>
+
+              <div class="content-inner">
+                <h3>
+                  Empowering Your Internal Capabilities for Lasting Value
+                </h3>
+              </div>
+              <div class="content-inner mt_20">
+                <ul class="list clearfix">
+                  <li>
+                    <strong>
+                      <p>
+                        Beyond delivering immediate results, we empower your
+                        team for long-term success:
+                      </p>
+                    </strong>
+                  </li>
+                  <ul class="list-style-one ml_20 mt_10">
+                    <li>
+                      <strong>Custom Test Script Development:</strong> We
+                      develop robust, reusable test scripts precisely tailored
+                      to your banking applications. These are designed for
+                      clarity, maintainability, and scalability.
+                    </li>
+                    <li>
+                      <strong>Comprehensive Knowledge Transfer:</strong> Our
+                      experts work closely with your internal teams, providing
+                      thorough documentation and training. This builds your
+                      internal knowledge base, fostering self-sufficiency.
+                    </li>
+                    <li>
+                      <strong>Enabling Repetitive & Regression Testing:</strong>
+                      The scripts we develop are engineered for efficient,
+                      automated regression testing. This allows your teams to
+                      execute frequent, confident checks, ensuring new
+                      features don't introduce regressions and maintaining
+                      high quality across all releases without continuous
+                      external reliance.
+                    </li>
+                  </ul>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <!-- service-details end -->
+      </div>
+    </section>
+    <!-- service-details end -->
 
-      <div id="main-footer-placeholder"></div>
+    <div id="main-footer-placeholder"></div>
 
-      <!--Scroll to top-->
-      <div class="scroll-to-top">
-        <div>
-          <div class="scroll-top-inner">
-            <div class="scroll-bar">
-              <div class="bar-inner"></div>
-            </div>
-            <div class="scroll-bar-text">Go To Top</div>
+    <!--Scroll to top-->
+    <div class="scroll-to-top">
+      <div>
+        <div class="scroll-top-inner">
+          <div class="scroll-bar">
+            <div class="bar-inner"></div>
           </div>
+          <div class="scroll-bar-text">Go To Top</div>
         </div>
       </div>
-      <!-- Scroll to top end -->
     </div>
+    <!-- Scroll to top end -->
+  </div>
 
-    <!-- jequery plugins -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/owl.js"></script>
-    <script src="../assets/js/wow.js"></script>
-    <script src="../assets/js/validation.js"></script>
-    <script src="../assets/js/jquery.fancybox.js"></script>
-    <script src="../assets/js/appear.js"></script>
-    <script src="../assets/js/parallax-scroll.js"></script>
-    <script src="../assets/js/jquery.nice-select.min.js"></script>
-    <script src="../assets/js/data-animation.js"></script>
-    <script src="../assets/js/bxslider.js"></script>
-    <script src="../assets/js/isotope.js"></script>
+  <!-- jequery plugins -->
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/popper.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/owl.js"></script>
+  <script src="../assets/js/wow.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/jquery.fancybox.js"></script>
+  <script src="../assets/js/appear.js"></script>
+  <script src="../assets/js/parallax-scroll.js"></script>
+  <script src="../assets/js/jquery.nice-select.min.js"></script>
+  <script src="../assets/js/data-animation.js"></script>
+  <script src="../assets/js/bxslider.js"></script>
+  <script src="../assets/js/isotope.js"></script>
 
-    <!-- main-js -->
-    <script src="../assets/js/script.js"></script>
-  </body>
-  <!-- End of .page_wrapper -->
+  <!-- main-js -->
+  <script src="../assets/js/script.js"></script>
+</body>
+<!-- End of .page_wrapper -->
+
 </html>
