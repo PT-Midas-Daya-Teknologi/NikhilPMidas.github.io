@@ -1,24 +1,50 @@
 /* This file is compiled from color.scss - do not edit directly. */
 :root {
-  --primary-blue: #0D7DFC;
-  --primary-orange: #FF9360;
-  --accent-red: #FF6D50;
+  --primary-blue: #0d7dfc;
+  --primary-orange: #ff9360;
+  --accent-red: #ff6d50;
   --dark-gray: #677289;
-  --deep-black: #1E1E1E;
+  --deep-black: #1e1e1e;
   --text-color: #52565b;
-
+  --blue: #2563eb;
+  --blue-hover: #1d4ed8;
+  --light-bg: #ebf1fb;
+  --card-bg: #ffffff;
+  --text-muted: #6b7280;
+  --text-dark: #111827;
+  --border: #e5e7eb;
   /* Midas Branding Variables */
-  --primary: #FF9360;
-  --secondary: rgba(12, 125, 252, 0.90);
-  --third: #FCF4ED;
-  --corporate-navy: #28496B;
+  --primary: #ff9360;
+  --secondary: rgba(12, 125, 252, 0.9);
+  --third: #fcf4ed;
+  --corporate-navy: #28496b;
   --navy-light: #f4f6f8;
   --black: #000000;
   --white: #ffffff;
-  --gradient-primary: linear-gradient(270deg, var(--primary-blue) -22.92%, var(--primary-orange) 56.63%);
-  --gradient-secondary: linear-gradient(306.22deg, var(--primary-blue) -27.65%, var(--primary-orange) 64.42%);
-  --gradient-btn-hover: linear-gradient(270deg, var(--primary-orange) 30%, var(--primary-blue) 100%);
-  --gradient-vertical: linear-gradient(360deg, var(--primary-blue) -22.92%, var(--primary-orange) 56.63%);
+  --map-bg: #e8f0f7;
+  --office-card-bg: #f9fafb;
+  --office-card-hover-bg: #f3f4f6;
+  --office-card-active-bg: #e5e7eb;
+  --gradient-primary: linear-gradient(
+    270deg,
+    var(--primary-blue) -22.92%,
+    var(--primary-orange) 56.63%
+  );
+  --gradient-secondary: linear-gradient(
+    306.22deg,
+    var(--primary-blue) -27.65%,
+    var(--primary-orange) 64.42%
+  );
+  --gradient-btn-hover: linear-gradient(
+    270deg,
+    var(--primary-orange) 30%,
+    var(--primary-blue) 100%
+  );
+  --gradient-vertical: linear-gradient(
+    360deg,
+    var(--primary-blue) -22.92%,
+    var(--primary-orange) 56.63%
+  );
 }
 
 /* template-color */
@@ -97,6 +123,14 @@
   background: var(--gradient-primary);
 }
 
+.sec-title small {
+  background: var(--gradient-primary);
+}
+
+.sec-title small i {
+  background: var(--gradient-primary);
+}
+
 .service-block-one .inner-box .text {
   background: var(--primary-orange);
 }
@@ -144,10 +178,18 @@
 }
 
 .project-block-one .inner-box:before {
-  background: linear-gradient(360deg, rgba(255, 109, 80, 0.7) 36.99%, rgba(35, 41, 214, 0) 86.81%);
+  background: linear-gradient(
+    360deg,
+    rgba(255, 109, 80, 0.7) 36.99%,
+    rgba(35, 41, 214, 0) 86.81%
+  );
 }
 .project-block-one .inner-box:after {
-  background: linear-gradient(0deg, rgba(255, 109, 80, 0.8) -0.7%, rgba(35, 41, 214, 0.8) 112.68%);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 109, 80, 0.8) -0.7%,
+    rgba(35, 41, 214, 0.8) 112.68%
+  );
 }
 .project-block-one .inner-box .text .link a i {
   background: var(--gradient-primary);
@@ -269,8 +311,18 @@
 .weare-section .lower-text h3 a {
   color: var(--primary-orange);
 }
-.weare-section .single-column:nth-child(2) .single-item .inner-box .content-box .icon-box,
-.weare-section .single-column:nth-child(3) .single-item .inner-box .content-box .icon-box {
+.weare-section
+  .single-column:nth-child(2)
+  .single-item
+  .inner-box
+  .content-box
+  .icon-box,
+.weare-section
+  .single-column:nth-child(3)
+  .single-item
+  .inner-box
+  .content-box
+  .icon-box {
   background: var(--primary-blue);
 }
 
@@ -515,11 +567,19 @@
   background: var(--gradient-primary);
 }
 
-.pricing-block:nth-child(2) .pricing-block-one .pricing-table .table-header .icon-box {
+.pricing-block:nth-child(2)
+  .pricing-block-one
+  .pricing-table
+  .table-header
+  .icon-box {
   background: var(--primary-orange);
 }
 
-.pricing-block:last-child .pricing-block-one .pricing-table .table-header .icon-box {
+.pricing-block:last-child
+  .pricing-block-one
+  .pricing-table
+  .table-header
+  .icon-box {
   background: var(--primary-blue);
 }
 
@@ -762,10 +822,18 @@
   color: var(--primary-orange);
 }
 
-.pricing-block:nth-child(2) .pricing-block-two .pricing-table .table-header .icon-box {
+.pricing-block:nth-child(2)
+  .pricing-block-two
+  .pricing-table
+  .table-header
+  .icon-box {
   background: var(--primary-orange);
 }
-.pricing-block:last-child .pricing-block-two .pricing-table .table-header .icon-box {
+.pricing-block:last-child
+  .pricing-block-two
+  .pricing-table
+  .table-header
+  .icon-box {
   background: var(--primary-blue);
 }
 
@@ -818,7 +886,13 @@
   background-color: var(--secondary) !important;
 }
 
-.service-style-three .service-block-one .inner-box .overlay-content .inner .icon-box i {
+.service-style-three
+  .service-block-one
+  .inner-box
+  .overlay-content
+  .inner
+  .icon-box
+  i {
   color: var(--white) !important;
 }
 
@@ -879,3 +953,168 @@
 }
 
 /*# sourceMappingURL=color.css.map */
+
+/* scoped font override for our sections only */
+.contact-section,
+.map-section {
+  color: var(--text-dark);
+}
+
+/* ─── CONTACT HERO ─── */
+.contact-section {
+  background: var(--white);
+}
+
+.contact-section p.sub {
+  color: var(--text-muted);
+}
+
+.contact-info a,
+.contact-info span {
+  color: var(--text-dark);
+}
+
+/* HQ address card */
+.hq-block {
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.hq-block .hq-label {
+  color: var(--blue);
+}
+
+.hq-block h5 {
+  color: var(--text-dark);
+}
+
+.hq-block p {
+  color: var(--text-muted);
+}
+
+/* ─── FORM CARD ─── */
+.form-card {
+  background: var(--light-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-card .sub-label {
+  color: var(--text-muted);
+}
+
+.form-card .form-control,
+.form-card .form-select {
+  border: 1px solid var(--border);
+  color: var(--text-dark);
+  background: var(--white);
+}
+
+.form-card .form-control:focus,
+.form-card .form-select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.char-count {
+  color: var(--text-muted);
+}
+
+.btn-submit {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.btn-submit:hover {
+  background: var(--blue-hover);
+}
+
+.terms-note {
+  color: var(--text-muted);
+}
+
+.terms-note a {
+  color: var(--blue);
+}
+
+/* ─── MAP SECTION ─── */
+    .map-section {
+}
+
+.location-title small {
+  color: var(--text-muted);
+}
+
+/* Map image wrapper */
+.map-wrapper {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.map-wrapper #map {
+  background: var(--map-bg);
+}
+
+/* Tooltip */
+.map-tooltip {
+  background: var(--white);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--border);
+}
+
+.map-tooltip-arrow {
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.tooltip-title-m {
+  color: var(--text-dark);
+}
+
+.tooltip-addr-m {
+  color: var(--text-muted);
+}
+
+.tooltip-link-m {
+  color: var(--blue);
+}
+
+.office-card {
+  background: var(--office-card-bg);
+  border: 1.5px solid var(--border);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.office-card:hover {
+  border-color: var(--office-card-hover-bg);
+  background: var(--office-card-active-bg);
+}
+
+.office-card.active {
+  border-color: var(--blue);
+  background: var(--office-card-active-bg);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.office-card h6 {
+  color: var(--text-dark);
+}
+
+.office-card p {
+  color: var(--text-muted);
+}
+
+.badge-hq {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.open-link {
+  color: var(--blue);
+}
