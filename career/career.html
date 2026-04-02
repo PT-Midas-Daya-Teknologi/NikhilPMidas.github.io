@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+  <title>Careers - Midas Teknologi</title>
+
+  <!-- Fav Icon -->
+  <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.webp" />
+
+  <!-- Critical CSS -->
+  <style>
+    @font-face {
+      font-family: Ubuntu;
+      src: url("../assets/fonts/ubuntu/ubuntu-regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: Ubuntu;
+      src: url("../assets/fonts/ubuntu/ubuntu-bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --radius: 14px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      border: none;
+      outline: 0;
+    }
+
+    body {
+      font-family: Ubuntu, sans-serif !important;
+      font-size: 24px;
+      color: #677289;
+      line-height: 34px;
+      font-weight: 400;
+      background: #fff;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .loader-wrap,
+    .handle-preloader {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .loader-wrap {
+      z-index: 99999999;
+      background: #fff;
+    }
+
+    .handle-preloader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999999;
+    }
+
+    .animation-preloader {
+      position: absolute;
+      z-index: 100;
+    }
+
+    .spinner {
+      animation: spinner 1s infinite linear;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 45px;
+      border: 3px solid #fff;
+      border-top-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .txt-loading {
+      text-align: center;
+      user-select: none;
+    }
+
+    .letters-loading {
+      font-family: Ubuntu, sans-serif;
+      font-weight: 400;
+      letter-spacing: 10px;
+      display: inline-block;
+      position: relative;
+      font-size: 40px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .letters-loading:before {
+      content: attr(data-text-preloader);
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      color: #fff;
+      animation: letters-loading 4s infinite;
+    }
+
+    .letters-loading:nth-child(2):before {
+      animation-delay: 0.2s;
+    }
+
+    .letters-loading:nth-child(3):before {
+      animation-delay: 0.4s;
+    }
+
+    .letters-loading:nth-child(4):before {
+      animation-delay: 0.6s;
+    }
+
+    .letters-loading:nth-child(5):before {
+      animation-delay: 0.8s;
+    }
+
+    .letters-loading:nth-child(6):before {
+      animation-delay: 1s;
+    }
+
+    .letters-loading:nth-child(7):before {
+      animation-delay: 1.2s;
+    }
+
+    .letters-loading:nth-child(8):before {
+      animation-delay: 1.4s;
+    }
+
+    .preloader .loaded .animation-preloader {
+      opacity: 0;
+      transition: 0.3s ease-out;
+    }
+
+    .auto-container {
+      max-width: 1400px;
+      padding: 0 15px;
+      margin: 0 auto;
+    }
+
+    .boxed_wrapper {
+      position: relative;
+      margin: 0 auto;
+      overflow: hidden !important;
+      width: 100%;
+      min-width: 300px;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -0.75rem;
+    }
+
+    @media (max-width: 767px) {
+      .spinner {
+        width: 8em;
+        height: 8em;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .spinner {
+        width: 7em;
+        height: 7em;
+      }
+
+      .letters-loading {
+        font-size: 40px;
+        letter-spacing: 10px;
+      }
+    }
+
+    .job-block {
+      margin-bottom: 30px;
+    }
+
+    .job-block .inner-box {
+      position: relative;
+      display: block;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      transition: all 500ms ease;
+    }
+
+    .job-block .inner-box:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .job-block .inner-box h4 {
+      font-size: 24px;
+      color: #1e1e1e;
+      margin-bottom: 10px;
+    }
+
+    .job-block .inner-box .location {
+      font-size: 16px;
+      color: #ff6a00;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .job-block .inner-box p {
+      font-size: 18px;
+      line-height: 28px;
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <!-- Optimized Bundle (Non-blocking) -->
+  <link rel="preload" href="../assets/css/bundle.min.css" as="style" onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      " />
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/bundle.min.css" />
+  </noscript>
+</head>
+
+<body>
+  <div class="boxed_wrapper">
+    <div id="preloader-placeholder"></div>
+    <div id="header-placeholder"></div>
+    <div id="mobile-menu-placeholder"></div>
+
+    <!-- Page Title -->
+    <section class="page-title centred">
+      <div class="outer-container">
+        <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="
+              background-image: url(../assets/images/banner/banner-1.webp);
+            "></div>
+        <div class="auto-container">
+          <div class="content-box">
+            <h1>Careers</h1>
+            <ul class="bread-crumb clearfix">
+              <li><a href="../index.html">Home</a></li>
+              <li>Careers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Page Title -->
+
+    <!-- about-section -->
+    <section class="about-section pt_120 pb_120">
+      <div class="auto-container">
+        <div class="row clearfix align-items-center">
+          <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+            <div class="content_block_one">
+              <div class="content-box ml_30">
+                <div class="sec-title mb_25">
+                  <span class="sub-title">Join Our Team</span>
+                  <h2>Build Your Career with Midas Teknologi</h2>
+                </div>
+                <div class="content-inner mb_35">
+                  <p>
+                    At Midas Teknologi, we believe that our people are our
+                    greatest asset. We are always looking for passionate,
+                    innovative, and driven individuals to join our team and
+                    help us shape the future of technology solutions.
+                  </p>
+                  <p>
+                    Whether you are an experienced professional or a fresh
+                    graduate, we offer a collaborative and supportive
+                    environment where you can grow your skills and make a real
+                    impact.
+                  </p>
+                </div>
+                <div class="btn-box">
+                  <a href="#open-positions" class="theme-btn">View Open Positions</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+            <div class="image-box ml_30" style="margin-left: 0%;">
+              <figure class="image">
+                <img src="../assets/images/resource/about-image-1.webp" alt="Join Midas Team" loading="lazy" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about-section end -->
+
+    <!-- open-positions-section -->
+    <section id="open-positions" class="service-section bg-color-1 pt_120 pb_120">
+      <div class="auto-container">
+        <div class="sec-title centred mb_60">
+          <span class="sub-title">Opportunities</span>
+          <h2>Open Positions</h2>
+        </div>
+        <div class="row clearfix">
+          <!-- Job 1 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 job-block">
+            <div class="inner-box">
+              <h4>Software Engineer</h4>
+              <span class="location"><i class="fas fa-map-marker-alt"></i> Jakarta,
+                Indonesia</span>
+              <p>
+                We are looking for a Software Engineer to join our development
+                team. You will be responsible for building high-quality,
+                innovative software.
+              </p>
+              <div class="btn-box">
+                <a href="job-details.html" class="theme-btn" style="padding: 10px 25px; font-size: 16px">View
+                  Details</a>
+              </div>
+            </div>
+          </div>
+          <!-- Job 2 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 job-block">
+            <div class="inner-box">
+              <h4>Project Manager</h4>
+              <span class="location"><i class="fas fa-map-marker-alt"></i> Jakarta,
+                Indonesia</span>
+              <p>
+                We are seeking a Project Manager to lead our technology
+                projects from start to finish, ensuring they are delivered on
+                time and within scope.
+              </p>
+              <div class="btn-box">
+                <a href="/contact/contact.html" class="theme-btn" style="padding: 10px 25px; font-size: 16px">View
+                  Details</a>
+              </div>
+            </div>
+          </div>
+          <!-- Job 3 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 job-block">
+            <div class="inner-box">
+              <h4>UI/UX Designer</h4>
+              <span class="location"><i class="fas fa-map-marker-alt"></i> Jakarta,
+                Indonesia</span>
+              <p>
+                Join our design team as a UI/UX Designer and help us create
+                beautiful, intuitive interfaces for our web and mobile
+                applications.
+              </p>
+              <div class="btn-box">
+                <a href="/contact/contact.html" class="theme-btn" style="padding: 10px 25px; font-size: 16px">View
+                  Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="more-btn centred mt_40">
+          <p>
+            Don't see a position that fits? Send us your resume at
+            <a href="mailto:careers@midas-it.co.id">careers@midasteknologi.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- open-positions-section end -->
+
+    <!-- life-at-midas-section -->
+    <section id="life-at-midas" class="about-section pt_120 pb_120">
+      <div class="auto-container">
+        <div class="row clearfix align-items-center">
+          <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+            <div class="image-box mr_30">
+              <figure class="image">
+                <img src="../assets/images/resource/about-image-2.webp" alt="Life at Midas" loading="lazy" />
+              </figure>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+            <div class="content_block_one">
+              <div class="content-box ml_30">
+                <div class="sec-title mb_25">
+                  <span class="sub-title">Culture</span>
+                  <h2>Life at Midas Teknologi</h2>
+                </div>
+                <div class="content-inner mb_35">
+                  <p>
+                    We foster a culture of continuous learning, collaboration,
+                    and innovation. At Midas Teknologi, you will work on
+                    cutting-edge projects with a team of talented
+                    professionals who are passionate about excellence.
+                  </p>
+                  <ul class="list-item clearfix">
+                    <li>Flexible Working Hours</li>
+                    <li>Competitive Salary & Benefits</li>
+                    <li>Professional Development Programs</li>
+                    <li>Collaborative & Friendly Environment</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- life-at-midas-section end -->
+
+    <div id="main-footer-placeholder"></div>
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top">
+      <div>
+        <div class="scroll-top-inner">
+          <div class="scroll-bar">
+            <div class="bar-inner"></div>
+          </div>
+          <div class="scroll-bar-text">Go To Top</div>
+        </div>
+      </div>
+    </div>
+    <!-- Scroll to top end -->
+  </div>
+
+  <!-- jequery plugins -->
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/popper.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/owl.js"></script>
+  <script src="../assets/js/wow.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/jquery.fancybox.js"></script>
+  <script src="../assets/js/appear.js"></script>
+  <script src="../assets/js/parallax-scroll.js"></script>
+  <script src="../assets/js/jquery.nice-select.min.js"></script>
+  <script src="../assets/js/data-animation.js"></script>
+  <script src="../assets/js/bxslider.js"></script>
+
+  <!-- main-js -->
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>

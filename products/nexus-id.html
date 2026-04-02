@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-  <title>Digital Transformation - Midas Teknologi</title>
+  <title>NexusID - Midas Teknologi</title>
 
   <!-- Fav Icon -->
   <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
@@ -16,7 +16,7 @@
   <style>
     @font-face {
       font-family: Ubuntu;
-      src: url('../assets/fonts/ubuntu/ubuntu-regular.woff2') format('woff2');
+      src: url('assets/fonts/ubuntu/ubuntu-regular.woff2') format('woff2');
       font-weight: 400;
       font-style: normal;
       font-display: swap
@@ -24,7 +24,7 @@
 
     @font-face {
       font-family: Ubuntu;
-      src: url('../assets/fonts/ubuntu/ubuntu-bold.woff2') format('woff2');
+      src: url('assets/fonts/ubuntu/ubuntu-bold.woff2') format('woff2');
       font-weight: 700;
       font-style: normal;
       font-display: swap
@@ -150,111 +150,6 @@
       transition: .3s ease-out
     }
 
-    .banner-style-four {
-      position: relative;
-      padding-top: 220px
-    }
-
-    .banner-style-four .content-box h2 {
-      font-weight: 700;
-      font-size: 48px;
-      line-height: 58px;
-      margin-bottom: 36px;
-      color: #1e1e1e
-    }
-
-    .banner-style-four .content-box p {
-      font-size: 24px;
-      line-height: 34px;
-      margin-bottom: 29px
-    }
-
-    .banner-style-four .pattern-layer {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 1001px;
-      background-size: cover;
-      background-repeat: no-repeat
-    }
-
-    .banner-style-four .image-box {
-      position: relative;
-      width: 549px;
-      height: 549px;
-      margin-left: 30px
-    }
-
-    .banner-style-four .image-box:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      left: 0;
-      top: 0
-    }
-
-    .banner-style-four .image-box .image {
-      position: absolute;
-      top: -15px;
-      left: 10px
-    }
-
-    .banner-style-four .image-box .image img {
-      width: 100%
-    }
-
-    .banner-style-four .shape>* {
-      position: absolute;
-      background-repeat: no-repeat
-    }
-
-    .shape-1 {
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 535px;
-      height: 535px
-    }
-
-    .shape-2 {
-      left: 25px;
-      top: 25px;
-      width: 76px;
-      height: 114px
-    }
-
-    .shape-3 {
-      top: 40px;
-      right: 160px;
-      width: 15px;
-      height: 15px
-    }
-
-    .shape-4 {
-      top: 260px;
-      right: -20px;
-      width: 75px;
-      height: 97px
-    }
-
-    .shape-5 {
-      right: 95px;
-      bottom: -55px;
-      width: 89px;
-      height: 221px
-    }
-
-    .shape-6 {
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -7px;
-      width: 144px;
-      height: 58px
-    }
-
     .auto-container {
       max-width: 1400px;
       padding: 0 15px;
@@ -275,13 +170,23 @@
       margin: 0 -.75rem
     }
 
-    .col-lg-6 {
-      width: 50%
+    .col-lg-4,
+    .col-lg-8 {
+      position: relative;
+      width: 100%;
+      padding: 0 15px
     }
 
-    .col-md-12,
-    .col-sm-12 {
-      width: 100%
+    @media (min-width: 992px) {
+      .col-lg-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%
+      }
+
+      .col-lg-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%
+      }
     }
 
     .align-items-center {
@@ -315,8 +220,6 @@
   </noscript>
 </head>
 
-<!-- page wrapper -->
-
 <body>
   <div class="boxed_wrapper">
     <!-- preloader -->
@@ -345,15 +248,15 @@
     <section class="page-title centred">
       <div class="outer-container">
         <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="
-              background-image: url(../assets/images/banner/digital-transformation.webp);
+              background-image: url(../assets/images/banner/banner_nexus.webp);
             "></div>
         <div class="auto-container">
           <div class="content-box">
-            <h1>Digital Transformation</h1>
+            <h1>NexusID</h1>
             <ul class="bread-crumb clearfix">
               <li><a href="../index.html">Home</a></li>
-              <li><a href="service.html">Services</a></li>
-              <li>Digital Transformation</li>
+              <li>Products</li>
+              <li>NexusID</li>
             </ul>
           </div>
         </div>
@@ -368,24 +271,17 @@
           <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
             <div class="service-sidebar">
               <div class="category-widget">
-                <h5>All Services</h5>
+                <h5>Our Products</h5>
                 <ul class="service-list clearfix">
-                  <li><a href="core-banking.html">Core Banking</a></li>
-                  <li>
-                    <a href="digital-transformation.html" class="current">Digital Transformation</a>
-                  </li>
-                  <li>
-                    <a href="application-development.html">Application Development</a>
-                  </li>
-                  <li>
-                    <a href="infrastructure-management.html">Application & Infrastructure Management</a>
-                  </li>
-                  <li>
-                    <a href="elite-it-resources.html">Elite IT Resources</a>
-                  </li>
-                  <li>
-                    <a href="testing-services.html">Testing Services</a>
-                  </li>
+                  <li><a href="omnichannel.html">Omni Channel</a></li>
+                  <li><a href="payment-hub.html">Payment Hub</a></li>
+                  <li><a href="scf.html">Supply Chain Finance</a></li>
+                  <li><a href="los.html">Loan Origination System</a></li>
+                  <li><a href="va.html">Virtual Account</a></li>
+                  <li><a href="smart-token.html">Smart Token</a></li>
+                  <li><a href="nexus-id.html" class="current">NexusID</a></li>
+                  <li><a href="loans-management-system.html">Loans Management System</a></li>
+                  <li><a href="microfinance-core.html">Lightweight Core Banking</a></li>
                 </ul>
               </div>
             </div>
@@ -394,101 +290,111 @@
             <div class="service-details-content">
               <div class="inner-box">
                 <div class="upper-box">
-                  <h2>Digital Transformation</h2>
-                  <h3>
-                    Elevate Customer Engagement Through Digital Transformation
-                    and Omni-Channel Excellence.
-                  </h3>
+                  <h2>The Enterprise Identity Fabric - NexusID</h2>
+                  <h4>A Unified, API-First Identity & Access Management Ecosystem</h4>
                   <p>
-                    At Midas, we believe that exceptional customer experiences
-                    are at the heart of success. Our Digital Transformation
-                    and Omni-Channel services are designed to help you achieve
-                    just that. Our highly committed IT consulting
-                    professionals bring specific expertise in leveraging
-                    digital technologies to enhance every customer
-                    interaction. We develop and implement seamless
-                    omni-channel strategies that provide consistent and
-                    personalized experiences across all touchpoints. With a
-                    value-driven mindset and a focus on tangible results, we
-                    transform your digital landscape to drive customer loyalty
-                    and impactful business growth.
+                    NexusID is a high-performance, cloud-native Digital Identity platform engineered to centralize and
+                    secure the fragmented identity landscape of modern enterprises. By combining the extensibility of
+                    open-source frameworks like <strong>Keycloak</strong>, NexusID provides a "Single Source of Truth"
+                    for employee,
+                    customer, and partner identities.
                   </p>
                 </div>
+
+                <div class="content-inner mt_30">
+                  <h4>The Problem We Solve</h4>
+                  <p>
+                    Most enterprises struggle with "Identity Debt"—legacy silos, fragmented MFA methods, and
+                    inconsistent authorization policies that create security gaps and frustrate users. NexusID replaces
+                    these silos with a unified, API-first architecture that scales to millions of users without
+                    compromising performance.
+                  </p>
+                </div>
+
                 <div class="image-box mt_40 mb_40">
-                  <img src="../assets/images/service/digital-banking-1.webp" alt="Digital Transformation"
+                  <img src="../assets/images/project/nexus_id_2.webp" alt="Loan Origination System"
                     style="border-radius: 15px" loading="lazy" />
                 </div>
-                <div class="content-inner">
-                  <h3>
-                    Transform Customer Interactions into Lasting Loyalty with
-                    Digital Transformation and Omni-Channel Excellence.
-                  </h3>
+
+                <div class="content-inner mt_30">
+                  <h4>Core Product Pillars</h4>
+                  <ul class="list clearfix">
+                    <li><strong>Omni-Channel Experience:</strong> A single identity that follows the user across web,
+                      mobile, and even IoT devices, ensuring a seamless journey from onboarding to transaction.</li>
+                    <li><strong>Architectural Sovereignty and Agility:</strong> Unlike "Black-Box" SaaS solutions,
+                      NexusID gives you full control over your data and deployment. Run it on-premise, in a private
+                      cloud, or as a managed service within your regional borders (ensuring <strong>OJK/PDP</strong>
+                      compliance).
+                      Decouple identity from your applications. Switch or upgrade underlying systems without touching a
+                      single line of application code.</li>
+                    <li><strong>Rapid Integration Engine:</strong> Reduce integration time for new apps from weeks to
+                      hours. With a library of pre-built connectors for <strong>Oracle, SAP, Microsoft AD, and Spring
+                        Boot</strong>, your
+                      ecosystem stays connected and agile.</li>
+                    <li><strong>Zero-Trust Foundation:</strong> Shift from perimeter-based security to "Identity as the
+                      New Perimeter," ensuring every request is verified, regardless of source.</li>
+                    <li><strong>Total Cost of Ownership (TCO) Optimization:</strong> Consolidate fragmented legacy IAM
+                      silos into a single, high-performance control plane.</li>
+                  </ul>
+                </div>
+
+                <div class="content-inner mt_30">
+                  <h4>Advanced Enterprise Feature Set</h4>
+                  <h5>Core Identity Services</h5>
+                  <ul class="list clearfix">
+                    <li><strong>Unified SSO & Global Logout:</strong> Seamless session management across Web, Mobile,
+                      and Legacy thick-client applications.</li>
+                    <li><strong>Identity Federation (The "Bridge"):</strong> Bi-directional synchronization with
+                      <strong>Active
+                        Directory (AD), Azure AD, LDAP,</strong> and Social Providers.
+                    </li>
+                  </ul>
+
+                  <h4 class="mt_20">Standards & Compliance Mastery</h4>
+                  <ul class="list clearfix">
+                    <li><strong>Authentication & Federation:</strong> Fully compliant with OIDC, SAML2.0, and OAuth2.1.
+                    </li>
+                    <li><strong>Zero-Trust Security:</strong> Built-in support for FIDO2, WebAuthn, and hardware-backed
+                      biometrics.</li>
+                    <li><strong>Automated Lifecycle:</strong> SCIM 2.0 integration for real-time user provisioning and
+                      de-provisioning across the enterprise.</li>
+                    <li><strong>Hardened Privacy:</strong> Designed to meet <strong>GDPR, ISO 27001, and SOC2</strong>
+                      standards,
+                      featuring immutable audit logs and granular consent management.</li>
+                  </ul>
+                </div>
+
+                <div class="content-inner mt_30">
+                  <h4>Target Use Cases</h4>
+                  <ul class="list clearfix">
+                    <li><strong>Customer Identity (CIAM):</strong> Secure digital banking portals and e-commerce apps
+                      with social login and frictionless registration.</li>
+                    <li><strong>Workforce Identity:</strong> Unified SSO for employees accessing internal apps, cloud
+                      services, and legacy core systems.</li>
+                    <li><strong>B2B / Partner Portals:</strong> Securely delegate user management to your corporate
+                      clients or partners through "Multi-Tenant" isolation.</li>
+                  </ul>
+                </div>
+
+                <div class="image-box mt_40 mb_40">
+                  <img src="../assets/images/project/nexus_id_1.webp" alt="Loan Origination System"
+                    style="border-radius: 15px" loading="lazy" />
+                </div>
+
+                <div class="content-inner mt_30">
+                  <h4>Why Choose NexusID?</h4>
                   <p>
-                    At Midas, we understand that in today's competitive
-                    landscape, exceptional customer experiences are your
-                    greatest differentiator. Our comprehensive Digital
-                    Transformation and Omni-Channel services are meticulously
-                    designed to help you forge stronger customer connections
-                    at every touchpoint. Our dedicated IT consulting
-                    professionals bring specialized expertise in harnessing
-                    the power of digital technologies to elevate each customer
-                    interaction. We craft and implement seamless omni-channel
-                    strategies, ensuring consistent and personalized
-                    experiences across all platforms. With a value-driven
-                    approach and a laser focus on tangible results, we empower
-                    you to transform your digital landscape, cultivate
-                    unwavering customer loyalty, and achieve impactful,
-                    sustainable business growth. Ready to elevate your
-                    customer engagement? Let's discuss your digital
-                    transformation journey.
+                    As an IT partner, we don't just provide a solution; we provide a Modernization Journey. We offer
+                    end-to-end implementation, custom SPI (Service Provider Interface) development for your unique
+                    systems, and 24/7 localized support to ensure your identity perimeter never fails.
                   </p>
                 </div>
+
                 <div class="content-inner mt_20">
-                  <ul class="list clearfix">
-                    <li>
-                      <strong>Enhanced Customer Satisfaction:</strong> Deliver
-                      consistent and personalized experiences across all
-                      channels.
-                    </li>
-                    <li>
-                      <strong>Increased Customer Loyalty:</strong> Foster
-                      stronger relationships through seamless and engaging
-                      interactions.
-                    </li>
-                    <li>
-                      <strong>Improved Customer Engagement:</strong> Create
-                      more meaningful and relevant touchpoints.
-                    </li>
-                    <li>
-                      <strong>Data-Driven Insights:</strong> Gain a holistic
-                      view of the customer journey for better decision-making.
-                    </li>
-                  </ul>
-                </div>
-                <div class="image-box mt_40 mb_40">
-                  <img src="../assets/images/service/digital-trasnformation-1.webp" alt="Digital Innovation"
-                    style="border-radius: 15px" loading="lazy" />
-                </div>
-                <div class="content-inner">
-                  <ul class="list clearfix">
-                    <li>
-                      <strong>Optimized Customer Journeys:</strong> Streamline
-                      interactions and reduce friction across all channels.
-                    </li>
-                    <li>
-                      <strong>Increased Efficiency:</strong> Optimize
-                      processes and technology for better customer service.
-                    </li>
-                    <li>
-                      <strong>Stronger Brand Consistency:</strong> Ensure a
-                      unified brand experience across all touchpoints.
-                    </li>
-                    <li>
-                      <strong>Sustainable Business Growth:</strong> Drive
-                      revenue through increased customer retention and
-                      acquisition.
-                    </li>
-                  </ul>
+                  <p>
+                    <strong>Ready to unify your enterprise identity?</strong>
+                    <a href="../contact/contact.html">Contact us</a> today for a personalized demonstration.
+                  </p>
                 </div>
               </div>
             </div>
@@ -532,6 +438,5 @@
   <!-- main-js -->
   <script src="../assets/js/script.js"></script>
 </body>
-<!-- End of .page_wrapper -->
 
 </html>

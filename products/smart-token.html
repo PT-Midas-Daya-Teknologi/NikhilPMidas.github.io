@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+  <title>Smart Token - Midas Teknologi</title>
+
+  <!-- Fav Icon -->
+  <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.webp" />
+
+  <!-- Critical CSS -->
+  <style>
+    @font-face {
+      font-family: Ubuntu;
+      src: url('../assets/fonts/ubuntu/ubuntu-regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Ubuntu;
+      src: url('../assets/fonts/ubuntu/ubuntu-bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap
+    }
+
+    :root {
+      --radius: 14px
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      border: none;
+      outline: 0
+    }
+
+    body {
+      font-family: Ubuntu, sans-serif !important;
+      font-size: 24px;
+      color: #677289;
+      line-height: 34px;
+      font-weight: 400;
+      background: #fff;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      -webkit-font-smoothing: antialiased
+    }
+
+    .loader-wrap,
+    .handle-preloader {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%
+    }
+
+    .loader-wrap {
+      z-index: 99999999;
+      background: #fff
+    }
+
+    .handle-preloader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999999
+    }
+
+    .animation-preloader {
+      position: absolute;
+      z-index: 100
+    }
+
+    .spinner {
+      animation: spinner 1s infinite linear;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 45px;
+      border: 3px solid #fff;
+      border-top-color: rgba(255, 255, 255, .5)
+    }
+
+    .txt-loading {
+      text-align: center;
+      user-select: none
+    }
+
+    .letters-loading {
+      font-family: Ubuntu, sans-serif;
+      font-weight: 400;
+      letter-spacing: 10px;
+      display: inline-block;
+      position: relative;
+      font-size: 40px;
+      line-height: 40px;
+      text-transform: uppercase;
+      color: #fff
+    }
+
+    .letters-loading:before {
+      content: attr(data-text-preloader);
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      color: #fff;
+      animation: letters-loading 4s infinite
+    }
+
+    .letters-loading:nth-child(2):before {
+      animation-delay: .2s
+    }
+
+    .letters-loading:nth-child(3):before {
+      animation-delay: .4s
+    }
+
+    .letters-loading:nth-child(4):before {
+      animation-delay: .6s
+    }
+
+    .letters-loading:nth-child(5):before {
+      animation-delay: .8s
+    }
+
+    .letters-loading:nth-child(6):before {
+      animation-delay: 1s
+    }
+
+    .letters-loading:nth-child(7):before {
+      animation-delay: 1.2s
+    }
+
+    .letters-loading:nth-child(8):before {
+      animation-delay: 1.4s
+    }
+
+    .preloader .loaded .animation-preloader {
+      opacity: 0;
+      transition: .3s ease-out
+    }
+
+    .auto-container {
+      max-width: 1400px;
+      padding: 0 15px;
+      margin: 0 auto
+    }
+
+    .boxed_wrapper {
+      position: relative;
+      margin: 0 auto;
+      overflow: hidden !important;
+      width: 100%;
+      min-width: 300px
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -.75rem
+    }
+
+    .col-lg-4,
+    .col-lg-8 {
+      position: relative;
+      width: 100%;
+      padding: 0 15px
+    }
+
+    @media (min-width: 992px) {
+      .col-lg-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%
+      }
+
+      .col-lg-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%
+      }
+    }
+
+    .align-items-center {
+      align-items: center !important
+    }
+
+    @media(max-width:767px) {
+      .spinner {
+        width: 8em;
+        height: 8em
+      }
+    }
+
+    @media(max-width:500px) {
+      .spinner {
+        width: 7em;
+        height: 7em
+      }
+
+      .letters-loading {
+        font-size: 40px;
+        letter-spacing: 10px
+      }
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 1rem;
+      color: #212529;
+      border-collapse: collapse;
+    }
+
+    table th,
+    table td {
+      padding: 0.75rem;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
+    }
+
+    table thead th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #dee2e6;
+      font-size: 18px;
+      font-family: 'Ubuntu', sans-serif;
+    }
+
+    table tbody tr td {
+      font-size: 16px;
+      font-family: 'Ubuntu', sans-serif;
+    }
+  </style>
+
+  <!-- Optimized Bundle (Non-blocking) -->
+  <link rel="preload" href="../assets/css/bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/bundle.min.css">
+  </noscript>
+</head>
+
+<body>
+  <div class="boxed_wrapper">
+    <!-- preloader -->
+    <div class="loader-wrap">
+      <div class="preloader">
+        <div class="preloader-close">x</div>
+        <div id="handle-preloader" class="handle-preloader">
+          <div class="animation-preloader">
+            <div class="spinner"></div>
+            <div class="txt-loading">
+              <span data-text-preloader="m" class="letters-loading"> m </span>
+              <span data-text-preloader="i" class="letters-loading"> i </span>
+              <span data-text-preloader="d" class="letters-loading"> d </span>
+              <span data-text-preloader="a" class="letters-loading"> a </span>
+              <span data-text-preloader="s" class="letters-loading"> s </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- preloader end -->
+    <div id="header-placeholder"></div>
+    <div id="mobile-menu-placeholder"></div>
+
+    <!-- Page Title -->
+    <section class="page-title centred">
+      <div class="outer-container">
+        <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="
+              background-image: url(../assets/images/banner/banner_softtoken.webp);
+            "></div>
+        <div class="auto-container">
+          <div class="content-box">
+            <h1>SmartToken</h1>
+            <ul class="bread-crumb clearfix">
+              <li><a href="../index.html">Home</a></li>
+              <li>Products</li>
+              <li>SmartToken</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Page Title -->
+
+    <!-- service-details -->
+    <section class="service-details">
+      <div class="auto-container">
+        <div class="row clearfix">
+          <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+            <div class="service-sidebar">
+              <div class="category-widget">
+                <h5>Our Products</h5>
+                <ul class="service-list clearfix">
+                  <li><a href="omnichannel.html">Omni Channel</a></li>
+                  <li><a href="payment-hub.html">Payment Hub</a></li>
+                  <li><a href="scf.html">Supply Chain Finance</a></li>
+                  <li><a href="los.html">Loan Origination System</a></li>
+                  <li><a href="va.html">Virtual Account</a></li>
+                  <li><a href="smart-token.html" class="current">Smart Token</a></li>
+                  <li><a href="nexus-id.html">NexusID</a></li>
+                  <li><a href="loans-management-system.html">Loans Management System</a></li>
+                  <li><a href="microfinance-core.html">Lightweight Core Banking</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+            <div class="service-details-content">
+              <div class="inner-box">
+                <div class="upper-box">
+                  <h2>SmartToken: Enterprise-Grade Digital Authentication & Authorization</h2>
+                  <p>
+                    SmartToken is a high-performance, <strong>Java-based microservices platform</strong> designed to
+                    replace costly and complex hardware tokens. It provides a secure, scalable, and frictionless way to
+                    authorize transactions and authenticate users across web and mobile channels.
+                  </p>
+                </div>
+
+                <div class="image-box mt_40 mb_40">
+                  <img src="../assets/images/project/softtoken_1.webp" alt="Loan Origination System"
+                    style="border-radius: 15px" loading="lazy" />
+                </div>
+
+                <div class="content-inner mt_30">
+                  <h3>Core Product Features</h3>
+                  <h4>Multi-Channel Token Support</h4>
+                  <ul class="list clearfix">
+                    <li><strong>Mobile Token:</strong> In-app token generation for offline or online transaction
+                      authroziation and user authentication.</li>
+                    <li><strong>Device Binding:</strong> A "Trust No One" approach that binds the digital identity to a
+                      specific device’s hardware fingerprint (IMEI/UUID), preventing credential cloning.</li>
+                    <li><strong>Web Application Tokens:</strong>
+                      <ul>
+                        <li>With Challenges: Synchronous flows where the server sends a challenge the user must solve.
+                        </li>
+                        <li>Without Challenges: Seamless background synchronization for low-risk actions.</li>
+                      </ul>
+                    </li>
+                    <li><strong>Biometric Tokenization:</strong> Integration with <strong> FIDO2/WebAuthn</strong>,
+                      allowing users to sign
+                      transactions using FaceID, TouchID, or Android Biometrics.</li>
+                    <li><strong>SMS & Email Fallback:</strong> Integrated SMS gateway support for legacy user bases or
+                      emergency recovery.</li>
+                  </ul>
+
+                  <h4 class="mt_20">The Authenticator App (Mobile SDK)</h4>
+                  <p>A dedicated mobile application (similar to Microsoft or Google Authenticator) that provides:</p>
+                  <ul class="list clearfix">
+                    <li><strong>Push Notifications:</strong> Instant "Approve/Reject" prompts for real-time transaction
+                      signing.</li>
+                    <li><strong>Offline Mode:</strong> Generate 6-8 digit codes even without internet connectivity.</li>
+                    <li><strong>Multi-Account Support:</strong> Manage multiple identities or banking profiles within a
+                      single app.</li>
+                  </ul>
+
+                  <h4 class="mt_20">Transaction Signing & Authorization</h4>
+                  <ul class="list clearfix">
+                    <li><strong>Third-Party Integration:</strong> Securely authorize payments or data sharing with
+                      external partners using scoped transaction tokens.</li>
+                    <li><strong>Data-Linked Tokens:</strong> The token generated is cryptographically linked to the
+                      specific transaction data (amount, payee, date).</li>
+                    <li><strong>WYSIWYS Compliance:</strong> "What You See Is What You Sign." The user confirms
+                      transaction details on-screen, which are then hashed into the OCRA signature.</li>
+                    <li><strong>Anti-Tampering:</strong> Any modification to the transaction data after the token is
+                      generated will result in an immediate signature mismatch at the server level.</li>
+                    <li><strong>MITM Protection:</strong> Prevents "Man-in-the-Middle" tampering by ensuring the
+                      signature is only valid for that specific intent.</li>
+                  </ul>
+                </div>
+
+                <div class="content-inner mt_30">
+                  <h4>Back-Office & Management Suite</h4>
+                  <p>The administrative portal provides complete control over the token ecosystem:</p>
+                  <ul class="list clearfix">
+                    <li><strong>Complete Token Lifecycle Management:</strong>
+                      <ul>
+                        <li>Issuance: Automated or manual onboarding of users.</li>
+                        <li>Lock/Unlock: Immediate suspension of tokens in case of reported theft or suspicious
+                          activity.</li>
+                        <li>Revocation: Permanent decommissioning of tokens for offboarded users.</li>
+                      </ul>
+                    </li>
+                    <li><strong>Audit & Forensics:</strong>
+                      <ul>
+                        <li>Complete Traceability: Every "Approve," "Reject," or "Timeout" is logged with a secure hash.
+                        </li>
+                        <li>Fraud Investigation: Advanced search filters to track IP addresses, device IDs, and
+                          geolocations used during authentication.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="content-inner mt_30">
+                  <h4>Technical Advantages</h4>
+                  <p>Built for the modern enterprise, SmartToken leverages a cloud-native stack to ensure high
+                    availability and seamless integration.</p>
+                  <ul class="list clearfix">
+                    <li><strong>Core Engine:</strong> Developed in Java for high-performance service execution.</li>
+                    <li><strong>Architecture:</strong> Microservices-based, allowing independent scaling of the
+                      Authentication, Token Lifecycle, and Audit modules.</li>
+                    <li><strong>Containerization:</strong> Fully compatible with <strong> Docker</strong> and <strong>
+                        Kubernetes/OpenShift</strong> for
+                      automated scaling and orchestration.</li>
+                    <li><strong>Database & Persistence:</strong> Supports high-volume RDBMS (Oracle, PostgreSQL) with
+                      optimized indexing for rapid audit retrieval.</li>
+                    <li><strong>Security Standards:</strong>
+                      <ul>
+                        <li>Algorithms: Supports SHA-256, SHA-512, HMAC, RSA, AES and other encryption supported by Java
+                          Cryptography.</li>
+                        <li>Protocols: Fully compliant with <strong> OATH </strong> standards (TOTP - Time-based
+                          One-Time Password and HOTP
+                          - HMAC-based One-Time Password, OCRA - OATH Challenge-Response Algorithm).</li>
+                        <li>API Security: All endpoints are secured via mTLS and OAuth2/OpenID Connect.</li>
+                      </ul>
+                    </li>
+                    <li><strong>Dynamic Challenge-Response:</strong> Move beyond static codes. Generate signatures based
+                      on server-side challenges and user-inputted data.</li>
+                    <li><strong>Mutual Authentication:</strong> Supports client-to-server and server-to-client
+                      verification, eliminating the risk of rogue servers or phishing sites.</li>
+                  </ul>
+                </div>
+
+                <div class="image-box mt_40 mb_40">
+                  <img src="../assets/images/banner/banner_softtoken.webp" alt="Loan Origination System"
+                    style="border-radius: 15px" loading="lazy" />
+                </div>
+
+                <div class="content-inner mt_30">
+                  <div class="table-responsive">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Attribute</th>
+                          <th>Specification</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Performance</td>
+                          <td>Capable of processing <strong> 5,000+ authentications per second (TPS) </strong> with
+                            sub-~100ms latency.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Scalability</td>
+                          <td>Horizontal auto-scaling via Kubernetes to handle peak season transaction loads.</td>
+                        </tr>
+                        <tr>
+                          <td>Reliability</td>
+                          <td>Active-Active deployment support across multiple data centers for <strong> 99.99%
+                              availability.</strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Interoperability</td>
+                          <td>RESTful APIs and SDKs for Android, iOS, and Web (JavaScript/TypeScript).</td>
+                        </tr>
+                        <tr>
+                          <td>Security</td>
+                          <td>Hardened against brute-force, replay attacks, and reverse engineering.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="content-inner mt_30">
+                  <h4>Business Value</h4>
+                  <ul class="list clearfix">
+                    <li><strong>Cost Reduction:</strong> Zero logistics/shipping costs and no physical battery
+                      expiration issues compared to hardware tokens.</li>
+                    <li><strong>Enhanced UX:</strong> No need for users to carry an extra device; their smartphone
+                      becomes their security key.</li>
+                    <li><strong>Compliance:</strong> Meets stringent global banking regulations (PSD2, FFIEC, etc.) for
+                      Strong Customer Authentication (SCA).</li>
+                  </ul>
+                </div>
+
+                <div class="content-inner mt_20">
+                  <p>
+                    Modern banking security is complex. Your transition to it shouldn't be.
+                  </p>
+                  <p class="mt_20">
+                    <strong>Ready to eliminate friction and elevate security?</strong> Our senior consultants are
+                    available for a
+                    technical discovery session to discuss your specific throughput, security, and architect a
+                    solution tailored to your ecosystem.
+                    <a href="../contact/contact.html">Contact us</a> today for a personalized demonstration.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- service-details end -->
+
+    <div id="main-footer-placeholder"></div>
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top">
+      <div>
+        <div class="scroll-top-inner">
+          <div class="scroll-bar">
+            <div class="bar-inner"></div>
+          </div>
+          <div class="scroll-bar-text">Go To Top</div>
+        </div>
+      </div>
+    </div>
+    <!-- Scroll to top end -->
+  </div>
+
+  <!-- jequery plugins -->
+  <script src="../assets/js/jquery.js"></script>
+  <script src="../assets/js/popper.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
+  <script src="../assets/js/owl.js"></script>
+  <script src="../assets/js/wow.js"></script>
+  <script src="../assets/js/validation.js"></script>
+  <script src="../assets/js/jquery.fancybox.js"></script>
+  <script src="../assets/js/appear.js"></script>
+  <script src="../assets/js/parallax-scroll.js"></script>
+  <script src="../assets/js/jquery.nice-select.min.js"></script>
+  <script src="../assets/js/data-animation.js"></script>
+  <script src="../assets/js/bxslider.js"></script>
+  <script src="../assets/js/isotope.js"></script>
+
+  <!-- main-js -->
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
