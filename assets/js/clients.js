@@ -1,4 +1,4 @@
-(function() {
+(function () {
     function initMarquee() {
         const wrappers = document.querySelectorAll('.client-marquee-wrapper');
         if (wrappers.length < 2) return;
@@ -8,7 +8,7 @@
 
         if (!marqueeTrack1 || !marqueeTrack2) return;
 
-        fetch('/assets/data/clients.json')
+        fetch('./assets/data/clients.json')
             .then(response => response.json())
             .then(clients => {
                 if (!Array.isArray(clients) || clients.length === 0) return;
@@ -30,7 +30,7 @@
                 <img src="${client.src}" alt="${client.alt}" loading="lazy" />
             </a>
         `).join('');
-        track.innerHTML = html + html; 
+        track.innerHTML = html + html;
     }
 
     if (document.readyState === 'loading') {

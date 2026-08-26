@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let allJobs = [];
 
   // Fetch jobs from JSON
-  fetch('/assets/data/jobs.json')
+  fetch('./assets/data/jobs.json')
     .then(response => response.json())
     .then(data => {
       allJobs = data;
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    fetch('/assets/data/events.json')
+    fetch('./assets/data/events.json')
       .then(response => response.json())
       .then(data => {
         data.forEach(item => {

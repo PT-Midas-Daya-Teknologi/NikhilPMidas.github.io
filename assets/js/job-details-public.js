@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const params = new URLSearchParams(window.location.search);
     const jobId = params.get('id');
 
@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    fetch('/assets/data/jobs.json')
+    fetch('./assets/data/jobs.json')
         .then(response => response.json())
         .then(jobs => {
             const job = jobs.find(j => j.id == jobId);
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const expSummary = document.getElementById('jobExpSummary');
         const locSummary = document.getElementById('jobLocSummary');
         const categorySummary = document.getElementById('jobDomain');
-        
+
         if (skillsSummary) skillsSummary.textContent = job.skills.join(', ');
         if (expSummary) expSummary.textContent = job.experience;
         if (locSummary) locSummary.textContent = `${job.location} [Indonesia]`;
@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (titleDetail) titleDetail.textContent = job.title;
         if (expLevel) expLevel.textContent = `About ${job.experience}`;
-        
+
         if (fullDesc) {
             let html = `<p class="mb_20">${job.description}</p>`;
-            
+
             html += `
                 <ul class="list clearfix" style="list-style-type: circle; padding-left: 20px;">
                     <li class="mb_10">Collaborate with cross-functional teams to define, design, and ship new features.</li>
@@ -70,9 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupApplyToggle() {
         const applyBtn = document.querySelector('.apply-now-btn');
         const formContainer = document.getElementById('applicationFormContainer');
-        
+
         if (applyBtn && formContainer) {
-            applyBtn.addEventListener('click', function() {
+            applyBtn.addEventListener('click', function () {
                 formContainer.style.display = 'block';
                 formContainer.scrollIntoView({ behavior: 'smooth' });
             });
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const phoneInput = document.getElementById('phoneInput');
         const countrySelect = document.getElementById('countryCode');
         const phoneHint = document.getElementById('phoneHint');
-        
+
         if (!form || !submitBtn) return;
 
         const validationRules = {
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         const inputs = form.querySelectorAll('input[required], textarea[required]');
-        
+
         const updatePhoneHint = () => {
             const rule = validationRules[countrySelect.value];
             if (rule) {
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             inputs.forEach(input => {
                 const val = input.value.trim();
-                
+
                 if (!val) {
                     isValid = false;
                 } else {
