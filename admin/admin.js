@@ -1,39 +1,39 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Detect Page Reload and force logout
-    if (performance.getEntriesByType("navigation")[0].type === 'reload') {
-        window.location.href = 'logout.php';
-        return;
-    }
+document.addEventListener('DOMContentLoaded', function () {
 
-    // Handle delete confirmations
-    const deleteForms = document.querySelectorAll('form[data-confirm]');
-    deleteForms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            const message = this.getAttribute('data-confirm') || 'Are you sure?';
-            if (!confirm(message)) {
+    // Handle delete confirmations for all forms with data-confirm attribute
+    const confirmForms = document.querySelectorAll('form[data-confirm]');
+    confirmForms.forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+            const msg = this.getAttribute('data-confirm') || 'Are you sure?';
+            if (!confirm(msg)) {
                 e.preventDefault();
             }
         });
     });
 
-    // Populate Edit Modal
+    // Populate Edit Modal fields (used on dashboard / job pages)
     const editButtons = document.querySelectorAll('.edit-btn');
-    editButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.getElementById('edit-id').value = this.getAttribute('data-id');
-            document.getElementById('edit-title').value = this.getAttribute('data-title');
-            document.getElementById('edit-department').value = this.getAttribute('data-department');
-            document.getElementById('edit-type').value = this.getAttribute('data-type');
-            document.getElementById('edit-location').value = this.getAttribute('data-location');
+    editButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const setVal = (id, attr) => {
+                const el = document.getElementById(id);
+                if (el) el.value = this.getAttribute(attr) || '';
+            };
+            setVal('edit-id',         'data-id');
+            setVal('edit-title',      'data-title');
+            setVal('edit-department', 'data-department');
+            setVal('edit-type',       'data-type');
+            setVal('edit-location',   'data-location');
         });
     });
 
-    // Handle alert auto-dismiss (optional)
+    // Auto-dismiss alerts after 5 seconds
     const alerts = document.querySelectorAll('.alert-dismissible');
-    alerts.forEach(alert => {
-        setTimeout(() => {
+    alerts.forEach(function (alert) {
+        setTimeout(function () {
             const closeBtn = alert.querySelector('.btn-close');
             if (closeBtn) closeBtn.click();
         }, 5000);
     });
+
 });

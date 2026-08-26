@@ -4,20 +4,30 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Midas Daya Teknologi provides expert core banking solutions, AI technology, digital transformation, and IT consulting services for financial institutions." />
 
   <title>Midas Teknologi - Expert IT Consulting & Banking Solutions</title>
 
   <!-- Fav Icon -->
   <link rel="preload" href="/assets/fonts/ubuntu/ubuntu-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/ubuntu/ubuntu-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/images/background/home.webp" as="image" fetchpriority="high">
   <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp" />
-  <!-- Optimized Bundle (Non-blocking) -->
-  <link rel="preload" href="/assets/css/bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="/assets/css/bundle.min.css">
-  </noscript>
+  <!-- Stylesheets -->
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/animate.min.css" rel="stylesheet">
+<link href="/assets/css/font-awesome-all.min.css" rel="stylesheet">
+<link href="/assets/css/flaticon.min.css" rel="stylesheet">
+<link href="/assets/css/owl.min.css" rel="stylesheet">
+<link href="/assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="/assets/css/elpath.min.css" rel="stylesheet">
+<link href="/assets/css/color.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.min.css" rel="stylesheet">
+<link href="/assets/css/style.min.css" rel="stylesheet">
+<link href="/assets/css/responsive.min.css" rel="stylesheet">
+
 
   <!-- Critical CSS -->
   <style>
@@ -30,6 +40,7 @@
       --text-color: #52565b;
       --radius: 14px;
       --white: #ffffff;
+      --navy-light: #f4f6f8;
       --gradient-primary: linear-gradient(270deg, var(--primary-blue) -22.92%, var(--primary-orange) 56.63%);
     }
 
@@ -168,6 +179,29 @@
       min-height: 600px;
     }
 
+    .loader-wrap {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 99999999;
+      background-color: #fff;
+    }
+
+    .handle-preloader {
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999999;
+    }
+
     /* Hero Section (Revamped to match career.html) */
     .hero-revamp {
       position: relative;
@@ -244,7 +278,114 @@
       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     }
 
+    /* ── Client Marquee ── */
+    .client-marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .client-marquee-wrapper::before,
+    .client-marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .client-marquee-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, #fff, transparent);
+    }
+
+    .client-marquee-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, #fff, transparent);
+    }
+
+    .client-marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 52px;
+      width: max-content;
+      animation: clientMarquee 38s linear infinite;
+    }
+
+    .client-marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .client-marquee-reverse {
+      animation: clientMarqueeReverse 42s linear infinite;
+    }
+
+    .client-marquee-reverse:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes clientMarquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes clientMarqueeReverse {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .client-marquee-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      height: 96px;
+      border-radius: 1rem;
+      padding: 24px;
+      background: #fff;
+    }
+
+    .client-marquee-item img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ── Responsive ── */
     @media (max-width: 991px) {
+      .client-marquee-track {
+        gap: 36px;
+        animation-duration: 30s;
+      }
+
+      .client-marquee-reverse {
+        animation-duration: 34s;
+      }
+
+      .client-marquee-wrapper::before,
+      .client-marquee-wrapper::after {
+        width: 50px;
+      }
+
       .hero-revamp h1 {
         max-width: 100%;
       }
@@ -257,44 +398,7 @@
         height: 70vh;
         min-height: 500px;
       }
-    }
 
-    @media (max-width: 767px) {
-      .hero-revamp .hero-btn {
-        display: none;
-      }
-    }
-
-    .loader-wrap {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 99999999;
-      background-color: #fff;
-    }
-
-    .handle-preloader {
-      background: var(--gradient-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999999;
-    }
-
-    @media (max-width: 1200px) {
-      .main-menu {
-        display: none;
-      }
-    }
-
-    @media (max-width: 991px) {
       .main-header .outer-box {
         padding: 0 2%;
       }
@@ -311,11 +415,46 @@
       .banner-style-four .image-box {
         display: none;
       }
+
+      .client-marquee-item {
+        height: 70px;
+      }
+
+      .client-marquee-item img {
+        height: 50px;
+      }
     }
 
-    @media (max-width: 300px) {
+    @media (max-width: 767px) {
       .main-header .outer-box {
         padding: 0 5%;
+      }
+
+      .client-marquee-track {
+        gap: 20px;
+        animation-duration: 20s;
+      }
+
+      .client-marquee-reverse {
+        animation-duration: 23s;
+      }
+
+      .client-marquee-item {
+        height: 68px;
+      }
+
+      .client-marquee-item img {
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .client-marquee-item {
+        height: 48px;
+      }
+
+      .client-marquee-item img {
+        height: 30px;
       }
     }
   </style>
@@ -395,7 +534,7 @@
           <div class="content-inner">
             <div class="logo">
               <a href="/index.html"
-                ><img src="/assets/images/logo.webp" alt=""
+                ><img src="/assets/images/logo-344.webp" srcset="/assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 332px, 332px" alt="Midas Teknologi Logo" width="332" height="144"
                loading="lazy" /></a>
             </div>
             <div class="content-box">
@@ -415,12 +554,10 @@
               <h4>Contact Info</h4>
               <ul>
                 <li>
-                  PT Midas Daya Teknologi<br />Gd. Setiabudi 2, Lt.2 Suite
-                  No.203A,<br />JL. H.R. Rasuna Said Kav.62, Kuningan,
-                  Setiabudi, Jakarta Selatan 12940, Indonesia.
+                  PT Midas Daya Teknologi<br />Lippo Kuningan Building, 18th Floor, Unit F2,<br />JI. H. R. Rasuna Said Kav, B-12, Jakarta Selatan 12940, Indonesia.
                 </li>
-                <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-                <li><a href="mailto:info@example.com">info@example.com</a></li>
+                <li><a href="tel:+622140642341">(+6221) 40642341</a></li>
+                <li><a href="mailto:sales@midasteknologi.com">sales@midasteknologi.com</a></li>
               </ul>
             </div>
             <ul class="social-box">
@@ -451,12 +588,12 @@
     <div class="outer-box">
       <div class="logo-box">
         <figure class="logo">
-          <a href="/index.html"><img src="/assets/images/logo.webp" alt="" loading="lazy" /></a>
+          <a href="/index.html"><img src="/assets/images/logo-172.webp" srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75" loading="eager" fetchpriority="high" /></a>
         </figure>
       </div>
       <div class="menu-area clearfix menu-center">
         <!--Mobile Navigation Toggler-->
-        <div class="mobile-nav-toggler">
+        <div class="mobile-nav-toggler" role="button" aria-label="Toggle navigation menu">
           <i class="icon-bar"></i>
           <i class="icon-bar"></i>
           <i class="icon-bar"></i>
@@ -487,8 +624,10 @@
                   </li>
                   <li><a href="/products/va.html">Virtual Account</a></li>
                   <li><a href="/products/microfinance-core.html">Lightweight Core Banking</a></li>
+                  <li><a href="/products/cloud-core-banking.html">Cloud Core Banking</a></li>
                   <li><a href="/products/smart-token.html">Smart Token</a></li>
                   <li><a href="/products/nexus-id.html">NexusID</a></li>
+                  <li><a href="/products/liveness-detection.html">AI Liveness Detection</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -542,7 +681,7 @@
     <div class="outer-box">
       <div class="logo-box">
         <figure class="logo">
-          <a href="/index.html"><img src="/assets/images/logo.webp" alt="" loading="lazy" /></a>
+          <a href="/index.html"><img src="/assets/images/logo-172.webp" srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75" loading="eager" /></a>
         </figure>
       </div>
       <div class="menu-area clearfix" style="padding-right: 10%">
@@ -557,12 +696,12 @@
     <!-- Mobile Menu  -->
 <div class="mobile-menu">
   <div class="menu-backdrop"></div>
-  <div class="close-btn"><i class="fas fa-times"></i></div>
+  <div class="close-btn" role="button" aria-label="Close menu"><i class="fas fa-times"></i></div>
 
   <nav class="menu-box">
     <div class="nav-logo">
       <a href="/index.html"
-        ><img src="/assets/images/logo.webp" alt="" title=""
+        ><img src="/assets/images/logo-344.webp" srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 250px" alt="Midas Teknologi Logo" width="250" height="109"
        loading="lazy" /></a>
     </div>
     <div class="menu-outer">
@@ -572,30 +711,28 @@
       <h4>Contact Info</h4>
       <ul>
         <li>
-          PT Midas Daya Teknologi<br />Gd. Setiabudi 2, Lt.2 Suite No.203A,<br />JL.
-          H.R. Rasuna Said Kav.62, Kuningan, Setiabudi, Jakarta Selatan 12940,
-          Indonesia.
+          PT Midas Daya Teknologi<br />Lippo Kuningan Building, 18th Floor, Unit F2,<br />JI. H. R. Rasuna Said Kav, B-12, Jakarta Selatan 12940, Indonesia.
         </li>
-        <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-        <li><a href="mailto:info@example.com">info@example.com</a></li>
+        <li><a href="tel:+622140642341">(+6221) 40642341</a></li>
+        <li><a href="mailto:sales@midasteknologi.com">sales@midasteknologi.com</a></li>
       </ul>
     </div>
     <div class="social-links">
       <ul class="clearfix">
         <li>
-          <a href="/index.html"><span class="fab fa-twitter"></span></a>
+          <a href="/index.html" aria-label="Twitter"><span class="fab fa-twitter"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-facebook-square"></span></a>
+          <a href="/index.html" aria-label="Facebook"><span class="fab fa-facebook-square"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-pinterest-p"></span></a>
+          <a href="/index.html" aria-label="Pinterest"><span class="fab fa-pinterest-p"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-instagram"></span></a>
+          <a href="/index.html" aria-label="Instagram"><span class="fab fa-instagram"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-youtube"></span></a>
+          <a href="/index.html" aria-label="YouTube"><span class="fab fa-youtube"></span></a>
         </li>
       </ul>
     </div>
@@ -604,6 +741,7 @@
 <!-- End Mobile Menu -->
 
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero-revamp">
       <div class="auto-container">
@@ -616,7 +754,7 @@
     </section>
 
     <!-- product-section -->
-    <section id="products" class="wedo-section centred">
+    <section id="products" class="wedo-section centred" style="background-color: var(--navy-light) !important;">
       <div class="auto-container">
         <div class="sec-title">
           <h5 class="g_color">
@@ -746,7 +884,7 @@
     <!-- product-section end -->
 
     <!-- about-style-four -->
-    <section class="about-style-four">
+    <section class="about-style-four" style="background-color: var(--white) !important;">
       <div class="auto-container">
         <div class="row clearfix">
           <div class="col-lg-7 col-md-12 col-sm-12 image-column">
@@ -761,10 +899,12 @@
               </div>
               <figure data-animation-text class="overlay-anim-black-bg image image-1 animated overlay-animation"
                 data-animation="overlay-animation">
-                <img src="/assets/images/resource/about-image-1.webp" alt="Team Work" loading="lazy" />
+                <img src="/assets/images/resource/about-image-1.webp" alt="Team Work" width="535" height="571"
+                  loading="lazy" />
               </figure>
               <figure class="image image-2">
-                <img src="/assets/images/resource/about-image-2.webp" alt="Corporate Meeting" loading="lazy" />
+                <img src="/assets/images/resource/about-image-2.webp" alt="Corporate Meeting" width="470" height="356"
+                  loading="lazy" />
               </figure>
             </div>
           </div>
@@ -801,7 +941,7 @@
     <!-- about-style-four end -->
 
     <!-- service-section -->
-    <section class="service-style-three">
+    <section class="service-style-three" style="background-color: var(--navy-light) !important;">
       <div class="outer-container">
         <div class="auto-container">
           <div class="row clearfix">
@@ -811,7 +951,8 @@
                 <div class="inner-box">
                   <div class="content-box">
                     <figure class="image-box">
-                      <img src="/assets/images/service/core-banking.webp" alt="Core Banking" loading="lazy" />
+                      <img src="/assets/images/service/core_banking_home.webp" alt="Core Banking" width="370"
+                        height="485" loading="lazy" />
                     </figure>
                     <div class="text">
                       <div class="icon-box"><i class="icon-16"></i></div>
@@ -823,7 +964,7 @@
                     <div class="inner">
                       <div class="icon-box"><i class="icon-16"></i></div>
                       <h3>
-                        <a href="services/service.html">Core Banking Transformation</a>
+                        <a href="services/core-banking.html">Core Banking Transformation</a>
                       </h3>
                       <p>
                         Unlock the potential of your banking operations with
@@ -841,8 +982,8 @@
                 <div class="inner-box">
                   <div class="content-box">
                     <figure class="image-box">
-                      <img src="/assets/images/service/digital-transformation.webp" alt="Digital Transformation"
-                        loading="lazy" />
+                      <img src="/assets/images/service/digital_transformation_home.webp" alt="Digital Transformation"
+                        width="370" height="485" loading="lazy" />
                     </figure>
                     <div class="text">
                       <div class="icon-box"><i class="icon-13"></i></div>
@@ -854,7 +995,7 @@
                     <div class="inner">
                       <div class="icon-box"><i class="icon-13"></i></div>
                       <h3>
-                        <a href="services/service.html">Digital Transformation</a>
+                        <a href="services/digital-transformation.html">Digital Transformation</a>
                       </h3>
                       <p>
                         Elevate customer engagement through omni-channel
@@ -872,8 +1013,8 @@
                 <div class="inner-box">
                   <div class="content-box">
                     <figure class="image-box">
-                      <img src="/assets/images/service/app-development.webp" alt="Application Development"
-                        loading="lazy" />
+                      <img src="/assets/images/service/application_development_home_2.webp"
+                        alt="Application Development" width="370" height="485" loading="lazy" />
                     </figure>
                     <div class="text">
                       <div class="icon-box"><i class="icon-12"></i></div>
@@ -885,7 +1026,7 @@
                     <div class="inner">
                       <div class="icon-box"><i class="icon-12"></i></div>
                       <h3>
-                        <a href="services/service.html">Application Development</a>
+                        <a href="services/application-development.html">Application Development</a>
                       </h3>
                       <p>
                         Custom applications powered by the future of
@@ -906,209 +1047,36 @@
     </section>
     <!-- service-section end -->
 
-    <!-- progress-section -->
-    <!-- <section class="progress-section">
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-lg-5 col-md-12 col-sm-12 content-column">
-                        <div class="content-box ml_35">
-                            <div class="sec-title">
-                                <h2>Your business grow consistently.</h2>
-                            </div>
-                            <div class="text">
-                                <p>Tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
-                                    eos et accusam et justo duo dolores et ea rebum.</p>
-                            </div>
-                            <div class="progress-inner">
-                                <div class="progress-box">
-                                    <div class="single-progress-box p_relative d_block mb_20">
-                                        <h6>Web Development</h6>
-                                        <div class="bar">
-                                            <div class="bar-inner count-bar" data-percent="80%">
-                                                <div class="count-text">80%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-progress-box p_relative d_block mb_20">
-                                        <h6>UX/ UI Design </h6>
-                                        <div class="bar">
-                                            <div class="bar-inner count-bar" data-percent="70%">
-                                                <div class="count-text">70%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-progress-box p_relative d_block">
-                                        <h6>Web Design</h6>
-                                        <div class="bar">
-                                            <div class="bar-inner count-bar" data-percent="90%">
-                                                <div class="count-text">90%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7 col-md-12 col-sm-12 image-column">
-                        <div data-animation-box class="image-box">
-                            <figure data-animation-text class="overlay-anim-black-bg image"
-                                data-animation="overlay-animation"><img src="/assets/images/resource/progress-1.webp"
-                                    alt="" loading="lazy"></figure>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-    <!-- progress-section end -->
-
     <!-- client-section -->
-    <section class="project-style-three">
+    <section class="project-style-three" style="background-color: var(--white) !important;">
       <div class="auto-container">
         <div class="sec-title centred">
           <h5 class="g_color"><i class="icon-11 g_color"></i>Successful Projects</h5>
           <h2>Driving Success for Leading Institutions</h2>
           <p>
-            We are proud to be part of a project with global financial leaders
+            We are proud to be part of a project which are executed directly by us or along with our partner with global
+            financial leaders
             to deliver <br />transformative technology solutions.
           </p>
         </div>
-        <div id="partners-row" class="row clearfix">
-          <!-- Row 1 (Visible) -->
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item">
-            <div class="client-card wow fadeInUp animated" data-wow-delay="00ms">
-              <img src="/assets/images/clients/oracle.webp" alt="Oracle" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item">
-            <div class="client-card wow fadeInUp animated" data-wow-delay="100ms">
-              <img src="/assets/images/clients/danamon.webp" alt="Danamon" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item">
-            <div class="client-card wow fadeInUp animated" data-wow-delay="200ms">
-              <img src="/assets/images/clients/bmi_1.webp" alt="BMI" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item">
-            <div class="client-card wow fadeInUp animated" data-wow-delay="300ms">
-              <img src="/assets/images/clients/bfi.webp" alt="BFI" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item">
-            <div class="client-card">
-              <img src="/assets/images/clients/bandm.webp" alt="B&M" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item">
-            <div class="client-card">
-              <img src="/assets/images/clients/banzpay.webp" alt="Banzpay" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item">
-            <div class="client-card">
-              <img src="/assets/images/clients/bhutan.webp" alt="Bhutan" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item">
-            <div class="client-card">
-              <img src="/assets/images/clients/bjj.webp" alt="BJJ" loading="lazy" />
-            </div>
-          </div>
-          <!-- Extra Clients (Direct children of row) -->
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/bank_saqu.svg" alt="Canara" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/canara.webp" alt="Canara" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/commonwealth.webp" alt="Commonwealth" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/dutch.webp" alt="Dutch" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/eastern.webp" alt="Eastern" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/encora.webp" alt="Encora" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/equit.webp" alt="Equit" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/exim.webp" alt="Exim" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/kadence.webp" alt="Kadence" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/profile-software_3.webp" alt="Profile Software" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/pwc.webp" alt="PWC" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/t_bank.webp" alt="T Bank" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/taib.webp" alt="TAIB" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/UCB.webp" alt="UCB" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/vivardhana.webp" alt="Vivardhana" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/mizuho.webp" alt="Mizuho" loading="lazy" />
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 client-item client-extra">
-            <div class="client-card">
-              <img src="/assets/images/clients/smbc.webp" alt="SMBC" loading="lazy" />
-            </div>
+
+        <!-- Marquee Row 1 -->
+        <div class="client-marquee-wrapper mb-5">
+          <div class="client-marquee-track">
           </div>
         </div>
-        <div class="more-btn centred mt_20">
-          <button id="show-all-clients" class="theme-btn">See All</button>
+
+        <!-- Marquee Row 2 -->
+        <div class="client-marquee-wrapper mt-5">
+          <div class="client-marquee-track client-marquee-reverse">
+          </div>
         </div>
+
       </div>
     </section>
 
     <!-- blog-section -->
-    <section class="blog-section">
+    <section class="blog-section" style="background-color: var(--navy-light) !important;">
       <div class="auto-container">
         <div class="sec-title centred">
           <h5 class="g_color">
@@ -1128,7 +1096,7 @@
                 <div class="image-box">
                   <figure class="image">
                     <a href="blog/ai-in-app-development.html"><img src="/assets/images/news/blog_ai_app_1.webp"
-                        alt="AI In App Development" loading="lazy" /></a>
+                        alt="AI In App Development" width="370" height="208" loading="lazy" /></a>
                   </figure>
                 </div>
                 <div class="lower-content">
@@ -1159,7 +1127,7 @@
                 <div class="image-box">
                   <figure class="image">
                     <a href="blog/banking-and-big-data.html"><img src="/assets/images/news/blog_big_data.webp"
-                        alt="Banking and Big Data" loading="lazy" /></a>
+                        alt="Banking and Big Data" width="370" height="208" loading="lazy" /></a>
                   </figure>
                 </div>
                 <div class="lower-content">
@@ -1190,7 +1158,7 @@
                 <div class="image-box">
                   <figure class="image">
                     <a href="blog/the-rise-of-digital-banks.html"><img src="/assets/images/news/blog-3.webp"
-                        alt="The rise of the digital banks" loading="lazy" /></a>
+                        alt="The rise of the digital banks" width="370" height="232" loading="lazy" /></a>
                   </figure>
                 </div>
                 <div class="lower-content">
@@ -1222,6 +1190,7 @@
       </div>
     </section>
     <!-- blog-section end -->
+    </main>
     <!-- main-footer -->
 <section class="main-footer style-three">
   <div class="shape">
@@ -1234,11 +1203,20 @@
     <div class="footer-top">
       <div class="top-inner">
         <figure class="footer-logo">
-          <a href="/index.html"><img src="/assets/images/logo.webp" alt="" loading="lazy" /></a>
+          <a href="/index.html"><img src="/assets/images/logo-172.webp"
+              srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w"
+              sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75"
+              loading="lazy" /></a>
         </figure>
         <ul class="social-links clearfix">
           <li>
-            <a href="https://www.linkedin.com/company/pt-midas-daya-teknologi/"><i class="icon-3"></i></a>
+            <a href="https://www.linkedin.com/company/pt-midas-daya-teknologi/" target="_blank"
+              rel="noopener noreferrer" aria-label="Midas LinkedIn Profile"><i class="icon-3"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/growwithmidas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank" rel="noopener noreferrer" aria-label="Midas Instagram Profile"><i
+                class="fab fa-instagram"></i></a>
           </li>
         </ul>
       </div>
@@ -1254,13 +1232,15 @@
               <!-- <p>This is due to their excellent service, competitive pricing and customer support.
                                 It’s throughly refresing to get such a personal touch.</p> -->
               <ul class="info clearfix">
-                <!-- <li><i class="icon-2"></i><a href="tel:+88123456987231">+88 12345 6987 231</a>
-                                </li>
-                                <li><i class="icon-19"></i><a href="mailto:info@example.com">info@example.com</a></li> -->
+                <li><i class="icon-2"></i><a href="tel:+622140642341">(+6221) 40642341</a>
+                </li>
+                <!-- <li><i class="icon-19"></i><a href="mailto:info@example.com">info@example.com</a></li> -->
                 <li>
-                  <i class="icon-23"></i>PT Midas Daya Teknologi<br />Gd.
-                  Setiabudi 2, Lt.2 Suite No.203A,<br />JL. H.R. Rasuna Said
-                  Kav.62, Kuningan, Setiabudi, Jakarta Selatan 12940, Indonesia.
+                  <i class="icon-23" style="background: #0d7dfc;"></i>PT Midas Daya Teknologi<br />Lippo Kuningan
+                  Building, 18th Floor, Unit
+                  F2,<br />
+                  JI. H. R. Rasuna Said Kav,
+                  B-12, Jakarta Selatan 12940, Indonesia.
                 </li>
               </ul>
             </div>
@@ -1347,6 +1327,556 @@
 </section>
 <!-- main-footer end -->
 
+<!-- Midas Chatbot Widget -->
+<style>
+  /* Chatbot Styles */
+  #chat-toggle {
+    position: fixed;
+    bottom: 38px;
+    right: 38px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, background 0.2s, opacity 0.3s ease;
+    z-index: 9999;
+  }
+
+  #chat-toggle:hover {
+    transform: scale(1.07);
+    background: #ffffff;
+  }
+
+  #chat-toggle:active {
+    transform: scale(0.96);
+  }
+
+  #chat-toggle .icon-chat,
+  #chat-toggle .icon-close {
+    transition: opacity 0.2s, transform 0.25s;
+  }
+
+  #chat-toggle .icon-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+    position: absolute;
+  }
+
+  #chat-toggle.open .icon-chat {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+  }
+
+  #chat-toggle.open .icon-close {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  #chat-panel {
+    position: fixed;
+    bottom: 110px;
+    right: 38px;
+    width: 390px;
+    max-height: 580px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9998;
+    transform: translateY(24px) scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.22s ease;
+    color: #52565b;
+  }
+
+  #chat-panel.open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .chat-header {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .header-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+    border: 1px solid #eee;
+  }
+
+  .header-info h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e1e1e;
+    margin-bottom: 2px;
+  }
+
+  .header-info span {
+    font-size: 11px;
+    color: #677289;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .online-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    display: inline-block;
+  }
+
+  .header-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #52565b;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    line-height: 1;
+  }
+
+  .header-close:hover {
+    color: #ff6a00;
+    background: #f0f0f0;
+  }
+
+  #chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-behavior: smooth;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  #chat-messages::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  #chat-messages::-webkit-scrollbar-thumb {
+    background: #e5e5e5;
+    border-radius: 4px;
+  }
+
+  .msg {
+    display: flex;
+    max-width: 90%;
+    animation: fadeUp 0.22s ease;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .msg.user {
+    align-self: flex-end;
+  }
+
+  .msg.bot {
+    align-self: flex-start;
+  }
+
+  .msg-bubble {
+    padding: 10px 14px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    word-break: break-word;
+    border-radius: 16px;
+  }
+
+  .msg.bot .msg-bubble {
+    background: #f1f3f5;
+    color: #52565b;
+    border: 1px solid #e9ecef;
+    border-bottom-left-radius: 4px;
+  }
+
+  .msg.user .msg-bubble {
+    background: #ff6a00;
+    color: #fff;
+    border-bottom-right-radius: 4px;
+  }
+
+  .typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 12px 14px;
+    background: #f1f3f5;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+  }
+
+  .typing-indicator span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #adb5bd;
+    animation: bounce 1.2s infinite;
+  }
+
+  .typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes bounce {
+
+    0%,
+    60%,
+    100% {
+      transform: translateY(0);
+    }
+
+    30% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 16px 10px;
+  }
+
+  .suggestion-chip {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 5px 11px;
+    font-size: 12px;
+    color: #677289;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    transition: all 0.15s;
+  }
+
+  .suggestion-chip:hover {
+    border-color: #ff6a00;
+    color: #ff6a00;
+    background: #fffcf5;
+  }
+
+  .chat-footer {
+    padding: 10px 12px;
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    flex-shrink: 0;
+    background: #ffffff;
+  }
+
+  #chat-input {
+    flex: 1;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 10px 13px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 13.5px;
+    color: #52565b;
+    resize: none;
+    outline: none;
+    max-height: 100px;
+    line-height: 1.45;
+    transition: border-color 0.15s;
+    overflow-y: auto;
+  }
+
+  #chat-input:focus {
+    border-color: #ff6a00;
+    background: #fff;
+  }
+
+  #chat-input::placeholder {
+    color: #adb5bd;
+  }
+
+  #send-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #ff6a00;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, transform 0.1s;
+  }
+
+  #send-btn:hover {
+    background: #e55f00;
+  }
+
+  #send-btn:active {
+    transform: scale(0.93);
+  }
+
+  #send-btn:disabled {
+    background: #e9ecef;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 440px) {
+    #chat-panel {
+      width: calc(100vw - 20px);
+      right: 10px;
+      bottom: 108px;
+    }
+  }
+</style>
+
+<button id="chat-toggle" aria-label="Open chat">
+  <img class="icon-chat" src="/assets/images/icons/chat-icon-64.webp" srcset="/assets/images/icons/chat-icon-64.webp 1x, /assets/images/icons/chat-icon-128.webp 2x" width="28" height="28"
+    alt="Chat" style="display:block;" />
+  <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+    stroke="#52565b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+</button>
+
+<div id="chat-panel" role="dialog" aria-label="Midas Assistant">
+  <div class="chat-header">
+    <div class="header-avatar">
+      <img src="/assets/images/icons/chat-icon-64.webp" srcset="/assets/images/icons/chat-icon-64.webp 1x, /assets/images/icons/chat-icon-128.webp 2x" width="24" height="24"
+        alt="Midas Assistant" />
+    </div>
+    <div class="header-info">
+      <h3>Midas Assistant</h3>
+      <span><span class="online-dot">
+    </div>
+    <button class="header-close" id="chat-close" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="chat-messages"></div>
+  <div class="suggestions" id="suggestions"></div>
+
+  <div class="chat-footer">
+    <textarea id="chat-input" rows="1" placeholder="Ask about Midas Teknologi…"></textarea>
+    <button id="send-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff"
+        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13" />
+        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const PROXY_URL = '/ai-proxy.php';
+    const WELCOME_MSG = "Hi! 👋 I'm the Midas Assistant. Ask me anything about Midas Teknologi — our solutions, services, AI offerings, office locations, or how to get in touch!";
+    const SUGGESTIONS = [
+      "What does Midas do?",
+      "What solutions do you offer?",
+      "Where are your offices?",
+    ];
+
+    const excludedPages = ['error.html', 'coming-soon.html'];
+    const path = window.location.pathname;
+    const isExcluded = excludedPages.some(page => path.includes(page)) || path.includes('/admin/');
+
+    if (isExcluded) {
+      document.getElementById('chat-toggle').style.display = 'none';
+      document.getElementById('chat-panel').style.display = 'none';
+      return;
+    }
+
+    let history = [];
+    let isTyping = false;
+
+    const toggle = document.getElementById("chat-toggle");
+    const panel = document.getElementById("chat-panel");
+    const closeBtn = document.getElementById("chat-close");
+    const messagesEl = document.getElementById("chat-messages");
+    const suggestEl = document.getElementById("suggestions");
+    const input = document.getElementById("chat-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    /* Suggestion chips */
+    suggestEl.innerHTML = SUGGESTIONS.map(s =>
+      `<button class="suggestion-chip">${s}</button>`
+    ).join("");
+    suggestEl.querySelectorAll(".suggestion-chip").forEach(btn => {
+      btn.addEventListener("click", () => {
+        input.value = btn.textContent;
+        suggestEl.style.display = "none";
+        sendMessage();
+      });
+    });
+
+    /* Open / close */
+    toggle.addEventListener("click", () =>
+      panel.classList.contains("open") ? closePanel() : openPanel()
+    );
+    closeBtn.addEventListener("click", closePanel);
+    function openPanel() { panel.classList.add("open"); toggle.classList.add("open"); input.focus(); }
+    function closePanel() { panel.classList.remove("open"); toggle.classList.remove("open"); }
+
+    /* Scroll behavior: hide while scrolling, show on stop */
+    let isScrolling;
+    window.addEventListener('scroll', () => {
+      if (!panel.classList.contains("open")) {
+        toggle.style.opacity = '0';
+        toggle.style.pointerEvents = 'none';
+
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          toggle.style.opacity = '1';
+          toggle.style.pointerEvents = 'all';
+        }, 250);
+      }
+    }, { passive: true });
+
+    /* Auto-grow textarea */
+    input.addEventListener("input", () => {
+      input.style.height = "auto";
+      input.style.height = Math.min(input.scrollHeight, 100) + "px";
+    });
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+    });
+    sendBtn.addEventListener("click", sendMessage);
+
+    /* Add message bubble */
+    function addMessage(role, text) {
+      const wrap = document.createElement("div");
+      wrap.className = "msg " + role;
+      const bubble = document.createElement("div");
+      bubble.className = "msg-bubble";
+
+      // Escape HTML to prevent XSS
+      let html = text.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+      // Convert URLs to hyperlinks
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      html = html.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
+
+      // Convert Email IDs to mailto links
+      const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+      html = html.replace(emailRegex, '<a href="mailto:$1" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
+
+      bubble.innerHTML = html;
+      wrap.appendChild(bubble);
+      messagesEl.appendChild(wrap);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    /* Typing indicator */
+    function showTyping() {
+      const wrap = document.createElement("div");
+      wrap.className = "msg bot"; wrap.id = "typing-wrap";
+      wrap.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
+      messagesEl.appendChild(wrap);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+    function hideTyping() { const el = document.getElementById("typing-wrap"); if (el) el.remove(); }
+
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text || isTyping) return;
+
+      suggestEl.style.display = "none";
+      input.value = ""; input.style.height = "auto";
+      addMessage("user", text);
+
+      history.push({ role: "user", content: text });
+      const recentHistory = history.slice(-4);
+
+      isTyping = true; sendBtn.disabled = true;
+      showTyping();
+
+      try {
+        const res = await fetch(PROXY_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ messages: recentHistory })
+        });
+
+        const data = await res.json();
+        hideTyping();
+
+        if (!res.ok) {
+          addMessage("bot", "⚠️ " + (data?.error?.message || data?.error || "Something went wrong."));
+          history.pop(); return;
+        }
+
+        const reply = data.choices[0].message.content;
+        addMessage("bot", reply);
+        history.push({ role: "assistant", content: reply });
+
+      } catch {
+        hideTyping();
+        addMessage("bot", "⚠️ Network error. Please check your connection.");
+        history.pop();
+      } finally {
+        isTyping = false; sendBtn.disabled = false; input.focus();
+      }
+    }
+
+    addMessage("bot", WELCOME_MSG);
+  })();
+</script>
+
     <!--Scroll to top-->
     <div class="scroll-to-top">
       <div>
@@ -1362,7 +1892,10 @@
   </div>
 
   <!-- jequery plugins -->
+  <script defer src="/assets/js/clients.js"></script>
   <script defer src="/assets/js/jquery.js"></script>
+  <script defer src="/assets/js/appear.js"></script>
+  <script defer src="/assets/js/wow.js"></script>
   <script defer src="/assets/js/popper.min.js"></script>
   <script defer src="/assets/js/bootstrap.min.js"></script>
   <script defer src="/assets/js/owl.js"></script>

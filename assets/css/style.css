@@ -1744,6 +1744,7 @@ div#mCSB_1_container {
   width: auto;
   max-width: 100%;
   margin: 0 auto;
+  object-fit: contain;
 }
 .about-section {
   position: relative;
@@ -6893,6 +6894,9 @@ div#mCSB_1_container {
 .client-card img {
   max-width: 90%;
   max-height: 50px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   transition: all 0.3s ease;
 }
 @media (max-width: 768px) {
@@ -8894,7 +8898,7 @@ div#mCSB_1_container {
 .contact-section p.sub {
   font-size: 0.95rem;
   margin-bottom: 18px;
-  max-width: 360px;
+  max-width: 100%;
 }
 .contact-info a,
 .contact-info span {
@@ -8907,8 +8911,6 @@ div#mCSB_1_container {
   text-decoration: underline;
 }
 .hq-block {
-  margin-top: 28px;
-  padding: 20px 22px;
   border-radius: var(--radius);
 }
 .hq-block .hq-label {

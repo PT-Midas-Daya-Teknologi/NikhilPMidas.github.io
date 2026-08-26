@@ -1,74 +1,515 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-  <title>Loans Management System - Midas Teknologi</title>
+    <title>Loans Management System - Midas Teknologi</title>
 
-  <!-- Fav Icon -->
-  <link rel="preload" href="/assets/fonts/ubuntu/ubuntu-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/ubuntu/ubuntu-bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp" />
+    <!-- Fav Icon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
 
-  <!-- Optimized Bundle (Non-blocking) -->
-  <link rel="preload" href="/assets/css/bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="/assets/css/bundle.min.css">
-  </noscript>
-  <style>
-    .diagram {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+    <!-- Stylesheets -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/animate.min.css" rel="stylesheet">
+<link href="/assets/css/font-awesome-all.min.css" rel="stylesheet">
+<link href="/assets/css/flaticon.min.css" rel="stylesheet">
+<link href="/assets/css/owl.min.css" rel="stylesheet">
+<link href="/assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="/assets/css/elpath.min.css" rel="stylesheet">
+<link href="/assets/css/color.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.min.css" rel="stylesheet">
+<link href="/assets/css/style.min.css" rel="stylesheet">
+<link href="/assets/css/responsive.min.css" rel="stylesheet">
 
-    .diagram p {
-      font-size: 12px;
-      font-family: 'Ubuntu', sans-serif;
-      justify-content: center;
-    }
-  </style>
+
+    <style>
+        :root {
+            --color-border-tertiary: #edf2f7;
+            --color-text-tertiary: var(--dark-gray);
+            --color-text-primary: var(--deep-black);
+            --color-text-secondary: var(--text-color);
+            --border-radius-lg: var(--radius);
+            --color-background-primary: var(--white);
+            --color-background-secondary: var(--navy-light);
+            --color-border-secondary: #e2e8f0;
+            --color-text-success: #1D9E75;
+            --color-text-info: var(--primary-blue);
+            --color-text-warning: var(--primary-orange);
+            --font-sans: 'Ubuntu', sans-serif;
+            --primary-midas: var(--primary-orange);
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif !important;
+            color: var(--text-color);
+            font-size: clamp(15px, 1.1vw, 17px);
+        }
+
+        .page {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background-color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('/assets/images/banner/los_banner.webp');
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-section .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+        }
+
+        .full-section {
+            padding: clamp(20px, 8vw, 40px) clamp(20px, 5vw, 40px);
+            width: 100%;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .full-section h2 {
+            font-size: clamp(28px, 4.5vw, 40px);
+            font-weight: 700;
+            color: var(--corporate-navy);
+            line-height: 1.2;
+        }
+
+        .full-section h3 {
+            font-size: clamp(22px, 3.5vw, 32px);
+            font-weight: 700;
+            color: var(--corporate-navy);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .full-section h4 {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .full-section p {
+            font-size: clamp(16px, 1.2vw, 18px);
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .full-section.light-bg {
+            background-color: #f3f3f3;
+        }
+
+        .eyebrow {
+            font-size: clamp(11px, 1.5vw, 13px);
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--primary-midas);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Adapted LMS Layout Styles */
+        .para-section {
+            padding: clamp(60px, 8vw, 40px) clamp(20px, 5vw, 40px) clamp(60px, 8vw, 10px) clamp(20px, 5vw, 40px);
+            background-color: white;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+
+        .para-section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .para-section .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .para-section h2 {
+            font-size: clamp(24px, 4vw, 36px);
+            color: var(--corporate-navy);
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .para-section h4 {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--corporate-navy);
+            margin-bottom: 15px;
+        }
+
+        .para-section p {
+            font-size: clamp(15px, 1.2vw, 17px);
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        #p1 {
+            margin-bottom: 15px;
+        }
+
+        .feat-section {
+            padding: clamp(10px, 5vw, 40px) clamp(20px, 5vw, 40px) clamp(60px, 8vw, 40px) clamp(20px, 5vw, 40px);
+            background-color: #ffffff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+
+        #fs1,
+        #fs3 {
+            background-color: #fbfbfb;
+        }
+
+        .feat-section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feat-section .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feat-section-header {
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .feat-section-header h3 {
+            font-size: clamp(24px, 4vw, 32px);
+            color: var(--corporate-navy);
+            margin-bottom: 15px;
+        }
+
+        .feat-section-header h4 {
+            font-size: clamp(20px, 3vw, 28px);
+            color: var(--corporate-navy);
+            margin-bottom: 10px;
+        }
+
+        .feat-section-header p {
+            font-size: clamp(15px, 1.2vw, 17px);
+            color: var(--text-color);
+            max-width: 800px;
+        }
+
+        .svg-block {
+            background: white;
+            border: 1px solid #edf2f7;
+            border-radius: 24px;
+            padding: clamp(20px, 5vw, 40px);
+            margin-bottom: 50px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+            overflow-x: auto;
+        }
+
+        .svg-block svg,
+        .svg-block img {
+            width: 100%;
+            display: block;
+        }
+
+        .image-box {
+            margin-bottom: 50px;
+        }
+
+        .image-box img {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feat-card {
+            background: #ffffff;
+            border: 1px solid #f0f0f0;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feat-card:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .feat-card h5 {
+            font-size: clamp(15px, 1.5vw, 18px);
+            font-weight: 700;
+            color: var(--corporate-navy);
+            margin-bottom: 15px;
+        }
+
+        .feat-card p {
+            font-size: clamp(13px, 1.1vw, 15px);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .sub-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sub-list li {
+            position: relative;
+            padding-left: 20px;
+            font-size: clamp(13px, 1.1vw, 15px);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .sub-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-orange);
+            border-radius: 50%;
+        }
+
+        /* Product Showcase Section */
+        .product-showcase {
+            padding: 80px clamp(20px, 5vw, 40px);
+            background: #fbfbfb;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f0f0f0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-orange);
+        }
+
+        .product-card-img {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-card-body {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-card-body h5 {
+            font-size: clamp(16px, 1.5vw, 18px);
+            font-weight: 700;
+            color: var(--corporate-navy);
+            margin-bottom: 0;
+            transition: color 0.3s ease;
+        }
+
+        .product-card:hover .product-card-body h5 {
+            color: var(--primary-orange);
+        }
+
+        .btn-orange {
+            background-color: var(--primary-orange) !important;
+            color: #ffffff !important;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(255, 147, 96, 0.2);
+            border: none;
+        }
+
+        .btn-orange:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 147, 96, 0.3);
+        }
+
+        /* Responsive Settings */
+        @media (max-width: 1024px) {
+            .cards-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .feat-section-header {
+                text-align: center;
+            }
+
+            .feat-section-header p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cards-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+
+            .full-section,
+            .para-section,
+            .feat-section,
+            .product-showcase {
+                padding: 20px 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feat-section-header,
+            .svg-block,
+            .cards-row {
+                margin-bottom: 10%;
+            }
+
+            .cards-row {
+                gap: 10px;
+            }
+        }
+
+        /* Custom Gap for Conclusion children */
+        #conclusion .section-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+    </style>
+
 </head>
 
 <body>
-  <div class="boxed_wrapper">
-    <!-- preloader -->
-    <div class="loader-wrap">
-      <div class="preloader">
-        <div class="preloader-close">x</div>
-        <div id="handle-preloader" class="handle-preloader">
-          <div class="animation-preloader">
-            <div class="spinner"></div>
-            <div class="txt-loading">
-              <span data-text-preloader="m" class="letters-loading"> m </span>
-              <span data-text-preloader="i" class="letters-loading"> i </span>
-              <span data-text-preloader="d" class="letters-loading"> d </span>
-              <span data-text-preloader="a" class="letters-loading"> a </span>
-              <span data-text-preloader="s" class="letters-loading"> s </span>
-            </div>
-          </div>
+    <div class="boxed_wrapper">
+
+        <!-- preloader -->
+<div class="loader-wrap">
+  <div class="preloader">
+    <div class="preloader-close">x</div>
+    <div id="handle-preloader" class="handle-preloader">
+      <div class="animation-preloader">
+        <div class="spinner"></div>
+        <div class="txt-loading">
+          <span data-text-preloader="m" class="letters-loading"> m </span>
+          <span data-text-preloader="i" class="letters-loading"> i </span>
+          <span data-text-preloader="d" class="letters-loading"> d </span>
+          <span data-text-preloader="a" class="letters-loading"> a </span>
+          <span data-text-preloader="s" class="letters-loading"> s </span>
         </div>
       </div>
     </div>
-    <!-- preloader end -->
-    <!-- main header -->
+  </div>
+</div>
+<!-- preloader end -->
+
+        <!-- main header -->
 <header class="main-header">
   <!-- header-lower -->
   <div class="header-lower">
     <div class="outer-box">
       <div class="logo-box">
         <figure class="logo">
-          <a href="/index.html"><img src="/assets/images/logo.webp" alt="" loading="lazy" /></a>
+          <a href="/index.html"><img src="/assets/images/logo-172.webp" srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75" loading="eager" fetchpriority="high" /></a>
         </figure>
       </div>
       <div class="menu-area clearfix menu-center">
         <!--Mobile Navigation Toggler-->
-        <div class="mobile-nav-toggler">
+        <div class="mobile-nav-toggler" role="button" aria-label="Toggle navigation menu">
           <i class="icon-bar"></i>
           <i class="icon-bar"></i>
           <i class="icon-bar"></i>
@@ -99,8 +540,10 @@
                   </li>
                   <li><a href="/products/va.html">Virtual Account</a></li>
                   <li><a href="/products/microfinance-core.html">Lightweight Core Banking</a></li>
+                  <li><a href="/products/cloud-core-banking.html">Cloud Core Banking</a></li>
                   <li><a href="/products/smart-token.html">Smart Token</a></li>
                   <li><a href="/products/nexus-id.html">NexusID</a></li>
+                  <li><a href="/products/liveness-detection.html">AI Liveness Detection</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -154,7 +597,7 @@
     <div class="outer-box">
       <div class="logo-box">
         <figure class="logo">
-          <a href="/index.html"><img src="/assets/images/logo.webp" alt="" loading="lazy" /></a>
+          <a href="/index.html"><img src="/assets/images/logo-172.webp" srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75" loading="eager" /></a>
         </figure>
       </div>
       <div class="menu-area clearfix" style="padding-right: 10%">
@@ -166,15 +609,15 @@
   </div>
 </header>
 <!-- main-header end -->
-    <!-- Mobile Menu  -->
+        <!-- Mobile Menu  -->
 <div class="mobile-menu">
   <div class="menu-backdrop"></div>
-  <div class="close-btn"><i class="fas fa-times"></i></div>
+  <div class="close-btn" role="button" aria-label="Close menu"><i class="fas fa-times"></i></div>
 
   <nav class="menu-box">
     <div class="nav-logo">
       <a href="/index.html"
-        ><img src="/assets/images/logo.webp" alt="" title=""
+        ><img src="/assets/images/logo-344.webp" srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 250px" alt="Midas Teknologi Logo" width="250" height="109"
        loading="lazy" /></a>
     </div>
     <div class="menu-outer">
@@ -184,30 +627,28 @@
       <h4>Contact Info</h4>
       <ul>
         <li>
-          PT Midas Daya Teknologi<br />Gd. Setiabudi 2, Lt.2 Suite No.203A,<br />JL.
-          H.R. Rasuna Said Kav.62, Kuningan, Setiabudi, Jakarta Selatan 12940,
-          Indonesia.
+          PT Midas Daya Teknologi<br />Lippo Kuningan Building, 18th Floor, Unit F2,<br />JI. H. R. Rasuna Said Kav, B-12, Jakarta Selatan 12940, Indonesia.
         </li>
-        <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-        <li><a href="mailto:info@example.com">info@example.com</a></li>
+        <li><a href="tel:+622140642341">(+6221) 40642341</a></li>
+        <li><a href="mailto:sales@midasteknologi.com">sales@midasteknologi.com</a></li>
       </ul>
     </div>
     <div class="social-links">
       <ul class="clearfix">
         <li>
-          <a href="/index.html"><span class="fab fa-twitter"></span></a>
+          <a href="/index.html" aria-label="Twitter"><span class="fab fa-twitter"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-facebook-square"></span></a>
+          <a href="/index.html" aria-label="Facebook"><span class="fab fa-facebook-square"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-pinterest-p"></span></a>
+          <a href="/index.html" aria-label="Pinterest"><span class="fab fa-pinterest-p"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-instagram"></span></a>
+          <a href="/index.html" aria-label="Instagram"><span class="fab fa-instagram"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-youtube"></span></a>
+          <a href="/index.html" aria-label="YouTube"><span class="fab fa-youtube"></span></a>
         </li>
       </ul>
     </div>
@@ -216,495 +657,610 @@
 <!-- End Mobile Menu -->
 
 
-    <!-- Page Title -->
-    <section class="page-title centred">
-      <div class="outer-container">
-        <div class="bg-layer parallax-bg" data-parallax='{"y": 100}'
-          style="background-image: url(../assets/images/banner/los_banner.webp);"></div>
-        <div class="auto-container">
-          <div class="content-box">
-            <h1>Loans Management System</h1>
-            <ul class="bread-crumb clearfix">
-              <li><a href="../index.html">Home</a></li>
-              <li>Products</li>
-              <li>Loans Management System</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="page">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Loans Management System</h1>
+                </div>
+            </section>
 
-    <!-- service-details -->
-    <section class="service-details">
-      <div class="auto-container">
-        <div class="row clearfix">
-          <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-            <div class="service-sidebar">
-              <div class="category-widget">
-                <h5>Our Products</h5>
-                <ul class="service-list clearfix">
-                  <li><a href="omnichannel.html">Omni Channel</a></li>
-                  <li><a href="loans-management-system.html" class="current">Loans Management System</a></li>
-                  <li><a href="payment-hub.html">Payment Hub</a></li>
-                  <li><a href="scf.html">Supply Chain Finance</a></li>
-                  <li><a href="los.html">Loan Origination System</a></li>
-                  <li><a href="va.html">Virtual Account</a></li>
-                  <li><a href="microfinance-core.html">Lightweight Core Banking</a></li>
-                  <li><a href="smart-token.html">Smart Token</a></li>
-                  <li><a href="nexus-id.html">NexusID</a></li>
-                </ul>
-              </div>
+            <!--PARA 1: Intro (no list → full width) -->
+            <div class="para-section" id="p1">
+                <div class="section-container">
+                    <div class="eyebrow">Overview</div>
+                    <h2>End-to-end digital loan lifecycle management for banks, NBFCs, and lending institutions — from
+                        disbursement to closure on a single intelligent platform.</h2>
+                    <h4>Transform Your Loan Portfolio with an Intelligent, End-to-End Loans Management System</h4>
+                    <p id="p1">Managing a loan portfolio is far more than approving applications.
+                        From the moment a loan is
+                        disbursed to the day it is closed, every stage — repayment scheduling, covenant monitoring,
+                        collections, restructuring, and regulatory reporting — demands precision, speed, and compliance.
+                        Our Loans Management System (LMS) is purpose-built to handle every one of these stages on a
+                        single, unified platform, giving lending institutions real-time visibility and full control over
+                        their entire loan book.</p>
+                    <h4>The Complete Loan Lifecycle on One Platform</h4>
+                    <p>Unlike core banking systems that manage disbursement and basic repayment in isolation, our LMS is
+                        designed specifically for the complexity of loan servicing. Whether you manage retail mortgages,
+                        corporate term loans, SME working capital facilities, or agricultural micro-loans, our platform
+                        handles every product type with product-specific rule engines, amortisation schedules, and
+                        regulatory configurations built in.</p>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-            <div class="service-details-content">
-              <div class="inner-box">
-                <div class="upper-box">
-                  <h2>End-to-end digital loan lifecycle management for banks, NBFCs, and lending institutions — from
-                    disbursement to closure on a single intelligent platform.</h2>
-                  <h4>Transform Your Loan Portfolio with an Intelligent, End-to-End Loans Management System</h4>
-                  <p>
-                    Managing a loan portfolio is far more than approving applications. From the moment a loan is
-                    disbursed to the day it is closed, every stage — repayment scheduling, covenant monitoring,
-                    collections, restructuring, and regulatory reporting — demands precision, speed, and compliance.
-                    Our Loans Management System (LMS) is purpose-built to handle every one of these stages on a
-                    single, unified platform, giving lending institutions real-time visibility and full control
-                    over their entire loan book.
-                  </p>
+
+            <!-- FEAT SECTION 1: Key Differentiators → Title + SVG1 + 6 cards (2 rows of 3) -->
+            <div class="feat-section" id="fs1">
+                <div class="section-container">
+                    <div class="feat-section-header">
+                        <div class="eyebrow">Key Differentiators</div>
+                        <h4>Intelligent, Configurable, and Compliance-Ready</h4>
+                    </div>
+
+                    <div class="svg-block">
+                        <svg viewBox="0 0 880 160" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+                                    orient="auto-start-reverse">
+                                    <path d="M1 1L9 5L1 9" fill="none" stroke="#1a3c6e" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </marker>
+                                <marker id="ahw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
+                                    orient="auto-start-reverse">
+                                    <path d="M1 1L9 5L1 9" fill="none" stroke="#f59e0b" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </marker>
+                            </defs>
+                            <rect x="10" y="44" width="140" height="62" rx="8" fill="#dbeafe" stroke="#3b82f6"
+                                stroke-width="1.5" />
+                            <text x="80" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Disbursement</text>
+                            <text x="80" y="88" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">Funding &amp; account</text>
+                            <text x="80" y="101" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">activation</text>
+                            <rect x="188" y="44" width="140" height="62" rx="8" fill="#dbeafe" stroke="#3b82f6"
+                                stroke-width="1.5" />
+                            <text x="258" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Repayment</text>
+                            <text x="258" y="88" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">EMI schedules</text>
+                            <text x="258" y="101" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">&amp; collections</text>
+                            <rect x="366" y="44" width="140" height="62" rx="8" fill="#dbeafe" stroke="#3b82f6"
+                                stroke-width="1.5" />
+                            <text x="436" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Monitoring</text>
+                            <text x="436" y="88" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">Covenant alerts</text>
+                            <text x="436" y="101" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">&amp; NPA tracking</text>
+                            <rect x="544" y="44" width="140" height="62" rx="8" fill="#fef9c3" stroke="#ca8a04"
+                                stroke-width="1.5" />
+                            <text x="614" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e"
+                                font-family="Segoe UI,Arial">Restructuring</text>
+                            <text x="614" y="88" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">Rescheduling &amp;</text>
+                            <text x="614" y="101" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">waiver workflows</text>
+                            <rect x="722" y="44" width="140" height="62" rx="8" fill="#dcfce7" stroke="#16a34a"
+                                stroke-width="1.5" />
+                            <text x="792" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#14532d"
+                                font-family="Segoe UI,Arial">Closure</text>
+                            <text x="792" y="88" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">NOC, lien release</text>
+                            <text x="792" y="101" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">&amp; security return</text>
+                            <line x1="150" y1="75" x2="186" y2="75" stroke="#1a3c6e" stroke-width="1.5"
+                                marker-end="url(#ah)" />
+                            <line x1="328" y1="75" x2="364" y2="75" stroke="#1a3c6e" stroke-width="1.5"
+                                marker-end="url(#ah)" />
+                            <line x1="506" y1="75" x2="542" y2="75" stroke="#1a3c6e" stroke-width="1.5"
+                                marker-end="url(#ah)" />
+                            <line x1="684" y1="75" x2="720" y2="75" stroke="#1a3c6e" stroke-width="1.5"
+                                marker-end="url(#ah)" />
+                            <path d="M544 106 Q436 148 328 106" fill="none" stroke="#f59e0b" stroke-width="1.2"
+                                stroke-dasharray="5 3" marker-end="url(#ahw)" />
+                            <text x="436" y="148" text-anchor="middle" font-size="10" fill="#b45309"
+                                font-family="Segoe UI,Arial">Restructure / reschedule loop</text>
+                        </svg>
+                        <div class="svg-caption">Complete loan lifecycle on a single platform — with restructuring
+                            feedback loops built in</div>
+                    </div>
+
+                    <div class="cards-row">
+                        <div class="feat-card">
+                            <h5>Multi-Product Loan Engine</h5>
+                            <p>Retail, corporate, SME, mortgage, auto,
+                                personal, overdraft, trade finance, and agricultural loans — each with its own product
+                                definition, amortisation schedule, and fee structure, managed within a unified system.
+                            </p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Flexible Repayment Schedules</h5>
+                            <p>EMI, bullet, balloon, reducing balance,
+                                flat rate, step-up, and step-down schedules. Automatic recalculation on prepayments,
+                                waivers, rate revisions, or moratorium events with full audit trail.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>AI-Powered Early Warning</h5>
+                            <p>Machine learning models continuously analyse
+                                repayment patterns, bureau data, and market signals to generate early warning scores,
+                                NPA predictions, and collections prioritisation — enabling proactive relationship
+                                management before accounts become delinquent.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Automated Collections Workflows</h5>
+                            <p>Rule-based delinquency classification,
+                                dunning automation, NPA provisioning, and recovery tracking reduce manual intervention
+                                and accelerate resolution cycles.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Restructuring and Waivers</h5>
+                            <p>Digital approval workflows for loan
+                                restructuring, moratorium, interest waiver, and rescheduling with configurable
+                                authority hierarchies, regulatory compliance, and full documentation management.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Covenant and Limit Monitoring</h5>
+                            <p>Configurable financial and non-financial
+                                covenant tracking with breach detection, escalation workflows, and real-time utilisation
+                                alerts for corporate and syndicated loan portfolios.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="content-inner mt_30">
-                  <h4>The Complete Loan Lifecycle on One Platform</h4>
-                  <p>
-                    Unlike core banking systems that manage disbursement and basic repayment in isolation, our LMS
-                    is designed specifically for the complexity of loan servicing. Whether you manage retail mortgages,
-                    corporate term loans, SME working capital facilities, or agricultural micro-loans, our platform
-                    handles every product type with product-specific rule engines, amortisation schedules, and
-                    regulatory configurations built in.
-                  </p>
-                </div>
-                <div class="diagram mt_40 mb_40">
-                  <svg width="100%" viewBox="0 0 880 160" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
-                        orient="auto-start-reverse">
-                        <path d="M1 1L9 5L1 9" fill="none" stroke="#1a3c6e" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </marker>
-                      <marker id="ahw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6"
-                        orient="auto-start-reverse">
-                        <path d="M1 1L9 5L1 9" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </marker>
-                    </defs>
-
-                    <!-- Stage 1: Disbursement -->
-                    <rect x="10" y="44" width="140" height="62" rx="8" fill="#dbeafe" stroke="#3b82f6"
-                      stroke-width="1.5" />
-                    <text x="80" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Disbursement</text>
-                    <text x="80" y="88" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">Funding &amp;
-                      account</text>
-                    <text x="80" y="101" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">activation</text>
-
-                    <!-- Stage 2: Repayment -->
-                    <rect x="188" y="44" width="140" height="62" rx="8" fill="#dbeafe" stroke="#3b82f6"
-                      stroke-width="1.5" />
-                    <text x="258" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Repayment</text>
-                    <text x="258" y="88" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">EMI
-                      schedules</text>
-                    <text x="258" y="101" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">&amp;
-                      collections</text>
-
-                    <!-- Stage 3: Monitoring -->
-                    <rect x="366" y="44" width="140" height="62" rx="8" fill="#dbeafe" stroke="#3b82f6"
-                      stroke-width="1.5" />
-                    <text x="436" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Monitoring</text>
-                    <text x="436" y="88" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">Covenant
-                      alerts</text>
-                    <text x="436" y="101" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">&amp; NPA
-                      tracking</text>
-
-                    <!-- Stage 4: Restructuring -->
-                    <rect x="544" y="44" width="140" height="62" rx="8" fill="#fef9c3" stroke="#ca8a04"
-                      stroke-width="1.5" />
-                    <text x="614" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e"
-                      font-family="Segoe UI,Arial">Restructuring</text>
-                    <text x="614" y="88" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">Rescheduling
-                      &amp;</text>
-                    <text x="614" y="101" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">waiver
-                      workflows</text>
-
-                    <!-- Stage 5: Closure -->
-                    <rect x="722" y="44" width="140" height="62" rx="8" fill="#dcfce7" stroke="#16a34a"
-                      stroke-width="1.5" />
-                    <text x="792" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#14532d"
-                      font-family="Segoe UI,Arial">Closure</text>
-                    <text x="792" y="88" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">NOC, lien
-                      release</text>
-                    <text x="792" y="101" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">&amp; security
-                      return</text>
-
-                    <!-- Forward arrows -->
-                    <line x1="150" y1="75" x2="186" y2="75" stroke="#1a3c6e" stroke-width="1.5" marker-end="url(#ah)" />
-                    <line x1="328" y1="75" x2="364" y2="75" stroke="#1a3c6e" stroke-width="1.5" marker-end="url(#ah)" />
-                    <line x1="506" y1="75" x2="542" y2="75" stroke="#1a3c6e" stroke-width="1.5" marker-end="url(#ah)" />
-                    <line x1="684" y1="75" x2="720" y2="75" stroke="#1a3c6e" stroke-width="1.5" marker-end="url(#ah)" />
-
-                    <!-- Restructuring feedback arc back to Repayment -->
-                    <path d="M544 106 Q436 148 328 106" fill="none" stroke="#f59e0b" stroke-width="1.2"
-                      stroke-dasharray="5 3" marker-end="url(#ahw)" />
-                    <text x="436" y="148" text-anchor="middle" font-size="10" fill="#b45309"
-                      font-family="Segoe UI,Arial">Restructure /
-                      reschedule loop</text>
-                  </svg>
-                  <p>Complete loan lifecycle on a single platform — with restructuring feedback
-                    loops built in</p>
-                </div>
-
-                <div class="content-inner mt_30">
-                  <h4>Key Differentiators: Intelligent, Configurable, and Compliance-Ready</h4>
-                  <ul class="list clearfix">
-                    <li>
-                      <strong>Multi-Product Loan Engine:</strong> Retail, corporate, SME, mortgage, auto,
-                      personal, overdraft, trade finance, and agricultural loans — each with its own product
-                      definition, amortisation schedule, and fee structure, managed within a unified system.
-                    </li>
-                    <li>
-                      <strong>Flexible Repayment Schedules:</strong> EMI, bullet, balloon, reducing balance,
-                      flat rate, step-up, and step-down schedules. Automatic recalculation on prepayments,
-                      waivers, rate revisions, or moratorium events with full audit trail.
-                    </li>
-                    <li>
-                      <strong>AI-Powered Early Warning:</strong> Machine learning models continuously analyse
-                      repayment patterns, bureau data, and market signals to generate early warning scores,
-                      NPA predictions, and collections prioritisation — enabling proactive relationship
-                      management before accounts become delinquent.
-                    </li>
-                    <li>
-                      <strong>Automated Collections Workflows:</strong> Rule-based delinquency classification,
-                      dunning automation, NPA provisioning, and recovery tracking reduce manual intervention
-                      and accelerate resolution cycles.
-                    </li>
-                    <li>
-                      <strong>Restructuring and Waivers:</strong> Digital approval workflows for loan
-                      restructuring, moratorium, interest waiver, and rescheduling with configurable
-                      authority hierarchies, regulatory compliance, and full documentation management.
-                    </li>
-                    <li>
-                      <strong>Covenant and Limit Monitoring:</strong> Configurable financial and non-financial
-                      covenant tracking with breach detection, escalation workflows, and real-time utilisation
-                      alerts for corporate and syndicated loan portfolios.
-                    </li>
-                  </ul>
-                </div>
-                <div class="diagram mt_40 mb_40">
-                  <svg width="100%" viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
-                        orient="auto-start-reverse">
-                        <path d="M1 1L9 5L1 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </marker>
-                      <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
-                        orient="auto-start-reverse">
-                        <path d="M1 1L9 5L1 9" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </marker>
-                    </defs>
-
-                    <!-- Row 1: External systems label -->
-                    <text x="440" y="22" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.5"
-                      fill="#94a3b8" font-family="Segoe UI,Arial">EXTERNAL SYSTEMS</text>
-
-                    <!-- External boxes -->
-                    <rect x="20" y="30" width="160" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
-                      stroke-width="1" />
-                    <text x="100" y="56" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b"
-                      font-family="Segoe UI,Arial">LOS / Origination</text>
-
-                    <rect x="200" y="30" width="160" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
-                      stroke-width="1" />
-                    <text x="280" y="56" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b"
-                      font-family="Segoe UI,Arial">Core Banking</text>
-
-                    <rect x="380" y="30" width="160" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
-                      stroke-width="1" />
-                    <text x="460" y="56" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b"
-                      font-family="Segoe UI,Arial">Payment Hub</text>
-
-                    <rect x="560" y="30" width="160" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
-                      stroke-width="1" />
-                    <text x="640" y="56" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b"
-                      font-family="Segoe UI,Arial">Credit Bureau</text>
-
-                    <rect x="740" y="30" width="120" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
-                      stroke-width="1" />
-                    <text x="800" y="56" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b"
-                      font-family="Segoe UI,Arial">KYC / eKYC</text>
-
-                    <!-- Down arrows to API layer -->
-                    <line x1="100" y1="74" x2="100" y2="106" stroke="#94a3b8" stroke-width="1" marker-end="url(#ah2)" />
-                    <line x1="280" y1="74" x2="280" y2="106" stroke="#94a3b8" stroke-width="1" marker-end="url(#ah2)" />
-                    <line x1="460" y1="74" x2="460" y2="106" stroke="#94a3b8" stroke-width="1" marker-end="url(#ah2)" />
-                    <line x1="640" y1="74" x2="640" y2="106" stroke="#94a3b8" stroke-width="1" marker-end="url(#ah2)" />
-                    <line x1="800" y1="74" x2="800" y2="106" stroke="#94a3b8" stroke-width="1" marker-end="url(#ah2)" />
-
-                    <!-- API Gateway layer -->
-                    <rect x="20" y="106" width="840" height="48" rx="8" fill="#dbeafe" stroke="#3b82f6"
-                      stroke-width="1.5" />
-                    <text x="440" y="134" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Open API Gateway — REST · ISO 20022 · SOAP · Webhooks</text>
-
-                    <!-- Down arrow -->
-                    <line x1="440" y1="154" x2="440" y2="176" stroke="#3b82f6" stroke-width="1.5"
-                      marker-end="url(#ah3)" />
-
-                    <!-- Core modules label -->
-                    <text x="440" y="194" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.5"
-                      fill="#1a3c6e" font-family="Segoe UI,Arial">CORE LMS MODULES</text>
-
-                    <!-- Module boxes -->
-                    <rect x="20" y="202" width="150" height="58" rx="8" fill="#eff6ff" stroke="#2563eb"
-                      stroke-width="1.5" />
-                    <text x="95" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Account</text>
-                    <text x="95" y="245" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">Servicing</text>
-
-                    <rect x="188" y="202" width="150" height="58" rx="8" fill="#eff6ff" stroke="#2563eb"
-                      stroke-width="1.5" />
-                    <text x="263" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Repayment</text>
-                    <text x="263" y="245" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">Engine</text>
-
-                    <rect x="356" y="202" width="150" height="58" rx="8" fill="#eff6ff" stroke="#2563eb"
-                      stroke-width="1.5" />
-                    <text x="431" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Collections</text>
-                    <text x="431" y="245" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">&amp;
-                      Recovery</text>
-
-                    <rect x="524" y="202" width="150" height="58" rx="8" fill="#eff6ff" stroke="#2563eb"
-                      stroke-width="1.5" />
-                    <text x="599" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Restructuring</text>
-                    <text x="599" y="245" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">&amp;
-                      Waivers</text>
-
-                    <rect x="692" y="202" width="168" height="58" rx="8" fill="#eff6ff" stroke="#2563eb"
-                      stroke-width="1.5" />
-                    <text x="776" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Regulatory</text>
-                    <text x="776" y="245" text-anchor="middle" font-size="11" fill="#475569"
-                      font-family="Segoe UI,Arial">Reporting</text>
-
-                    <!-- Down arrows to bottom layer -->
-                    <line x1="440" y1="260" x2="440" y2="282" stroke="#94a3b8" stroke-width="1"
-                      marker-end="url(#ah2)" />
-
-                    <!-- Data / AI layer -->
-                    <rect x="20" y="282" width="400" height="26" rx="6" fill="#fef9c3" stroke="#ca8a04"
-                      stroke-width="1" />
-                    <text x="220" y="299" text-anchor="middle" font-size="12" font-weight="600" fill="#92400e"
-                      font-family="Segoe UI,Arial">Oracle DB · Cloud-Native Data Layer</text>
-
-                    <rect x="440" y="282" width="420" height="26" rx="6" fill="#dcfce7" stroke="#16a34a"
-                      stroke-width="1" />
-                    <text x="650" y="299" text-anchor="middle" font-size="12" font-weight="600" fill="#14532d"
-                      font-family="Segoe UI,Arial">AI / ML Risk Engine &amp; Analytics</text>
-                  </svg>
-                  <p>Modular LMS architecture — open APIs connect to any origination, core
-                    banking, or payment
-                    system</p>
-                </div>
-
-                <div class="content-inner mt_30">
-                  <h3>Key Functionalities Empowering Lending Institutions</h3>
-                  <ul class="list clearfix">
-                    <li>
-                      <strong>Loan Disbursement and Account Management</strong>
-                      <ul class="list-style-one ml_20 mt_10">
-                        <li>Automated disbursement triggers linked to origination approval and documentation completion.
-                        </li>
-                        <li>Multi-currency, multi-branch, and multi-entity account management from a single platform.
-                        </li>
-                        <li>Flexible interest accrual — daily, monthly, or custom — with automated posting to the GL.
-                        </li>
-                        <li>Lien and collateral management with real-time valuation updates and release workflows.</li>
-                      </ul>
-                    </li>
-                    <li>
-                      <strong>Repayment Engine</strong>
-                      <ul class="list-style-one ml_20 mt_10">
-                        <li>Support for all amortisation types: reducing balance, flat rate, EMI, bullet, balloon, and
-                          hybrid.
-                        </li>
-                        <li>Automatic prepayment handling with rebate calculation and schedule regeneration.</li>
-                        <li>Penalty and late fee computation based on configurable product rules and regulatory caps.
-                        </li>
-                        <li>Straight-through payment processing via direct debit, RTGS, NEFT, mobile wallets, and UPI.
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <strong>Collections and NPA Management</strong>
-                      <ul class="list-style-one ml_20 mt_10">
-                        <li>Automated DPD (days past due) tracking and bucket-based delinquency classification.</li>
-                        <li>AI-prioritised collections queues routing the right accounts to the right agents.</li>
-                        <li>Digital dunning workflows — SMS, email, and push — configurable by DPD bucket and product.
-                        </li>
-                        <li>GNPA, NNPA, and provisioning calculations aligned to RBI / Basel III / IFRS 9 requirements.
-                        </li>
-                        <li>Legal recovery tracking, write-off workflows, and post-write-off collection management.</li>
-                      </ul>
-                    </li>
-                    <li><strong>Reporting and Regulatory Compliance</strong>
-                      <ul class="list-style-one ml_20 mt_10">
-                        <li>Pre-built report templates for central bank statutory returns, CRILC, and SMA
-                          classifications.
-                        </li>
-                        <li>IFRS 9 expected credit loss (ECL) provisioning engine with stage migration logic.</li>
-                        <li>Basel III credit risk weighted asset calculations and capital adequacy reporting.</li>
-                        <li>Stress testing scenarios with what-if analysis across the entire portfolio.</li>
-                        <li>Customisable MIS dashboards for portfolio health, concentration risk, and relationship
-                          profitability.</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <div class="diagram mt_40 mb_40">
-                  <svg width="100%" viewBox="0 0 880 230" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
-                        orient="auto-start-reverse">
-                        <path d="M1 1L9 5L1 9" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </marker>
-                      <marker id="ah5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
-                        orient="auto-start-reverse">
-                        <path d="M1 1L9 5L1 9" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </marker>
-                    </defs>
-
-                    <!-- Centre AI Engine -->
-                    <rect x="330" y="82" width="220" height="66" rx="10" fill="#0a1628" stroke="#1a3c6e"
-                      stroke-width="0" />
-                    <text x="440" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#fff"
-                      font-family="Segoe UI,Arial">AI / ML Risk Engine</text>
-                    <text x="440" y="128" text-anchor="middle" font-size="11" fill="#93c5fd"
-                      font-family="Segoe UI,Arial">Continuous
-                      portfolio learning</text>
-
-                    <!-- Input nodes (left) -->
-                    <rect x="20" y="20" width="190" height="46" rx="8" fill="#eff6ff" stroke="#3b82f6"
-                      stroke-width="1" />
-                    <text x="115" y="47" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Repayment history</text>
-
-                    <rect x="20" y="88" width="190" height="46" rx="8" fill="#eff6ff" stroke="#3b82f6"
-                      stroke-width="1" />
-                    <text x="115" y="115" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Bureau &amp; market data</text>
-
-                    <rect x="20" y="156" width="190" height="46" rx="8" fill="#eff6ff" stroke="#3b82f6"
-                      stroke-width="1" />
-                    <text x="115" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Transaction patterns</text>
-
-                    <!-- Output nodes (right) -->
-                    <rect x="670" y="20" width="190" height="46" rx="8" fill="#dcfce7" stroke="#16a34a"
-                      stroke-width="1" />
-                    <text x="765" y="47" text-anchor="middle" font-size="12" font-weight="600" fill="#14532d"
-                      font-family="Segoe UI,Arial">Early warning scores</text>
-
-                    <rect x="670" y="88" width="190" height="46" rx="8" fill="#dcfce7" stroke="#16a34a"
-                      stroke-width="1" />
-                    <text x="765" y="115" text-anchor="middle" font-size="12" font-weight="600" fill="#14532d"
-                      font-family="Segoe UI,Arial">NPA prediction</text>
-
-                    <rect x="670" y="156" width="190" height="46" rx="8" fill="#dcfce7" stroke="#16a34a"
-                      stroke-width="1" />
-                    <text x="765" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#14532d"
-                      font-family="Segoe UI,Arial">Collections prioritisation</text>
-
-                    <!-- Arrows in -->
-                    <line x1="210" y1="43" x2="328" y2="100" stroke="#3b82f6" stroke-width="1.2"
-                      marker-end="url(#ah4)" />
-                    <line x1="210" y1="111" x2="328" y2="115" stroke="#3b82f6" stroke-width="1.2"
-                      marker-end="url(#ah4)" />
-                    <line x1="210" y1="179" x2="328" y2="130" stroke="#3b82f6" stroke-width="1.2"
-                      marker-end="url(#ah4)" />
-
-                    <!-- Arrows out -->
-                    <line x1="550" y1="100" x2="668" y2="43" stroke="#16a34a" stroke-width="1.2"
-                      marker-end="url(#ah5)" />
-                    <line x1="550" y1="115" x2="668" y2="111" stroke="#16a34a" stroke-width="1.2"
-                      marker-end="url(#ah5)" />
-                    <line x1="550" y1="130" x2="668" y2="179" stroke="#16a34a" stroke-width="1.2"
-                      marker-end="url(#ah5)" />
-                  </svg>
-                  <p>AI engine learns continuously from portfolio data to deliver predictive
-                    risk intelligence</p>
-                </div>
-                <div class="content-inner mt_30">
-                  <h4>Leveraging the Latest Technology</h4>
-                  <ul class="list clearfix">
-                    <li><strong>Cloud-Native Architecture:</strong> Designed for optimal performance, scalability, and
-                      resilience on leading cloud platforms including AWS, Azure, and GCP.</li>
-                    <li><strong>Microservices-Based Design:</strong> Enables agility, independent scaling, and
-                      zero-downtime deployments across all LMS modules.</li>
-                    <li><strong>Open APIs and Integration Framework:</strong> REST, ISO 20022, SOAP, and webhook
-                      adapters
-                      facilitate seamless integration with core banking, payment hubs, and origination systems.</li>
-                    <li><strong>Real-Time Analytics and Dashboards:</strong> Portfolio health, delinquency trends,
-                      concentration risk, and profitability analysis in real time — accessible on any device.</li>
-                    <li><strong>Robust Security and Audit:</strong> Role-based access control, full transaction audit
-                      trail, data encryption at rest and in transit, and VAPT-certified infrastructure.</li>
-                  </ul>
-                </div>
-                <div class="content-inner mt_30">
-                  <h4>Flexible Deployment and Licensing Options</h4>
-                  <ul class="list clearfix">
-                    <li><strong>On-Premises (Perpetual or Subscription):</strong> Deploy and manage the complete
-                      solution
-                      within your own data centres for maximum control and data sovereignty.</li>
-                    <li><strong>Cloud Hosting (Perpetual or Subscription):</strong> Leverage the scalability and
-                      flexibility of cloud infrastructure while retaining full licence ownership.</li>
-                    <li><strong>Complete SaaS (Software-as-a-Service):</strong> Access the full LMS through a secure,
-                      multi-tenant cloud environment — fully managed by us with rapid deployment and minimal IT
-                      overhead.
-                    </li>
-                  </ul>
-                </div>
-                <div class="content-inner mt_20">
-                  <p>
-                    <strong>Ready to extend financial services to the people who need them most?</strong>
-                    <a href="/contact/contact.html"> Talk to Our Team Today</a>
-                  </p>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-    </section>
 
-    <!-- main-footer -->
+            <!-- FEAT SECTION 2: Key Functionalities → Title + SVG2 + 4 cards -->
+            <div class="feat-section" id="fs2">
+                <div class="section-container">
+                    <div class="feat-section-header">
+                        <div class="eyebrow">Key Functionalities</div>
+                        <h3>Key Functionalities Empowering Lending Institutions</h3>
+                    </div>
+
+                    <div class="svg-block">
+                        <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
+                                    orient="auto-start-reverse">
+                                    <path d="M1 1L9 5L1 9" fill="none" stroke="#94a3b8" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </marker>
+                                <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
+                                    orient="auto-start-reverse">
+                                    <path d="M1 1L9 5L1 9" fill="none" stroke="#3b82f6" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </marker>
+                            </defs>
+                            <text x="440" y="22" text-anchor="middle" font-size="10" font-weight="700"
+                                letter-spacing="1.5" fill="#94a3b8" font-family="Segoe UI,Arial">EXTERNAL SYSTEMS</text>
+                            <rect x="20" y="30" width="160" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
+                                stroke-width="1" />
+                            <text x="100" y="56" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b"
+                                font-family="Segoe UI,Arial">LOS / Origination</text>
+                            <rect x="200" y="30" width="160" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
+                                stroke-width="1" />
+                            <text x="280" y="56" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b"
+                                font-family="Segoe UI,Arial">Core Banking</text>
+                            <rect x="380" y="30" width="160" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
+                                stroke-width="1" />
+                            <text x="460" y="56" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b"
+                                font-family="Segoe UI,Arial">Payment Hub</text>
+                            <rect x="560" y="30" width="160" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
+                                stroke-width="1" />
+                            <text x="640" y="56" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b"
+                                font-family="Segoe UI,Arial">Credit Bureau</text>
+                            <rect x="740" y="30" width="120" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
+                                stroke-width="1" />
+                            <text x="800" y="56" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b"
+                                font-family="Segoe UI,Arial">KYC / eKYC</text>
+                            <line x1="100" y1="74" x2="100" y2="106" stroke="#94a3b8" stroke-width="1"
+                                marker-end="url(#ah2)" />
+                            <line x1="280" y1="74" x2="280" y2="106" stroke="#94a3b8" stroke-width="1"
+                                marker-end="url(#ah2)" />
+                            <line x1="460" y1="74" x2="460" y2="106" stroke="#94a3b8" stroke-width="1"
+                                marker-end="url(#ah2)" />
+                            <line x1="640" y1="74" x2="640" y2="106" stroke="#94a3b8" stroke-width="1"
+                                marker-end="url(#ah2)" />
+                            <line x1="800" y1="74" x2="800" y2="106" stroke="#94a3b8" stroke-width="1"
+                                marker-end="url(#ah2)" />
+                            <rect x="20" y="106" width="840" height="48" rx="8" fill="#dbeafe" stroke="#3b82f6"
+                                stroke-width="1.5" />
+                            <text x="440" y="134" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Open API Gateway — REST · ISO 20022 · SOAP ·
+                                Webhooks</text>
+                            <line x1="440" y1="154" x2="440" y2="176" stroke="#3b82f6" stroke-width="1.5"
+                                marker-end="url(#ah3)" />
+                            <text x="440" y="194" text-anchor="middle" font-size="10" font-weight="700"
+                                letter-spacing="1.5" fill="#1a3c6e" font-family="Segoe UI,Arial">CORE LMS MODULES</text>
+                            <rect x="20" y="202" width="150" height="58" rx="8" fill="#eff6ff" stroke="#2563eb"
+                                stroke-width="1.5" />
+                            <text x="95" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Account</text>
+                            <text x="95" y="245" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">Servicing</text>
+                            <rect x="188" y="202" width="150" height="58" rx="8" fill="#eff6ff" stroke="#2563eb"
+                                stroke-width="1.5" />
+                            <text x="263" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Repayment</text>
+                            <text x="263" y="245" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">Engine</text>
+                            <rect x="356" y="202" width="150" height="58" rx="8" fill="#eff6ff" stroke="#2563eb"
+                                stroke-width="1.5" />
+                            <text x="431" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Collections</text>
+                            <text x="431" y="245" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">&amp; Recovery</text>
+                            <rect x="524" y="202" width="150" height="58" rx="8" fill="#eff6ff" stroke="#2563eb"
+                                stroke-width="1.5" />
+                            <text x="599" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Restructuring</text>
+                            <text x="599" y="245" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">&amp; Waivers</text>
+                            <rect x="692" y="202" width="168" height="58" rx="8" fill="#eff6ff" stroke="#2563eb"
+                                stroke-width="1.5" />
+                            <text x="776" y="227" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Regulatory</text>
+                            <text x="776" y="245" text-anchor="middle" font-size="11" fill="#475569"
+                                font-family="Segoe UI,Arial">Reporting</text>
+                            <line x1="440" y1="260" x2="440" y2="282" stroke="#94a3b8" stroke-width="1"
+                                marker-end="url(#ah2)" />
+                            <rect x="20" y="282" width="400" height="26" rx="6" fill="#fef9c3" stroke="#ca8a04"
+                                stroke-width="1" />
+                            <text x="220" y="299" text-anchor="middle" font-size="12" font-weight="600" fill="#92400e"
+                                font-family="Segoe UI,Arial">Oracle DB · Cloud-Native Data Layer</text>
+                            <rect x="440" y="282" width="420" height="26" rx="6" fill="#dcfce7" stroke="#16a34a"
+                                stroke-width="1" />
+                            <text x="650" y="299" text-anchor="middle" font-size="12" font-weight="600" fill="#14532d"
+                                font-family="Segoe UI,Arial">AI / ML Risk Engine &amp; Analytics</text>
+                        </svg>
+                        <div class="svg-caption">Modular LMS architecture — open APIs connect to any origination, core
+                            banking, or payment system</div>
+                    </div>
+
+                    <div class="cards-row">
+                        <div class="feat-card">
+                            <h5>Loan Disbursement and Account Management</h5>
+                            <ul class="sub-list">
+                                <li>
+                                    Automated disbursement triggers linked to origination
+                                    approval and documentation completion.
+                                </li>
+                                <li>
+                                    Multi-currency, multi-branch, and multi-entity account
+                                    management from a single platform.
+                                </li>
+                                <li>
+                                    Flexible interest accrual — daily, monthly, or custom —
+                                    with automated posting to the GL.
+                                </li>
+                                <li>
+                                    Lien and collateral management with real-time valuation
+                                    updates and release workflows.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Repayment Engine</h5>
+                            <ul class="sub-list">
+                                <li>
+                                    Support for all amortisation types: reducing balance,
+                                    flat
+                                    rate, EMI, bullet, balloon, and hybrid.
+                                </li>
+                                <li>
+                                    Automatic prepayment handling with rebate calculation and
+                                    schedule regeneration.
+                                </li>
+                                <li>
+                                    Penalty and late fee computation based on configurable
+                                    product rules and regulatory caps.
+                                </li>
+                                <li>
+                                    Straight-through payment processing via direct debit,
+                                    RTGS, NEFT, mobile wallets, and UPI.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Collections and NPA Management</h5>
+                            <ul class="sub-list">
+                                <li>
+                                    Automated DPD tracking and bucket-based delinquency
+                                    classification.
+                                </li>
+                                <li>
+                                    AI-prioritised collections queues routing the right
+                                    accounts to the right agents.
+                                </li>
+                                <li>
+                                    Digital dunning workflows — SMS, email, and push —
+                                    configurable by DPD bucket and product.
+                                </li>
+                                <li>
+                                    GNPA, NNPA, and provisioning calculations aligned to RBI
+                                    /
+                                    Basel III / IFRS 9 requirements.
+                                </li>
+                                <li>
+                                    Legal recovery tracking, write-off workflows, and
+                                    post-write-off collection management.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Reporting and Regulatory Compliance</h5>
+                            <ul class="sub-list">
+                                <li>
+                                    Pre-built report templates for central bank statutory
+                                    returns, CRILC, and SMA classifications.
+                                </li>
+                                <li>
+                                    IFRS 9 expected credit loss (ECL) provisioning engine
+                                    with
+                                    stage migration logic.
+                                </li>
+                                <li>
+                                    Basel III credit risk weighted asset calculations and
+                                    capital adequacy reporting.
+                                </li>
+                                <li>
+                                    Stress testing scenarios with what-if analysis across the
+                                    entire portfolio.
+                                </li>
+                                <li>
+                                    Customisable MIS dashboards for portfolio health,
+                                    concentration risk, and relationship profitability.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEAT SECTION 3: Technology → Title + SVG3 + 5 cards -->
+            <div class="feat-section" id="fs3">
+                <div class="section-container">
+                    <div class="feat-section-header">
+                        <div class="eyebrow">Technology</div>
+                        <h4>Leveraging the Latest Technology</h4>
+                    </div>
+
+                    <div class="svg-block">
+                        <svg viewBox="0 0 880 230" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
+                                    orient="auto-start-reverse">
+                                    <path d="M1 1L9 5L1 9" fill="none" stroke="#3b82f6" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </marker>
+                                <marker id="ah5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
+                                    orient="auto-start-reverse">
+                                    <path d="M1 1L9 5L1 9" fill="none" stroke="#16a34a" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </marker>
+                            </defs>
+                            <rect x="330" y="82" width="220" height="66" rx="10" fill="#0a1628" />
+                            <text x="440" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#fff"
+                                font-family="Segoe UI,Arial">AI / ML Risk Engine</text>
+                            <text x="440" y="128" text-anchor="middle" font-size="11" fill="#93c5fd"
+                                font-family="Segoe UI,Arial">Continuous portfolio learning</text>
+                            <rect x="20" y="20" width="190" height="46" rx="8" fill="#eff6ff" stroke="#3b82f6"
+                                stroke-width="1" />
+                            <text x="115" y="47" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Repayment history</text>
+                            <rect x="20" y="88" width="190" height="46" rx="8" fill="#eff6ff" stroke="#3b82f6"
+                                stroke-width="1" />
+                            <text x="115" y="115" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Bureau &amp; market data</text>
+                            <rect x="20" y="156" width="190" height="46" rx="8" fill="#eff6ff" stroke="#3b82f6"
+                                stroke-width="1" />
+                            <text x="115" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Transaction patterns</text>
+                            <rect x="670" y="20" width="190" height="46" rx="8" fill="#dcfce7" stroke="#16a34a"
+                                stroke-width="1" />
+                            <text x="765" y="47" text-anchor="middle" font-size="12" font-weight="600" fill="#14532d"
+                                font-family="Segoe UI,Arial">Early warning scores</text>
+                            <rect x="670" y="88" width="190" height="46" rx="8" fill="#dcfce7" stroke="#16a34a"
+                                stroke-width="1" />
+                            <text x="765" y="115" text-anchor="middle" font-size="12" font-weight="600" fill="#14532d"
+                                font-family="Segoe UI,Arial">NPA prediction</text>
+                            <rect x="670" y="156" width="190" height="46" rx="8" fill="#dcfce7" stroke="#16a34a"
+                                stroke-width="1" />
+                            <text x="765" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#14532d"
+                                font-family="Segoe UI,Arial">Collections prioritisation</text>
+                            <line x1="210" y1="43" x2="328" y2="100" stroke="#3b82f6" stroke-width="1.2"
+                                marker-end="url(#ah4)" />
+                            <line x1="210" y1="111" x2="328" y2="115" stroke="#3b82f6" stroke-width="1.2"
+                                marker-end="url(#ah4)" />
+                            <line x1="210" y1="179" x2="328" y2="130" stroke="#3b82f6" stroke-width="1.2"
+                                marker-end="url(#ah4)" />
+                            <line x1="550" y1="100" x2="668" y2="43" stroke="#16a34a" stroke-width="1.2"
+                                marker-end="url(#ah5)" />
+                            <line x1="550" y1="115" x2="668" y2="111" stroke="#16a34a" stroke-width="1.2"
+                                marker-end="url(#ah5)" />
+                            <line x1="550" y1="130" x2="668" y2="179" stroke="#16a34a" stroke-width="1.2"
+                                marker-end="url(#ah5)" />
+                        </svg>
+                        <div class="svg-caption">AI engine learns continuously from portfolio data to deliver predictive
+                            risk intelligence</div>
+                    </div>
+
+                    <div class="cards-row">
+                        <div class="feat-card">
+                            <h5>Cloud-Native Architecture</h5>
+                            <p>Designed for optimal performance, scalability, and resilience on leading cloud platforms
+                                including AWS, Azure, and GCP.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Microservices-Based Design</h5>
+                            <p>Enables agility, independent scaling, and zero-downtime deployments across all LMS
+                                modules.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Open APIs and Integration Framework</h5>
+                            <p>REST, ISO 20022, SOAP, and webhook adapters facilitate seamless integration with core
+                                banking, payment hubs, and origination systems.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Real-Time Analytics and Dashboards</h5>
+                            <p>Portfolio health, delinquency trends, concentration risk, and profitability analysis in
+                                real
+                                time — accessible on any device.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Robust Security and Audit</h5>
+                            <p>Role-based access control, full transaction audit trail, data encryption at rest and in
+                                transit, and VAPT-certified infrastructure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEAT SECTION 4: Deployment → Title + no SVG (build one) + 3 cards -->
+            <div class="feat-section" id="fs4">
+                <div class="section-container">
+                    <div class="feat-section-header">
+                        <div class="eyebrow">Deployment</div>
+                        <h4>Flexible Deployment and Licensing Options</h4>
+                    </div>
+                    <div class="cards-row">
+                        <div class="feat-card">
+                            <h5>On-Premises (Perpetual or Subscription)</h5>
+                            <p>Deploy and manage the complete solution within your own data centres for maximum control
+                                and data sovereignty.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Cloud Hosting (Perpetual or Subscription)</h5>
+                            <p>Leverage the scalability and flexibility of cloud infrastructure while retaining full
+                                licence ownership.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Complete SaaS (Software-as-a-Service)</h5>
+                            <p>Access the full LMS through a secure, multi-tenant cloud environment — fully managed by
+                                us
+                                with rapid deployment and minimal IT overhead.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last Section -->
+            <div class="full-section centered light-bg" id="conclusion">
+                <div class="section-container">
+                    <h2>Reach Us</h2>
+                    <p>Ready to extend financial services to the people who need them most?</p>
+                    <div class="centered-btn-wrap">
+                        <a href="../contact/contact.html" class="btn-orange">Talk to Our Team Today</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Showcase Section -->
+            <section class="product-showcase">
+                <div class="section-container">
+                    <span class="eyebrow">Discover More</span>
+                    <h2>Explore Our Other Solutions</h2>
+                    <p>Midas offers a comprehensive suite of financial technology solutions designed to drive digital
+                        transformation and operational excellence.</p>
+
+                    <div class="product-grid">
+                        <!-- Product 1: Omni Channel -->
+                        <a href="omnichannel.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/omnichannel.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Omni Channel</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 2: Payment Hub -->
+                        <a href="payment-hub.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/payment_hub.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Payment Hub</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 3: SCF -->
+                        <a href="scf.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/scf.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Supply Chain Finance</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 4: LOS -->
+                        <a href="los.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/los_banner.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Loan Origination System</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 5: Virtual Account -->
+                        <a href="va.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/va_2.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Virtual Account</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 6: Microfinance -->
+                        <a href="microfinance-core.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/banner_light_core_banking.webp');">
+                            </div>
+                            <div class="product-card-body">
+                                <h5>Lightweight Core Banking</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 7: Smart Token -->
+                        <a href="smart-token.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/banner_softtoken.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Smart Token</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 8: Nexus ID -->
+                        <a href="nexus-id.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/banner_nexus.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>NexusID</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 9: Cloud Core Banking -->
+                        <a href="cloud-core-banking.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/cloud_core_banking.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Cloud Core Banking</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 10: AI Liveness Detection -->
+                        <a href="liveness-detection.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/banner_liveness.webp'), linear-gradient(135deg, #0b1727 0%, #172a45 50%, #1e3a5f 100%);"></div>
+                            <div class="product-card-body">
+                                <h5>AI Liveness Detection</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- main-footer -->
 <section class="main-footer style-three">
   <div class="shape">
     <div class="shape-1"></div>
@@ -716,11 +1272,20 @@
     <div class="footer-top">
       <div class="top-inner">
         <figure class="footer-logo">
-          <a href="/index.html"><img src="/assets/images/logo.webp" alt="" loading="lazy" /></a>
+          <a href="/index.html"><img src="/assets/images/logo-172.webp"
+              srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w"
+              sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75"
+              loading="lazy" /></a>
         </figure>
         <ul class="social-links clearfix">
           <li>
-            <a href="https://www.linkedin.com/company/pt-midas-daya-teknologi/"><i class="icon-3"></i></a>
+            <a href="https://www.linkedin.com/company/pt-midas-daya-teknologi/" target="_blank"
+              rel="noopener noreferrer" aria-label="Midas LinkedIn Profile"><i class="icon-3"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/growwithmidas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank" rel="noopener noreferrer" aria-label="Midas Instagram Profile"><i
+                class="fab fa-instagram"></i></a>
           </li>
         </ul>
       </div>
@@ -736,13 +1301,15 @@
               <!-- <p>This is due to their excellent service, competitive pricing and customer support.
                                 It’s throughly refresing to get such a personal touch.</p> -->
               <ul class="info clearfix">
-                <!-- <li><i class="icon-2"></i><a href="tel:+88123456987231">+88 12345 6987 231</a>
-                                </li>
-                                <li><i class="icon-19"></i><a href="mailto:info@example.com">info@example.com</a></li> -->
+                <li><i class="icon-2"></i><a href="tel:+622140642341">(+6221) 40642341</a>
+                </li>
+                <!-- <li><i class="icon-19"></i><a href="mailto:info@example.com">info@example.com</a></li> -->
                 <li>
-                  <i class="icon-23"></i>PT Midas Daya Teknologi<br />Gd.
-                  Setiabudi 2, Lt.2 Suite No.203A,<br />JL. H.R. Rasuna Said
-                  Kav.62, Kuningan, Setiabudi, Jakarta Selatan 12940, Indonesia.
+                  <i class="icon-23" style="background: #0d7dfc;"></i>PT Midas Daya Teknologi<br />Lippo Kuningan
+                  Building, 18th Floor, Unit
+                  F2,<br />
+                  JI. H. R. Rasuna Said Kav,
+                  B-12, Jakarta Selatan 12940, Indonesia.
                 </li>
               </ul>
             </div>
@@ -829,26 +1396,583 @@
 </section>
 <!-- main-footer end -->
 
-    <!--Scroll to top-->
-    <div class="scroll-to-top">
-      <div>
-        <div class="scroll-top-inner">
-          <div class="scroll-bar">
-            <div class="bar-inner"></div>
-          </div>
-          <div class="scroll-bar-text">Go To Top</div>
-        </div>
-      </div>
+<!-- Midas Chatbot Widget -->
+<style>
+  /* Chatbot Styles */
+  #chat-toggle {
+    position: fixed;
+    bottom: 38px;
+    right: 38px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, background 0.2s, opacity 0.3s ease;
+    z-index: 9999;
+  }
+
+  #chat-toggle:hover {
+    transform: scale(1.07);
+    background: #ffffff;
+  }
+
+  #chat-toggle:active {
+    transform: scale(0.96);
+  }
+
+  #chat-toggle .icon-chat,
+  #chat-toggle .icon-close {
+    transition: opacity 0.2s, transform 0.25s;
+  }
+
+  #chat-toggle .icon-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+    position: absolute;
+  }
+
+  #chat-toggle.open .icon-chat {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+  }
+
+  #chat-toggle.open .icon-close {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  #chat-panel {
+    position: fixed;
+    bottom: 110px;
+    right: 38px;
+    width: 390px;
+    max-height: 580px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9998;
+    transform: translateY(24px) scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.22s ease;
+    color: #52565b;
+  }
+
+  #chat-panel.open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .chat-header {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .header-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+    border: 1px solid #eee;
+  }
+
+  .header-info h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e1e1e;
+    margin-bottom: 2px;
+  }
+
+  .header-info span {
+    font-size: 11px;
+    color: #677289;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .online-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    display: inline-block;
+  }
+
+  .header-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #52565b;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    line-height: 1;
+  }
+
+  .header-close:hover {
+    color: #ff6a00;
+    background: #f0f0f0;
+  }
+
+  #chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-behavior: smooth;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  #chat-messages::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  #chat-messages::-webkit-scrollbar-thumb {
+    background: #e5e5e5;
+    border-radius: 4px;
+  }
+
+  .msg {
+    display: flex;
+    max-width: 90%;
+    animation: fadeUp 0.22s ease;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .msg.user {
+    align-self: flex-end;
+  }
+
+  .msg.bot {
+    align-self: flex-start;
+  }
+
+  .msg-bubble {
+    padding: 10px 14px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    word-break: break-word;
+    border-radius: 16px;
+  }
+
+  .msg.bot .msg-bubble {
+    background: #f1f3f5;
+    color: #52565b;
+    border: 1px solid #e9ecef;
+    border-bottom-left-radius: 4px;
+  }
+
+  .msg.user .msg-bubble {
+    background: #ff6a00;
+    color: #fff;
+    border-bottom-right-radius: 4px;
+  }
+
+  .typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 12px 14px;
+    background: #f1f3f5;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+  }
+
+  .typing-indicator span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #adb5bd;
+    animation: bounce 1.2s infinite;
+  }
+
+  .typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes bounce {
+
+    0%,
+    60%,
+    100% {
+      transform: translateY(0);
+    }
+
+    30% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 16px 10px;
+  }
+
+  .suggestion-chip {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 5px 11px;
+    font-size: 12px;
+    color: #677289;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    transition: all 0.15s;
+  }
+
+  .suggestion-chip:hover {
+    border-color: #ff6a00;
+    color: #ff6a00;
+    background: #fffcf5;
+  }
+
+  .chat-footer {
+    padding: 10px 12px;
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    flex-shrink: 0;
+    background: #ffffff;
+  }
+
+  #chat-input {
+    flex: 1;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 10px 13px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 13.5px;
+    color: #52565b;
+    resize: none;
+    outline: none;
+    max-height: 100px;
+    line-height: 1.45;
+    transition: border-color 0.15s;
+    overflow-y: auto;
+  }
+
+  #chat-input:focus {
+    border-color: #ff6a00;
+    background: #fff;
+  }
+
+  #chat-input::placeholder {
+    color: #adb5bd;
+  }
+
+  #send-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #ff6a00;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, transform 0.1s;
+  }
+
+  #send-btn:hover {
+    background: #e55f00;
+  }
+
+  #send-btn:active {
+    transform: scale(0.93);
+  }
+
+  #send-btn:disabled {
+    background: #e9ecef;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 440px) {
+    #chat-panel {
+      width: calc(100vw - 20px);
+      right: 10px;
+      bottom: 108px;
+    }
+  }
+</style>
+
+<button id="chat-toggle" aria-label="Open chat">
+  <img class="icon-chat" src="/assets/images/icons/chat-icon-64.webp" srcset="/assets/images/icons/chat-icon-64.webp 1x, /assets/images/icons/chat-icon-128.webp 2x" width="28" height="28"
+    alt="Chat" style="display:block;" />
+  <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+    stroke="#52565b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+</button>
+
+<div id="chat-panel" role="dialog" aria-label="Midas Assistant">
+  <div class="chat-header">
+    <div class="header-avatar">
+      <img src="/assets/images/icons/chat-icon-64.webp" srcset="/assets/images/icons/chat-icon-64.webp 1x, /assets/images/icons/chat-icon-128.webp 2x" width="24" height="24"
+        alt="Midas Assistant" />
     </div>
+    <div class="header-info">
+      <h3>Midas Assistant</h3>
+      <span><span class="online-dot">
+    </div>
+    <button class="header-close" id="chat-close" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
   </div>
 
-  <!-- scripts -->
-  <script defer src="/assets/js/jquery.js"></script>
-  <script defer src="/assets/js/popper.min.js"></script>
-  <script defer src="/assets/js/bootstrap.min.js"></script>
-  <script defer src="/assets/js/owl.js"></script>
-  <script defer src="/assets/js/jquery.fancybox.js"></script>
-  <script defer src="/assets/js/script.js"></script>
+  <div id="chat-messages"></div>
+  <div class="suggestions" id="suggestions"></div>
+
+  <div class="chat-footer">
+    <textarea id="chat-input" rows="1" placeholder="Ask about Midas Teknologi…"></textarea>
+    <button id="send-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff"
+        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13" />
+        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const PROXY_URL = '/ai-proxy.php';
+    const WELCOME_MSG = "Hi! 👋 I'm the Midas Assistant. Ask me anything about Midas Teknologi — our solutions, services, AI offerings, office locations, or how to get in touch!";
+    const SUGGESTIONS = [
+      "What does Midas do?",
+      "What solutions do you offer?",
+      "Where are your offices?",
+    ];
+
+    const excludedPages = ['error.html', 'coming-soon.html'];
+    const path = window.location.pathname;
+    const isExcluded = excludedPages.some(page => path.includes(page)) || path.includes('/admin/');
+
+    if (isExcluded) {
+      document.getElementById('chat-toggle').style.display = 'none';
+      document.getElementById('chat-panel').style.display = 'none';
+      return;
+    }
+
+    let history = [];
+    let isTyping = false;
+
+    const toggle = document.getElementById("chat-toggle");
+    const panel = document.getElementById("chat-panel");
+    const closeBtn = document.getElementById("chat-close");
+    const messagesEl = document.getElementById("chat-messages");
+    const suggestEl = document.getElementById("suggestions");
+    const input = document.getElementById("chat-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    /* Suggestion chips */
+    suggestEl.innerHTML = SUGGESTIONS.map(s =>
+      `<button class="suggestion-chip">${s}</button>`
+    ).join("");
+    suggestEl.querySelectorAll(".suggestion-chip").forEach(btn => {
+      btn.addEventListener("click", () => {
+        input.value = btn.textContent;
+        suggestEl.style.display = "none";
+        sendMessage();
+      });
+    });
+
+    /* Open / close */
+    toggle.addEventListener("click", () =>
+      panel.classList.contains("open") ? closePanel() : openPanel()
+    );
+    closeBtn.addEventListener("click", closePanel);
+    function openPanel() { panel.classList.add("open"); toggle.classList.add("open"); input.focus(); }
+    function closePanel() { panel.classList.remove("open"); toggle.classList.remove("open"); }
+
+    /* Scroll behavior: hide while scrolling, show on stop */
+    let isScrolling;
+    window.addEventListener('scroll', () => {
+      if (!panel.classList.contains("open")) {
+        toggle.style.opacity = '0';
+        toggle.style.pointerEvents = 'none';
+
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          toggle.style.opacity = '1';
+          toggle.style.pointerEvents = 'all';
+        }, 250);
+      }
+    }, { passive: true });
+
+    /* Auto-grow textarea */
+    input.addEventListener("input", () => {
+      input.style.height = "auto";
+      input.style.height = Math.min(input.scrollHeight, 100) + "px";
+    });
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+    });
+    sendBtn.addEventListener("click", sendMessage);
+
+    /* Add message bubble */
+    function addMessage(role, text) {
+      const wrap = document.createElement("div");
+      wrap.className = "msg " + role;
+      const bubble = document.createElement("div");
+      bubble.className = "msg-bubble";
+
+      // Escape HTML to prevent XSS
+      let html = text.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+      // Convert URLs to hyperlinks
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      html = html.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
+
+      // Convert Email IDs to mailto links
+      const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+      html = html.replace(emailRegex, '<a href="mailto:$1" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
+
+      bubble.innerHTML = html;
+      wrap.appendChild(bubble);
+      messagesEl.appendChild(wrap);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    /* Typing indicator */
+    function showTyping() {
+      const wrap = document.createElement("div");
+      wrap.className = "msg bot"; wrap.id = "typing-wrap";
+      wrap.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
+      messagesEl.appendChild(wrap);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+    function hideTyping() { const el = document.getElementById("typing-wrap"); if (el) el.remove(); }
+
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text || isTyping) return;
+
+      suggestEl.style.display = "none";
+      input.value = ""; input.style.height = "auto";
+      addMessage("user", text);
+
+      history.push({ role: "user", content: text });
+      const recentHistory = history.slice(-4);
+
+      isTyping = true; sendBtn.disabled = true;
+      showTyping();
+
+      try {
+        const res = await fetch(PROXY_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ messages: recentHistory })
+        });
+
+        const data = await res.json();
+        hideTyping();
+
+        if (!res.ok) {
+          addMessage("bot", "⚠️ " + (data?.error?.message || data?.error || "Something went wrong."));
+          history.pop(); return;
+        }
+
+        const reply = data.choices[0].message.content;
+        addMessage("bot", reply);
+        history.push({ role: "assistant", content: reply });
+
+      } catch {
+        hideTyping();
+        addMessage("bot", "⚠️ Network error. Please check your connection.");
+        history.pop();
+      } finally {
+        isTyping = false; sendBtn.disabled = false; input.focus();
+      }
+    }
+
+    addMessage("bot", WELCOME_MSG);
+  })();
+</script>
+
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- scripts -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/owl.js"></script>
+    <script src="/assets/js/script.js"></script>
+
+    <script>
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('in-view');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.full-section, .para-section, .feat-section, .product-showcase').forEach(el => io.observe(el));
+    </script>
 </body>
 
 </html>

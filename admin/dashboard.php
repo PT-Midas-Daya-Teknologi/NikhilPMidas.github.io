@@ -44,8 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">Midas Admin</a>
+            <a class="navbar-brand" href="dashboard.php">Midas Admin</a>
             <div class="ms-auto">
+                <a href="dashboard.php" class="btn btn-light btn-sm me-2">Jobs</a>
+                <a href="events.php" class="btn btn-outline-light btn-sm me-2">Events</a>
+                <a href="clients.php" class="btn btn-outline-light btn-sm me-2">Clients</a>
                 <a href="logout.php" class="btn btn-outline-light btn-sm">Logout</a>
             </div>
         </div>

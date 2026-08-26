@@ -1,74 +1,515 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-  <title>Lightweight Core Banking for Microfinance - Midas Teknologi</title>
+    <title>Lightweight Core Banking for Microfinance - Midas Teknologi</title>
 
-  <!-- Fav Icon -->
-  <link rel="preload" href="/assets/fonts/ubuntu/ubuntu-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/ubuntu/ubuntu-bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.webp" />
+    <!-- Fav Icon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
 
-  <!-- Optimized Bundle (Non-blocking) -->
-  <link rel="preload" href="/assets/css/bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="/assets/css/bundle.min.css">
-  </noscript>
-  <style>
-    .diagram {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+    <!-- Stylesheets -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assets/css/animate.min.css" rel="stylesheet">
+<link href="/assets/css/font-awesome-all.min.css" rel="stylesheet">
+<link href="/assets/css/flaticon.min.css" rel="stylesheet">
+<link href="/assets/css/owl.min.css" rel="stylesheet">
+<link href="/assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="/assets/css/elpath.min.css" rel="stylesheet">
+<link href="/assets/css/color.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.min.css" rel="stylesheet">
+<link href="/assets/css/style.min.css" rel="stylesheet">
+<link href="/assets/css/responsive.min.css" rel="stylesheet">
 
-    .diagram p {
-      font-size: 12px;
-      font-family: 'Ubuntu', sans-serif;
-      justify-content: center;
-    }
-  </style>
+
+    <style>
+        :root {
+            --color-border-tertiary: #edf2f7;
+            --color-text-tertiary: var(--dark-gray);
+            --color-text-primary: var(--deep-black);
+            --color-text-secondary: var(--text-color);
+            --border-radius-lg: var(--radius);
+            --color-background-primary: var(--white);
+            --color-background-secondary: var(--navy-light);
+            --color-border-secondary: #e2e8f0;
+            --color-text-success: #1D9E75;
+            --color-text-info: var(--primary-blue);
+            --color-text-warning: var(--primary-orange);
+            --font-sans: 'Ubuntu', sans-serif;
+            --primary-midas: var(--primary-orange);
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif !important;
+            color: var(--text-color);
+            font-size: clamp(15px, 1.1vw, 17px);
+        }
+
+        .page {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            background-color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('/assets/images/banner/banner_light_core_banking.webp');
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-section .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+        }
+
+        .full-section {
+            padding: clamp(20px, 8vw, 40px) clamp(20px, 5vw, 40px);
+            width: 100%;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .full-section h2 {
+            font-size: clamp(28px, 4.5vw, 40px);
+            font-weight: 700;
+            color: var(--corporate-navy);
+            line-height: 1.2;
+        }
+
+        .full-section h3 {
+            font-size: clamp(22px, 3.5vw, 32px);
+            font-weight: 700;
+            color: var(--corporate-navy);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .full-section h4 {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .full-section p {
+            font-size: clamp(16px, 1.2vw, 18px);
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .full-section.light-bg {
+            background-color: #f3f3f3;
+        }
+
+        .eyebrow {
+            font-size: clamp(11px, 1.5vw, 13px);
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--primary-midas);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Adapted LMS Layout Styles */
+        .para-section {
+            padding: clamp(60px, 8vw, 40px) clamp(20px, 5vw, 40px) clamp(60px, 8vw, 10px) clamp(20px, 5vw, 40px);
+            background-color: white;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+
+        .para-section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .para-section .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .para-section h2 {
+            font-size: clamp(24px, 4vw, 36px);
+            color: var(--corporate-navy);
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .para-section h4 {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--corporate-navy);
+            margin-bottom: 15px;
+        }
+
+        .para-section p {
+            font-size: clamp(15px, 1.2vw, 17px);
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        #p1 {
+            margin-bottom: 15px;
+        }
+
+        .feat-section {
+            padding: clamp(10px, 5vw, 40px) clamp(20px, 5vw, 40px) clamp(60px, 8vw, 40px) clamp(20px, 5vw, 40px);
+            background-color: #ffffff;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+
+        #fs1,
+        #fs3,
+        #fs5 {
+            background-color: #fbfbfb;
+        }
+
+        .feat-section.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feat-section .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feat-section-header {
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .feat-section-header h3 {
+            font-size: clamp(24px, 4vw, 32px);
+            color: var(--corporate-navy);
+            margin-bottom: 15px;
+        }
+
+        .feat-section-header h4 {
+            font-size: clamp(20px, 3vw, 28px);
+            color: var(--corporate-navy);
+            margin-bottom: 10px;
+        }
+
+        .feat-section-header p {
+            font-size: clamp(15px, 1.2vw, 17px);
+            color: var(--text-color);
+            max-width: 800px;
+        }
+
+        .svg-block {
+            background: white;
+            border: 1px solid #edf2f7;
+            border-radius: 24px;
+            padding: clamp(20px, 5vw, 40px);
+            margin-bottom: 50px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+            overflow-x: auto;
+        }
+
+        .svg-block svg,
+        .svg-block img {
+            width: 100%;
+            display: block;
+        }
+
+        .image-box {
+            margin-bottom: 50px;
+        }
+
+        .image-box img {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feat-card {
+            background: #ffffff;
+            border: 1px solid #f0f0f0;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feat-card:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .feat-card h5 {
+            font-size: clamp(15px, 1.5vw, 18px);
+            font-weight: 700;
+            color: var(--corporate-navy);
+            margin-bottom: 15px;
+        }
+
+        .feat-card p {
+            font-size: clamp(13px, 1.1vw, 15px);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .sub-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sub-list li {
+            position: relative;
+            padding-left: 20px;
+            font-size: clamp(13px, 1.1vw, 15px);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .sub-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-orange);
+            border-radius: 50%;
+        }
+
+        /* Product Showcase Section */
+        .product-showcase {
+            padding: 80px clamp(20px, 5vw, 40px);
+            background: #fbfbfb;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f0f0f0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-orange);
+        }
+
+        .product-card-img {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-card-body {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-card-body h5 {
+            font-size: clamp(16px, 1.5vw, 18px);
+            font-weight: 700;
+            color: var(--corporate-navy);
+            margin-bottom: 0;
+            transition: color 0.3s ease;
+        }
+
+        .product-card:hover .product-card-body h5 {
+            color: var(--primary-orange);
+        }
+
+        .btn-orange {
+            background-color: var(--primary-orange) !important;
+            color: #ffffff !important;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(255, 147, 96, 0.2);
+            border: none;
+        }
+
+        .btn-orange:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 147, 96, 0.3);
+        }
+
+        /* Responsive Settings */
+        @media (max-width: 1024px) {
+            .cards-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .feat-section-header {
+                text-align: center;
+            }
+
+            .feat-section-header p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cards-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+
+            .full-section,
+            .para-section,
+            .feat-section,
+            .product-showcase {
+                padding: 20px 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feat-section-header,
+            .svg-block,
+            .cards-row {
+                margin-bottom: 10%;
+            }
+
+            .cards-row {
+                gap: 10px;
+            }
+        }
+
+        /* Custom Gap for Conclusion children */
+        #conclusion .section-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="boxed_wrapper">
-    <!-- preloader -->
-    <div class="loader-wrap">
-      <div class="preloader">
-        <div class="preloader-close">x</div>
-        <div id="handle-preloader" class="handle-preloader">
-          <div class="animation-preloader">
-            <div class="spinner"></div>
-            <div class="txt-loading">
-              <span data-text-preloader="m" class="letters-loading"> m </span>
-              <span data-text-preloader="i" class="letters-loading"> i </span>
-              <span data-text-preloader="d" class="letters-loading"> d </span>
-              <span data-text-preloader="a" class="letters-loading"> a </span>
-              <span data-text-preloader="s" class="letters-loading"> s </span>
-            </div>
-          </div>
+    <div class="boxed_wrapper">
+
+        <!-- preloader -->
+<div class="loader-wrap">
+  <div class="preloader">
+    <div class="preloader-close">x</div>
+    <div id="handle-preloader" class="handle-preloader">
+      <div class="animation-preloader">
+        <div class="spinner"></div>
+        <div class="txt-loading">
+          <span data-text-preloader="m" class="letters-loading"> m </span>
+          <span data-text-preloader="i" class="letters-loading"> i </span>
+          <span data-text-preloader="d" class="letters-loading"> d </span>
+          <span data-text-preloader="a" class="letters-loading"> a </span>
+          <span data-text-preloader="s" class="letters-loading"> s </span>
         </div>
       </div>
     </div>
-    <!-- preloader end -->
-    <!-- main header -->
+  </div>
+</div>
+<!-- preloader end -->
+
+        <!-- main header -->
 <header class="main-header">
   <!-- header-lower -->
   <div class="header-lower">
     <div class="outer-box">
       <div class="logo-box">
         <figure class="logo">
-          <a href="/index.html"><img src="/assets/images/logo.webp" alt="" loading="lazy" /></a>
+          <a href="/index.html"><img src="/assets/images/logo-172.webp" srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75" loading="eager" fetchpriority="high" /></a>
         </figure>
       </div>
       <div class="menu-area clearfix menu-center">
         <!--Mobile Navigation Toggler-->
-        <div class="mobile-nav-toggler">
+        <div class="mobile-nav-toggler" role="button" aria-label="Toggle navigation menu">
           <i class="icon-bar"></i>
           <i class="icon-bar"></i>
           <i class="icon-bar"></i>
@@ -99,8 +540,10 @@
                   </li>
                   <li><a href="/products/va.html">Virtual Account</a></li>
                   <li><a href="/products/microfinance-core.html">Lightweight Core Banking</a></li>
+                  <li><a href="/products/cloud-core-banking.html">Cloud Core Banking</a></li>
                   <li><a href="/products/smart-token.html">Smart Token</a></li>
                   <li><a href="/products/nexus-id.html">NexusID</a></li>
+                  <li><a href="/products/liveness-detection.html">AI Liveness Detection</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -154,7 +597,7 @@
     <div class="outer-box">
       <div class="logo-box">
         <figure class="logo">
-          <a href="/index.html"><img src="/assets/images/logo.webp" alt="" loading="lazy" /></a>
+          <a href="/index.html"><img src="/assets/images/logo-172.webp" srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75" loading="eager" /></a>
         </figure>
       </div>
       <div class="menu-area clearfix" style="padding-right: 10%">
@@ -166,15 +609,15 @@
   </div>
 </header>
 <!-- main-header end -->
-    <!-- Mobile Menu  -->
+        <!-- Mobile Menu  -->
 <div class="mobile-menu">
   <div class="menu-backdrop"></div>
-  <div class="close-btn"><i class="fas fa-times"></i></div>
+  <div class="close-btn" role="button" aria-label="Close menu"><i class="fas fa-times"></i></div>
 
   <nav class="menu-box">
     <div class="nav-logo">
       <a href="/index.html"
-        ><img src="/assets/images/logo.webp" alt="" title=""
+        ><img src="/assets/images/logo-344.webp" srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 250px" alt="Midas Teknologi Logo" width="250" height="109"
        loading="lazy" /></a>
     </div>
     <div class="menu-outer">
@@ -184,30 +627,28 @@
       <h4>Contact Info</h4>
       <ul>
         <li>
-          PT Midas Daya Teknologi<br />Gd. Setiabudi 2, Lt.2 Suite No.203A,<br />JL.
-          H.R. Rasuna Said Kav.62, Kuningan, Setiabudi, Jakarta Selatan 12940,
-          Indonesia.
+          PT Midas Daya Teknologi<br />Lippo Kuningan Building, 18th Floor, Unit F2,<br />JI. H. R. Rasuna Said Kav, B-12, Jakarta Selatan 12940, Indonesia.
         </li>
-        <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-        <li><a href="mailto:info@example.com">info@example.com</a></li>
+        <li><a href="tel:+622140642341">(+6221) 40642341</a></li>
+        <li><a href="mailto:sales@midasteknologi.com">sales@midasteknologi.com</a></li>
       </ul>
     </div>
     <div class="social-links">
       <ul class="clearfix">
         <li>
-          <a href="/index.html"><span class="fab fa-twitter"></span></a>
+          <a href="/index.html" aria-label="Twitter"><span class="fab fa-twitter"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-facebook-square"></span></a>
+          <a href="/index.html" aria-label="Facebook"><span class="fab fa-facebook-square"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-pinterest-p"></span></a>
+          <a href="/index.html" aria-label="Pinterest"><span class="fab fa-pinterest-p"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-instagram"></span></a>
+          <a href="/index.html" aria-label="Instagram"><span class="fab fa-instagram"></span></a>
         </li>
         <li>
-          <a href="/index.html"><span class="fab fa-youtube"></span></a>
+          <a href="/index.html" aria-label="YouTube"><span class="fab fa-youtube"></span></a>
         </li>
       </ul>
     </div>
@@ -216,565 +657,713 @@
 <!-- End Mobile Menu -->
 
 
-    <!-- Page Title -->
-    <section class="page-title centred">
-      <div class="outer-container">
-        <div class="bg-layer parallax-bg" data-parallax='{"y": 100}'
-          style="background-image: url(../assets/images/banner/banner_light_core_banking.webp);"></div>
-        <div class="auto-container">
-          <div class="content-box">
-            <h1>Lightweight Core Banking for Microfinance</h1>
-            <ul class="bread-crumb clearfix">
-              <li><a href="../index.html">Home</a></li>
-              <li>Products</li>
-              <li>Lightweight Core Banking</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="page">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Lightweight Core Banking</h1>
+                </div>
+            </section>
 
-    <!-- service-details -->
-    <section class="service-details">
-      <div class="auto-container">
-        <div class="row clearfix">
-          <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-            <div class="service-sidebar">
-              <div class="category-widget">
-                <h5>Our Products</h5>
-                <ul class="service-list clearfix">
-                  <li><a href="omnichannel.html">Omni Channel</a></li>
-                  <li><a href="loans-management-system.html">Loans Management System</a></li>
-                  <li><a href="payment-hub.html">Payment Hub</a></li>
-                  <li><a href="scf.html">Supply Chain Finance</a></li>
-                  <li><a href="los.html">Loan Origination System</a></li>
-                  <li><a href="va.html">Virtual Account</a></li>
-                  <li><a href="microfinance-core.html" class="current">Lightweight Core Banking</a></li>
-                  <li><a href="smart-token.html">Smart Token</a></li>
-                  <li><a href="nexus-id.html">NexusID</a></li>
-                </ul>
-              </div>
+            <!--PARA 1: Intro -->
+            <div class="para-section" id="p1">
+                <div class="section-container">
+                    <div class="eyebrow">Overview</div>
+                    <h2>Democratising Banking Technology for the Institutions That Serve the Underserved.</h2>
+                    <p id="p1">Access to financial services is a proven driver of economic empowerment, yet for billions
+                        of
+                        people across emerging economies and underserved communities, the formal banking system remains
+                        out of reach. Traditional core banking platforms — designed for large commercial banks — are
+                        too complex, too expensive, and too rigid for the microfinance institutions, cooperatives, and
+                        digital lenders that serve these populations. Our Lightweight Core Banking Platform resolves
+                        this technology gap, delivering enterprise-grade capabilities at a cost and simplicity that
+                        genuinely works for institutions of all sizes.</p>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-            <div class="service-details-content">
-              <div class="inner-box">
-                <div class="upper-box">
-                  <h2>Democratising Banking Technology for the Institutions That Serve the Underserved</h2>
-                  <p>
-                    Access to financial services is a proven driver of economic empowerment, yet for billions of
-                    people across emerging economies and underserved communities, the formal banking system remains
-                    out of reach. Traditional core banking platforms — designed for large commercial banks — are
-                    too complex, too expensive, and too rigid for the microfinance institutions, cooperatives, and
-                    digital lenders that serve these populations. Our Lightweight Core Banking Platform resolves
-                    this technology gap, delivering enterprise-grade capabilities at a cost and simplicity that
-                    genuinely works for institutions of all sizes.
-                  </p>
-                  <h3>The Lightweight Core Banking Platform</h3>
-                  <p>
-                    Our platform is a cloud-native, modular core banking system that delivers everything a
-                    microfinance institution needs to operate professionally, compliantly, and at scale —
-                    without the capital expenditure, implementation timelines, or IT complexity of legacy systems.
-                    It can be deployed in weeks, configured without deep technical expertise, and scaled
-                    incrementally as an institution grows its membership and portfolio.
-                  </p>
+
+            <!-- FEAT SECTION 1: Platform Ecosystem -->
+            <div class="feat-section" id="fs1">
+                <div class="section-container">
+                    <div class="feat-section-header">
+                        <div class="eyebrow">Ecosystem</div>
+                        <h4>The Lightweight Core Banking Platform</h4>
+                    </div>
+
+                    <div class="svg-block">
+                        <svg viewBox="0 0 880 290" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="g1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
+                                    orient="auto-start-reverse">
+                                    <path d="M1 1L9 5L1 9" fill="none" stroke="#059669" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </marker>
+                                <marker id="g2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
+                                    orient="auto-start-reverse">
+                                    <path d="M1 1L9 5L1 9" fill="none" stroke="#94a3b8" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </marker>
+                            </defs>
+                            <text x="440" y="22" text-anchor="middle" font-size="10" font-weight="700"
+                                letter-spacing="1.5" fill="#94a3b8" font-family="Segoe UI,Arial">ACCESS CHANNELS</text>
+                            <rect x="20" y="30" width="142" height="44" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1.5" />
+                            <text x="91" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Mobile App</text>
+                            <rect x="178" y="30" width="142" height="44" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1.5" />
+                            <text x="249" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Agent Banking</text>
+                            <rect x="336" y="30" width="142" height="44" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1.5" />
+                            <text x="407" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">USSD / SMS</text>
+                            <rect x="494" y="30" width="142" height="44" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1.5" />
+                            <text x="565" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Web Portal</text>
+                            <rect x="652" y="30" width="208" height="44" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1.5" />
+                            <text x="756" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Open API (3rd Party)</text>
+                            <line x1="91" y1="74" x2="91" y2="106" stroke="#059669" stroke-width="1.2"
+                                marker-end="url(#g1)" />
+                            <line x1="249" y1="74" x2="249" y2="106" stroke="#059669" stroke-width="1.2"
+                                marker-end="url(#g1)" />
+                            <line x1="407" y1="74" x2="407" y2="106" stroke="#059669" stroke-width="1.2"
+                                marker-end="url(#g1)" />
+                            <line x1="565" y1="74" x2="565" y2="106" stroke="#059669" stroke-width="1.2"
+                                marker-end="url(#g1)" />
+                            <line x1="756" y1="74" x2="756" y2="106" stroke="#059669" stroke-width="1.2"
+                                marker-end="url(#g1)" />
+                            <rect x="20" y="106" width="840" height="60" rx="10" fill="#064e3b" stroke="#064e3b" />
+                            <text x="440" y="131" text-anchor="middle" font-size="14" font-weight="700" fill="#fff"
+                                font-family="Segoe UI,Arial">Lightweight Core Banking Platform</text>
+                            <text x="440" y="153" text-anchor="middle" font-size="11" fill="#6ee7b7"
+                                font-family="Segoe UI,Arial">Loans · Savings · Groups · Members · Payments · Compliance
+                                · Reports</text>
+                            <line x1="440" y1="166" x2="440" y2="188" stroke="#94a3b8" stroke-width="1.2"
+                                marker-end="url(#g2)" />
+                            <rect x="20" y="188" width="192" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6"
+                                stroke-width="1" />
+                            <text x="116" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">AI Credit Scoring</text>
+                            <text x="116" y="228" text-anchor="middle" font-size="10" fill="#64748b"
+                                font-family="Segoe UI,Arial">Alternative data models</text>
+                            <rect x="228" y="188" width="192" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6"
+                                stroke-width="1" />
+                            <text x="324" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">eKYC / KYC</text>
+                            <text x="324" y="228" text-anchor="middle" font-size="10" fill="#64748b"
+                                font-family="Segoe UI,Arial">Digital onboarding</text>
+                            <rect x="436" y="188" width="192" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6"
+                                stroke-width="1" />
+                            <text x="532" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Payment Rails</text>
+                            <text x="532" y="228" text-anchor="middle" font-size="10" fill="#64748b"
+                                font-family="Segoe UI,Arial">Mobile money, RTGS</text>
+                            <rect x="644" y="188" width="216" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6"
+                                stroke-width="1" />
+                            <text x="752" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
+                                font-family="Segoe UI,Arial">Regulatory Reporting</text>
+                            <text x="752" y="228" text-anchor="middle" font-size="10" fill="#64748b"
+                                font-family="Segoe UI,Arial">Central bank, AML</text>
+                            <rect x="20" y="254" width="840" height="26" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
+                                stroke-width="1" />
+                            <text x="440" y="271" text-anchor="middle" font-size="11" fill="#64748b"
+                                font-family="Segoe UI,Arial">Cloud-native · AWS · Azure · GCP · Private Cloud ·
+                                On-Premises</text>
+                        </svg>
+                        <div class="svg-caption">Full-stack microfinance platform purpose-built for financial inclusion
+                        </div>
+                    </div>
+
+                    <div class="cards-row" style="grid-template-columns: repeat(1, 1fr);">
+                        <div class="feat-card">
+                            <h5>Enterprise-Grade Reliability</h5>
+                            <p>Our platform is a cloud-native, modular core banking system that delivers everything a
+                                microfinance institution needs to operate professionally, compliantly, and at scale —
+                                without the capital expenditure, implementation timelines, or IT complexity of legacy
+                                systems.
+                                It can be deployed in weeks, configured without deep technical expertise, and scaled
+                                incrementally as an institution grows its membership and portfolio.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="diagram mt_40 mb_40">
-                  <svg width="100%" viewBox="0 0 880 290" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <marker id="g1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
-                        orient="auto-start-reverse">
-                        <path d="M1 1L9 5L1 9" fill="none" stroke="#059669" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </marker>
-                      <marker id="g2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
-                        orient="auto-start-reverse">
-                        <path d="M1 1L9 5L1 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </marker>
-                    </defs>
-
-                    <!-- Channel label -->
-                    <text x="440" y="22" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.5"
-                      fill="#94a3b8" font-family="Segoe UI,Arial">ACCESS CHANNELS</text>
-
-                    <!-- Channel boxes -->
-                    <rect x="20" y="30" width="142" height="44" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1.5" />
-                    <text x="91" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Mobile App</text>
-
-                    <rect x="178" y="30" width="142" height="44" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1.5" />
-                    <text x="249" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Agent Banking</text>
-
-                    <rect x="336" y="30" width="142" height="44" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1.5" />
-                    <text x="407" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">USSD / SMS</text>
-
-                    <rect x="494" y="30" width="142" height="44" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1.5" />
-                    <text x="565" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Web Portal</text>
-
-                    <rect x="652" y="30" width="208" height="44" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1.5" />
-                    <text x="756" y="56" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Open API (3rd Party)</text>
-
-                    <!-- Down arrows -->
-                    <line x1="91" y1="74" x2="91" y2="106" stroke="#059669" stroke-width="1.2" marker-end="url(#g1)" />
-                    <line x1="249" y1="74" x2="249" y2="106" stroke="#059669" stroke-width="1.2"
-                      marker-end="url(#g1)" />
-                    <line x1="407" y1="74" x2="407" y2="106" stroke="#059669" stroke-width="1.2"
-                      marker-end="url(#g1)" />
-                    <line x1="565" y1="74" x2="565" y2="106" stroke="#059669" stroke-width="1.2"
-                      marker-end="url(#g1)" />
-                    <line x1="756" y1="74" x2="756" y2="106" stroke="#059669" stroke-width="1.2"
-                      marker-end="url(#g1)" />
-
-                    <!-- Core platform -->
-                    <rect x="20" y="106" width="840" height="60" rx="10" fill="#064e3b" stroke="#064e3b" />
-                    <text x="440" y="131" text-anchor="middle" font-size="14" font-weight="700" fill="#fff"
-                      font-family="Segoe UI,Arial">Lightweight Core Banking Platform</text>
-                    <text x="440" y="153" text-anchor="middle" font-size="11" fill="#6ee7b7"
-                      font-family="Segoe UI,Arial">Loans ·
-                      Savings · Groups · Members · Payments · Compliance · Reports</text>
-
-                    <!-- Down arrows to services -->
-                    <line x1="440" y1="166" x2="440" y2="188" stroke="#94a3b8" stroke-width="1.2"
-                      marker-end="url(#g2)" />
-
-                    <!-- Services row -->
-                    <rect x="20" y="188" width="192" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6"
-                      stroke-width="1" />
-                    <text x="116" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">AI Credit Scoring</text>
-                    <text x="116" y="228" text-anchor="middle" font-size="10" fill="#64748b"
-                      font-family="Segoe UI,Arial">Alternative
-                      data models</text>
-
-                    <rect x="228" y="188" width="192" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6"
-                      stroke-width="1" />
-                    <text x="324" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">eKYC / KYC</text>
-                    <text x="324" y="228" text-anchor="middle" font-size="10" fill="#64748b"
-                      font-family="Segoe UI,Arial">Digital
-                      onboarding</text>
-
-                    <rect x="436" y="188" width="192" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6"
-                      stroke-width="1" />
-                    <text x="532" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Payment Rails</text>
-                    <text x="532" y="228" text-anchor="middle" font-size="10" fill="#64748b"
-                      font-family="Segoe UI,Arial">Mobile money,
-                      RTGS</text>
-
-                    <rect x="644" y="188" width="216" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6"
-                      stroke-width="1" />
-                    <text x="752" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a"
-                      font-family="Segoe UI,Arial">Regulatory Reporting</text>
-                    <text x="752" y="228" text-anchor="middle" font-size="10" fill="#64748b"
-                      font-family="Segoe UI,Arial">Central bank,
-                      AML</text>
-
-                    <!-- Cloud bar -->
-                    <rect x="20" y="254" width="840" height="26" rx="6" fill="#f1f5f9" stroke="#cbd5e1"
-                      stroke-width="1" />
-                    <text x="440" y="271" text-anchor="middle" font-size="11" fill="#64748b"
-                      font-family="Segoe UI,Arial">Cloud-native ·
-                      AWS · Azure · GCP · Private Cloud · On-Premises</text>
-                  </svg>
-                  <p style="font-size: 12px; font-family: 'Ubuntu', sans-serif; justify-content: center;">Full-stack
-                    microfinance platform —
-                    from mobile channel to cloud
-                    infrastructure, purpose-built
-                    for financial inclusion</p>
-                </div>
-                <div class="content-inner mt_30">
-                  <h4>The AI-Powered Digital Lending Engine</h4>
-                  <p>
-                    Our lending engine evaluates borrowers using alternative data sources and delivers credit
-                    decisions in real time — replacing multi-day manual processes with a fully automated
-                    application-to-disbursement journey that takes minutes, not days. This is what makes
-                    small-ticket lending economically viable for the institutions that serve it.
-                  </p>
-                </div>
-                <div class="diagram mt_40 mb_40">
-                  <svg width="100%" viewBox="0 0 880 190" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <marker id="ga" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
-                        orient="auto-start-reverse">
-                        <path d="M1 1L9 5L1 9" fill="none" stroke="#059669" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </marker>
-                    </defs>
-
-                    <!-- Step boxes -->
-                    <rect x="10" y="52" width="124" height="72" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1.5" />
-                    <text x="72" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Apply</text>
-                    <text x="72" y="96" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Mobile /
-                      agent</text>
-                    <text x="72" y="112" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">eKYC
-                      capture</text>
-
-                    <rect x="160" y="52" width="124" height="72" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1.5" />
-                    <text x="222" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Score</text>
-                    <text x="222" y="96" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">AI + alt
-                      data</text>
-                    <text x="222" y="112" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Bureau
-                      check</text>
-
-                    <rect x="310" y="52" width="124" height="72" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1.5" />
-                    <text x="372" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Decide</text>
-                    <text x="372" y="96" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Auto-approve</text>
-                    <text x="372" y="112" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Rule
-                      engine</text>
-
-                    <rect x="460" y="52" width="124" height="72" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1.5" />
-                    <text x="522" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Disburse</text>
-                    <text x="522" y="96" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Mobile
-                      wallet</text>
-                    <text x="522" y="112" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Bank
-                      transfer</text>
-
-                    <rect x="610" y="52" width="124" height="72" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1.5" />
-                    <text x="672" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Repay</text>
-                    <text x="672" y="96" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Mobile /
-                      cash</text>
-                    <text x="672" y="112" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Group
-                      meeting</text>
-
-                    <rect x="760" y="52" width="112" height="72" rx="8" fill="#fef9c3" stroke="#ca8a04"
-                      stroke-width="1.5" />
-                    <text x="816" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e"
-                      font-family="Segoe UI,Arial">Report</text>
-                    <text x="816" y="96" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Portfolio
-                      MIS</text>
-                    <text x="816" y="112" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Regulator</text>
-
-                    <!-- Arrows -->
-                    <line x1="134" y1="88" x2="158" y2="88" stroke="#059669" stroke-width="1.5" marker-end="url(#ga)" />
-                    <line x1="284" y1="88" x2="308" y2="88" stroke="#059669" stroke-width="1.5" marker-end="url(#ga)" />
-                    <line x1="434" y1="88" x2="458" y2="88" stroke="#059669" stroke-width="1.5" marker-end="url(#ga)" />
-                    <line x1="584" y1="88" x2="608" y2="88" stroke="#059669" stroke-width="1.5" marker-end="url(#ga)" />
-                    <line x1="734" y1="88" x2="758" y2="88" stroke="#059669" stroke-width="1.5" marker-end="url(#ga)" />
-
-                    <!-- Time markers -->
-                    <text x="72" y="154" text-anchor="middle" font-size="10" fill="#059669"
-                      font-family="Segoe UI,Arial">0 min</text>
-                    <text x="222" y="154" text-anchor="middle" font-size="10" fill="#059669"
-                      font-family="Segoe UI,Arial">1 – 2
-                      min</text>
-                    <text x="372" y="154" text-anchor="middle" font-size="10" fill="#059669"
-                      font-family="Segoe UI,Arial">2 – 3
-                      min</text>
-                    <text x="522" y="154" text-anchor="middle" font-size="10" fill="#059669"
-                      font-family="Segoe UI,Arial">3 – 5
-                      min</text>
-                    <text x="672" y="154" text-anchor="middle" font-size="10" fill="#64748b"
-                      font-family="Segoe UI,Arial">Ongoing</text>
-                    <text x="816" y="154" text-anchor="middle" font-size="10" fill="#64748b"
-                      font-family="Segoe UI,Arial">Real-time</text>
-                  </svg>
-                  <p>End-to-end digital lending in under 5 minutes — from mobile application to
-                    wallet
-                    disbursement</p>
-                </div>
-
-                <div class="content-inner mt_30">
-                  <h3>Key Differentiators: Digital, Inclusive, and Compliance-Ready</h3>
-                  <h4>Group Lending and Savings Management</h4>
-                  <p>
-                    Many of the world's most successful microfinance models — from Grameen-style group lending
-                    to Village Savings and Loan Associations — are built on collective responsibility and peer
-                    accountability. Our platform digitises these proven models, enabling institutions to manage
-                    group formation, meeting cycles, shared liability, and individual repayment tracking entirely
-                    through mobile-first digital tools.
-                  </p>
-                </div>
-                <div class="diagram">
-                  <svg width="100%" viewBox="0 0 880 250" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <marker id="gb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
-                        orient="auto-start-reverse">
-                        <path d="M1 1L9 5L1 9" fill="none" stroke="#059669" stroke-width="1.5" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </marker>
-                    </defs>
-
-                    <!-- MFI / Field Officer -->
-                    <rect x="330" y="10" width="220" height="56" rx="10" fill="#064e3b" />
-                    <text x="440" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#fff"
-                      font-family="Segoe UI,Arial">MFI Field Officer</text>
-                    <text x="440" y="54" text-anchor="middle" font-size="11" fill="#6ee7b7"
-                      font-family="Segoe UI,Arial">Mobile app ·
-                      Dashboard · Portfolio view</text>
-
-                    <!-- Group 1 -->
-                    <rect x="140" y="108" width="188" height="52" rx="8" fill="#065f46" />
-                    <text x="234" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#fff"
-                      font-family="Segoe UI,Arial">Group A</text>
-                    <text x="234" y="148" text-anchor="middle" font-size="11" fill="#6ee7b7"
-                      font-family="Segoe UI,Arial">5 – 30
-                      members</text>
-
-                    <!-- Group 2 -->
-                    <rect x="552" y="108" width="188" height="52" rx="8" fill="#065f46" />
-                    <text x="646" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#fff"
-                      font-family="Segoe UI,Arial">Group B</text>
-                    <text x="646" y="148" text-anchor="middle" font-size="11" fill="#6ee7b7"
-                      font-family="Segoe UI,Arial">5 – 30
-                      members</text>
-
-                    <!-- Arrows from FO to groups -->
-                    <line x1="390" y1="66" x2="268" y2="106" stroke="#059669" stroke-width="1.5"
-                      marker-end="url(#gb)" />
-                    <line x1="490" y1="66" x2="612" y2="106" stroke="#059669" stroke-width="1.5"
-                      marker-end="url(#gb)" />
-
-                    <!-- Member nodes - Group A -->
-                    <rect x="30" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1" />
-                    <text x="89" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Member</text>
-                    <text x="89" y="230" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Loan +
-                      savings</text>
-
-                    <rect x="162" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1" />
-                    <text x="221" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Member</text>
-                    <text x="221" y="230" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Loan +
-                      savings</text>
-
-                    <rect x="294" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1" />
-                    <text x="353" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">+ More</text>
-                    <text x="353" y="230" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Up to
-                      30</text>
-
-                    <!-- Member nodes - Group B -->
-                    <rect x="466" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1" />
-                    <text x="525" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Member</text>
-                    <text x="525" y="230" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Loan +
-                      savings</text>
-
-                    <rect x="598" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1" />
-                    <text x="657" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">Member</text>
-                    <text x="657" y="230" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Loan +
-                      savings</text>
-
-                    <rect x="730" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
-                      stroke-width="1" />
-                    <text x="789" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
-                      font-family="Segoe UI,Arial">+ More</text>
-                    <text x="789" y="230" text-anchor="middle" font-size="10" fill="#475569"
-                      font-family="Segoe UI,Arial">Up to
-                      30</text>
-
-                    <!-- Group A to members -->
-                    <line x1="196" y1="160" x2="116" y2="190" stroke="#059669" stroke-width="1" marker-end="url(#gb)" />
-                    <line x1="234" y1="160" x2="234" y2="190" stroke="#059669" stroke-width="1" marker-end="url(#gb)" />
-                    <line x1="272" y1="160" x2="320" y2="190" stroke="#059669" stroke-width="1" marker-end="url(#gb)" />
-
-                    <!-- Group B to members -->
-                    <line x1="608" y1="160" x2="552" y2="190" stroke="#059669" stroke-width="1" marker-end="url(#gb)" />
-                    <line x1="646" y1="160" x2="657" y2="190" stroke="#059669" stroke-width="1" marker-end="url(#gb)" />
-                    <line x1="684" y1="160" x2="762" y2="190" stroke="#059669" stroke-width="1" marker-end="url(#gb)" />
-                  </svg>
-                  <p>One field officer manages multiple lending groups — each group tracks
-                    individual member
-                    loans, savings, and meeting cycles</p>
-                </div>
-
-                <div class="content-inner mt_30">
-                  <h4>Key Functionalities Empowering Microfinance Institutions</h4>
-                  <ul class="list clearfix">
-                    <li><strong>Micro Loan Management:</strong>
-                      <ul class="list-style-one ml_20 mt_10">
-                        <li>Individual and group loan lifecycle management with flexible repayment schedules aligned to
-                          irregular income patterns — weekly, fortnightly, monthly, or seasonal.</li>
-                        <li>Automated EMI calculation, penalty computation, grace period management, and prepayment
-                          handling.
-                        </li>
-                        <li>Loan officer assignment, field visit tracking, and portfolio performance dashboards per
-                          officer,
-                          branch, and region.</li>
-                        <li>Digital loan agreements, digital signatures, and paperless documentation for every loan
-                          event.
-                        </li>
-                      </ul>
-                    </li>
-                    <li><strong>Savings and Deposit Management</strong>:
-                      <ul class="list-style-one ml_20 mt_10">
-                        <li>Compulsory, voluntary, and group savings accounts with configurable interest accrual and
-                          withdrawal rules.</li>
-                        <li>VSLA (Village Savings and Loan Association) fund management with transparent member-level
-                          ledger
-                          access.</li>
-                        <li>Term deposit products with auto-renewal and interest payout configurations.</li>
-                        <li>Self-help group (SHG) fund tracking, contribution management, and dividend distribution.
-                        </li>
-                      </ul>
-                    </li>
-                    <li><strong>Member and Group Management</strong>
-                      <ul class="list-style-one ml_20 mt_10">
-                        <li>Digital KYC and biometric member registration with offline capability for low-connectivity
-                          field
-                          environments.</li>
-                        <li>Group formation, leader and co-signer assignment, and membership lifecycle management.</li>
-                        <li>Meeting cycle scheduling, attendance tracking, and digital minutes capture via mobile.</li>
-                        <li>Full relationship view — every loan, saving, payment, and interaction for each member — on a
-                          single screen.</li>
-                      </ul>
-                    </li>
-                    <li><strong>AI-Powered Credit Scoring with Alternative Data</strong>
-                      <ul class="list-style-one ml_20 mt_10">
-                        <li>Creditworthiness assessment for borrowers with no formal credit history, using mobile phone
-                          behaviour, utility payment records, agricultural yield data, social network signals, and
-                          psychometric inputs.</li>
-                        <li>Machine learning models that continuously improve accuracy as portfolio data accumulates.
-                        </li>
-                        <li>Fraud detection and duplicate application screening using biometric and document matching.
-                        </li>
-                        <li>Configurable credit decision rules allowing institutions to blend AI scores with
-                          relationship
-                          officer judgement.</li>
-                      </ul>
-                    </li>
-                    <li><strong>Mobile-First Access and Agent Banking</strong>
-                      <ul class="list-style-one ml_20 mt_10">
-                        <li>Native mobile apps for borrowers — loan application, repayment, account balance, and
-                          statement
-                          access entirely through their mobile devices.</li>
-                        <li>Field officer app — loan processing, collection recording, group meeting management, and
-                          GPS-verified visits, with full offline sync capability.</li>
-                        <li>USSD and SMS interfaces for feature phone users in markets without smartphone penetration.
-                        </li>
-                        <li>Agent banking toolkit for community-level banking agents, extending the institution's reach
-                          to
-                          the
-                          last mile without branch infrastructure.</li>
-                      </ul>
-                    </li>
-                    <li><strong>Compliance by Design</strong>
-                      <ul class="list-style-one ml_20 mt_10">
-                        <li>Jurisdiction-specific KYC and AML frameworks pre-configured for major microfinance markets
-                          across
-                          South Asia, Southeast Asia, and Sub-Saharan Africa.</li>
-                        <li>Interest rate cap enforcement and usury protection rules aligned to local regulatory
-                          requirements.
-                        </li>
-                        <li>Central bank regulatory reporting templates, provisioning calculations, and portfolio
-                          quality
-                          reports — automated and audit-ready from day one.</li>
-                        <li>Cloud infrastructure-level security certifications and data residency controls making
-                          enterprise-grade security accessible at MFI scale.</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <div class="content-inner mt_30">
-                  <h4>Leveraging the Latest Technology</h4>
-                  <ul class="list clearfix">
-                    <li><strong>Cloud-Native Architecture:</strong> Designed for scalability, resilience, and low total
-                      cost of ownership on AWS, Azure, GCP, or private cloud infrastructure.</li>
-                    <li><strong>Microservices-Based Design:</strong> Modular architecture enables rapid deployment,
-                      independent scaling, and configuration without IT complexity.</li>
-                    <li><strong>Open APIs and Integration Framework:</strong> REST APIs and mobile SDKs facilitate
-                      integration with payment rails, mobile money platforms, credit bureaux, and government ID systems.
-                    </li>
-                    <li><strong>Offline-First Mobile Design:</strong> Field operations continue without connectivity —
-                      all
-                      data syncs automatically when a connection is restored.</li>
-                    <li><strong>Advanced Analytics and Reporting:</strong> Portfolio quality dashboards, loan officer
-                      performance metrics, geographic distribution maps, and regulatory returns — all in real time.</li>
-                  </ul>
-                </div>
-                <div class="content-inner mt_30">
-                  <h4>Flexible Deployment and Licensing Options</h4>
-                  <ul class="list clearfix">
-                    <li><strong>Complete SaaS (Recommended for MFIs):</strong> Fully managed cloud environment. Go live
-                      in
-                      2 to 4 weeks with zero infrastructure investment and minimal IT overhead.</li>
-                    <li><strong>Cloud Hosting (Perpetual or Subscription):</strong> Deploy on your own cloud account for
-                      full data sovereignty while benefiting from cloud scalability and resilience.</li>
-                    <li><strong>On-Premises (Perpetual or Subscription):</strong> Full deployment within your own
-                      infrastructure — suitable for regulated markets with strict data residency requirements.</li>
-                    <li><strong>Hybrid:</strong> Core systems on-premises with mobile and analytics layers in the cloud
-                      —
-                      ideal for institutions operating across mixed-connectivity markets.</li>
-                  </ul>
-                </div>
-                <div class="content-inner mt_30">
-                  <h4>Who We Serve</h4>
-                  <ul class="list clearfix">
-                    <li><strong>Microfinance Institutions (MFIs):</strong> Scaling from manual registers and
-                      spreadsheets
-                      to professional digital operations.</li>
-                    <li><strong>Cooperatives and SACCOs:</strong> Member savings, group loans, share management, and
-                      dividend distribution on a single platform.</li>
-                    <li><strong>Digital Lenders and Fintechs:</strong> API-first credit products for underbanked
-                      segments,
-                      deployable rapidly in new markets.</li>
-                    <li><strong>NGOs and Development Organisations:</strong> Building sustainable, compliant, and
-                      scalable
-                      lending programmes for communities.</li>
-                    <li><strong>Banks Launching Micro-Lending Units:</strong> A dedicated microfinance stack that keeps
-                      complexity out of the core banking system.</li>
-                    <li><strong>Agri-Finance Lenders:</strong> Seasonal lending with crop-cycle-aligned repayment
-                      schedules, warehouse receipt financing, and agri-scoring models.</li>
-                  </ul>
-                </div>
-                <div class="content-inner mt_20">
-                  <p>
-                    <strong>Ready to extend financial services to the people who need them most?</strong>
-                    <a href="/contact/contact.html"> Talk to Our Team Today</a>
-                  </p>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- main-footer -->
+            <!-- FEAT SECTION 2: Lending Engine -->
+            <div class="feat-section" id="fs2">
+                <div class="section-container">
+                    <div class="feat-section-header">
+                        <div class="eyebrow">Lending Engine</div>
+                        <h3>The AI-Powered Digital Lending Engine</h3>
+                    </div>
+
+                    <div class="svg-block">
+                        <svg viewBox="0 0 880 190" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="ga" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
+                                    orient="auto-start-reverse">
+                                    <path d="M1 1L9 5L1 9" fill="none" stroke="#059669" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </marker>
+                            </defs>
+                            <rect x="10" y="52" width="124" height="72" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1.5" />
+                            <text x="72" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Apply</text>
+                            <text x="72" y="96" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Mobile / agent</text>
+                            <text x="72" y="112" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">eKYC capture</text>
+                            <rect x="160" y="52" width="124" height="72" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1.5" />
+                            <text x="222" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Score</text>
+                            <text x="222" y="96" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">AI + alt data</text>
+                            <text x="222" y="112" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Bureau check</text>
+                            <rect x="310" y="52" width="124" height="72" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1.5" />
+                            <text x="372" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Decide</text>
+                            <text x="372" y="96" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Auto-approve</text>
+                            <text x="372" y="112" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Rule engine</text>
+                            <rect x="460" y="52" width="124" height="72" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1.5" />
+                            <text x="522" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Disburse</text>
+                            <text x="522" y="96" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Mobile wallet</text>
+                            <text x="522" y="112" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Bank transfer</text>
+                            <rect x="610" y="52" width="124" height="72" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1.5" />
+                            <text x="672" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Repay</text>
+                            <text x="672" y="96" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Mobile / cash</text>
+                            <text x="672" y="112" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Group meeting</text>
+                            <rect x="760" y="52" width="112" height="72" rx="8" fill="#fef9c3" stroke="#ca8a04"
+                                stroke-width="1.5" />
+                            <text x="816" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e"
+                                font-family="Segoe UI,Arial">Report</text>
+                            <text x="816" y="96" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Portfolio MIS</text>
+                            <text x="816" y="112" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Regulator</text>
+                            <line x1="134" y1="88" x2="158" y2="88" stroke="#059669" stroke-width="1.5"
+                                marker-end="url(#ga)" />
+                            <line x1="284" y1="88" x2="308" y2="88" stroke="#059669" stroke-width="1.5"
+                                marker-end="url(#ga)" />
+                            <line x1="434" y1="88" x2="458" y2="88" stroke="#059669" stroke-width="1.5"
+                                marker-end="url(#ga)" />
+                            <line x1="584" y1="88" x2="608" y2="88" stroke="#059669" stroke-width="1.5"
+                                marker-end="url(#ga)" />
+                            <line x1="734" y1="88" x2="758" y2="88" stroke="#059669" stroke-width="1.5"
+                                marker-end="url(#ga)" />
+                        </svg>
+                        <div class="svg-caption">End-to-end digital lending in under 5 minutes — from application to
+                            disbursement</div>
+                    </div>
+
+                    <div class="cards-row" style="grid-template-columns: repeat(1, 1fr);">
+                        <div class=" feat-card">
+                            <h5>Real-Time Credit Decisions</h5>
+                            <p>Our lending engine evaluates borrowers using alternative data sources and delivers credit
+                                decisions in real time —
+                                replacing multi-day manual processes with a fully automated application-to-disbursement
+                                journey that takes minutes, not
+                                days. This is what makes small-ticket lending economically viable for the institutions
+                                that serve it.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEAT SECTION 3: Key Functionalities -->
+            <div class="feat-section" id="fs3">
+                <div class="section-container">
+                    <div class="feat-section-header">
+                        <div class="eyebrow">Key Differentiators</div>
+                        <h4>Digital, Inclusive, and Compliance-Ready</h4>
+                    </div>
+
+                    <div class="svg-block">
+                        <svg width="100%" viewBox="0 0 880 250" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="gb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5"
+                                    orient="auto-start-reverse">
+                                    <path d="M1 1L9 5L1 9" fill="none" stroke="#059669" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </marker>
+                            </defs>
+
+                            <!-- MFI / Field Officer -->
+                            <rect x="330" y="10" width="220" height="56" rx="10" fill="#064e3b" />
+                            <text x="440" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#fff"
+                                font-family="Segoe UI,Arial">MFI Field Officer</text>
+                            <text x="440" y="54" text-anchor="middle" font-size="11" fill="#6ee7b7"
+                                font-family="Segoe UI,Arial">Mobile app ·
+                                Dashboard · Portfolio view</text>
+
+                            <!-- Group 1 -->
+                            <rect x="140" y="108" width="188" height="52" rx="8" fill="#065f46" />
+                            <text x="234" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#fff"
+                                font-family="Segoe UI,Arial">Group A</text>
+                            <text x="234" y="148" text-anchor="middle" font-size="11" fill="#6ee7b7"
+                                font-family="Segoe UI,Arial">5 – 30
+                                members</text>
+
+                            <!-- Group 2 -->
+                            <rect x="552" y="108" width="188" height="52" rx="8" fill="#065f46" />
+                            <text x="646" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#fff"
+                                font-family="Segoe UI,Arial">Group B</text>
+                            <text x="646" y="148" text-anchor="middle" font-size="11" fill="#6ee7b7"
+                                font-family="Segoe UI,Arial">5 – 30
+                                members</text>
+
+                            <!-- Arrows from FO to groups -->
+                            <line x1="390" y1="66" x2="268" y2="106" stroke="#059669" stroke-width="1.5"
+                                marker-end="url(#gb)" />
+                            <line x1="490" y1="66" x2="612" y2="106" stroke="#059669" stroke-width="1.5"
+                                marker-end="url(#gb)" />
+
+                            <!-- Member nodes - Group A -->
+                            <rect x="30" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1" />
+                            <text x="89" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Member</text>
+                            <text x="89" y="230" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Loan +
+                                savings</text>
+
+                            <rect x="162" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1" />
+                            <text x="221" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Member</text>
+                            <text x="221" y="230" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Loan +
+                                savings</text>
+
+                            <rect x="294" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1" />
+                            <text x="353" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">+ More</text>
+                            <text x="353" y="230" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Up to
+                                30</text>
+
+                            <!-- Member nodes - Group B -->
+                            <rect x="466" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1" />
+                            <text x="525" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Member</text>
+                            <text x="525" y="230" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Loan +
+                                savings</text>
+
+                            <rect x="598" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1" />
+                            <text x="657" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">Member</text>
+                            <text x="657" y="230" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Loan +
+                                savings</text>
+
+                            <rect x="730" y="192" width="118" height="48" rx="8" fill="#dcfce7" stroke="#059669"
+                                stroke-width="1" />
+                            <text x="789" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#064e3b"
+                                font-family="Segoe UI,Arial">+ More</text>
+                            <text x="789" y="230" text-anchor="middle" font-size="10" fill="#475569"
+                                font-family="Segoe UI,Arial">Up to
+                                30</text>
+
+                            <!-- Group A to members -->
+                            <line x1="196" y1="160" x2="116" y2="190" stroke="#059669" stroke-width="1"
+                                marker-end="url(#gb)" />
+                            <line x1="234" y1="160" x2="234" y2="190" stroke="#059669" stroke-width="1"
+                                marker-end="url(#gb)" />
+                            <line x1="272" y1="160" x2="320" y2="190" stroke="#059669" stroke-width="1"
+                                marker-end="url(#gb)" />
+
+                            <!-- Group B to members -->
+                            <line x1="608" y1="160" x2="552" y2="190" stroke="#059669" stroke-width="1"
+                                marker-end="url(#gb)" />
+                            <line x1="646" y1="160" x2="657" y2="190" stroke="#059669" stroke-width="1"
+                                marker-end="url(#gb)" />
+                            <line x1="684" y1="160" x2="762" y2="190" stroke="#059669" stroke-width="1"
+                                marker-end="url(#gb)" />
+                        </svg>
+                        <p>One field officer manages multiple lending groups — each group tracks
+                            individual member
+                            loans, savings, and meeting cycles</p>
+                    </div>
+                    <div class="feat-card">
+                        <h5>Group Lending and Savings Management</h5>
+                        <p>Many of the world's most successful microfinance models — from Grameen-style group
+                            lending
+                            to Village Savings and Loan Associations — are built on collective responsibility and
+                            peer
+                            accountability. Our platform digitises these proven models, enabling institutions to
+                            manage
+                            group formation, meeting cycles, shared liability, and individual repayment tracking
+                            entirely
+                            through mobile-first digital tools.</p>
+                    </div>
+                    <div class="feat-section-header" style="padding-top: 15px;">
+                        <div class="eyebrow">Key Differentiators</div>
+                        <h4>Digital, Inclusive, and Compliance-Ready</h4>
+                    </div>
+                    <div class="cards-row">
+                        <div class="feat-card">
+                            <h5>Micro Loan Management</h5>
+                            <ul class="sub-list">
+                                <li>Individual and group loan lifecycle management with flexible repayment schedules
+                                    aligned to
+                                    irregular income patterns — weekly, fortnightly, monthly, or seasonal.</li>
+                                <li>Automated EMI calculation, penalty computation, grace period management, and
+                                    prepayment
+                                    handling.
+                                </li>
+                                <li>Loan officer assignment, field visit tracking, and portfolio performance dashboards
+                                    per
+                                    officer,
+                                    branch, and region.</li>
+                                <li>Digital loan agreements, digital signatures, and paperless documentation for every
+                                    loan
+                                    event.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Savings and Deposit Management</h5>
+                            <ul class="sub-list">
+                                <li>Compulsory, voluntary, and group savings accounts with configurable interest accrual
+                                    and
+                                    withdrawal rules.</li>
+                                <li>VSLA (Village Savings and Loan Association) fund management with transparent
+                                    member-level
+                                    ledger
+                                    access.</li>
+                                <li>Term deposit products with auto-renewal and interest payout configurations.</li>
+                                <li>Self-help group (SHG) fund tracking, contribution management, and dividend
+                                    distribution.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Member and Group Management</h5>
+                            <ul class="sub-list">
+                                <li>Digital KYC and biometric member registration with offline capability for
+                                    low-connectivity
+                                    field
+                                    environments.</li>
+                                <li>Group formation, leader and co-signer assignment, and membership lifecycle
+                                    management.</li>
+                                <li>Meeting cycle scheduling, attendance tracking, and digital minutes capture via
+                                    mobile.</li>
+                                <li>Full relationship view — every loan, saving, payment, and interaction for each
+                                    member — on a
+                                    single screen.</li>
+                            </ul>
+
+                        </div>
+                        <div class="feat-card">
+                            <h5>AI-Powered Credit Scoring with Alternative Data</h5>
+                            <ul class="sub-list">
+                                <li>Creditworthiness assessment for borrowers with no formal credit history, using
+                                    mobile phone
+                                    behaviour, utility payment records, agricultural yield data, social network signals,
+                                    and
+                                    psychometric inputs.</li>
+                                <li>Machine learning models that continuously improve accuracy as portfolio data
+                                    accumulates.
+                                </li>
+                                <li>Fraud detection and duplicate application screening using biometric and document
+                                    matching.
+                                </li>
+                                <li>Configurable credit decision rules allowing institutions to blend AI scores with
+                                    relationship
+                                    officer judgement.</li>
+                            </ul>
+
+                        </div>
+                        <div class="feat-card">
+                            <h5>Mobile-First Access and Agent Banking</h5>
+                            <ul class="sub-list">
+                                <li>Native mobile apps for borrowers — loan application, repayment, account balance, and
+                                    statement
+                                    access entirely through their mobile devices.</li>
+                                <li>Field officer app — loan processing, collection recording, group meeting management,
+                                    and
+                                    GPS-verified visits, with full offline sync capability.</li>
+                                <li>USSD and SMS interfaces for feature phone users in markets without smartphone
+                                    penetration.
+                                </li>
+                                <li>Agent banking toolkit for community-level banking agents, extending the
+                                    institution's reach
+                                    to
+                                    the
+                                    last mile without branch infrastructure.</li>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Compliance by Design</h5>
+                            <ul class="sub-list">
+                                <li>Jurisdiction-specific KYC and AML frameworks pre-configured for major microfinance
+                                    markets
+                                    across
+                                    South Asia, Southeast Asia, and Sub-Saharan Africa.</li>
+                                <li>Interest rate cap enforcement and usury protection rules aligned to local regulatory
+                                    requirements.
+                                </li>
+                                <li>Central bank regulatory reporting templates, provisioning calculations, and
+                                    portfolio
+                                    quality
+                                    reports — automated and audit-ready from day one.</li>
+                                <li>Cloud infrastructure-level security certifications and data residency controls
+                                    making
+                                    enterprise-grade security accessible at MFI scale.</li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEAT SECTION 4: Technology -->
+            <div class="feat-section" id="fs4">
+                <div class="section-container">
+                    <div class="feat-section-header">
+                        <div class="eyebrow">Technology</div>
+                        <h4>Leveraging the Latest Technology</h4>
+                    </div>
+                    <div class="cards-row">
+                        <div class="feat-card">
+                            <h5>Cloud-Native Architecture</h5>
+                            <p>Designed for scalability, resilience, and low total
+                                cost of ownership on AWS, Azure, GCP, or private cloud infrastructure.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Open APIs and Integration Framework</h5>
+                            <p>REST APIs and mobile SDKs facilitate
+                                integration with payment rails, mobile money platforms, credit bureaux, and government
+                                ID systems.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Offline-First Mobile Design</h5>
+                            <p>Field operations continue without connectivity —
+                                all
+                                data syncs automatically when a connection is restored.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Advanced Analytics and Reporting</h5>
+                            <p>Portfolio quality dashboards, loan officer
+                                performance metrics, geographic distribution maps, and regulatory returns — all in real
+                                time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEAT SECTION 5: Deployment -->
+            <div class="feat-section" id="fs5">
+                <div class="section-container">
+                    <div class="feat-section-header">
+                        <div class="eyebrow">Deployment</div>
+                        <h4>Flexible Deployment and Licensing Options</h4>
+                    </div>
+                    <div class="cards-row">
+                        <div class="feat-card">
+                            <h5>Complete SaaS (Recommended for MFIs)</h5>
+                            <p>Fully managed cloud environment. Go live
+                                in
+                                2 to 4 weeks with zero infrastructure investment and minimal IT overhead.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Cloud Hosting (Perpetual or Subscription)</h5>
+                            <p>Deploy on your own cloud account for
+                                full data sovereignty while benefiting from cloud scalability and resilience.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>On-Premises (Perpetual or Subscription)</h5>
+                            <p>Full deployment within your own
+                                infrastructure — suitable for regulated markets with strict data residency requirements.
+                            </p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Hybrid</h5>
+                            <p>Core systems on-premises with mobile and analytics layers in the cloud
+                                — ideal for institutions operating across mixed-connectivity markets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEAT SECTION 6: Who We Serve -->
+            <div class="feat-section" id="fs6">
+                <div class="section-container">
+                    <div class="feat-section-header">
+                        <div class="eyebrow"></div>
+                        <h4>Who We Serve</h4>
+                    </div>
+                    <div class="cards-row">
+                        <div class="feat-card">
+                            <h5>Microfinance Institutions (MFIs)</h5>
+                            <p>Scaling from manual registers and
+                                spreadsheets
+                                to professional digital operations.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Cooperatives and SACCOs</h5>
+                            <p>Member savings, group loans, share management, and
+                                dividend distribution on a single platform.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Digital Lenders and Fintechs</h5>
+                            <p>API-first credit products for underbanked
+                                segments,
+                                deployable rapidly in new markets.
+                            </p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>NGOs and Development Organisations</h5>
+                            <p>Building sustainable, compliant, and
+                                scalable
+                                lending programmes for communities.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Banks Launching Micro-Lending Units</h5>
+                            <p>A dedicated microfinance stack that keeps
+                                complexity out of the core banking system.</p>
+                        </div>
+                        <div class="feat-card">
+                            <h5>Agri-Finance Lenders</h5>
+                            <p>Seasonal lending with crop-cycle-aligned repayment
+                                schedules, warehouse receipt financing, and agri-scoring models.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last Section -->
+            <div class="full-section centered light-bg" id="conclusion">
+                <div class="section-container">
+                    <h2>Reach Us</h2>
+                    <p>Ready to extend financial services to the people who need them most?</p>
+                    <div class="centered-btn-wrap">
+                        <a href="../contact/contact.html" class="btn-orange">Talk to Our Team Today</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Showcase Section -->
+            <section class="product-showcase">
+                <div class="section-container">
+                    <span class="eyebrow">Discover More</span>
+                    <h2>Explore Our Other Solutions</h2>
+                    <p>Midas offers a comprehensive suite of financial technology solutions designed to drive digital
+                        transformation and operational excellence.</p>
+
+                    <div class="product-grid">
+                        <!-- Product 1: Omni Channel -->
+                        <a href="omnichannel.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/omnichannel.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Omni Channel</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 2: LMS -->
+                        <a href="loans-management-system.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/los_banner.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Loans Management System</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 3: Payment Hub -->
+                        <a href="payment-hub.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/banner_payment_hub.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Payment Hub</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 4: SCF -->
+                        <a href="scf.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/banner_scf.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Supply Chain Finance</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 5: LOS -->
+                        <a href="los.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/los_banner.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Loan Origination System</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 6: Virtual Account -->
+                        <a href="va.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/va_2.webp');">
+                            </div>
+                            <div class="product-card-body">
+                                <h5>Virtual Account</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 7: Smart Token -->
+                        <a href="smart-token.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/banner_softtoken.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Smart Token</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 8: Nexus ID -->
+                        <a href="nexus-id.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/banner_nexus.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>NexusID</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 9: Cloud Core Banking -->
+                        <a href="cloud-core-banking.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/cloud_core_banking.webp');"></div>
+                            <div class="product-card-body">
+                                <h5>Cloud Core Banking</h5>
+                            </div>
+                        </a>
+
+                        <!-- Product 10: AI Liveness Detection -->
+                        <a href="liveness-detection.html" class="product-card">
+                            <div class="product-card-img"
+                                style="background-image: url('/assets/images/banner/banner_liveness.webp'), linear-gradient(135deg, #0b1727 0%, #172a45 50%, #1e3a5f 100%);"></div>
+                            <div class="product-card-body">
+                                <h5>AI Liveness Detection</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- main-footer -->
 <section class="main-footer style-three">
   <div class="shape">
     <div class="shape-1"></div>
@@ -786,11 +1375,20 @@
     <div class="footer-top">
       <div class="top-inner">
         <figure class="footer-logo">
-          <a href="/index.html"><img src="/assets/images/logo.webp" alt="" loading="lazy" /></a>
+          <a href="/index.html"><img src="/assets/images/logo-172.webp"
+              srcset="/assets/images/logo-172.webp 172w, /assets/images/logo-344.webp 344w, /assets/images/logo-517.webp 517w"
+              sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75"
+              loading="lazy" /></a>
         </figure>
         <ul class="social-links clearfix">
           <li>
-            <a href="https://www.linkedin.com/company/pt-midas-daya-teknologi/"><i class="icon-3"></i></a>
+            <a href="https://www.linkedin.com/company/pt-midas-daya-teknologi/" target="_blank"
+              rel="noopener noreferrer" aria-label="Midas LinkedIn Profile"><i class="icon-3"></i></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/growwithmidas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              target="_blank" rel="noopener noreferrer" aria-label="Midas Instagram Profile"><i
+                class="fab fa-instagram"></i></a>
           </li>
         </ul>
       </div>
@@ -806,13 +1404,15 @@
               <!-- <p>This is due to their excellent service, competitive pricing and customer support.
                                 It’s throughly refresing to get such a personal touch.</p> -->
               <ul class="info clearfix">
-                <!-- <li><i class="icon-2"></i><a href="tel:+88123456987231">+88 12345 6987 231</a>
-                                </li>
-                                <li><i class="icon-19"></i><a href="mailto:info@example.com">info@example.com</a></li> -->
+                <li><i class="icon-2"></i><a href="tel:+622140642341">(+6221) 40642341</a>
+                </li>
+                <!-- <li><i class="icon-19"></i><a href="mailto:info@example.com">info@example.com</a></li> -->
                 <li>
-                  <i class="icon-23"></i>PT Midas Daya Teknologi<br />Gd.
-                  Setiabudi 2, Lt.2 Suite No.203A,<br />JL. H.R. Rasuna Said
-                  Kav.62, Kuningan, Setiabudi, Jakarta Selatan 12940, Indonesia.
+                  <i class="icon-23" style="background: #0d7dfc;"></i>PT Midas Daya Teknologi<br />Lippo Kuningan
+                  Building, 18th Floor, Unit
+                  F2,<br />
+                  JI. H. R. Rasuna Said Kav,
+                  B-12, Jakarta Selatan 12940, Indonesia.
                 </li>
               </ul>
             </div>
@@ -899,26 +1499,583 @@
 </section>
 <!-- main-footer end -->
 
-    <!--Scroll to top-->
-    <div class="scroll-to-top">
-      <div>
-        <div class="scroll-top-inner">
-          <div class="scroll-bar">
-            <div class="bar-inner"></div>
-          </div>
-          <div class="scroll-bar-text">Go To Top</div>
-        </div>
-      </div>
+<!-- Midas Chatbot Widget -->
+<style>
+  /* Chatbot Styles */
+  #chat-toggle {
+    position: fixed;
+    bottom: 38px;
+    right: 38px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, background 0.2s, opacity 0.3s ease;
+    z-index: 9999;
+  }
+
+  #chat-toggle:hover {
+    transform: scale(1.07);
+    background: #ffffff;
+  }
+
+  #chat-toggle:active {
+    transform: scale(0.96);
+  }
+
+  #chat-toggle .icon-chat,
+  #chat-toggle .icon-close {
+    transition: opacity 0.2s, transform 0.25s;
+  }
+
+  #chat-toggle .icon-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+    position: absolute;
+  }
+
+  #chat-toggle.open .icon-chat {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+  }
+
+  #chat-toggle.open .icon-close {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  #chat-panel {
+    position: fixed;
+    bottom: 110px;
+    right: 38px;
+    width: 390px;
+    max-height: 580px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9998;
+    transform: translateY(24px) scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.22s ease;
+    color: #52565b;
+  }
+
+  #chat-panel.open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .chat-header {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .header-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+    border: 1px solid #eee;
+  }
+
+  .header-info h3 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e1e1e;
+    margin-bottom: 2px;
+  }
+
+  .header-info span {
+    font-size: 11px;
+    color: #677289;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .online-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    display: inline-block;
+  }
+
+  .header-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #52565b;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+    line-height: 1;
+  }
+
+  .header-close:hover {
+    color: #ff6a00;
+    background: #f0f0f0;
+  }
+
+  #chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-behavior: smooth;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  #chat-messages::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  #chat-messages::-webkit-scrollbar-thumb {
+    background: #e5e5e5;
+    border-radius: 4px;
+  }
+
+  .msg {
+    display: flex;
+    max-width: 90%;
+    animation: fadeUp 0.22s ease;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .msg.user {
+    align-self: flex-end;
+  }
+
+  .msg.bot {
+    align-self: flex-start;
+  }
+
+  .msg-bubble {
+    padding: 10px 14px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    word-break: break-word;
+    border-radius: 16px;
+  }
+
+  .msg.bot .msg-bubble {
+    background: #f1f3f5;
+    color: #52565b;
+    border: 1px solid #e9ecef;
+    border-bottom-left-radius: 4px;
+  }
+
+  .msg.user .msg-bubble {
+    background: #ff6a00;
+    color: #fff;
+    border-bottom-right-radius: 4px;
+  }
+
+  .typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 12px 14px;
+    background: #f1f3f5;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+  }
+
+  .typing-indicator span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #adb5bd;
+    animation: bounce 1.2s infinite;
+  }
+
+  .typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes bounce {
+
+    0%,
+    60%,
+    100% {
+      transform: translateY(0);
+    }
+
+    30% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 16px 10px;
+  }
+
+  .suggestion-chip {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 5px 11px;
+    font-size: 12px;
+    color: #677289;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    transition: all 0.15s;
+  }
+
+  .suggestion-chip:hover {
+    border-color: #ff6a00;
+    color: #ff6a00;
+    background: #fffcf5;
+  }
+
+  .chat-footer {
+    padding: 10px 12px;
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+    flex-shrink: 0;
+    background: #ffffff;
+  }
+
+  #chat-input {
+    flex: 1;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 10px 13px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 13.5px;
+    color: #52565b;
+    resize: none;
+    outline: none;
+    max-height: 100px;
+    line-height: 1.45;
+    transition: border-color 0.15s;
+    overflow-y: auto;
+  }
+
+  #chat-input:focus {
+    border-color: #ff6a00;
+    background: #fff;
+  }
+
+  #chat-input::placeholder {
+    color: #adb5bd;
+  }
+
+  #send-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #ff6a00;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, transform 0.1s;
+  }
+
+  #send-btn:hover {
+    background: #e55f00;
+  }
+
+  #send-btn:active {
+    transform: scale(0.93);
+  }
+
+  #send-btn:disabled {
+    background: #e9ecef;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 440px) {
+    #chat-panel {
+      width: calc(100vw - 20px);
+      right: 10px;
+      bottom: 108px;
+    }
+  }
+</style>
+
+<button id="chat-toggle" aria-label="Open chat">
+  <img class="icon-chat" src="/assets/images/icons/chat-icon-64.webp" srcset="/assets/images/icons/chat-icon-64.webp 1x, /assets/images/icons/chat-icon-128.webp 2x" width="28" height="28"
+    alt="Chat" style="display:block;" />
+  <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+    stroke="#52565b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+</button>
+
+<div id="chat-panel" role="dialog" aria-label="Midas Assistant">
+  <div class="chat-header">
+    <div class="header-avatar">
+      <img src="/assets/images/icons/chat-icon-64.webp" srcset="/assets/images/icons/chat-icon-64.webp 1x, /assets/images/icons/chat-icon-128.webp 2x" width="24" height="24"
+        alt="Midas Assistant" />
     </div>
+    <div class="header-info">
+      <h3>Midas Assistant</h3>
+      <span><span class="online-dot">
+    </div>
+    <button class="header-close" id="chat-close" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
   </div>
 
-  <!-- scripts -->
-  <script defer src="/assets/js/jquery.js"></script>
-  <script defer src="/assets/js/popper.min.js"></script>
-  <script defer src="/assets/js/bootstrap.min.js"></script>
-  <script defer src="/assets/js/owl.js"></script>
-  <script defer src="/assets/js/jquery.fancybox.js"></script>
-  <script defer src="/assets/js/script.js"></script>
+  <div id="chat-messages"></div>
+  <div class="suggestions" id="suggestions"></div>
+
+  <div class="chat-footer">
+    <textarea id="chat-input" rows="1" placeholder="Ask about Midas Teknologi…"></textarea>
+    <button id="send-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff"
+        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13" />
+        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const PROXY_URL = '/ai-proxy.php';
+    const WELCOME_MSG = "Hi! 👋 I'm the Midas Assistant. Ask me anything about Midas Teknologi — our solutions, services, AI offerings, office locations, or how to get in touch!";
+    const SUGGESTIONS = [
+      "What does Midas do?",
+      "What solutions do you offer?",
+      "Where are your offices?",
+    ];
+
+    const excludedPages = ['error.html', 'coming-soon.html'];
+    const path = window.location.pathname;
+    const isExcluded = excludedPages.some(page => path.includes(page)) || path.includes('/admin/');
+
+    if (isExcluded) {
+      document.getElementById('chat-toggle').style.display = 'none';
+      document.getElementById('chat-panel').style.display = 'none';
+      return;
+    }
+
+    let history = [];
+    let isTyping = false;
+
+    const toggle = document.getElementById("chat-toggle");
+    const panel = document.getElementById("chat-panel");
+    const closeBtn = document.getElementById("chat-close");
+    const messagesEl = document.getElementById("chat-messages");
+    const suggestEl = document.getElementById("suggestions");
+    const input = document.getElementById("chat-input");
+    const sendBtn = document.getElementById("send-btn");
+
+    /* Suggestion chips */
+    suggestEl.innerHTML = SUGGESTIONS.map(s =>
+      `<button class="suggestion-chip">${s}</button>`
+    ).join("");
+    suggestEl.querySelectorAll(".suggestion-chip").forEach(btn => {
+      btn.addEventListener("click", () => {
+        input.value = btn.textContent;
+        suggestEl.style.display = "none";
+        sendMessage();
+      });
+    });
+
+    /* Open / close */
+    toggle.addEventListener("click", () =>
+      panel.classList.contains("open") ? closePanel() : openPanel()
+    );
+    closeBtn.addEventListener("click", closePanel);
+    function openPanel() { panel.classList.add("open"); toggle.classList.add("open"); input.focus(); }
+    function closePanel() { panel.classList.remove("open"); toggle.classList.remove("open"); }
+
+    /* Scroll behavior: hide while scrolling, show on stop */
+    let isScrolling;
+    window.addEventListener('scroll', () => {
+      if (!panel.classList.contains("open")) {
+        toggle.style.opacity = '0';
+        toggle.style.pointerEvents = 'none';
+
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          toggle.style.opacity = '1';
+          toggle.style.pointerEvents = 'all';
+        }, 250);
+      }
+    }, { passive: true });
+
+    /* Auto-grow textarea */
+    input.addEventListener("input", () => {
+      input.style.height = "auto";
+      input.style.height = Math.min(input.scrollHeight, 100) + "px";
+    });
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+    });
+    sendBtn.addEventListener("click", sendMessage);
+
+    /* Add message bubble */
+    function addMessage(role, text) {
+      const wrap = document.createElement("div");
+      wrap.className = "msg " + role;
+      const bubble = document.createElement("div");
+      bubble.className = "msg-bubble";
+
+      // Escape HTML to prevent XSS
+      let html = text.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+      // Convert URLs to hyperlinks
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      html = html.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
+
+      // Convert Email IDs to mailto links
+      const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+      html = html.replace(emailRegex, '<a href="mailto:$1" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
+
+      bubble.innerHTML = html;
+      wrap.appendChild(bubble);
+      messagesEl.appendChild(wrap);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    /* Typing indicator */
+    function showTyping() {
+      const wrap = document.createElement("div");
+      wrap.className = "msg bot"; wrap.id = "typing-wrap";
+      wrap.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
+      messagesEl.appendChild(wrap);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+    function hideTyping() { const el = document.getElementById("typing-wrap"); if (el) el.remove(); }
+
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text || isTyping) return;
+
+      suggestEl.style.display = "none";
+      input.value = ""; input.style.height = "auto";
+      addMessage("user", text);
+
+      history.push({ role: "user", content: text });
+      const recentHistory = history.slice(-4);
+
+      isTyping = true; sendBtn.disabled = true;
+      showTyping();
+
+      try {
+        const res = await fetch(PROXY_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ messages: recentHistory })
+        });
+
+        const data = await res.json();
+        hideTyping();
+
+        if (!res.ok) {
+          addMessage("bot", "⚠️ " + (data?.error?.message || data?.error || "Something went wrong."));
+          history.pop(); return;
+        }
+
+        const reply = data.choices[0].message.content;
+        addMessage("bot", reply);
+        history.push({ role: "assistant", content: reply });
+
+      } catch {
+        hideTyping();
+        addMessage("bot", "⚠️ Network error. Please check your connection.");
+        history.pop();
+      } finally {
+        isTyping = false; sendBtn.disabled = false; input.focus();
+      }
+    }
+
+    addMessage("bot", WELCOME_MSG);
+  })();
+</script>
+
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- scripts -->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/owl.js"></script>
+    <script src="/assets/js/script.js"></script>
+
+    <script>
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('in-view');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.full-section, .para-section, .feat-section, .product-showcase').forEach(el => io.observe(el));
+    </script>
 </body>
 
 </html>
