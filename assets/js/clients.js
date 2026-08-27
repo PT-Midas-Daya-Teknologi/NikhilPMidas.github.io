@@ -1,4 +1,4 @@
-(function () {
+(function() {
     function initMarquee() {
         const wrappers = document.querySelectorAll('.client-marquee-wrapper');
         if (wrappers.length < 2) return;
@@ -30,7 +30,7 @@
                 <img src="${client.src}" alt="${client.alt}" loading="lazy" />
             </a>
         `).join('');
-        track.innerHTML = html + html;
+        track.innerHTML = html + html; 
     }
 
     if (document.readyState === 'loading') {

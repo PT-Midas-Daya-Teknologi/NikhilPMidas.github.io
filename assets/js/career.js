@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const col = document.createElement('div');
       col.className = 'col-lg-3 col-md-6 col-sm-12';
 
-      const jobUrl = `/career/job-details.html?id=${job.id}`;
+      const jobUrl = `./career/job-details.html?id=${job.id}`;
 
       col.innerHTML = `
         <div class="job-card-custom" onclick="window.location.href='${jobUrl}'">
