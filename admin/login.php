@@ -26,7 +26,7 @@ if (isLoggedIn()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - Midas Teknologi</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
     <style>
         body { background: #f8f9fa; display: flex; align-items: center; height: 100vh; }
         .login-card { max-width: 400px; margin: auto; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background: #fff; }
@@ -37,7 +37,7 @@ if (isLoggedIn()) {
 <body>
     <div class="login-card w-100">
         <div class="text-center mb-4">
-            <img src="../assets/images/logo.webp" alt="Midas Logo" width="150">
+            <img src="./assets/images/logo.webp" alt="Midas Logo" width="150">
             <h4 class="mt-3">Admin Login</h4>
         </div>
         <?php if ($error): ?>

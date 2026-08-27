@@ -2,1284 +2,1291 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
-    <title>SmartToken - Midas Teknologi</title>
-
-    <!-- Fav Icon -->
-    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
-
-    <!-- Stylesheets -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="../assets/css/animate.min.css" rel="stylesheet">
-<link href="../assets/css/font-awesome-all.min.css" rel="stylesheet">
-<link href="../assets/css/flaticon.min.css" rel="stylesheet">
-<link href="../assets/css/owl.min.css" rel="stylesheet">
-<link href="../assets/css/jquery.fancybox.min.css" rel="stylesheet">
-<link href="../assets/css/elpath.min.css" rel="stylesheet">
-<link href="../assets/css/color.min.css" rel="stylesheet">
-<link href="../assets/css/fonts.min.css" rel="stylesheet">
-<link href="../assets/css/style.min.css" rel="stylesheet">
-<link href="../assets/css/responsive.min.css" rel="stylesheet">
-
-
-    <style>
-        :root {
-            --color-border-tertiary: #edf2f7;
-            --color-text-tertiary: var(--dark-gray);
-            --color-text-primary: var(--deep-black);
-            --color-text-secondary: var(--text-color);
-            --border-radius-lg: var(--radius);
-            --color-background-primary: var(--white);
-            --color-background-secondary: var(--navy-light);
-            --color-border-secondary: #e2e8f0;
-            --color-text-success: #1D9E75;
-            --color-text-info: var(--primary-blue);
-            --color-text-warning: var(--primary-orange);
-            --font-sans: 'Ubuntu', sans-serif;
-            --primary-midas: var(--primary-orange);
-        }
-
-        body {
-            font-family: 'Ubuntu', sans-serif !important;
-            color: var(--text-color);
-            font-size: clamp(15px, 1.1vw, 17px);
-        }
-
-        .page {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            background-color: white;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            height: 60vh;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-image: url('./assets/images/banner/banner_softtoken.webp');
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .hero-section .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 20px;
-        }
-
-        .hero-section h1 {
-            font-size: clamp(32px, 6vw, 64px);
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            line-height: 1.1;
-        }
-
-        .full-section {
-            padding: clamp(20px, 8vw, 40px) clamp(20px, 5vw, 40px);
-            width: 100%;
-            position: relative;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .full-section h2 {
-            font-size: clamp(28px, 4.5vw, 40px);
-            font-weight: 700;
-            color: var(--corporate-navy);
-            line-height: 1.2;
-        }
-
-        .full-section h3 {
-            font-size: clamp(22px, 3.5vw, 32px);
-            font-weight: 700;
-            color: var(--corporate-navy);
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .full-section h4 {
-            font-size: clamp(18px, 3vw, 24px);
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .full-section p {
-            font-size: clamp(16px, 1.2vw, 18px);
-            line-height: 1.8;
-            color: var(--text-color);
-            margin-bottom: 0;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .full-section.light-bg {
-            background-color: #f3f3f3;
-        }
-
-        .eyebrow {
-            font-size: clamp(11px, 1.5vw, 13px);
-            font-weight: 600;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--primary-midas);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        /* Adapted LMS Layout Styles */
-        .para-section {
-            padding: clamp(60px, 8vw, 40px) clamp(20px, 5vw, 40px) clamp(60px, 8vw, 10px) clamp(20px, 5vw, 40px);
-            background-color: white;
-            opacity: 0;
-            transform: translateY(18px);
-            transition: opacity .55s ease, transform .55s ease;
-        }
-
-        .para-section.in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .para-section .section-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .para-section h2 {
-            font-size: clamp(24px, 4vw, 36px);
-            color: var(--corporate-navy);
-            margin-bottom: 25px;
-            line-height: 1.3;
-        }
-
-        .para-section h4 {
-            font-size: clamp(18px, 2.5vw, 24px);
-            color: var(--corporate-navy);
-            margin-bottom: 15px;
-        }
-
-        .para-section p {
-            font-size: clamp(15px, 1.2vw, 17px);
-            line-height: 1.8;
-            color: var(--text-color);
-        }
-
-        .feat-section {
-            padding: clamp(10px, 5vw, 40px) clamp(20px, 5vw, 40px) clamp(60px, 8vw, 40px) clamp(20px, 5vw, 40px);
-            background-color: #ffffff;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity .55s ease, transform .55s ease;
-        }
-
-        #fs1,
-        #fs3,
-        #fs5 {
-            background-color: #fbfbfb;
-        }
-
-        .feat-section.in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .feat-section .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .feat-section-header {
-            margin-bottom: 50px;
-            text-align: left;
-        }
-
-        #child {
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-
-
-        .feat-section-header h3 {
-            font-size: clamp(24px, 4vw, 32px);
-            color: var(--corporate-navy);
-            margin-bottom: 15px;
-        }
-
-        .feat-section-header h4 {
-            font-size: clamp(20px, 3vw, 28px);
-            color: var(--corporate-navy);
-            margin-bottom: 10px;
-        }
-
-        .feat-section-header p {
-            font-size: clamp(15px, 1.2vw, 17px);
-            color: var(--text-color);
-            max-width: 800px;
-        }
-
-        .svg-block {
-            background: white;
-            border: 1px solid #edf2f7;
-            border-radius: 24px;
-            padding: clamp(20px, 5vw, 40px);
-            margin-bottom: 50px;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
-            overflow-x: auto;
-        }
-
-        .svg-block svg,
-        .svg-block img {
-            width: 100%;
-            display: block;
-        }
-
-        .image-box {
-            margin-bottom: 50px;
-        }
-
-        .image-box img {
-            width: 100%;
-            max-width: 1000px;
-            height: auto;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-        }
-
-        .cards-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .feat-card {
-            background: #ffffff;
-            border: 1px solid #f0f0f0;
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .feat-card:hover {
-            border-color: var(--primary-orange);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-        }
-
-        .feat-card h5 {
-            font-size: clamp(15px, 1.5vw, 18px);
-            font-weight: 700;
-            color: var(--corporate-navy);
-            margin-bottom: 15px;
-        }
-
-        .feat-card p {
-            font-size: clamp(13px, 1.1vw, 15px);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .sub-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sub-list li {
-            position: relative;
-            padding-left: 20px;
-            font-size: clamp(13px, 1.1vw, 15px);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .sub-list li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 8px;
-            height: 8px;
-            background-color: var(--primary-orange);
-            border-radius: 50%;
-        }
-
-        /* Product Showcase Section */
-        .product-showcase {
-            padding: 80px clamp(20px, 5vw, 40px);
-            background: #fbfbfb;
-            text-align: center;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 50px auto 0;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            text-decoration: none !important;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #f0f0f0;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary-orange);
-        }
-
-        .product-card-img {
-            width: 100%;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .product-card-body {
-            padding: 25px;
-            text-align: center;
-        }
-
-        .product-card-body h5 {
-            font-size: clamp(16px, 1.5vw, 18px);
-            font-weight: 700;
-            color: var(--corporate-navy);
-            margin-bottom: 0;
-            transition: color 0.3s ease;
-        }
-
-        .product-card:hover .product-card-body h5 {
-            color: var(--primary-orange);
-        }
-
-        .btn-orange {
-            background-color: var(--primary-orange) !important;
-            color: #ffffff !important;
-            padding: 16px 45px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 15px;
-            display: inline-block;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 20px rgba(255, 147, 96, 0.2);
-            border: none;
-        }
-
-        .btn-orange:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(255, 147, 96, 0.3);
-        }
-
-        /* ── TABLE SECTION ── */
-        .table-section {
-            padding: clamp(10px, 5vw, 40px) clamp(20px, 5vw, 40px) clamp(60px, 8vw, 40px) clamp(20px, 5vw, 40px);
-            background-color: #fbfbfb;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity .55s ease, transform .55s ease
-        }
-
-        .table-section .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-
-        .table-section.in-view {
-            opacity: 1;
-            transform: translateY(0)
-        }
-
-        .table-section-header {
-            margin-bottom: 24px
-        }
-
-        .table-section-header h4 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--corporate-navy);
-            line-height: 1.35
-        }
-
-        .table-wrap {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            border-radius: 14px;
-            border: 1px solid #edf2f7;
-            background: #fff;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 460px
-        }
-
-        thead tr {
-            background: #f8fafc;
-            border-bottom: 1px solid #edf2f7
-        }
-
-        thead th {
-            padding: 14px 20px;
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--corporate-navy);
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            text-align: left;
-            white-space: nowrap
-        }
-
-        tbody tr {
-            border-bottom: 1px solid #edf2f7;
-            transition: background .15s
-        }
-
-        tbody tr:last-child {
-            border-bottom: none
-        }
-
-        tbody tr:hover {
-            background: #f8fafc
-        }
-
-        tbody td {
-            padding: 16px 20px;
-            font-size: 14px;
-            color: var(--text-color);
-            line-height: 1.65;
-            vertical-align: top
-        }
-
-        tbody td:first-child {
-            font-weight: 600;
-            color: var(--corporate-navy);
-            white-space: nowrap;
-            width: 140px
-        }
-
-        tbody td strong {
-            color: var(--corporate-navy);
-            font-weight: 600
-        }
-
-        /* stripe alternate rows */
-        tbody tr:nth-child(even) {
-            background: #ffffff
-        }
-
-        tbody tr:nth-child(odd) {
-            background: #f3f3f3
-        }
-
-        tbody tr:nth-child(even):hover,
-        tbody tr:nth-child(odd):hover {
-            background: #f8fafc
-        }
-
-        /* Responsive Settings */
-        @media (max-width: 1024px) {
-            .cards-row {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 991px) {
-            .feat-section-header {
-                text-align: center;
-            }
-
-            .feat-section-header p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .cards-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                height: 50vh;
-            }
-
-            .full-section,
-            .para-section,
-            .feat-section,
-            .product-showcase {
-                padding: 20px 20px;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .feat-section-header,
-            .svg-block,
-            .cards-row {
-                margin-bottom: 10%;
-            }
-
-            .cards-row {
-                gap: 10px;
-            }
-
-            thead th {
-                padding: 12px 14px;
-                font-size: 11px
-            }
-
-            tbody td {
-                padding: 13px 14px;
-                font-size: 12px
-            }
-
-            tbody td:first-child {
-                width: 110px
-            }
-
-            .cta-section {
-                padding: 40px 16px
-            }
-
-            .btn-blue {
-                width: 100%;
-                padding: 13px;
-                font-size: 14px
-            }
-        }
-
-        /* Custom Gap for Conclusion children */
-        #conclusion .section-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+  <title>SmartToken - Midas Teknologi</title>
+
+  <!-- Fav Icon -->
+  <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
+
+  <!-- Stylesheets -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./assets/css/animate.min.css" rel="stylesheet">
+  <link href="./assets/css/font-awesome-all.min.css" rel="stylesheet">
+  <link href="./assets/css/flaticon.min.css" rel="stylesheet">
+  <link href="./assets/css/owl.min.css" rel="stylesheet">
+  <link href="./assets/css/jquery.fancybox.min.css" rel="stylesheet">
+  <link href="./assets/css/elpath.min.css" rel="stylesheet">
+  <link href="./assets/css/color.min.css" rel="stylesheet">
+  <link href="./assets/css/fonts.min.css" rel="stylesheet">
+  <link href="./assets/css/style.min.css" rel="stylesheet">
+  <link href="./assets/css/responsive.min.css" rel="stylesheet">
+
+
+  <style>
+    :root {
+      --color-border-tertiary: #edf2f7;
+      --color-text-tertiary: var(--dark-gray);
+      --color-text-primary: var(--deep-black);
+      --color-text-secondary: var(--text-color);
+      --border-radius-lg: var(--radius);
+      --color-background-primary: var(--white);
+      --color-background-secondary: var(--navy-light);
+      --color-border-secondary: #e2e8f0;
+      --color-text-success: #1D9E75;
+      --color-text-info: var(--primary-blue);
+      --color-text-warning: var(--primary-orange);
+      --font-sans: 'Ubuntu', sans-serif;
+      --primary-midas: var(--primary-orange);
+    }
+
+    body {
+      font-family: 'Ubuntu', sans-serif !important;
+      color: var(--text-color);
+      font-size: clamp(15px, 1.1vw, 17px);
+    }
+
+    .page {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background-color: white;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 60vh;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url('./assets/images/banner/banner_softtoken.webp');
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-section .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+
+    .hero-section h1 {
+      font-size: clamp(32px, 6vw, 64px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      line-height: 1.1;
+    }
+
+    .full-section {
+      padding: clamp(20px, 8vw, 40px) clamp(20px, 5vw, 40px);
+      width: 100%;
+      position: relative;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .full-section h2 {
+      font-size: clamp(28px, 4.5vw, 40px);
+      font-weight: 700;
+      color: var(--corporate-navy);
+      line-height: 1.2;
+    }
+
+    .full-section h3 {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 700;
+      color: var(--corporate-navy);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .full-section h4 {
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .full-section p {
+      font-size: clamp(16px, 1.2vw, 18px);
+      line-height: 1.8;
+      color: var(--text-color);
+      margin-bottom: 0;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .full-section.light-bg {
+      background-color: #f3f3f3;
+    }
+
+    .eyebrow {
+      font-size: clamp(11px, 1.5vw, 13px);
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--primary-midas);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* Adapted LMS Layout Styles */
+    .para-section {
+      padding: clamp(60px, 8vw, 40px) clamp(20px, 5vw, 40px) clamp(60px, 8vw, 10px) clamp(20px, 5vw, 40px);
+      background-color: white;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .para-section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .para-section .section-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .para-section h2 {
+      font-size: clamp(24px, 4vw, 36px);
+      color: var(--corporate-navy);
+      margin-bottom: 25px;
+      line-height: 1.3;
+    }
+
+    .para-section h4 {
+      font-size: clamp(18px, 2.5vw, 24px);
+      color: var(--corporate-navy);
+      margin-bottom: 15px;
+    }
+
+    .para-section p {
+      font-size: clamp(15px, 1.2vw, 17px);
+      line-height: 1.8;
+      color: var(--text-color);
+    }
+
+    .feat-section {
+      padding: clamp(10px, 5vw, 40px) clamp(20px, 5vw, 40px) clamp(60px, 8vw, 40px) clamp(20px, 5vw, 40px);
+      background-color: #ffffff;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    #fs1,
+    #fs3,
+    #fs5 {
+      background-color: #fbfbfb;
+    }
+
+    .feat-section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .feat-section .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feat-section-header {
+      margin-bottom: 50px;
+      text-align: left;
+    }
+
+    #child {
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+
+    .feat-section-header h3 {
+      font-size: clamp(24px, 4vw, 32px);
+      color: var(--corporate-navy);
+      margin-bottom: 15px;
+    }
+
+    .feat-section-header h4 {
+      font-size: clamp(20px, 3vw, 28px);
+      color: var(--corporate-navy);
+      margin-bottom: 10px;
+    }
+
+    .feat-section-header p {
+      font-size: clamp(15px, 1.2vw, 17px);
+      color: var(--text-color);
+      max-width: 800px;
+    }
+
+    .svg-block {
+      background: white;
+      border: 1px solid #edf2f7;
+      border-radius: 24px;
+      padding: clamp(20px, 5vw, 40px);
+      margin-bottom: 50px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+      overflow-x: auto;
+    }
+
+    .svg-block svg,
+    .svg-block img {
+      width: 100%;
+      display: block;
+    }
+
+    .image-box {
+      margin-bottom: 50px;
+    }
+
+    .image-box img {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feat-card {
+      background: #ffffff;
+      border: 1px solid #f0f0f0;
+      border-radius: 20px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feat-card:hover {
+      border-color: var(--primary-orange);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .feat-card h5 {
+      font-size: clamp(15px, 1.5vw, 18px);
+      font-weight: 700;
+      color: var(--corporate-navy);
+      margin-bottom: 15px;
+    }
+
+    .feat-card p {
+      font-size: clamp(13px, 1.1vw, 15px);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .sub-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sub-list li {
+      position: relative;
+      padding-left: 20px;
+      font-size: clamp(13px, 1.1vw, 15px);
+      color: var(--text-color);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .sub-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary-orange);
+      border-radius: 50%;
+    }
+
+    /* Product Showcase Section */
+    .product-showcase {
+      padding: 80px clamp(20px, 5vw, 40px);
+      background: #fbfbfb;
+      text-align: center;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1400px;
+      margin: 50px auto 0;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      text-decoration: none !important;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #f0f0f0;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary-orange);
+    }
+
+    .product-card-img {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .product-card-body {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .product-card-body h5 {
+      font-size: clamp(16px, 1.5vw, 18px);
+      font-weight: 700;
+      color: var(--corporate-navy);
+      margin-bottom: 0;
+      transition: color 0.3s ease;
+    }
+
+    .product-card:hover .product-card-body h5 {
+      color: var(--primary-orange);
+    }
+
+    .btn-orange {
+      background-color: var(--primary-orange) !important;
+      color: #ffffff !important;
+      padding: 16px 45px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 15px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 10px 20px rgba(255, 147, 96, 0.2);
+      border: none;
+    }
+
+    .btn-orange:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 147, 96, 0.3);
+    }
+
+    /* ── TABLE SECTION ── */
+    .table-section {
+      padding: clamp(10px, 5vw, 40px) clamp(20px, 5vw, 40px) clamp(60px, 8vw, 40px) clamp(20px, 5vw, 40px);
+      background-color: #fbfbfb;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .55s ease, transform .55s ease
+    }
+
+    .table-section .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+
+    .table-section.in-view {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .table-section-header {
+      margin-bottom: 24px
+    }
+
+    .table-section-header h4 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--corporate-navy);
+      line-height: 1.35
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 14px;
+      border: 1px solid #edf2f7;
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 460px
+    }
+
+    thead tr {
+      background: #f8fafc;
+      border-bottom: 1px solid #edf2f7
+    }
+
+    thead th {
+      padding: 14px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--corporate-navy);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-align: left;
+      white-space: nowrap
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #edf2f7;
+      transition: background .15s
+    }
+
+    tbody tr:last-child {
+      border-bottom: none
+    }
+
+    tbody tr:hover {
+      background: #f8fafc
+    }
+
+    tbody td {
+      padding: 16px 20px;
+      font-size: 14px;
+      color: var(--text-color);
+      line-height: 1.65;
+      vertical-align: top
+    }
+
+    tbody td:first-child {
+      font-weight: 600;
+      color: var(--corporate-navy);
+      white-space: nowrap;
+      width: 140px
+    }
+
+    tbody td strong {
+      color: var(--corporate-navy);
+      font-weight: 600
+    }
+
+    /* stripe alternate rows */
+    tbody tr:nth-child(even) {
+      background: #ffffff
+    }
+
+    tbody tr:nth-child(odd) {
+      background: #f3f3f3
+    }
+
+    tbody tr:nth-child(even):hover,
+    tbody tr:nth-child(odd):hover {
+      background: #f8fafc
+    }
+
+    /* Responsive Settings */
+    @media (max-width: 1024px) {
+      .cards-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 991px) {
+      .feat-section-header {
+        text-align: center;
+      }
+
+      .feat-section-header p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cards-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        height: 50vh;
+      }
+
+      .full-section,
+      .para-section,
+      .feat-section,
+      .product-showcase {
+        padding: 20px 20px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feat-section-header,
+      .svg-block,
+      .cards-row {
+        margin-bottom: 10%;
+      }
+
+      .cards-row {
+        gap: 10px;
+      }
+
+      thead th {
+        padding: 12px 14px;
+        font-size: 11px
+      }
+
+      tbody td {
+        padding: 13px 14px;
+        font-size: 12px
+      }
+
+      tbody td:first-child {
+        width: 110px
+      }
+
+      .cta-section {
+        padding: 40px 16px
+      }
+
+      .btn-blue {
+        width: 100%;
+        padding: 13px;
+        font-size: 14px
+      }
+    }
+
+    /* Custom Gap for Conclusion children */
+    #conclusion .section-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="boxed_wrapper">
+  <div class="boxed_wrapper">
 
-        <!-- preloader -->
-<div class="loader-wrap">
-  <div class="preloader">
-    <div class="preloader-close">x</div>
-    <div id="handle-preloader" class="handle-preloader">
-      <div class="animation-preloader">
-        <div class="spinner"></div>
-        <div class="txt-loading">
-          <span data-text-preloader="m" class="letters-loading"> m </span>
-          <span data-text-preloader="i" class="letters-loading"> i </span>
-          <span data-text-preloader="d" class="letters-loading"> d </span>
-          <span data-text-preloader="a" class="letters-loading"> a </span>
-          <span data-text-preloader="s" class="letters-loading"> s </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- preloader end -->
-
-        <!-- main header -->
-<header class="main-header">
-  <!-- header-lower -->
-  <div class="header-lower">
-    <div class="outer-box">
-      <div class="logo-box">
-        <figure class="logo">
-          <a href="./index.html"><img src="../assets/images/logo-172.webp" srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75" loading="eager" fetchpriority="high" /></a>
-        </figure>
-      </div>
-      <div class="menu-area clearfix menu-center">
-        <!--Mobile Navigation Toggler-->
-        <div class="mobile-nav-toggler" role="button" aria-label="Toggle navigation menu">
-          <i class="icon-bar"></i>
-          <i class="icon-bar"></i>
-          <i class="icon-bar"></i>
-        </div>
-        <nav class="main-menu navbar-expand-md navbar-light">
-          <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-            <ul class="navigation clearfix" style="white-space: nowrap">
-              <li class="dropdown">
-                <a href="./about/about.html">Our Story</a>
-                <ul>
-                  <li>
-                    <a href="./about/about.html#company-overview">Company Overview</a>
-                  </li>
-                  <li>
-                    <a href="./about/about.html#our-expertise">Our Expertise</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="./products/products.html">Solutions</a>
-                <ul>
-                  <li><a href="./products/omnichannel.html">Omni Channel</a></li>
-                  <li><a href="./products/loans-management-system.html">Loans Management System</a></li>
-                  <li><a href="./products/payment-hub.html">Payment Hub</a></li>
-                  <li><a href="./products/scf.html">Supply Chain Finance</a></li>
-                  <li>
-                    <a href="./products/los.html">Loan Origination System</a>
-                  </li>
-                  <li><a href="./products/va.html">Virtual Account</a></li>
-                  <li><a href="./products/microfinance-core.html">Lightweight Core Banking</a></li>
-                  <li><a href="./products/cloud-core-banking.html">Cloud Core Banking</a></li>
-                  <li><a href="./products/smart-token.html">Smart Token</a></li>
-                  <li><a href="./products/nexus-id.html">NexusID</a></li>
-                  <li><a href="./products/liveness-detection.html">AI Liveness Detection</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="./ai/ai-solutions.html">AI</a>
-                <ul>
-                  <li><a href="./ai/ai-solutions.html">AI Solutions</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="./services/service.html">Services</a>
-                <ul>
-                  <li>
-                    <a href="./services/core-banking.html">Core Banking Transformation</a>
-                  </li>
-                  <li>
-                    <a href="./services/digital-transformation.html">Digital Transformation</a>
-                  </li>
-                  <li>
-                    <a href="./services/application-development.html">Application Development</a>
-                  </li>
-                  <li>
-                    <a href="./services/infrastructure-management.html">Application & Infrastructure Management</a>
-                  </li>
-                  <li>
-                    <a href="./services/elite-it-resources.html">Elite IT Resources</a>
-                  </li>
-                  <li>
-                    <a href="./services/testing-services.html">Testing Services</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="./career/career.html">Career</a>
-                <ul>
-                  <li><a href="./career/all-jop-post.html#open-positions">Open Positions</a></li>
-                  <li>
-                    <a href="./career/all-jop-post.html#life-at-midas">Life at Company</a>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="./contact/contact.html">Contact</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </div>
-
-  <!--sticky Header-->
-  <div class="sticky-header">
-    <div class="outer-box">
-      <div class="logo-box">
-        <figure class="logo">
-          <a href="./index.html"><img src="../assets/images/logo-172.webp" srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75" loading="eager" /></a>
-        </figure>
-      </div>
-      <div class="menu-area clearfix" style="padding-right: 10%">
-        <nav class="main-menu clearfix">
-          <!--Keep This Empty / Menu will come through Javascript-->
-        </nav>
-      </div>
-    </div>
-  </div>
-</header>
-<!-- main-header end -->
-        <!-- Mobile Menu  -->
-<div class="mobile-menu">
-  <div class="menu-backdrop"></div>
-  <div class="close-btn" role="button" aria-label="Close menu"><i class="fas fa-times"></i></div>
-
-  <nav class="menu-box">
-    <div class="nav-logo">
-      <a href="./index.html"
-        ><img src="../assets/images/logo-344.webp" srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w" sizes="(max-width: 767px) 250px, 250px" alt="Midas Teknologi Logo" width="250" height="109"
-       loading="lazy" /></a>
-    </div>
-    <div class="menu-outer">
-      <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-    </div>
-    <div class="contact-info">
-      <h4>Contact Info</h4>
-      <ul>
-        <li>
-          PT Midas Daya Teknologi<br />Lippo Kuningan Building, 18th Floor, Unit F2,<br />JI. H. R. Rasuna Said Kav, B-12, Jakarta Selatan 12940, Indonesia.
-        </li>
-        <li><a href="tel:+622140642341">(+6221) 40642341</a></li>
-        <li><a href="mailto:sales@midasteknologi.com">sales@midasteknologi.com</a></li>
-      </ul>
-    </div>
-    <div class="social-links">
-      <ul class="clearfix">
-        <li>
-          <a href="./index.html" aria-label="Twitter"><span class="fab fa-twitter"></span></a>
-        </li>
-        <li>
-          <a href="./index.html" aria-label="Facebook"><span class="fab fa-facebook-square"></span></a>
-        </li>
-        <li>
-          <a href="./index.html" aria-label="Pinterest"><span class="fab fa-pinterest-p"></span></a>
-        </li>
-        <li>
-          <a href="./index.html" aria-label="Instagram"><span class="fab fa-instagram"></span></a>
-        </li>
-        <li>
-          <a href="./index.html" aria-label="YouTube"><span class="fab fa-youtube"></span></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>
-<!-- End Mobile Menu -->
-
-
-        <div class="page">
-            <!-- Hero Section -->
-            <section class="hero-section">
-                <div class="hero-content">
-                    <h1>SmartToken</h1>
-                </div>
-            </section>
-
-            <!--PARA 1: Intro -->
-            <div class="para-section" id="p1">
-                <div class="section-container">
-                    <div class="eyebrow">Overview</div>
-                    <h2>SmartToken: Enterprise-Grade Digital Authentication & Authorization.</h2>
-                    <p>SmartToken is a high-performance, <strong>Java-based microservices platform</strong> designed to
-                        replace costly and complex hardware tokens. It provides a secure, scalable, and frictionless way
-                        to
-                        authorize transactions and authenticate users across web and mobile channels.</p>
-                </div>
-            </div>
-
-            <!-- FEAT SECTION 1: Core Product Features -->
-            <div class="feat-section" id="fs1">
-                <div class="section-container">
-                    <div class="feat-section-header">
-                        <div class="eyebrow">Features</div>
-                        <h4>Multi-Channel Token Support</h4>
-                    </div>
-
-                    <div class="svg-block">
-                        <img src="../assets/images/project/softtoken_1.webp" alt="SmartToken Features"
-                            style="border-radius: 24px;">
-                    </div>
-
-                    <div class="cards-row">
-                        <div class="feat-card">
-                            <h5>Mobile Token</h5>
-                            <p>In-app token generation for offline or online transaction
-                                authroziation and user authentication.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Device Binding</h5>
-                            <p>A "Trust No One" approach that binds the digital identity to a
-                                specific device’s hardware fingerprint (IMEI/UUID), preventing credential cloning.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Biometric Tokenization</h5>
-                            <p>Integration with <strong> FIDO2/WebAuthn</strong>,
-                                allowing users to sign
-                                transactions using FaceID, TouchID, or Android Biometrics.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Web App Tokens</h5>
-                            <ul class="sub-list">
-                                <li>With Challenges: Synchronous flows where the server sends a challenge the user must
-                                    solve.</li>
-                                <li>Without Challenges: Seamless background synchronization for low-risk actions.</li>
-                        </div>
-                        <div class="feat-card">
-                            <h5>SMS & Email Fallback</h5>
-                            <p>Integrated SMS gateway support for legacy user bases or
-                                emergency recovery.</p>
-                        </div>
-                    </div>
-
-                    <div class="feat-section-header" id="child">
-                        <h4>The Authenticator App (Mobile SDK)</h4>
-                        <p>A dedicated mobile application (similar to Microsoft or Google Authenticator) that provides:
-                        </p>
-                    </div>
-                    <div class="cards-row">
-                        <div class="feat-card">
-                            <h5>Push Notifications</h5>
-                            <p>Instant "Approve/Reject" prompts for real-time transaction
-                                signing.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Offline Mode</h5>
-                            <p>Generate 6-8 digit codes even without internet connectivity.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Multi-Account Support</h5>
-                            <p>Manage multiple identities or banking profiles within a
-                                single app.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FEAT SECTION 2: Transaction Security -->
-            <div class="feat-section" id="fs2">
-                <div class="section-container">
-                    <div class="feat-section-header">
-                        <div class="eyebrow">Security</div>
-                        <h3>Transaction Signing & Authorization</h3>
-                    </div>
-
-                    <div class="cards-row">
-                        <div class="feat-card">
-                            <h5>Third-Party Integration</h5>
-                            <p>Securely authorize payments or data sharing with
-                                external partners using scoped transaction tokens.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Data-Linked Tokens</h5>
-                            <p>The token generated is cryptographically linked to the
-                                specific transaction data (amount, payee, date).</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>WYSIWYS Compliance</h5>
-                            <p>"What You See Is What You Sign." The user confirms
-                                transaction details on-screen, which are then hashed into the OCRA signature.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Anti-Tampering</h5>
-                            <p>Any modification to the transaction data after the token is
-                                generated will result in an immediate signature mismatch at the server level.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>MITM Protection</h5>
-                            <p>Prevents "Man-in-the-Middle" tampering by ensuring the
-                                signature is only valid for that specific intent.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FEAT SECTION 3: Back Office -->
-            <div class="feat-section" id="fs3">
-                <div class="section-container">
-                    <div class="feat-section-header">
-                        <div class="eyebrow">Managment</div>
-                        <h4>Back-Office & Management Suite</h4>
-                        <p>The administrative portal provides complete control over the token ecosystem</p>
-                    </div>
-
-                    <div class="cards-row">
-                        <div class="feat-card">
-                            <h5>Complete Token Lifecycle Management</h5>
-                            <ul class="sub-list">
-                                <li>Issuance: Automated or manual onboarding of users.</li>
-                                <li>Lock/Unlock: Immediate suspension of tokens in case of reported theft or suspicious
-                                    activity.</li>
-                                <li>Revocation: Permanent decommissioning of tokens for offboarded users.</li>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Audit & Forensics</h5>
-                            <ul class="sub-list">
-                                <li>Complete Traceability: Every "Approve," "Reject," or "Timeout" is logged with a
-                                    secure hash.
-                                </li>
-                                <li>Fraud Investigation: Advanced search filters to track IP addresses, device IDs, and
-                                    geolocations used during authentication.</li>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FEAT SECTION 4: Technical Advantages -->
-            <div class="feat-section" id="fs4">
-                <div class="section-container">
-                    <div class="feat-section-header">
-                        <div class="eyebrow">Advantages</div>
-                        <h4>Technical Advantages</h4>
-                        <p>Built for the modern enterprise, SmartToken leverages a cloud-native stack to ensure high
-                            availability and seamless integration.</p>
-                    </div>
-
-                    <div class="svg-block">
-                        <img src="../assets/images/banner/banner_softtoken.webp" alt="Loan Origination System"
-                            style="border-radius: 15px" loading="lazy" />
-                    </div>
-
-                    <div class="cards-row">
-                        <div class="feat-card">
-                            <h5>Core Engine</h5>
-                            <p>Developed in Java for high-performance service execution.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Architecture</h5>
-                            <p>Microservices-based, allowing independent scaling of the
-                                Authentication, Token Lifecycle, and Audit modules.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Containerization</h5>
-                            <p>Fully compatible with <strong> Docker</strong> and <strong>
-                                    Kubernetes/OpenShift</strong> for
-                                automated scaling and orchestration.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Database & Persistence</h5>
-                            <p>Supports high-volume RDBMS (Oracle, PostgreSQL) with
-                                optimized indexing for rapid audit retrieval.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Security Standards</h5>
-                            <ul class="sub-list">
-                                <li>Algorithms: Supports SHA-256, SHA-512, HMAC, RSA, AES and other encryption supported
-                                    by Java
-                                    Cryptography.</li>
-                                <li>Protocols: Fully compliant with <strong> OATH </strong> standards (TOTP - Time-based
-                                    One-Time Password and HOTP
-                                    - HMAC-based One-Time Password, OCRA - OATH Challenge-Response Algorithm).</li>
-                                <li>API Security: All endpoints are secured via mTLS and OAuth2/OpenID Connect.</li>
-                            </ul>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Dynamic Challenge-Response</h5>
-                            <p>Move beyond static codes. Generate signatures based
-                                on server-side challenges and user-inputted data.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Mutual Authentication</h5>
-                            <p>Supports client-to-server and server-to-client
-                                verification, eliminating the risk of rogue servers or phishing sites.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ── TABLE SECTION ── -->
-            <div class="table-section" id="ts1">
-                <div class="section-container">
-                    <div class="table-section-header">
-                        <div class="eyebrow">Technical Specifications</div>
-                        <h4>Platform Performance &amp; Technical Specifications</h4>
-                    </div>
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Attribute</th>
-                                    <th>Specification</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Performance</td>
-                                    <td>Capable of processing <strong>5,000+ authentications per second (TPS)</strong>
-                                        with
-                                        sub-~100ms
-                                        latency.</td>
-                                </tr>
-                                <tr>
-                                    <td>Scalability</td>
-                                    <td>Horizontal auto-scaling via Kubernetes to handle peak season transaction loads.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Reliability</td>
-                                    <td>Active-Active deployment support across multiple data centers for <strong>99.99%
-                                            availability.</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Interoperability</td>
-                                    <td>RESTful APIs and SDKs for Android, iOS, and Web (JavaScript/TypeScript).</td>
-                                </tr>
-                                <tr>
-                                    <td>Security</td>
-                                    <td>Hardened against brute-force, replay attacks, and reverse engineering.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FEAT SECTION 5: Business Value -->
-            <div class="feat-section" id="fs6">
-                <div class="section-container">
-                    <div class="feat-section-header">
-                        <h4>Business Value</h4>
-                    </div>
-                    <div class="cards-row">
-                        <div class="feat-card">
-                            <h5>Cost Reduction</h5>
-                            <p>Zero logistics/shipping costs and no physical battery
-                                expiration issues compared to hardware tokens.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Enhanced UX</h5>
-                            <p>No need for users to carry an extra device; their smartphone
-                                becomes their security key.</p>
-                        </div>
-                        <div class="feat-card">
-                            <h5>Compliance</h5>
-                            <p>Meets stringent global banking regulations (PSD2, FFIEC, etc.) for
-                                Strong Customer Authentication (SCA).</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Last Section -->
-            <div class="full-section centered light-bg" id="conclusion">
-                <div class="section-container">
-                    <h2>Reach Us</h2>
-                    <p>Modern banking security is complex. Your transition to it shouldn't be.</p>
-                    <p>Ready to eliminate friction and elevate security?</strong> Our senior consultants are
-                        available for a
-                        technical discovery session to discuss your specific throughput, security, and architect a
-                        solution tailored to your ecosystem.</p>
-                    <div class="centered-btn-wrap">
-                        <a href="../contact/contact.html" class="btn-orange">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Showcase Section -->
-            <section class="product-showcase">
-                <div class="section-container">
-                    <span class="eyebrow">Discover More</span>
-                    <h2>Explore Our Other Solutions</h2>
-                    <p>Midas offers a comprehensive suite of financial technology solutions designed to drive
-                        digital
-                        transformation and operational excellence.</p>
-
-                    <div class="product-grid">
-                        <!-- Product 1: Omni Channel -->
-                        <a href="omnichannel.html" class="product-card">
-                            <div class="product-card-img"
-                                style="background-image: url('./assets/images/banner/omnichannel.webp');"></div>
-                            <div class="product-card-body">
-                                <h5>Omni Channel</h5>
-                            </div>
-                        </a>
-
-                        <!-- Product 2: LMS -->
-                        <a href="loans-management-system.html" class="product-card">
-                            <div class="product-card-img"
-                                style="background-image: url('./assets/images/banner/los_banner.webp');"></div>
-                            <div class="product-card-body">
-                                <h5>Loans Management System</h5>
-                            </div>
-                        </a>
-
-                        <!-- Product 3: Payment Hub -->
-                        <a href="payment-hub.html" class="product-card">
-                            <div class="product-card-img"
-                                style="background-image: url('./assets/images/banner/banner_payment_hub.webp');">
-                            </div>
-                            <div class="product-card-body">
-                                <h5>Payment Hub</h5>
-                            </div>
-                        </a>
-
-                        <!-- Product 4: SCF -->
-                        <a href="scf.html" class="product-card">
-                            <div class="product-card-img"
-                                style="background-image: url('./assets/images/banner/banner_scf.webp');"></div>
-                            <div class="product-card-body">
-                                <h5>Supply Chain Finance</h5>
-                            </div>
-                        </a>
-
-                        <!-- Product 5: LOS -->
-                        <a href="los.html" class="product-card">
-                            <div class="product-card-img"
-                                style="background-image: url('./assets/images/banner/los_banner.webp');"></div>
-                            <div class="product-card-body">
-                                <h5>Loan Origination System</h5>
-                            </div>
-                        </a>
-
-                        <!-- Product 6: Virtual Account -->
-                        <a href="va.html" class="product-card">
-                            <div class="product-card-img"
-                                style="background-image: url('./assets/images/banner/va_2.webp');"></div>
-                            <div class="product-card-body">
-                                <h5>Virtual Account</h5>
-                            </div>
-                        </a>
-
-                        <!-- Product 7: Microfinance -->
-                        <a href="microfinance-core.html" class="product-card">
-                            <div class="product-card-img"
-                                style="background-image: url('./assets/images/banner/banner_light_core_banking.webp');">
-                            </div>
-                            <div class="product-card-body">
-                                <h5>Lightweight Core Banking</h5>
-                            </div>
-                        </a>
-
-                        <!-- Product 8: Nexus ID -->
-                        <a href="nexus-id.html" class="product-card">
-                            <div class="product-card-img"
-                                style="background-image: url('./assets/images/banner/banner_nexus.webp');"></div>
-                            <div class="product-card-body">
-                                <h5>NexusID</h5>
-                            </div>
-                        </a>
-
-                        <!-- Product 9: Cloud Core Banking -->
-                        <a href="cloud-core-banking.html" class="product-card">
-                            <div class="product-card-img"
-                                style="background-image: url('./assets/images/banner/cloud_core_banking.webp');"></div>
-                            <div class="product-card-body">
-                                <h5>Cloud Core Banking</h5>
-                            </div>
-                        </a>
-
-                        <!-- Product 10: AI Liveness Detection -->
-                        <a href="liveness-detection.html" class="product-card">
-                            <div class="product-card-img"
-                                style="background-image: url('./assets/images/banner/liveness_banner.webp'), linear-gradient(135deg, #0b1727 0%, #172a45 50%, #1e3a5f 100%);"></div>
-                            <div class="product-card-body">
-                                <h5>AI Liveness Detection</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- main-footer -->
-<section class="main-footer style-three">
-  <div class="shape">
-    <div class="shape-1"></div>
-    <div class="shape-2"></div>
-    <div class="shape-3" style="background-image: url(./assets/images/shape/shape-21.webp)"></div>
-    <div class="shape-4" style="background-image: url(./assets/images/shape/shape-22.webp)"></div>
-  </div>
-  <div class="auto-container">
-    <div class="footer-top">
-      <div class="top-inner">
-        <figure class="footer-logo">
-          <a href="./index.html"><img src="../assets/images/logo-172.webp"
-              srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w"
-              sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75"
-              loading="lazy" /></a>
-        </figure>
-        <ul class="social-links clearfix">
-          <li>
-            <a href="https://www.linkedin.com/company/pt-midas-daya-teknologi/" target="_blank"
-              rel="noopener noreferrer" aria-label="Midas LinkedIn Profile"><i class="icon-3"></i></a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/growwithmidas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-              target="_blank" rel="noopener noreferrer" aria-label="Midas Instagram Profile"><i
-                class="fab fa-instagram"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="widget-section">
-      <div class="row clearfix">
-        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-          <div class="footer-widget about-widget">
-            <!-- <div class="widget-title">
-                            <h3>About</h3>
-                        </div> -->
-            <div class="widget-content">
-              <!-- <p>This is due to their excellent service, competitive pricing and customer support.
-                                It’s throughly refresing to get such a personal touch.</p> -->
-              <ul class="info clearfix">
-                <li><i class="icon-2"></i><a href="tel:+622140642341">(+6221) 40642341</a>
-                </li>
-                <!-- <li><i class="icon-19"></i><a href="mailto:info@example.com">info@example.com</a></li> -->
-                <li>
-                  <i class="icon-23" style="background: #0d7dfc;"></i>PT Midas Daya Teknologi<br />Lippo Kuningan
-                  Building, 18th Floor, Unit
-                  F2,<br />
-                  JI. H. R. Rasuna Said Kav,
-                  B-12, Jakarta Selatan 12940, Indonesia.
-                </li>
-              </ul>
+    <!-- preloader -->
+    <div class="loader-wrap">
+      <div class="preloader">
+        <div class="preloader-close">x</div>
+        <div id="handle-preloader" class="handle-preloader">
+          <div class="animation-preloader">
+            <div class="spinner"></div>
+            <div class="txt-loading">
+              <span data-text-preloader="m" class="letters-loading"> m </span>
+              <span data-text-preloader="i" class="letters-loading"> i </span>
+              <span data-text-preloader="d" class="letters-loading"> d </span>
+              <span data-text-preloader="a" class="letters-loading"> a </span>
+              <span data-text-preloader="s" class="letters-loading"> s </span>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-          <div class="footer-widget links-widget">
-            <div class="widget-title">
-              <h3>Quick link</h3>
+      </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- main header -->
+    <header class="main-header">
+      <!-- header-lower -->
+      <div class="header-lower">
+        <div class="outer-box">
+          <div class="logo-box">
+            <figure class="logo">
+              <a href="./index.html"><img src="./assets/images/logo-172.webp"
+                  srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w"
+                  sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75"
+                  loading="eager" fetchpriority="high" /></a>
+            </figure>
+          </div>
+          <div class="menu-area clearfix menu-center">
+            <!--Mobile Navigation Toggler-->
+            <div class="mobile-nav-toggler" role="button" aria-label="Toggle navigation menu">
+              <i class="icon-bar"></i>
+              <i class="icon-bar"></i>
+              <i class="icon-bar"></i>
             </div>
-            <div class="row clearfix">
-              <div class="col-lg-6 col-md-6 col-sm-12 link-column">
-                <ul class="links-list clearfix">
-                  <li><a href="./about/about.html">Our Story</a></li>
-                  <li><a href="./products/products.html">Solutions</a></li>
-                  <li><a href="./ai/ai-solutions.html">AI</a></li>
-                  <li><a href="./services/service.html">Services</a></li>
-                  <li><a href="./career/all-jop-post.html">Career</a></li>
+            <nav class="main-menu navbar-expand-md navbar-light">
+              <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                <ul class="navigation clearfix" style="white-space: nowrap">
+                  <li class="dropdown">
+                    <a href="./about/about.html">Our Story</a>
+                    <ul>
+                      <li>
+                        <a href="./about/about.html#company-overview">Company Overview</a>
+                      </li>
+                      <li>
+                        <a href="./about/about.html#our-expertise">Our Expertise</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="./products/products.html">Solutions</a>
+                    <ul>
+                      <li><a href="./products/omnichannel.html">Omni Channel</a></li>
+                      <li><a href="./products/loans-management-system.html">Loans Management System</a></li>
+                      <li><a href="./products/payment-hub.html">Payment Hub</a></li>
+                      <li><a href="./products/scf.html">Supply Chain Finance</a></li>
+                      <li>
+                        <a href="./products/los.html">Loan Origination System</a>
+                      </li>
+                      <li><a href="./products/va.html">Virtual Account</a></li>
+                      <li><a href="./products/microfinance-core.html">Lightweight Core Banking</a></li>
+                      <li><a href="./products/cloud-core-banking.html">Cloud Core Banking</a></li>
+                      <li><a href="./products/smart-token.html">Smart Token</a></li>
+                      <li><a href="./products/nexus-id.html">NexusID</a></li>
+                      <li><a href="./products/liveness-detection.html">AI Liveness Detection</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="./ai/ai-solutions.html">AI</a>
+                    <ul>
+                      <li><a href="./ai/ai-solutions.html">AI Solutions</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="./services/service.html">Services</a>
+                    <ul>
+                      <li>
+                        <a href="./services/core-banking.html">Core Banking Transformation</a>
+                      </li>
+                      <li>
+                        <a href="./services/digital-transformation.html">Digital Transformation</a>
+                      </li>
+                      <li>
+                        <a href="./services/application-development.html">Application Development</a>
+                      </li>
+                      <li>
+                        <a href="./services/infrastructure-management.html">Application & Infrastructure Management</a>
+                      </li>
+                      <li>
+                        <a href="./services/elite-it-resources.html">Elite IT Resources</a>
+                      </li>
+                      <li>
+                        <a href="./services/testing-services.html">Testing Services</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="./career/career.html">Career</a>
+                    <ul>
+                      <li><a href="./career/all-jop-post.html#open-positions">Open Positions</a></li>
+                      <li>
+                        <a href="./career/all-jop-post.html#life-at-midas">Life at Company</a>
+                      </li>
+                    </ul>
+                  </li>
                   <li><a href="./contact/contact.html">Contact</a></li>
                 </ul>
               </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!--sticky Header-->
+      <div class="sticky-header">
+        <div class="outer-box">
+          <div class="logo-box">
+            <figure class="logo">
+              <a href="./index.html"><img src="./assets/images/logo-172.webp"
+                  srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w"
+                  sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75"
+                  loading="eager" /></a>
+            </figure>
+          </div>
+          <div class="menu-area clearfix" style="padding-right: 10%">
+            <nav class="main-menu clearfix">
+              <!--Keep This Empty / Menu will come through Javascript-->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- main-header end -->
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+      <div class="menu-backdrop"></div>
+      <div class="close-btn" role="button" aria-label="Close menu"><i class="fas fa-times"></i></div>
+
+      <nav class="menu-box">
+        <div class="nav-logo">
+          <a href="./index.html"><img src="./assets/images/logo-344.webp"
+              srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w"
+              sizes="(max-width: 767px) 250px, 250px" alt="Midas Teknologi Logo" width="250" height="109"
+              loading="lazy" /></a>
+        </div>
+        <div class="menu-outer">
+          <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+        </div>
+        <div class="contact-info">
+          <h4>Contact Info</h4>
+          <ul>
+            <li>
+              PT Midas Daya Teknologi<br />Lippo Kuningan Building, 18th Floor, Unit F2,<br />JI. H. R. Rasuna Said Kav,
+              B-12, Jakarta Selatan 12940, Indonesia.
+            </li>
+            <li><a href="tel:+622140642341">(+6221) 40642341</a></li>
+            <li><a href="mailto:sales@midasteknologi.com">sales@midasteknologi.com</a></li>
+          </ul>
+        </div>
+        <div class="social-links">
+          <ul class="clearfix">
+            <li>
+              <a href="./index.html" aria-label="Twitter"><span class="fab fa-twitter"></span></a>
+            </li>
+            <li>
+              <a href="./index.html" aria-label="Facebook"><span class="fab fa-facebook-square"></span></a>
+            </li>
+            <li>
+              <a href="./index.html" aria-label="Pinterest"><span class="fab fa-pinterest-p"></span></a>
+            </li>
+            <li>
+              <a href="./index.html" aria-label="Instagram"><span class="fab fa-instagram"></span></a>
+            </li>
+            <li>
+              <a href="./index.html" aria-label="YouTube"><span class="fab fa-youtube"></span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- End Mobile Menu -->
+
+
+    <div class="page">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>SmartToken</h1>
+        </div>
+      </section>
+
+      <!--PARA 1: Intro -->
+      <div class="para-section" id="p1">
+        <div class="section-container">
+          <div class="eyebrow">Overview</div>
+          <h2>SmartToken: Enterprise-Grade Digital Authentication & Authorization.</h2>
+          <p>SmartToken is a high-performance, <strong>Java-based microservices platform</strong> designed to
+            replace costly and complex hardware tokens. It provides a secure, scalable, and frictionless way
+            to
+            authorize transactions and authenticate users across web and mobile channels.</p>
+        </div>
+      </div>
+
+      <!-- FEAT SECTION 1: Core Product Features -->
+      <div class="feat-section" id="fs1">
+        <div class="section-container">
+          <div class="feat-section-header">
+            <div class="eyebrow">Features</div>
+            <h4>Multi-Channel Token Support</h4>
+          </div>
+
+          <div class="svg-block">
+            <img src="./assets/images/project/softtoken_1.webp" alt="SmartToken Features" style="border-radius: 24px;">
+          </div>
+
+          <div class="cards-row">
+            <div class="feat-card">
+              <h5>Mobile Token</h5>
+              <p>In-app token generation for offline or online transaction
+                authroziation and user authentication.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Device Binding</h5>
+              <p>A "Trust No One" approach that binds the digital identity to a
+                specific device’s hardware fingerprint (IMEI/UUID), preventing credential cloning.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Biometric Tokenization</h5>
+              <p>Integration with <strong> FIDO2/WebAuthn</strong>,
+                allowing users to sign
+                transactions using FaceID, TouchID, or Android Biometrics.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Web App Tokens</h5>
+              <ul class="sub-list">
+                <li>With Challenges: Synchronous flows where the server sends a challenge the user must
+                  solve.</li>
+                <li>Without Challenges: Seamless background synchronization for low-risk actions.</li>
+            </div>
+            <div class="feat-card">
+              <h5>SMS & Email Fallback</h5>
+              <p>Integrated SMS gateway support for legacy user bases or
+                emergency recovery.</p>
+            </div>
+          </div>
+
+          <div class="feat-section-header" id="child">
+            <h4>The Authenticator App (Mobile SDK)</h4>
+            <p>A dedicated mobile application (similar to Microsoft or Google Authenticator) that provides:
+            </p>
+          </div>
+          <div class="cards-row">
+            <div class="feat-card">
+              <h5>Push Notifications</h5>
+              <p>Instant "Approve/Reject" prompts for real-time transaction
+                signing.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Offline Mode</h5>
+              <p>Generate 6-8 digit codes even without internet connectivity.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Multi-Account Support</h5>
+              <p>Manage multiple identities or banking profiles within a
+                single app.</p>
             </div>
           </div>
         </div>
-        <!-- <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+      </div>
+
+      <!-- FEAT SECTION 2: Transaction Security -->
+      <div class="feat-section" id="fs2">
+        <div class="section-container">
+          <div class="feat-section-header">
+            <div class="eyebrow">Security</div>
+            <h3>Transaction Signing & Authorization</h3>
+          </div>
+
+          <div class="cards-row">
+            <div class="feat-card">
+              <h5>Third-Party Integration</h5>
+              <p>Securely authorize payments or data sharing with
+                external partners using scoped transaction tokens.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Data-Linked Tokens</h5>
+              <p>The token generated is cryptographically linked to the
+                specific transaction data (amount, payee, date).</p>
+            </div>
+            <div class="feat-card">
+              <h5>WYSIWYS Compliance</h5>
+              <p>"What You See Is What You Sign." The user confirms
+                transaction details on-screen, which are then hashed into the OCRA signature.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Anti-Tampering</h5>
+              <p>Any modification to the transaction data after the token is
+                generated will result in an immediate signature mismatch at the server level.</p>
+            </div>
+            <div class="feat-card">
+              <h5>MITM Protection</h5>
+              <p>Prevents "Man-in-the-Middle" tampering by ensuring the
+                signature is only valid for that specific intent.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEAT SECTION 3: Back Office -->
+      <div class="feat-section" id="fs3">
+        <div class="section-container">
+          <div class="feat-section-header">
+            <div class="eyebrow">Managment</div>
+            <h4>Back-Office & Management Suite</h4>
+            <p>The administrative portal provides complete control over the token ecosystem</p>
+          </div>
+
+          <div class="cards-row">
+            <div class="feat-card">
+              <h5>Complete Token Lifecycle Management</h5>
+              <ul class="sub-list">
+                <li>Issuance: Automated or manual onboarding of users.</li>
+                <li>Lock/Unlock: Immediate suspension of tokens in case of reported theft or suspicious
+                  activity.</li>
+                <li>Revocation: Permanent decommissioning of tokens for offboarded users.</li>
+            </div>
+            <div class="feat-card">
+              <h5>Audit & Forensics</h5>
+              <ul class="sub-list">
+                <li>Complete Traceability: Every "Approve," "Reject," or "Timeout" is logged with a
+                  secure hash.
+                </li>
+                <li>Fraud Investigation: Advanced search filters to track IP addresses, device IDs, and
+                  geolocations used during authentication.</li>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEAT SECTION 4: Technical Advantages -->
+      <div class="feat-section" id="fs4">
+        <div class="section-container">
+          <div class="feat-section-header">
+            <div class="eyebrow">Advantages</div>
+            <h4>Technical Advantages</h4>
+            <p>Built for the modern enterprise, SmartToken leverages a cloud-native stack to ensure high
+              availability and seamless integration.</p>
+          </div>
+
+          <div class="svg-block">
+            <img src="./assets/images/banner/banner_softtoken.webp" alt="Loan Origination System"
+              style="border-radius: 15px" loading="lazy" />
+          </div>
+
+          <div class="cards-row">
+            <div class="feat-card">
+              <h5>Core Engine</h5>
+              <p>Developed in Java for high-performance service execution.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Architecture</h5>
+              <p>Microservices-based, allowing independent scaling of the
+                Authentication, Token Lifecycle, and Audit modules.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Containerization</h5>
+              <p>Fully compatible with <strong> Docker</strong> and <strong>
+                  Kubernetes/OpenShift</strong> for
+                automated scaling and orchestration.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Database & Persistence</h5>
+              <p>Supports high-volume RDBMS (Oracle, PostgreSQL) with
+                optimized indexing for rapid audit retrieval.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Security Standards</h5>
+              <ul class="sub-list">
+                <li>Algorithms: Supports SHA-256, SHA-512, HMAC, RSA, AES and other encryption supported
+                  by Java
+                  Cryptography.</li>
+                <li>Protocols: Fully compliant with <strong> OATH </strong> standards (TOTP - Time-based
+                  One-Time Password and HOTP
+                  - HMAC-based One-Time Password, OCRA - OATH Challenge-Response Algorithm).</li>
+                <li>API Security: All endpoints are secured via mTLS and OAuth2/OpenID Connect.</li>
+              </ul>
+            </div>
+            <div class="feat-card">
+              <h5>Dynamic Challenge-Response</h5>
+              <p>Move beyond static codes. Generate signatures based
+                on server-side challenges and user-inputted data.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Mutual Authentication</h5>
+              <p>Supports client-to-server and server-to-client
+                verification, eliminating the risk of rogue servers or phishing sites.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── TABLE SECTION ── -->
+      <div class="table-section" id="ts1">
+        <div class="section-container">
+          <div class="table-section-header">
+            <div class="eyebrow">Technical Specifications</div>
+            <h4>Platform Performance &amp; Technical Specifications</h4>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Attribute</th>
+                  <th>Specification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Performance</td>
+                  <td>Capable of processing <strong>5,000+ authentications per second (TPS)</strong>
+                    with
+                    sub-~100ms
+                    latency.</td>
+                </tr>
+                <tr>
+                  <td>Scalability</td>
+                  <td>Horizontal auto-scaling via Kubernetes to handle peak season transaction loads.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Reliability</td>
+                  <td>Active-Active deployment support across multiple data centers for <strong>99.99%
+                      availability.</strong></td>
+                </tr>
+                <tr>
+                  <td>Interoperability</td>
+                  <td>RESTful APIs and SDKs for Android, iOS, and Web (JavaScript/TypeScript).</td>
+                </tr>
+                <tr>
+                  <td>Security</td>
+                  <td>Hardened against brute-force, replay attacks, and reverse engineering.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEAT SECTION 5: Business Value -->
+      <div class="feat-section" id="fs6">
+        <div class="section-container">
+          <div class="feat-section-header">
+            <h4>Business Value</h4>
+          </div>
+          <div class="cards-row">
+            <div class="feat-card">
+              <h5>Cost Reduction</h5>
+              <p>Zero logistics/shipping costs and no physical battery
+                expiration issues compared to hardware tokens.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Enhanced UX</h5>
+              <p>No need for users to carry an extra device; their smartphone
+                becomes their security key.</p>
+            </div>
+            <div class="feat-card">
+              <h5>Compliance</h5>
+              <p>Meets stringent global banking regulations (PSD2, FFIEC, etc.) for
+                Strong Customer Authentication (SCA).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Last Section -->
+      <div class="full-section centered light-bg" id="conclusion">
+        <div class="section-container">
+          <h2>Reach Us</h2>
+          <p>Modern banking security is complex. Your transition to it shouldn't be.</p>
+          <p>Ready to eliminate friction and elevate security?</strong> Our senior consultants are
+            available for a
+            technical discovery session to discuss your specific throughput, security, and architect a
+            solution tailored to your ecosystem.</p>
+          <div class="centered-btn-wrap">
+            <a href="../contact/contact.html" class="btn-orange">Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Showcase Section -->
+      <section class="product-showcase">
+        <div class="section-container">
+          <span class="eyebrow">Discover More</span>
+          <h2>Explore Our Other Solutions</h2>
+          <p>Midas offers a comprehensive suite of financial technology solutions designed to drive
+            digital
+            transformation and operational excellence.</p>
+
+          <div class="product-grid">
+            <!-- Product 1: Omni Channel -->
+            <a href="omnichannel.html" class="product-card">
+              <div class="product-card-img" style="background-image: url('./assets/images/banner/omnichannel.webp');">
+              </div>
+              <div class="product-card-body">
+                <h5>Omni Channel</h5>
+              </div>
+            </a>
+
+            <!-- Product 2: LMS -->
+            <a href="loans-management-system.html" class="product-card">
+              <div class="product-card-img" style="background-image: url('./assets/images/banner/los_banner.webp');">
+              </div>
+              <div class="product-card-body">
+                <h5>Loans Management System</h5>
+              </div>
+            </a>
+
+            <!-- Product 3: Payment Hub -->
+            <a href="payment-hub.html" class="product-card">
+              <div class="product-card-img"
+                style="background-image: url('./assets/images/banner/banner_payment_hub.webp');">
+              </div>
+              <div class="product-card-body">
+                <h5>Payment Hub</h5>
+              </div>
+            </a>
+
+            <!-- Product 4: SCF -->
+            <a href="scf.html" class="product-card">
+              <div class="product-card-img" style="background-image: url('./assets/images/banner/banner_scf.webp');">
+              </div>
+              <div class="product-card-body">
+                <h5>Supply Chain Finance</h5>
+              </div>
+            </a>
+
+            <!-- Product 5: LOS -->
+            <a href="los.html" class="product-card">
+              <div class="product-card-img" style="background-image: url('./assets/images/banner/los_banner.webp');">
+              </div>
+              <div class="product-card-body">
+                <h5>Loan Origination System</h5>
+              </div>
+            </a>
+
+            <!-- Product 6: Virtual Account -->
+            <a href="va.html" class="product-card">
+              <div class="product-card-img" style="background-image: url('./assets/images/banner/va_2.webp');"></div>
+              <div class="product-card-body">
+                <h5>Virtual Account</h5>
+              </div>
+            </a>
+
+            <!-- Product 7: Microfinance -->
+            <a href="microfinance-core.html" class="product-card">
+              <div class="product-card-img"
+                style="background-image: url('./assets/images/banner/banner_light_core_banking.webp');">
+              </div>
+              <div class="product-card-body">
+                <h5>Lightweight Core Banking</h5>
+              </div>
+            </a>
+
+            <!-- Product 8: Nexus ID -->
+            <a href="nexus-id.html" class="product-card">
+              <div class="product-card-img" style="background-image: url('./assets/images/banner/banner_nexus.webp');">
+              </div>
+              <div class="product-card-body">
+                <h5>NexusID</h5>
+              </div>
+            </a>
+
+            <!-- Product 9: Cloud Core Banking -->
+            <a href="cloud-core-banking.html" class="product-card">
+              <div class="product-card-img"
+                style="background-image: url('./assets/images/banner/cloud_core_banking.webp');"></div>
+              <div class="product-card-body">
+                <h5>Cloud Core Banking</h5>
+              </div>
+            </a>
+
+            <!-- Product 10: AI Liveness Detection -->
+            <a href="liveness-detection.html" class="product-card">
+              <div class="product-card-img"
+                style="background-image: url('./assets/images/banner/liveness_banner.webp'), linear-gradient(135deg, #0b1727 0%, #172a45 50%, #1e3a5f 100%);">
+              </div>
+              <div class="product-card-body">
+                <h5>AI Liveness Detection</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- main-footer -->
+    <section class="main-footer style-three">
+      <div class="shape">
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+        <div class="shape-3" style="background-image: url(./assets/images/shape/shape-21.webp)"></div>
+        <div class="shape-4" style="background-image: url(./assets/images/shape/shape-22.webp)"></div>
+      </div>
+      <div class="auto-container">
+        <div class="footer-top">
+          <div class="top-inner">
+            <figure class="footer-logo">
+              <a href="./index.html"><img src="./assets/images/logo-172.webp"
+                  srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w"
+                  sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75"
+                  loading="lazy" /></a>
+            </figure>
+            <ul class="social-links clearfix">
+              <li>
+                <a href="https://www.linkedin.com/company/pt-midas-daya-teknologi/" target="_blank"
+                  rel="noopener noreferrer" aria-label="Midas LinkedIn Profile"><i class="icon-3"></i></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/growwithmidas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  target="_blank" rel="noopener noreferrer" aria-label="Midas Instagram Profile"><i
+                    class="fab fa-instagram"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="widget-section">
+          <div class="row clearfix">
+            <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+              <div class="footer-widget about-widget">
+                <!-- <div class="widget-title">
+                            <h3>About</h3>
+                        </div> -->
+                <div class="widget-content">
+                  <!-- <p>This is due to their excellent service, competitive pricing and customer support.
+                                It’s throughly refresing to get such a personal touch.</p> -->
+                  <ul class="info clearfix">
+                    <li><i class="icon-2"></i><a href="tel:+622140642341">(+6221) 40642341</a>
+                    </li>
+                    <!-- <li><i class="icon-19"></i><a href="mailto:info@example.com">info@example.com</a></li> -->
+                    <li>
+                      <i class="icon-23" style="background: #0d7dfc;"></i>PT Midas Daya Teknologi<br />Lippo Kuningan
+                      Building, 18th Floor, Unit
+                      F2,<br />
+                      JI. H. R. Rasuna Said Kav,
+                      B-12, Jakarta Selatan 12940, Indonesia.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+              <div class="footer-widget links-widget">
+                <div class="widget-title">
+                  <h3>Quick link</h3>
+                </div>
+                <div class="row clearfix">
+                  <div class="col-lg-6 col-md-6 col-sm-12 link-column">
+                    <ul class="links-list clearfix">
+                      <li><a href="./about/about.html">Our Story</a></li>
+                      <li><a href="./products/products.html">Solutions</a></li>
+                      <li><a href="./ai/ai-solutions.html">AI</a></li>
+                      <li><a href="./services/service.html">Services</a></li>
+                      <li><a href="./career/all-jop-post.html">Career</a></li>
+                      <li><a href="./contact/contact.html">Contact</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget gallery-widget">
                         <div class="widget-title">
                             <h3>Gallery</h3>
@@ -1288,43 +1295,43 @@
                             <ul class="image-list clearfix">
                                 <li>
                                     <figure class="image">
-                                        <img src="../assets/images/resource/footer-1.webp" alt="" loading="lazy">
-                                        <a href="../assets/images/resource/footer-1.webp" class="lightbox-image"
+                                        <img src="./assets/images/resource/footer-1.webp" alt="" loading="lazy">
+                                        <a href="./assets/images/resource/footer-1.webp" class="lightbox-image"
                                             data-fancybox="gallery"><i class="icon-24"></i></a>
                                     </figure>
                                 </li>
                                 <li>
                                     <figure class="image">
-                                        <img src="../assets/images/resource/footer-2.webp" alt="" loading="lazy">
-                                        <a href="../assets/images/resource/footer-2.webp" class="lightbox-image"
+                                        <img src="./assets/images/resource/footer-2.webp" alt="" loading="lazy">
+                                        <a href="./assets/images/resource/footer-2.webp" class="lightbox-image"
                                             data-fancybox="gallery"><i class="icon-24"></i></a>
                                     </figure>
                                 </li>
                                 <li>
                                     <figure class="image">
-                                        <img src="../assets/images/resource/footer-3.webp" alt="" loading="lazy">
-                                        <a href="../assets/images/resource/footer-3.webp" class="lightbox-image"
+                                        <img src="./assets/images/resource/footer-3.webp" alt="" loading="lazy">
+                                        <a href="./assets/images/resource/footer-3.webp" class="lightbox-image"
                                             data-fancybox="gallery"><i class="icon-24"></i></a>
                                     </figure>
                                 </li>
                                 <li>
                                     <figure class="image">
-                                        <img src="../assets/images/resource/footer-4.webp" alt="" loading="lazy">
-                                        <a href="../assets/images/resource/footer-4.webp" class="lightbox-image"
+                                        <img src="./assets/images/resource/footer-4.webp" alt="" loading="lazy">
+                                        <a href="./assets/images/resource/footer-4.webp" class="lightbox-image"
                                             data-fancybox="gallery"><i class="icon-24"></i></a>
                                     </figure>
                                 </li>
                                 <li>
                                     <figure class="image">
-                                        <img src="../assets/images/resource/footer-5.webp" alt="" loading="lazy">
-                                        <a href="../assets/images/resource/footer-5.webp" class="lightbox-image"
+                                        <img src="./assets/images/resource/footer-5.webp" alt="" loading="lazy">
+                                        <a href="./assets/images/resource/footer-5.webp" class="lightbox-image"
                                             data-fancybox="gallery"><i class="icon-24"></i></a>
                                     </figure>
                                 </li>
                                 <li>
                                     <figure class="image">
-                                        <img src="../assets/images/resource/footer-6.webp" alt="" loading="lazy">
-                                        <a href="../assets/images/resource/footer-6.webp" class="lightbox-image"
+                                        <img src="./assets/images/resource/footer-6.webp" alt="" loading="lazy">
+                                        <a href="./assets/images/resource/footer-6.webp" class="lightbox-image"
                                             data-fancybox="gallery"><i class="icon-24"></i></a>
                                     </figure>
                                 </li>
@@ -1332,592 +1339,594 @@
                         </div>
                     </div>
                 </div> -->
+          </div>
+        </div>
+        <div class="footer-bottom centred">
+          <p><a href="./index.html">Midas</a> &copy; 2025 All Right Reserved</p>
+        </div>
       </div>
-    </div>
-    <div class="footer-bottom centred">
-      <p><a href="./index.html">Midas</a> &copy; 2025 All Right Reserved</p>
-    </div>
-  </div>
-</section>
-<!-- main-footer end -->
+    </section>
+    <!-- main-footer end -->
 
-<!-- Midas Chatbot Widget -->
-<style>
-  /* Chatbot Styles */
-  #chat-toggle {
-    position: fixed;
-    bottom: 38px;
-    right: 38px;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: 1px solid #eee;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, background 0.2s, opacity 0.3s ease;
-    z-index: 9999;
-  }
+    <!-- Midas Chatbot Widget -->
+    <style>
+      /* Chatbot Styles */
+      #chat-toggle {
+        position: fixed;
+        bottom: 38px;
+        right: 38px;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 1px solid #eee;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease, background 0.2s, opacity 0.3s ease;
+        z-index: 9999;
+      }
 
-  #chat-toggle:hover {
-    transform: scale(1.07);
-    background: #ffffff;
-  }
+      #chat-toggle:hover {
+        transform: scale(1.07);
+        background: #ffffff;
+      }
 
-  #chat-toggle:active {
-    transform: scale(0.96);
-  }
+      #chat-toggle:active {
+        transform: scale(0.96);
+      }
 
-  #chat-toggle .icon-chat,
-  #chat-toggle .icon-close {
-    transition: opacity 0.2s, transform 0.25s;
-  }
+      #chat-toggle .icon-chat,
+      #chat-toggle .icon-close {
+        transition: opacity 0.2s, transform 0.25s;
+      }
 
-  #chat-toggle .icon-close {
-    opacity: 0;
-    transform: rotate(-90deg) scale(0.6);
-    position: absolute;
-  }
+      #chat-toggle .icon-close {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.6);
+        position: absolute;
+      }
 
-  #chat-toggle.open .icon-chat {
-    opacity: 0;
-    transform: rotate(90deg) scale(0.5);
-  }
+      #chat-toggle.open .icon-chat {
+        opacity: 0;
+        transform: rotate(90deg) scale(0.5);
+      }
 
-  #chat-toggle.open .icon-close {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
-  }
+      #chat-toggle.open .icon-close {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      }
 
-  #chat-panel {
-    position: fixed;
-    bottom: 110px;
-    right: 38px;
-    width: 390px;
-    max-height: 580px;
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 22px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: 9998;
-    transform: translateY(24px) scale(0.96);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.22s ease;
-    color: #52565b;
-  }
+      #chat-panel {
+        position: fixed;
+        bottom: 110px;
+        right: 38px;
+        width: 390px;
+        max-height: 580px;
+        background: #ffffff;
+        border: 1px solid #e5e5e5;
+        border-radius: 22px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 9998;
+        transform: translateY(24px) scale(0.96);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.22s ease;
+        color: #52565b;
+      }
 
-  #chat-panel.open {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    pointer-events: all;
-  }
+      #chat-panel.open {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        pointer-events: all;
+      }
 
-  .chat-header {
-    background: #f8f9fa;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-  }
+      .chat-header {
+        background: #f8f9fa;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+      }
 
-  .header-avatar {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 18px;
-    border: 1px solid #eee;
-  }
+      .header-avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 18px;
+        border: 1px solid #eee;
+      }
 
-  .header-info h3 {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: #1e1e1e;
-    margin-bottom: 2px;
-  }
+      .header-info h3 {
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1e1e1e;
+        margin-bottom: 2px;
+      }
 
-  .header-info span {
-    font-size: 11px;
-    color: #677289;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
+      .header-info span {
+        font-size: 11px;
+        color: #677289;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
 
-  .online-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #4ade80;
-    display: inline-block;
-  }
+      .online-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #4ade80;
+        display: inline-block;
+      }
 
-  .header-close {
-    margin-left: auto;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #52565b;
-    padding: 4px;
-    border-radius: 6px;
-    transition: color 0.15s, background 0.15s;
-    line-height: 1;
-  }
+      .header-close {
+        margin-left: auto;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #52565b;
+        padding: 4px;
+        border-radius: 6px;
+        transition: color 0.15s, background 0.15s;
+        line-height: 1;
+      }
 
-  .header-close:hover {
-    color: #ff6a00;
-    background: #f0f0f0;
-  }
+      .header-close:hover {
+        color: #ff6a00;
+        background: #f0f0f0;
+      }
 
-  #chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    scroll-behavior: smooth;
-    font-family: 'Ubuntu', sans-serif;
-  }
+      #chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        scroll-behavior: smooth;
+        font-family: 'Ubuntu', sans-serif;
+      }
 
-  #chat-messages::-webkit-scrollbar {
-    width: 4px;
-  }
+      #chat-messages::-webkit-scrollbar {
+        width: 4px;
+      }
 
-  #chat-messages::-webkit-scrollbar-thumb {
-    background: #e5e5e5;
-    border-radius: 4px;
-  }
+      #chat-messages::-webkit-scrollbar-thumb {
+        background: #e5e5e5;
+        border-radius: 4px;
+      }
 
-  .msg {
-    display: flex;
-    max-width: 90%;
-    animation: fadeUp 0.22s ease;
-  }
+      .msg {
+        display: flex;
+        max-width: 90%;
+        animation: fadeUp 0.22s ease;
+      }
 
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(8px);
-    }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  .msg.user {
-    align-self: flex-end;
-  }
+      .msg.user {
+        align-self: flex-end;
+      }
 
-  .msg.bot {
-    align-self: flex-start;
-  }
+      .msg.bot {
+        align-self: flex-start;
+      }
 
-  .msg-bubble {
-    padding: 10px 14px;
-    font-size: 13.5px;
-    line-height: 1.6;
-    word-break: break-word;
-    border-radius: 16px;
-  }
+      .msg-bubble {
+        padding: 10px 14px;
+        font-size: 13.5px;
+        line-height: 1.6;
+        word-break: break-word;
+        border-radius: 16px;
+      }
 
-  .msg.bot .msg-bubble {
-    background: #f1f3f5;
-    color: #52565b;
-    border: 1px solid #e9ecef;
-    border-bottom-left-radius: 4px;
-  }
+      .msg.bot .msg-bubble {
+        background: #f1f3f5;
+        color: #52565b;
+        border: 1px solid #e9ecef;
+        border-bottom-left-radius: 4px;
+      }
 
-  .msg.user .msg-bubble {
-    background: #ff6a00;
-    color: #fff;
-    border-bottom-right-radius: 4px;
-  }
+      .msg.user .msg-bubble {
+        background: #ff6a00;
+        color: #fff;
+        border-bottom-right-radius: 4px;
+      }
 
-  .typing-indicator {
-    display: flex;
-    gap: 4px;
-    padding: 12px 14px;
-    background: #f1f3f5;
-    border: 1px solid #e9ecef;
-    border-radius: 16px;
-    border-bottom-left-radius: 4px;
-    width: fit-content;
-  }
+      .typing-indicator {
+        display: flex;
+        gap: 4px;
+        padding: 12px 14px;
+        background: #f1f3f5;
+        border: 1px solid #e9ecef;
+        border-radius: 16px;
+        border-bottom-left-radius: 4px;
+        width: fit-content;
+      }
 
-  .typing-indicator span {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #adb5bd;
-    animation: bounce 1.2s infinite;
-  }
+      .typing-indicator span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #adb5bd;
+        animation: bounce 1.2s infinite;
+      }
 
-  .typing-indicator span:nth-child(2) {
-    animation-delay: 0.2s;
-  }
+      .typing-indicator span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
 
-  .typing-indicator span:nth-child(3) {
-    animation-delay: 0.4s;
-  }
+      .typing-indicator span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
 
-  @keyframes bounce {
+      @keyframes bounce {
 
-    0%,
-    60%,
-    100% {
-      transform: translateY(0);
-    }
+        0%,
+        60%,
+        100% {
+          transform: translateY(0);
+        }
 
-    30% {
-      transform: translateY(-5px);
-    }
-  }
+        30% {
+          transform: translateY(-5px);
+        }
+      }
 
-  .suggestions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    padding: 0 16px 10px;
-  }
+      .suggestions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 0 16px 10px;
+      }
 
-  .suggestion-chip {
-    background: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 20px;
-    padding: 5px 11px;
-    font-size: 12px;
-    color: #677289;
-    cursor: pointer;
-    font-family: 'Ubuntu', sans-serif;
-    transition: all 0.15s;
-  }
+      .suggestion-chip {
+        background: #fff;
+        border: 1px solid #dee2e6;
+        border-radius: 20px;
+        padding: 5px 11px;
+        font-size: 12px;
+        color: #677289;
+        cursor: pointer;
+        font-family: 'Ubuntu', sans-serif;
+        transition: all 0.15s;
+      }
 
-  .suggestion-chip:hover {
-    border-color: #ff6a00;
-    color: #ff6a00;
-    background: #fffcf5;
-  }
+      .suggestion-chip:hover {
+        border-color: #ff6a00;
+        color: #ff6a00;
+        background: #fffcf5;
+      }
 
-  .chat-footer {
-    padding: 10px 12px;
-    border-top: 1px solid #e5e5e5;
-    display: flex;
-    gap: 8px;
-    align-items: flex-end;
-    flex-shrink: 0;
-    background: #ffffff;
-  }
+      .chat-footer {
+        padding: 10px 12px;
+        border-top: 1px solid #e5e5e5;
+        display: flex;
+        gap: 8px;
+        align-items: flex-end;
+        flex-shrink: 0;
+        background: #ffffff;
+      }
 
-  #chat-input {
-    flex: 1;
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 12px;
-    padding: 10px 13px;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 13.5px;
-    color: #52565b;
-    resize: none;
-    outline: none;
-    max-height: 100px;
-    line-height: 1.45;
-    transition: border-color 0.15s;
-    overflow-y: auto;
-  }
+      #chat-input {
+        flex: 1;
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 12px;
+        padding: 10px 13px;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 13.5px;
+        color: #52565b;
+        resize: none;
+        outline: none;
+        max-height: 100px;
+        line-height: 1.45;
+        transition: border-color 0.15s;
+        overflow-y: auto;
+      }
 
-  #chat-input:focus {
-    border-color: #ff6a00;
-    background: #fff;
-  }
+      #chat-input:focus {
+        border-color: #ff6a00;
+        background: #fff;
+      }
 
-  #chat-input::placeholder {
-    color: #adb5bd;
-  }
+      #chat-input::placeholder {
+        color: #adb5bd;
+      }
 
-  #send-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: #ff6a00;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: background 0.15s, transform 0.1s;
-  }
+      #send-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: #ff6a00;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: background 0.15s, transform 0.1s;
+      }
 
-  #send-btn:hover {
-    background: #e55f00;
-  }
+      #send-btn:hover {
+        background: #e55f00;
+      }
 
-  #send-btn:active {
-    transform: scale(0.93);
-  }
+      #send-btn:active {
+        transform: scale(0.93);
+      }
 
-  #send-btn:disabled {
-    background: #e9ecef;
-    cursor: not-allowed;
-  }
+      #send-btn:disabled {
+        background: #e9ecef;
+        cursor: not-allowed;
+      }
 
-  @media (max-width: 440px) {
-    #chat-panel {
-      width: calc(100vw - 20px);
-      right: 10px;
-      bottom: 108px;
-    }
-  }
-</style>
+      @media (max-width: 440px) {
+        #chat-panel {
+          width: calc(100vw - 20px);
+          right: 10px;
+          bottom: 108px;
+        }
+      }
+    </style>
 
-<button id="chat-toggle" aria-label="Open chat">
-  <img class="icon-chat" src="../assets/images/icons/chat-icon-64.webp" srcset="./assets/images/icons/chat-icon-64.webp 1x, ./assets/images/icons/chat-icon-128.webp 2x" width="28" height="28"
-    alt="Chat" style="display:block;" />
-  <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-    stroke="#52565b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="18" y1="6" x2="6" y2="18" />
-    <line x1="6" y1="6" x2="18" y2="18" />
-  </svg>
-</button>
-
-<div id="chat-panel" role="dialog" aria-label="Midas Assistant">
-  <div class="chat-header">
-    <div class="header-avatar">
-      <img src="../assets/images/icons/chat-icon-64.webp" srcset="./assets/images/icons/chat-icon-64.webp 1x, ./assets/images/icons/chat-icon-128.webp 2x" width="24" height="24"
-        alt="Midas Assistant" />
-    </div>
-    <div class="header-info">
-      <h3>Midas Assistant</h3>
-      <span><span class="online-dot">
-    </div>
-    <button class="header-close" id="chat-close" aria-label="Close">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <button id="chat-toggle" aria-label="Open chat">
+      <img class="icon-chat" src="./assets/images/icons/chat-icon-64.webp"
+        srcset="./assets/images/icons/chat-icon-64.webp 1x, ./assets/images/icons/chat-icon-128.webp 2x" width="28"
+        height="28" alt="Chat" style="display:block;" />
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+        stroke="#52565b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18" />
         <line x1="6" y1="6" x2="18" y2="18" />
       </svg>
     </button>
-  </div>
 
-  <div id="chat-messages"></div>
-  <div class="suggestions" id="suggestions"></div>
-
-  <div class="chat-footer">
-    <textarea id="chat-input" rows="1" placeholder="Ask about Midas Teknologi…"></textarea>
-    <button id="send-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff"
-        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="22" y1="2" x2="11" y2="13" />
-        <polygon points="22 2 15 22 11 13 2 9 22 2" />
-      </svg>
-    </button>
-  </div>
-</div>
-
-<script>
-  (function () {
-    const PROXY_URL = './ai-proxy.php';
-    const WELCOME_MSG = "Hi! 👋 I'm the Midas Assistant. Ask me anything about Midas Teknologi — our solutions, services, AI offerings, office locations, or how to get in touch!";
-    const SUGGESTIONS = [
-      "What does Midas do?",
-      "What solutions do you offer?",
-      "Where are your offices?",
-    ];
-
-    const excludedPages = ['error.html', 'coming-soon.html'];
-    const path = window.location.pathname;
-    const isExcluded = excludedPages.some(page => path.includes(page)) || path.includes('/admin/');
-
-    if (isExcluded) {
-      document.getElementById('chat-toggle').style.display = 'none';
-      document.getElementById('chat-panel').style.display = 'none';
-      return;
-    }
-
-    let history = [];
-    let isTyping = false;
-
-    const toggle = document.getElementById("chat-toggle");
-    const panel = document.getElementById("chat-panel");
-    const closeBtn = document.getElementById("chat-close");
-    const messagesEl = document.getElementById("chat-messages");
-    const suggestEl = document.getElementById("suggestions");
-    const input = document.getElementById("chat-input");
-    const sendBtn = document.getElementById("send-btn");
-
-    /* Suggestion chips */
-    suggestEl.innerHTML = SUGGESTIONS.map(s =>
-      `<button class="suggestion-chip">${s}</button>`
-    ).join("");
-    suggestEl.querySelectorAll(".suggestion-chip").forEach(btn => {
-      btn.addEventListener("click", () => {
-        input.value = btn.textContent;
-        suggestEl.style.display = "none";
-        sendMessage();
-      });
-    });
-
-    /* Open / close */
-    toggle.addEventListener("click", () =>
-      panel.classList.contains("open") ? closePanel() : openPanel()
-    );
-    closeBtn.addEventListener("click", closePanel);
-    function openPanel() { panel.classList.add("open"); toggle.classList.add("open"); input.focus(); }
-    function closePanel() { panel.classList.remove("open"); toggle.classList.remove("open"); }
-
-    /* Scroll behavior: hide while scrolling, show on stop */
-    let isScrolling;
-    window.addEventListener('scroll', () => {
-      if (!panel.classList.contains("open")) {
-        toggle.style.opacity = '0';
-        toggle.style.pointerEvents = 'none';
-
-        window.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          toggle.style.opacity = '1';
-          toggle.style.pointerEvents = 'all';
-        }, 250);
-      }
-    }, { passive: true });
-
-    /* Auto-grow textarea */
-    input.addEventListener("input", () => {
-      input.style.height = "auto";
-      input.style.height = Math.min(input.scrollHeight, 100) + "px";
-    });
-    input.addEventListener("keydown", e => {
-      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
-    });
-    sendBtn.addEventListener("click", sendMessage);
-
-    /* Add message bubble */
-    function addMessage(role, text) {
-      const wrap = document.createElement("div");
-      wrap.className = "msg " + role;
-      const bubble = document.createElement("div");
-      bubble.className = "msg-bubble";
-
-      // Escape HTML to prevent XSS
-      let html = text.replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-      // Convert URLs to hyperlinks
-      const urlRegex = /(https?:\/\/[^\s]+)/g;
-      html = html.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
-
-      // Convert Email IDs to mailto links
-      const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
-      html = html.replace(emailRegex, '<a href="mailto:$1" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
-
-      bubble.innerHTML = html;
-      wrap.appendChild(bubble);
-      messagesEl.appendChild(wrap);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
-    }
-
-    /* Typing indicator */
-    function showTyping() {
-      const wrap = document.createElement("div");
-      wrap.className = "msg bot"; wrap.id = "typing-wrap";
-      wrap.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
-      messagesEl.appendChild(wrap);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
-    }
-    function hideTyping() { const el = document.getElementById("typing-wrap"); if (el) el.remove(); }
-
-    async function sendMessage() {
-      const text = input.value.trim();
-      if (!text || isTyping) return;
-
-      suggestEl.style.display = "none";
-      input.value = ""; input.style.height = "auto";
-      addMessage("user", text);
-
-      history.push({ role: "user", content: text });
-      const recentHistory = history.slice(-4);
-
-      isTyping = true; sendBtn.disabled = true;
-      showTyping();
-
-      try {
-        const res = await fetch(PROXY_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ messages: recentHistory })
-        });
-
-        const data = await res.json();
-        hideTyping();
-
-        if (!res.ok) {
-          addMessage("bot", "⚠️ " + (data?.error?.message || data?.error || "Something went wrong."));
-          history.pop(); return;
-        }
-
-        const reply = data.choices[0].message.content;
-        addMessage("bot", reply);
-        history.push({ role: "assistant", content: reply });
-
-      } catch {
-        hideTyping();
-        addMessage("bot", "⚠️ Network error. Please check your connection.");
-        history.pop();
-      } finally {
-        isTyping = false; sendBtn.disabled = false; input.focus();
-      }
-    }
-
-    addMessage("bot", WELCOME_MSG);
-  })();
-</script>
-
-        <div class="scroll-to-top">
-            <div>
-                <div class="scroll-top-inner">
-                    <div class="scroll-bar">
-                        <div class="bar-inner"></div>
-                    </div>
-                    <div class="scroll-bar-text">Go To Top</div>
-                </div>
-            </div>
+    <div id="chat-panel" role="dialog" aria-label="Midas Assistant">
+      <div class="chat-header">
+        <div class="header-avatar">
+          <img src="./assets/images/icons/chat-icon-64.webp"
+            srcset="./assets/images/icons/chat-icon-64.webp 1x, ./assets/images/icons/chat-icon-128.webp 2x" width="24"
+            height="24" alt="Midas Assistant" />
         </div>
+        <div class="header-info">
+          <h3>Midas Assistant</h3>
+          <span><span class="online-dot">
+        </div>
+        <button class="header-close" id="chat-close" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="chat-messages"></div>
+      <div class="suggestions" id="suggestions"></div>
+
+      <div class="chat-footer">
+        <textarea id="chat-input" rows="1" placeholder="Ask about Midas Teknologi…"></textarea>
+        <button id="send-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff"
+            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <!-- scripts -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/popper.min.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/owl.js"></script>
-    <script src="../assets/js/script.js"></script>
-
     <script>
-        const io = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) e.target.classList.add('in-view');
+      (function () {
+        const PROXY_URL = './ai-proxy.php';
+        const WELCOME_MSG = "Hi! 👋 I'm the Midas Assistant. Ask me anything about Midas Teknologi — our solutions, services, AI offerings, office locations, or how to get in touch!";
+        const SUGGESTIONS = [
+          "What does Midas do?",
+          "What solutions do you offer?",
+          "Where are your offices?",
+        ];
+
+        const excludedPages = ['error.html', 'coming-soon.html'];
+        const path = window.location.pathname;
+        const isExcluded = excludedPages.some(page => path.includes(page)) || path.includes('/admin/');
+
+        if (isExcluded) {
+          document.getElementById('chat-toggle').style.display = 'none';
+          document.getElementById('chat-panel').style.display = 'none';
+          return;
+        }
+
+        let history = [];
+        let isTyping = false;
+
+        const toggle = document.getElementById("chat-toggle");
+        const panel = document.getElementById("chat-panel");
+        const closeBtn = document.getElementById("chat-close");
+        const messagesEl = document.getElementById("chat-messages");
+        const suggestEl = document.getElementById("suggestions");
+        const input = document.getElementById("chat-input");
+        const sendBtn = document.getElementById("send-btn");
+
+        /* Suggestion chips */
+        suggestEl.innerHTML = SUGGESTIONS.map(s =>
+          `<button class="suggestion-chip">${s}</button>`
+        ).join("");
+        suggestEl.querySelectorAll(".suggestion-chip").forEach(btn => {
+          btn.addEventListener("click", () => {
+            input.value = btn.textContent;
+            suggestEl.style.display = "none";
+            sendMessage();
+          });
+        });
+
+        /* Open / close */
+        toggle.addEventListener("click", () =>
+          panel.classList.contains("open") ? closePanel() : openPanel()
+        );
+        closeBtn.addEventListener("click", closePanel);
+        function openPanel() { panel.classList.add("open"); toggle.classList.add("open"); input.focus(); }
+        function closePanel() { panel.classList.remove("open"); toggle.classList.remove("open"); }
+
+        /* Scroll behavior: hide while scrolling, show on stop */
+        let isScrolling;
+        window.addEventListener('scroll', () => {
+          if (!panel.classList.contains("open")) {
+            toggle.style.opacity = '0';
+            toggle.style.pointerEvents = 'none';
+
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+              toggle.style.opacity = '1';
+              toggle.style.pointerEvents = 'all';
+            }, 250);
+          }
+        }, { passive: true });
+
+        /* Auto-grow textarea */
+        input.addEventListener("input", () => {
+          input.style.height = "auto";
+          input.style.height = Math.min(input.scrollHeight, 100) + "px";
+        });
+        input.addEventListener("keydown", e => {
+          if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+        });
+        sendBtn.addEventListener("click", sendMessage);
+
+        /* Add message bubble */
+        function addMessage(role, text) {
+          const wrap = document.createElement("div");
+          wrap.className = "msg " + role;
+          const bubble = document.createElement("div");
+          bubble.className = "msg-bubble";
+
+          // Escape HTML to prevent XSS
+          let html = text.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+          // Convert URLs to hyperlinks
+          const urlRegex = /(https?:\/\/[^\s]+)/g;
+          html = html.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
+
+          // Convert Email IDs to mailto links
+          const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+          html = html.replace(emailRegex, '<a href="mailto:$1" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
+
+          bubble.innerHTML = html;
+          wrap.appendChild(bubble);
+          messagesEl.appendChild(wrap);
+          messagesEl.scrollTop = messagesEl.scrollHeight;
+        }
+
+        /* Typing indicator */
+        function showTyping() {
+          const wrap = document.createElement("div");
+          wrap.className = "msg bot"; wrap.id = "typing-wrap";
+          wrap.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
+          messagesEl.appendChild(wrap);
+          messagesEl.scrollTop = messagesEl.scrollHeight;
+        }
+        function hideTyping() { const el = document.getElementById("typing-wrap"); if (el) el.remove(); }
+
+        async function sendMessage() {
+          const text = input.value.trim();
+          if (!text || isTyping) return;
+
+          suggestEl.style.display = "none";
+          input.value = ""; input.style.height = "auto";
+          addMessage("user", text);
+
+          history.push({ role: "user", content: text });
+          const recentHistory = history.slice(-4);
+
+          isTyping = true; sendBtn.disabled = true;
+          showTyping();
+
+          try {
+            const res = await fetch(PROXY_URL, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ messages: recentHistory })
             });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.full-section, .para-section, .feat-section, .product-showcase, .table-section').forEach(el => io.observe(el));
+
+            const data = await res.json();
+            hideTyping();
+
+            if (!res.ok) {
+              addMessage("bot", "⚠️ " + (data?.error?.message || data?.error || "Something went wrong."));
+              history.pop(); return;
+            }
+
+            const reply = data.choices[0].message.content;
+            addMessage("bot", reply);
+            history.push({ role: "assistant", content: reply });
+
+          } catch {
+            hideTyping();
+            addMessage("bot", "⚠️ Network error. Please check your connection.");
+            history.pop();
+          } finally {
+            isTyping = false; sendBtn.disabled = false; input.focus();
+          }
+        }
+
+        addMessage("bot", WELCOME_MSG);
+      })();
     </script>
+
+    <div class="scroll-to-top">
+      <div>
+        <div class="scroll-top-inner">
+          <div class="scroll-bar">
+            <div class="bar-inner"></div>
+          </div>
+          <div class="scroll-bar-text">Go To Top</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- scripts -->
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <script src="./assets/js/owl.js"></script>
+  <script src="./assets/js/script.js"></script>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in-view');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.full-section, .para-section, .feat-section, .product-showcase, .table-section').forEach(el => io.observe(el));
+  </script>
 </body>
 
 </html>

@@ -393,8 +393,8 @@ $maxYear = (int)date('Y') + 10;
 <head>
     <meta charset="UTF-8">
     <title><?php echo $id === 'new' ? 'New Event' : 'Edit Event'; ?> - Admin</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.css">
-    <link rel="stylesheet" href="../assets/css/font-awesome-all.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/font-awesome-all.css">
     <style>
         :root { --orange: #ff6a00; }
         body { background: #f8f9fa; padding-bottom: 60px; }
@@ -556,8 +556,8 @@ $maxYear = (int)date('Y') + 10;
     </div>
 </div>
 
-<script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/jquery.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
 <script>
 (function () {
     // ── Delete photo buttons ──────────────────────────────────────

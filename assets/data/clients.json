@@ -1,102 +1,102 @@
 [
     {
-        "src": "../assets/images/clients/bandm.webp",
+        "src": "./assets/images/clients/bandm.webp",
         "alt": "B&M"
     },
     {
-        "src": "../assets/images/clients/bank_saqu.svg",
+        "src": "./assets/images/clients/bank_saqu.svg",
         "alt": "Bank Saqu"
     },
     {
-        "src": "../assets/images/clients/banzpay.svg",
+        "src": "./assets/images/clients/banzpay.svg",
         "alt": "Banzpay"
     },
     {
-        "src": "../assets/images/clients/bfi.webp",
+        "src": "./assets/images/clients/bfi.webp",
         "alt": "BFI"
     },
     {
-        "src": "../assets/images/clients/bhutan.webp",
+        "src": "./assets/images/clients/bhutan.webp",
         "alt": "Bhutan"
     },
     {
-        "src": "../assets/images/clients/bjj.webp",
+        "src": "./assets/images/clients/bjj.webp",
         "alt": "BJJ"
     },
     {
-        "src": "../assets/images/clients/bmi.webp",
+        "src": "./assets/images/clients/bmi.webp",
         "alt": "BMI"
     },
     {
-        "src": "../assets/images/clients/canara.webp",
+        "src": "./assets/images/clients/canara.webp",
         "alt": "Canara"
     },
     {
-        "src": "../assets/images/clients/commonwealth.webp",
+        "src": "./assets/images/clients/commonwealth.webp",
         "alt": "Commonwealth"
     },
     {
-        "src": "../assets/images/clients/danamon.webp",
+        "src": "./assets/images/clients/danamon.webp",
         "alt": "Danamon"
     },
     {
-        "src": "../assets/images/clients/dutch.webp",
+        "src": "./assets/images/clients/dutch.webp",
         "alt": "Dutch"
     },
     {
-        "src": "../assets/images/clients/eastern.webp",
+        "src": "./assets/images/clients/eastern.webp",
         "alt": "Eastern"
     },
     {
-        "src": "../assets/images/clients/encora.webp",
+        "src": "./assets/images/clients/encora.webp",
         "alt": "Encora"
     },
     {
-        "src": "../assets/images/clients/equitas.webp",
+        "src": "./assets/images/clients/equitas.webp",
         "alt": "Equitas"
     },
     {
-        "src": "../assets/images/clients/exim.webp",
+        "src": "./assets/images/clients/exim.webp",
         "alt": "Exim"
     },
     {
-        "src": "../assets/images/clients/kadence.webp",
+        "src": "./assets/images/clients/kadence.webp",
         "alt": "Kadence"
     },
     {
-        "src": "../assets/images/clients/mizuho.webp",
+        "src": "./assets/images/clients/mizuho.webp",
         "alt": "Mizuho"
     },
     {
-        "src": "../assets/images/clients/oracle.webp",
+        "src": "./assets/images/clients/oracle.webp",
         "alt": "Oracle"
     },
     {
-        "src": "../assets/images/clients/profile-software_3.webp",
+        "src": "./assets/images/clients/profile-software_3.webp",
         "alt": "Profile Software"
     },
     {
-        "src": "../assets/images/clients/pwc.webp",
+        "src": "./assets/images/clients/pwc.webp",
         "alt": "PwC"
     },
     {
-        "src": "../assets/images/clients/smbc.webp",
+        "src": "./assets/images/clients/smbc.webp",
         "alt": "SMBC"
     },
     {
-        "src": "../assets/images/clients/t_bank.webp",
+        "src": "./assets/images/clients/t_bank.webp",
         "alt": "T Bank"
     },
     {
-        "src": "../assets/images/clients/taib.webp",
+        "src": "./assets/images/clients/taib.webp",
         "alt": "Taib"
     },
     {
-        "src": "../assets/images/clients/UCB.webp",
+        "src": "./assets/images/clients/UCB.webp",
         "alt": "UCB"
     },
     {
-        "src": "../assets/images/clients/vivardhana.webp",
+        "src": "./assets/images/clients/vivardhana.webp",
         "alt": "Vivardhana"
     }
 ]
