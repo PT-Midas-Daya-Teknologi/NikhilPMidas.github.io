@@ -1,0 +1,862 @@
+body.wowoni-services-page > .boxed_wrapper > .page-title,
+body.wowoni-services-page > .boxed_wrapper > .weare-style-two,
+body.wowoni-services-page > .boxed_wrapper > .progress-style-two,
+body.wowoni-services-page > .boxed_wrapper > .project-section,
+body.wowoni-services-page > .boxed_wrapper > .testimonial-style-two,
+body.wowoni-services-page > .boxed_wrapper > .clients-section,
+body.wowoni-services-page > .boxed_wrapper > .subscribe-section {
+  display: none !important;
+}
+
+.wowoni-services-page .main-header.wowoni-shared-header .main-menu .navigation > li[data-wowoni-nav="home"]:not(.current):hover > a {
+  color: #0000ff !important;
+}
+
+.wowoni-services-hero {
+  padding: 40px 0;
+  background: #f5f7fb;
+}
+
+.wowoni-services-hero > .auto-container {
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  padding: 0;
+}
+
+.wowoni-services-hero-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #000f2b;
+}
+
+.wowoni-services-hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.wowoni-services-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 15, 43, 0.28);
+}
+
+.wowoni-services-hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.wowoni-services-intro .auto-container,
+.wowoni-services-catalog .auto-container {
+  position: relative;
+  z-index: 1;
+}
+
+.wowoni-services-hero .eyebrow,
+.wowoni-services-intro .eyebrow,
+.wowoni-services-catalog .eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #2868ff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.wowoni-services-intro .eyebrow {
+  font-size: 15px;
+}
+
+.wowoni-services-hero .eyebrow {
+  color: #dce7ff;
+}
+
+.wowoni-services-hero h1 {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.wowoni-services-breadcrumb {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 0;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  list-style: none;
+}
+
+.wowoni-services-breadcrumb a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.wowoni-services-breadcrumb a:focus-visible {
+  color: #fff;
+  text-decoration: none;
+}
+
+.wowoni-services-breadcrumb a:hover {
+  color: #a9c5ff;
+  text-decoration: none;
+}
+
+.wowoni-services-intro {
+  overflow: hidden;
+  padding: 96px 0 88px;
+  background: #fff;
+}
+
+.wowoni-services-intro > .auto-container {
+  width: calc(100% - 54px);
+  max-width: 1866px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.wowoni-services-intro .row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.9fr);
+  column-gap: clamp(56px, 7vw, 140px);
+  row-gap: 38px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.wowoni-services-intro .row > [class*="col-"] {
+  width: auto;
+  max-width: none;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.wowoni-services-intro .row > :first-child {
+  transform: translateX(-8px);
+}
+
+.wowoni-services-intro .row > :nth-child(2) {
+  transform: translateX(8px);
+}
+
+.wowoni-services-intro-visual {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-width: none;
+  margin: 37px 0 0;
+}
+
+.wowoni-services-intro .eyebrow {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.wowoni-services-intro .eyebrow i {
+  margin-right: 8px;
+}
+
+.wowoni-services-intro-shape {
+  position: absolute;
+  z-index: -1;
+  inset: 18px -12px -12px 18px;
+  border: 1px solid #dce5ff;
+  border-radius: 26px;
+}
+
+.wowoni-services-intro-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.08;
+  margin: 0;
+  border-radius: 22px;
+  background: #eef3ff;
+  box-shadow: 0 18px 44px rgba(0, 15, 43, 0.14);
+  clip-path: inset(0 100% 0 0 round 22px);
+  transition: clip-path 1050ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wowoni-services-intro-visual.animated .wowoni-services-intro-image {
+  clip-path: inset(0 0 0 0 round 22px);
+}
+
+.wowoni-services-intro-image::after {
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(0, 15, 43, 0.18));
+  content: "";
+  pointer-events: none;
+}
+
+.wowoni-services-intro-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wowoni-intro-image-reveal,
+.wowoni-intro-copy-reveal,
+.wowoni-intro-value-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms ease var(--wowoni-intro-delay, 0ms), transform 700ms ease var(--wowoni-intro-delay, 0ms);
+}
+
+.wowoni-intro-image-reveal {
+  transform: translateX(-28px);
+  transition: opacity 850ms ease, transform 850ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wowoni-intro-image-reveal.animated,
+.wowoni-intro-copy-reveal.animated,
+.wowoni-intro-value-reveal.animated {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.wowoni-intro-image-reveal.animated {
+  transform: translateX(0);
+}
+
+.wowoni-services-intro .intro-copy {
+  max-width: 900px;
+}
+
+.wowoni-services-intro h2,
+.wowoni-services-catalog h2 {
+  margin: 0 0 20px;
+  color: #000f2b;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.wowoni-services-intro h2 {
+  font-size: 42px;
+}
+
+.wowoni-services-intro p {
+  margin: 0 0 16px;
+  color: #625f5f;
+  font-size: 20px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.wowoni-services-values {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wowoni-services-values li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e6eaf1;
+  color: #17396f;
+  font-size: 20px;
+  font-weight: 600;
+  transition: color 240ms ease, transform 240ms ease, border-color 240ms ease;
+}
+
+.wowoni-services-values li:hover {
+  transform: translateX(4px);
+  border-color: #cbd8ff;
+  color: #427ffe;
+}
+
+.wowoni-services-values li:first-child {
+  border-top: 1px solid #e6eaf1;
+}
+
+.wowoni-services-values i {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+  border-radius: 50%;
+  background: #eef3ff;
+  color: #427ffe;
+  font-size: 14px;
+  transition: color 240ms ease, background-color 240ms ease, transform 240ms ease;
+}
+
+.wowoni-services-values li:hover i {
+  transform: scale(1.08);
+  background: #427ffe;
+  color: #fff;
+}
+
+.wowoni-services-catalog {
+  padding: 84px 0 96px;
+  background: #f5f7fb;
+}
+
+.wowoni-services-catalog .catalog-heading {
+  max-width: 1200px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.wowoni-services-catalog .eyebrow {
+  font-size: 15px;
+  text-transform: uppercase;
+  background-image: none;
+  color: #2868ff;
+  -webkit-text-fill-color: #2868ff;
+}
+
+.wowoni-services-catalog .eyebrow i {
+  margin-right: 8px;
+  color: #2868ff;
+  -webkit-text-fill-color: #2868ff;
+}
+
+.wowoni-services-catalog h2 {
+  margin-bottom: 18px;
+  color: #28496b;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.wowoni-services-catalog .catalog-heading p {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #677289;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+@media (max-width: 991px) {
+  .wowoni-services-catalog h2 {
+    font-size: 36px;
+  }
+
+  .wowoni-services-catalog .catalog-heading p {
+    font-size: 20px;
+  }
+
+  .wowoni-services-catalog .eyebrow {
+    font-size: 15px;
+  }
+
+  .wowoni-services-intro > .auto-container {
+    width: calc(100% - 48px);
+    max-width: 720px;
+  }
+
+  .wowoni-services-intro .row {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+  }
+
+  .wowoni-services-intro .row > :first-child,
+  .wowoni-services-intro .row > :nth-child(2) {
+    transform: none;
+  }
+
+  .wowoni-services-intro .row > [class*="col-"] {
+    width: 100%;
+  }
+
+  .wowoni-services-intro-visual {
+    max-width: 600px;
+    margin: 0 auto 8px;
+  }
+
+  .wowoni-services-intro .intro-copy {
+    max-width: none;
+  }
+}
+
+.wowoni-services-grid {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.wowoni-services-grid .owl-stage-outer {
+  overflow: hidden;
+  margin: 0;
+}
+
+.wowoni-services-grid .owl-stage {
+  display: flex;
+  align-items: stretch;
+}
+
+.wowoni-services-grid .owl-item {
+  display: flex;
+  box-sizing: border-box;
+  min-height: 100%;
+  padding: 0 12px;
+}
+
+.wowoni-services-grid .owl-item > .wowoni-services-card {
+  width: 100%;
+  margin-bottom: 26px;
+}
+
+.wowoni-services-grid .owl-nav,
+.wowoni-services-grid .owl-dots {
+  display: none !important;
+}
+
+.wowoni-services-carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 6px 12px 0;
+}
+
+.wowoni-services-progress {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #e5eaf4;
+}
+
+.wowoni-services-progress span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  border-radius: inherit;
+  background: #427ffe;
+  transition: left 600ms ease-in-out, width 600ms ease-in-out;
+}
+
+.wowoni-services-carousel-buttons {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+}
+
+.wowoni-services-carousel-buttons button {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid #dce5ff;
+  border-radius: 50%;
+  background: #fff;
+  color: #427ffe;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 220ms ease, color 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+.wowoni-services-carousel-buttons button:hover:not(:disabled),
+.wowoni-services-carousel-buttons button:focus-visible:not(:disabled) {
+  transform: translateY(-2px) scale(1.04);
+  border-color: #427ffe;
+  background: #427ffe;
+  color: #fff;
+}
+
+.wowoni-services-carousel-buttons button:focus-visible {
+  outline: 2px solid #427ffe;
+  outline-offset: 3px;
+}
+
+.wowoni-services-carousel-buttons button:disabled {
+  color: #9aa4b8;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.wowoni-services-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 440px;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 32px 30px;
+  border: 1px solid #e6eaf1;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(0, 15, 43, 0.08);
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.wowoni-service-card-reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 650ms ease, transform 650ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.wowoni-service-card-reveal.is-pending {
+  opacity: 0;
+  transform: translateY(22px) scale(0.98);
+  transition: none;
+}
+
+.wowoni-service-card-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: var(--wowoni-services-delay, 0ms), var(--wowoni-services-delay, 0ms), 0ms, 0ms;
+}
+
+.wowoni-services-card:hover,
+.wowoni-services-card:focus-within {
+  transform: translateY(-7px) scale(1.012);
+  border-color: rgba(0, 0, 255, 0.26);
+  box-shadow: 0 22px 44px rgba(0, 15, 43, 0.14);
+}
+
+.wowoni-services-card.is-visible:hover,
+.wowoni-services-card.is-visible:focus-within {
+  transition-delay: 0ms;
+}
+
+.wowoni-services-card-icon {
+  display: grid;
+  width: 88px;
+  height: 88px;
+  flex: 0 0 88px;
+  align-self: center;
+  place-items: center;
+  margin-bottom: 28px;
+  border: 1px solid #e2eaff;
+  border-radius: 20px;
+  background: #eef3ff;
+  color: #0000ff;
+  transition: transform 320ms ease, box-shadow 320ms ease, background-color 320ms ease;
+}
+
+.wowoni-services-card:hover .wowoni-services-card-icon,
+.wowoni-services-card:focus-within .wowoni-services-card-icon {
+  transform: translateY(-3px) scale(1.06);
+  background: #e8efff;
+  box-shadow: 0 8px 20px rgba(0, 0, 255, 0.14);
+}
+
+.wowoni-services-card-icon img {
+  display: block;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.wowoni-services-card-icon img.wowoni-core-banking-card-icon {
+  width: 88px;
+  height: 88px;
+}
+
+.wowoni-services-card-icon img.wowoni-digital-transformation-card-icon {
+  width: 88px;
+  height: 88px;
+}
+
+.wowoni-services-card-icon img.wowoni-application-development-card-icon {
+  width: 88px;
+  height: 88px;
+}
+
+.wowoni-services-card-icon img.wowoni-infrastructure-card-icon {
+  width: 88px;
+  height: 88px;
+}
+
+.wowoni-services-card-icon img.wowoni-elite-resources-card-icon {
+  width: 88px;
+  height: 88px;
+}
+
+.wowoni-services-card-icon img.wowoni-testing-services-card-icon {
+  width: 88px;
+  height: 88px;
+}
+
+.wowoni-services-card-icon i {
+  font-size: 34px;
+}
+
+.wowoni-services-card h3 {
+  width: calc(100% + 64px);
+  min-height: 1.3em;
+  margin: 0 -32px 14px;
+  color: #000f2b;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  transition: color 260ms ease;
+}
+
+.wowoni-services-card:hover h3,
+.wowoni-services-card:focus-within h3 {
+  color: #427ffe;
+}
+
+.wowoni-services-card p {
+  width: 100%;
+  margin: 0 0 30px;
+  color: #625f5f;
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.wowoni-services-card-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  gap: 10px;
+  margin-top: auto;
+  color: #427ffe;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wowoni-services-card-link i {
+  transition: transform 260ms ease;
+}
+
+.wowoni-services-card:hover .wowoni-services-card-link i,
+.wowoni-services-card:focus-within .wowoni-services-card-link i,
+.wowoni-services-card-link:hover i,
+.wowoni-services-card-link:focus-visible i {
+  transform: translateX(4px);
+}
+
+.wowoni-services-card-link:focus-visible {
+  outline: 2px solid #0000ff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 767px) {
+  .wowoni-services-hero {
+    padding: 22px 0;
+  }
+
+  .wowoni-services-hero > .auto-container {
+    width: calc(100% - 32px);
+  }
+
+  .wowoni-services-hero-frame {
+    border-radius: 16px;
+  }
+
+  .wowoni-services-hero-content {
+    padding: 16px;
+  }
+
+  .wowoni-services-hero h1 {
+    font-size: 32px !important;
+  }
+
+  .wowoni-services-breadcrumb {
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .wowoni-services-intro,
+  .wowoni-services-catalog {
+    padding: 64px 0;
+  }
+
+  .wowoni-services-intro-visual {
+    max-width: 460px;
+    margin-bottom: 8px;
+  }
+
+  .wowoni-services-intro-shape {
+    inset: 12px -8px -8px 12px;
+    border-radius: 19px;
+  }
+
+  .wowoni-services-intro-image {
+    border-radius: 16px;
+    clip-path: inset(0 100% 0 0 round 16px);
+  }
+
+  .wowoni-services-intro-visual.animated .wowoni-services-intro-image {
+    clip-path: inset(0 0 0 0 round 16px);
+  }
+
+  .wowoni-services-intro .row {
+    row-gap: 24px;
+  }
+
+  .wowoni-services-intro h2,
+  .wowoni-services-catalog h2 {
+    font-size: 30px;
+  }
+
+  .wowoni-services-intro .eyebrow {
+    font-size: 14px;
+  }
+
+  .wowoni-services-intro h2 {
+    font-size: 34px;
+  }
+
+  .wowoni-services-intro p,
+  .wowoni-services-values li {
+    font-size: 18px;
+  }
+
+  .wowoni-services-catalog .catalog-heading {
+    margin-bottom: 30px;
+  }
+
+  .wowoni-services-catalog h2 {
+    font-size: 34px;
+  }
+
+  .wowoni-services-catalog .catalog-heading p {
+    font-size: 18px;
+  }
+
+  .wowoni-services-catalog .eyebrow {
+    font-size: 15px;
+  }
+
+  .wowoni-services-grid {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .wowoni-services-grid .owl-stage-outer {
+    margin: 0;
+  }
+
+  .wowoni-services-grid .owl-item {
+    padding: 0 8px;
+  }
+
+  .wowoni-services-grid .owl-item > .wowoni-services-card {
+    margin-bottom: 20px;
+  }
+
+  .wowoni-services-carousel-controls {
+    gap: 14px;
+  }
+
+  .wowoni-services-carousel-buttons {
+    gap: 8px;
+  }
+
+  .wowoni-services-carousel-buttons button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .wowoni-services-card {
+    min-height: 420px;
+    padding: 34px 28px 28px;
+  }
+
+  .wowoni-services-card h3 {
+    width: calc(100% + 56px);
+    margin-right: -28px;
+    margin-left: -28px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .wowoni-services-card h3 {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .wowoni-services-intro .row {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+  }
+
+  .wowoni-services-intro .row > :first-child,
+  .wowoni-services-intro .row > :nth-child(2) {
+    transform: none;
+  }
+
+  .wowoni-services-intro .row > [class*="col-"] {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wowoni-intro-image-reveal,
+  .wowoni-intro-copy-reveal,
+  .wowoni-intro-value-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    visibility: visible !important;
+  }
+
+  .wowoni-services-intro-image img,
+  .wowoni-services-values li,
+  .wowoni-services-values i {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .wowoni-services-intro-image {
+    clip-path: none !important;
+  }
+
+  .wowoni-service-card-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    visibility: visible !important;
+  }
+
+  .wowoni-services-card,
+  .wowoni-services-card-icon,
+  .wowoni-services-card-link i,
+  .wowoni-services-grid .owl-stage,
+  .wowoni-services-progress span,
+  .wowoni-services-carousel-buttons button {
+    transition: none;
+  }
+
+  .wowoni-services-grid .owl-stage {
+    transition-duration: 0.01ms !important;
+  }
+
+  .wowoni-services-card:hover,
+  .wowoni-services-card:focus-within,
+  .wowoni-services-card:hover .wowoni-services-card-icon,
+  .wowoni-services-card:focus-within .wowoni-services-card-icon,
+  .wowoni-services-card:hover .wowoni-services-card-link i,
+  .wowoni-services-card:focus-within .wowoni-services-card-link i {
+    transform: none;
+  }
+}

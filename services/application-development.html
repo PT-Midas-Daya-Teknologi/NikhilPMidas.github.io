@@ -1,1399 +1,895 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <base href="../">
 
-  <title>Application Development - Midas Teknologi</title>
+    <title>Application Development - Wowoni | Custom Software Solutions</title>
+    <meta name="description"
+        content="Custom applications powered by the future of technology. Wowoni delivers bespoke enterprise web, native mobile, and cloud-native microservices engineered for agility, scalability, and performance.">
 
-  <!-- Fav Icon -->
-  <link rel="preload" href="./assets/fonts/ubuntu/ubuntu-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./assets/fonts/ubuntu/ubuntu-bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.webp" />
+    <!-- Fav Icon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
-  <!-- Critical CSS -->
-  <style>
-    @font-face {
-      font-family: Ubuntu;
-      src: url('./assets/fonts/ubuntu/ubuntu-regular.woff2') format('woff2');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap
-    }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-    @font-face {
-      font-family: Ubuntu;
-      src: url('./assets/fonts/ubuntu/ubuntu-bold.woff2') format('woff2');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap
-    }
-
-    :root {
-      --radius: 14px
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      border: none;
-      outline: 0
-    }
-
-    body {
-      font-family: Ubuntu, sans-serif !important;
-      font-size: 24px;
-      color: #677289;
-      line-height: 34px;
-      font-weight: 400;
-      background: #fff;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center top;
-      -webkit-font-smoothing: antialiased
-    }
-
-    .loader-wrap,
-    .handle-preloader {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%
-    }
-
-    .loader-wrap {
-      z-index: 99999999;
-      background: #fff
-    }
-
-    .handle-preloader {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999999
-    }
-
-    .animation-preloader {
-      position: absolute;
-      z-index: 100
-    }
-
-    .spinner {
-      animation: spinner 1s infinite linear;
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 45px;
-      border: 3px solid #fff;
-      border-top-color: rgba(255, 255, 255, .5)
-    }
-
-    .txt-loading {
-      text-align: center;
-      user-select: none
-    }
-
-    .letters-loading {
-      font-family: Ubuntu, sans-serif;
-      font-weight: 400;
-      letter-spacing: 10px;
-      display: inline-block;
-      position: relative;
-      font-size: 40px;
-      line-height: 40px;
-      text-transform: uppercase;
-      color: #fff
-    }
-
-    .letters-loading:before {
-      content: attr(data-text-preloader);
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      color: #fff;
-      animation: letters-loading 4s infinite
-    }
-
-    .letters-loading:nth-child(2):before {
-      animation-delay: .2s
-    }
-
-    .letters-loading:nth-child(3):before {
-      animation-delay: .4s
-    }
-
-    .letters-loading:nth-child(4):before {
-      animation-delay: .6s
-    }
-
-    .letters-loading:nth-child(5):before {
-      animation-delay: .8s
-    }
-
-    .letters-loading:nth-child(6):before {
-      animation-delay: 1s
-    }
-
-    .letters-loading:nth-child(7):before {
-      animation-delay: 1.2s
-    }
-
-    .letters-loading:nth-child(8):before {
-      animation-delay: 1.4s
-    }
-
-    .preloader .loaded .animation-preloader {
-      opacity: 0;
-      transition: .3s ease-out
-    }
-
-    .banner-style-four {
-      position: relative;
-      padding-top: 220px
-    }
-
-    .banner-style-four .content-box h2 {
-      font-weight: 700;
-      font-size: 48px;
-      line-height: 58px;
-      margin-bottom: 36px;
-      color: #1e1e1e
-    }
-
-    .banner-style-four .content-box p {
-      font-size: 24px;
-      line-height: 34px;
-      margin-bottom: 29px
-    }
-
-    .banner-style-four .pattern-layer {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 1001px;
-      background-size: cover;
-      background-repeat: no-repeat
-    }
-
-    .banner-style-four .image-box {
-      position: relative;
-      width: 549px;
-      height: 549px;
-      margin-left: 30px
-    }
-
-    .banner-style-four .image-box:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      left: 0;
-      top: 0
-    }
-
-    .banner-style-four .image-box .image {
-      position: absolute;
-      top: -15px;
-      left: 10px
-    }
-
-    .banner-style-four .image-box .image img {
-      width: 100%
-    }
-
-    .banner-style-four .shape>* {
-      position: absolute;
-      background-repeat: no-repeat
-    }
-
-    .shape-1 {
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 535px;
-      height: 535px
-    }
-
-    .shape-2 {
-      left: 25px;
-      top: 25px;
-      width: 76px;
-      height: 114px
-    }
-
-    .shape-3 {
-      top: 40px;
-      right: 160px;
-      width: 15px;
-      height: 15px
-    }
-
-    .shape-4 {
-      top: 260px;
-      right: -20px;
-      width: 75px;
-      height: 97px
-    }
-
-    .shape-5 {
-      right: 95px;
-      bottom: -55px;
-      width: 89px;
-      height: 221px
-    }
-
-    .shape-6 {
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -7px;
-      width: 144px;
-      height: 58px
-    }
-
-    .auto-container {
-      max-width: 1400px;
-      padding: 0 15px;
-      margin: 0 auto
-    }
-
-    .boxed_wrapper {
-      position: relative;
-      margin: 0 auto;
-      overflow: hidden !important;
-      width: 100%;
-      min-width: 300px
-    }
-
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 -.75rem
-    }
-
-    .col-lg-6 {
-      width: 50%
-    }
-
-    .col-md-12,
-    .col-sm-12 {
-      width: 100%
-    }
-
-    .align-items-center {
-      align-items: center !important
-    }
-
-    @media(max-width:767px) {
-      .spinner {
-        width: 8em;
-        height: 8em
-      }
-    }
-
-    @media(max-width:500px) {
-      .spinner {
-        width: 7em;
-        height: 7em
-      }
-
-      .letters-loading {
-        font-size: 40px;
-        letter-spacing: 10px
-      }
-    }
-  </style>
-
-  <!-- Stylesheets -->
-  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./assets/css/animate.min.css" rel="stylesheet">
-  <link href="./assets/css/font-awesome-all.min.css" rel="stylesheet">
-  <link href="./assets/css/flaticon.min.css" rel="stylesheet">
-  <link href="./assets/css/owl.min.css" rel="stylesheet">
-  <link href="./assets/css/jquery.fancybox.min.css" rel="stylesheet">
-  <link href="./assets/css/elpath.min.css" rel="stylesheet">
-  <link href="./assets/css/color.min.css" rel="stylesheet">
-  <link href="./assets/css/fonts.min.css" rel="stylesheet">
-  <link href="./assets/css/style.min.css" rel="stylesheet">
-  <link href="./assets/css/responsive.min.css" rel="stylesheet">
-
+    <!-- Stylesheets -->
+    <link href="assets/css/font-awesome-all.css" rel="stylesheet">
+    <link href="assets/css/flaticon.css" rel="stylesheet">
+    <link href="assets/css/owl.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="assets/css/nice-select.css" rel="stylesheet">
+    <link href="assets/css/color.css" rel="stylesheet">
+    <link href="assets/css/elpath.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="assets/css/application-development.css" rel="stylesheet">
+    <style>
+        .app-dev-page .cbt-hero {
+            background: url('assets/images/banner/application-development-hero-bg.png') no-repeat center center / cover !important;
+        }
+        .app-dev-page .cbt-hero::before {
+            content: "" !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: #000000 !important;
+            opacity: 0.6 !important;
+            pointer-events: none !important;
+            z-index: 1 !important;
+        }
+        .app-dev-page .cbt-capabilities-section .cbt-eyebrow {
+            color: var(--cbt-blue-eyebrow) !important;
+        }
+    </style>
 </head>
 
 <!-- page wrapper -->
 
 <body>
-  <div class="boxed_wrapper">
-    <!-- preloader -->
-    <div class="loader-wrap">
-      <div class="preloader">
-        <div class="preloader-close">x</div>
-        <div id="handle-preloader" class="handle-preloader">
-          <div class="animation-preloader">
-            <div class="spinner"></div>
-            <div class="txt-loading">
-              <span data-text-preloader="m" class="letters-loading"> m </span>
-              <span data-text-preloader="i" class="letters-loading"> i </span>
-              <span data-text-preloader="d" class="letters-loading"> d </span>
-              <span data-text-preloader="a" class="letters-loading"> a </span>
-              <span data-text-preloader="s" class="letters-loading"> s </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- preloader end -->
-    <!-- main header -->
-    <header class="main-header">
-      <!-- header-lower -->
-      <div class="header-lower">
-        <div class="outer-box">
-          <div class="logo-box">
-            <figure class="logo">
-              <a href="./index.html"><img src="./assets/images/logo-172.webp"
-                  srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w"
-                  sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75"
-                  loading="eager" fetchpriority="high" /></a>
-            </figure>
-          </div>
-          <div class="menu-area clearfix menu-center">
-            <!--Mobile Navigation Toggler-->
-            <div class="mobile-nav-toggler" role="button" aria-label="Toggle navigation menu">
-              <i class="icon-bar"></i>
-              <i class="icon-bar"></i>
-              <i class="icon-bar"></i>
-            </div>
-            <nav class="main-menu navbar-expand-md navbar-light">
-              <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                <ul class="navigation clearfix" style="white-space: nowrap">
-                  <li class="dropdown">
-                    <a href="./about/about.html">Our Story</a>
-                    <ul>
-                      <li>
-                        <a href="./about/about.html#company-overview">Company Overview</a>
-                      </li>
-                      <li>
-                        <a href="./about/about.html#our-expertise">Our Expertise</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="./products/products.html">Solutions</a>
-                    <ul>
-                      <li><a href="./products/omnichannel.html">Omni Channel</a></li>
-                      <li><a href="./products/loans-management-system.html">Loans Management System</a></li>
-                      <li><a href="./products/payment-hub.html">Payment Hub</a></li>
-                      <li><a href="./products/scf.html">Supply Chain Finance</a></li>
-                      <li>
-                        <a href="./products/los.html">Loan Origination System</a>
-                      </li>
-                      <li><a href="./products/va.html">Virtual Account</a></li>
-                      <li><a href="./products/microfinance-core.html">Lightweight Core Banking</a></li>
-                      <li><a href="./products/cloud-core-banking.html">Cloud Core Banking</a></li>
-                      <li><a href="./products/smart-token.html">Smart Token</a></li>
-                      <li><a href="./products/nexus-id.html">NexusID</a></li>
-                      <li><a href="./products/liveness-detection.html">AI Liveness Detection</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="./ai/ai-solutions.html">AI</a>
-                    <ul>
-                      <li><a href="./ai/ai-solutions.html">AI Solutions</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="./services/service.html">Services</a>
-                    <ul>
-                      <li>
-                        <a href="./services/core-banking.html">Core Banking Transformation</a>
-                      </li>
-                      <li>
-                        <a href="./services/digital-transformation.html">Digital Transformation</a>
-                      </li>
-                      <li>
-                        <a href="./services/application-development.html">Application Development</a>
-                      </li>
-                      <li>
-                        <a href="./services/infrastructure-management.html">Application & Infrastructure Management</a>
-                      </li>
-                      <li>
-                        <a href="./services/elite-it-resources.html">Elite IT Resources</a>
-                      </li>
-                      <li>
-                        <a href="./services/testing-services.html">Testing Services</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="./career/career.html">Career</a>
-                    <ul>
-                      <li><a href="./career/all-jop-post.html#open-positions">Open Positions</a></li>
-                      <li>
-                        <a href="./career/all-jop-post.html#life-at-midas">Life at Company</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="./contact/contact.html">Contact</a></li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
 
-      <!--sticky Header-->
-      <div class="sticky-header">
-        <div class="outer-box">
-          <div class="logo-box">
-            <figure class="logo">
-              <a href="./index.html"><img src="./assets/images/logo-172.webp"
-                  srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w"
-                  sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75"
-                  loading="eager" /></a>
-            </figure>
-          </div>
-          <div class="menu-area clearfix" style="padding-right: 10%">
-            <nav class="main-menu clearfix">
-              <!--Keep This Empty / Menu will come through Javascript-->
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
-    <!-- main-header end -->
-    <!-- Mobile Menu  -->
-    <div class="mobile-menu">
-      <div class="menu-backdrop"></div>
-      <div class="close-btn" role="button" aria-label="Close menu"><i class="fas fa-times"></i></div>
+    <div class="boxed_wrapper app-dev-page">
 
-      <nav class="menu-box">
-        <div class="nav-logo">
-          <a href="./index.html"><img src="./assets/images/logo-344.webp"
-              srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w"
-              sizes="(max-width: 767px) 250px, 250px" alt="Midas Teknologi Logo" width="250" height="109"
-              loading="lazy" /></a>
-        </div>
-        <div class="menu-outer">
-          <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-        </div>
-        <div class="contact-info">
-          <h4>Contact Info</h4>
-          <ul>
-            <li>
-              PT Midas Daya Teknologi<br />Lippo Kuningan Building, 18th Floor, Unit F2,<br />JI. H. R. Rasuna Said Kav,
-              B-12, Jakarta Selatan 12940, Indonesia.
-            </li>
-            <li><a href="tel:+622140642341">(+6221) 40642341</a></li>
-            <li><a href="mailto:sales@midasteknologi.com">sales@midasteknologi.com</a></li>
-          </ul>
-        </div>
-        <div class="social-links">
-          <ul class="clearfix">
-            <li>
-              <a href="./index.html" aria-label="Twitter"><span class="fab fa-twitter"></span></a>
-            </li>
-            <li>
-              <a href="./index.html" aria-label="Facebook"><span class="fab fa-facebook-square"></span></a>
-            </li>
-            <li>
-              <a href="./index.html" aria-label="Pinterest"><span class="fab fa-pinterest-p"></span></a>
-            </li>
-            <li>
-              <a href="./index.html" aria-label="Instagram"><span class="fab fa-instagram"></span></a>
-            </li>
-            <li>
-              <a href="./index.html" aria-label="YouTube"><span class="fab fa-youtube"></span></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <!-- End Mobile Menu -->
-
-
-    <!-- Page Title -->
-    <section class="page-title centred">
-      <div class="outer-container">
-        <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="
-              background-image: url(.../assets/images/banner/application-management.webp);
-            "></div>
-        <div class="auto-container">
-          <div class="content-box">
-            <h1>Application Development</h1>
-            <ul class="bread-crumb clearfix">
-              <li><a href="../index.html">Home</a></li>
-              <li><a href="service.html">Services</a></li>
-              <li>Application Development</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Page Title -->
-
-    <!-- service-details -->
-    <section class="service-details">
-      <div class="auto-container">
-        <div class="row clearfix">
-          <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-            <div class="service-sidebar">
-              <div class="category-widget">
-                <h5>All Services</h5>
-                <ul class="service-list clearfix">
-                  <li><a href="core-banking.html">Core Banking</a></li>
-                  <li>
-                    <a href="digital-transformation.html">Digital Transformation</a>
-                  </li>
-                  <li>
-                    <a href="application-development.html" class="current">Application Development</a>
-                  </li>
-                  <li>
-                    <a href="infrastructure-management.html">Application & Infrastructure Management</a>
-                  </li>
-                  <li>
-                    <a href="elite-it-resources.html">Elite IT Resources</a>
-                  </li>
-                  <li>
-                    <a href="testing-services.html">Testing Services</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-            <div class="service-details-content">
-              <div class="inner-box">
-                <div class="upper-box">
-                  <h2>Application Development</h2>
-                  <h3>
-                    Custom Applications, Powered by the Future of Technology.
-                  </h3>
-                  <p>
-                    Your business is unique, and your applications should be
-                    too. We excel at building bespoke applications that
-                    address your specific challenges and opportunities. Our
-                    expert development teams utilize the latest technology
-                    stack, including modular microapps, scalable
-                    microservices, robust cloud platforms, streamlined DevOps
-                    pipelines, and efficient Kubernetes orchestration. This
-                    modern approach allows us to create high-performance,
-                    adaptable, and cost-effective solutions. Driven by our
-                    core values and a focus on impactful outcomes, we turn
-                    your vision into a powerful, custom-built reality.
-                  </p>
-                </div>
-                <div class="image-box mt_40 mb_40">
-                  <img src="./assets/images/service/application-development-1.webp" alt="Application Development"
-                    style="border-radius: 15px" loading="lazy" />
-                </div>
-                <div class="content-inner">
-                  <h3>
-                    Custom Application Development Across Diverse Platforms
-                    and Technologies.
-                  </h3>
-                  <p>
-                    We offer versatile custom application development
-                    services, harnessing a wide array of leading technologies.
-                    Our skilled teams are proficient in backend development
-                    using
-                    <strong> Java, .NET, Go Lang, and Node.js,</strong>
-                    crafting intuitive user interfaces with
-                    <strong>
-                      Angular, React JS, HTML5, JavaScript, and
-                      TypeScript,</strong>
-                    and building native mobile applications for
-                    <strong> Android and Swift.</strong> We architect modern,
-                    scalable solutions leveraging
-                    <strong>microapps, microservices, cloud platforms, DevOps, and
-                      Kubernetes,</strong>
-                    supported by our expertise in databases like<strong>
-                      PostgreSQL, MySQL, Oracle, and NoSQL.</strong>
-                    We embrace Agile methodologies to ensure transparency,
-                    flexibility, and rapid delivery throughout the development
-                    lifecycle. Our commitment to quality and impactful
-                    outcomes means we turn your unique requirements into
-                    high-performing, future-ready applications.
-                  </p>
-                </div>
-                <div class="content-inner mt_20">
-                  <ul class="list clearfix">
-                    <li>
-                      <strong>Tailored Applications:</strong> Precisely
-                      meeting your specific business needs.
-                    </li>
-                    <li>
-                      <strong>Cross-Platform Compatibility:</strong>
-                      Delivering solutions across web, mobile (Android & iOS),
-                      and cloud.
-                    </li>
-                    <li>
-                      <strong>Native Mobile Apps:</strong> Delivering seamless
-                      experiences on Android and iOS platforms.
-                    </li>
-                    <li>
-                      <strong>Modern and Scalable Architecture:</strong>
-                      Utilizing microservices, microapps, and cloud-native
-                      design.
-                    </li>
-                    <li>
-                      <strong>Efficient Development Process:</strong> Driven
-                      by Agile methodologies and DevOps practices.
-                    </li>
-                  </ul>
-                </div>
-                <div class="image-box mt_40 mb_40">
-                  <img src="./assets/images/service/application-development-2.webp" alt="Application Excellence"
-                    style="border-radius: 15px" loading="lazy" />
-                </div>
-                <div class="content-inner">
-                  <ul class="list clearfix">
-                    <li>
-                      <strong>Choice of Technology Stack:</strong> Selecting
-                      the best tools from Java, .NET, Go Lang, Node.js,
-                      Angular, React JS, Android, Swift and more.
-                    </li>
-                    <li>
-                      <strong>Robust and Reliable Databases:</strong>
-                      Leveraging PostgreSQL, MySQL, Oracle, and NoSQL based on
-                      requirements.
-                    </li>
-                    <li>
-                      <strong>Faster Iteration and Deployment:</strong>
-                      Through Agile and DevOps.
-                    </li>
-                    <li>
-                      <strong>Reduced Development Risks:</strong> With
-                      iterative feedback and continuous integration.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- service-details end -->
-
-    <!-- main-footer -->
-    <section class="main-footer style-three">
-      <div class="shape">
-        <div class="shape-1"></div>
-        <div class="shape-2"></div>
-        <div class="shape-3" style="background-image: url(./assets/images/shape/shape-21.webp)"></div>
-        <div class="shape-4" style="background-image: url(./assets/images/shape/shape-22.webp)"></div>
-      </div>
-      <div class="auto-container">
-        <div class="footer-top">
-          <div class="top-inner">
-            <figure class="footer-logo">
-              <a href="./index.html"><img src="./assets/images/logo-172.webp"
-                  srcset="./assets/images/logo-172.webp 172w, ./assets/images/logo-344.webp 344w, ./assets/images/logo-517.webp 517w"
-                  sizes="(max-width: 767px) 250px, 172px" alt="Midas Teknologi Logo" width="172" height="75"
-                  loading="lazy" /></a>
-            </figure>
-            <ul class="social-links clearfix">
-              <li>
-                <a href="https://www.linkedin.com/company/pt-midas-daya-teknologi/" target="_blank"
-                  rel="noopener noreferrer" aria-label="Midas LinkedIn Profile"><i class="icon-3"></i></a>
-              </li>
-              <li>
-                <a href="https://www.instagram.com/growwithmidas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                  target="_blank" rel="noopener noreferrer" aria-label="Midas Instagram Profile"><i
-                    class="fab fa-instagram"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="widget-section">
-          <div class="row clearfix">
-            <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-              <div class="footer-widget about-widget">
-                <!-- <div class="widget-title">
-                            <h3>About</h3>
-                        </div> -->
-                <div class="widget-content">
-                  <!-- <p>This is due to their excellent service, competitive pricing and customer support.
-                                It’s throughly refresing to get such a personal touch.</p> -->
-                  <ul class="info clearfix">
-                    <li><i class="icon-2"></i><a href="tel:+622140642341">(+6221) 40642341</a>
-                    </li>
-                    <!-- <li><i class="icon-19"></i><a href="mailto:info@example.com">info@example.com</a></li> -->
-                    <li>
-                      <i class="icon-23" style="background: #0d7dfc;"></i>PT Midas Daya Teknologi<br />Lippo Kuningan
-                      Building, 18th Floor, Unit
-                      F2,<br />
-                      JI. H. R. Rasuna Said Kav,
-                      B-12, Jakarta Selatan 12940, Indonesia.
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-              <div class="footer-widget links-widget">
-                <div class="widget-title">
-                  <h3>Quick link</h3>
-                </div>
-                <div class="row clearfix">
-                  <div class="col-lg-6 col-md-6 col-sm-12 link-column">
-                    <ul class="links-list clearfix">
-                      <li><a href="./about/about.html">Our Story</a></li>
-                      <li><a href="./products/products.html">Solutions</a></li>
-                      <li><a href="./ai/ai-solutions.html">AI</a></li>
-                      <li><a href="./services/service.html">Services</a></li>
-                      <li><a href="./career/all-jop-post.html">Career</a></li>
-                      <li><a href="./contact/contact.html">Contact</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
-                    <div class="footer-widget gallery-widget">
-                        <div class="widget-title">
-                            <h3>Gallery</h3>
+        <!-- preloader -->
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="w" class="letters-loading">
+                                w
+                            </span>
+                            <span data-text-preloader="o" class="letters-loading">
+                                o
+                            </span>
+                            <span data-text-preloader="w" class="letters-loading">
+                                w
+                            </span>
+                            <span data-text-preloader="o" class="letters-loading">
+                                o
+                            </span>
+                            <span data-text-preloader="n" class="letters-loading">
+                                n
+                            </span>
+                            <span data-text-preloader="i" class="letters-loading">
+                                i
+                            </span>
                         </div>
-                        <div class="widget-content">
-                            <ul class="image-list clearfix">
-                                <li>
-                                    <figure class="image">
-                                        <img src="./assets/images/resource/footer-1.webp" alt="" loading="lazy">
-                                        <a href="./assets/images/resource/footer-1.webp" class="lightbox-image"
-                                            data-fancybox="gallery"><i class="icon-24"></i></a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="image">
-                                        <img src="./assets/images/resource/footer-2.webp" alt="" loading="lazy">
-                                        <a href="./assets/images/resource/footer-2.webp" class="lightbox-image"
-                                            data-fancybox="gallery"><i class="icon-24"></i></a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="image">
-                                        <img src="./assets/images/resource/footer-3.webp" alt="" loading="lazy">
-                                        <a href="./assets/images/resource/footer-3.webp" class="lightbox-image"
-                                            data-fancybox="gallery"><i class="icon-24"></i></a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="image">
-                                        <img src="./assets/images/resource/footer-4.webp" alt="" loading="lazy">
-                                        <a href="./assets/images/resource/footer-4.webp" class="lightbox-image"
-                                            data-fancybox="gallery"><i class="icon-24"></i></a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="image">
-                                        <img src="./assets/images/resource/footer-5.webp" alt="" loading="lazy">
-                                        <a href="./assets/images/resource/footer-5.webp" class="lightbox-image"
-                                            data-fancybox="gallery"><i class="icon-24"></i></a>
-                                    </figure>
-                                </li>
-                                <li>
-                                    <figure class="image">
-                                        <img src="./assets/images/resource/footer-6.webp" alt="" loading="lazy">
-                                        <a href="./assets/images/resource/footer-6.webp" class="lightbox-image"
-                                            data-fancybox="gallery"><i class="icon-24"></i></a>
-                                    </figure>
-                                </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- preloader end -->
+
+        <!-- main header -->
+        <header class="main-header">
+            <!-- header-top -->
+            <div class="header-top">
+                <div class="top-inner">
+                    <div class="text">
+                        <p>Wowoni - Enterprise Digital Transformation & Core Technology Solutions</p>
+                    </div>
+                    <div class="right-column">
+                        <ul class="info clearfix">
+                            <li><i class="icon-1"></i>Mon - Sat: 9.00 to 5.00</li>
+                            <li><i class="icon-2"></i><a href="tel:+919944756502">(+91) 99447 56502</a></li>
+                        </ul>
+                        <ul class="social-links clearfix">
+                            <li><a href="https://www.linkedin.com/company/wowonii" target="_blank"
+                                    rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="index.html"><i class="icon-3"></i></a></li>
+                            <li><a href="index.html"><i class="icon-4"></i></a></li>
+                            <li><a href="index.html"><i class="icon-5"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- header-lower -->
+            <div class="header-lower">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo"><a href="index.html"><img src="assets/images/logo.png"
+                                    alt="Wowoni Logo"></a></figure>
+                    </div>
+                    <div class="menu-area clearfix">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler">
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                        </div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li class="dropdown"><a href="index.html">Home</a>
+                                        <ul>
+                                            <li><a href="index.html">Home Page 01</a></li>
+                                            <li><a href="index-2.html">Home Page 02</a></li>
+                                            <li><a href="index-3.html">Home Page 03</a></li>
+                                            <li><a href="index-4.html">Home Page 04</a></li>
+                                            <li><a href="index-5.html">Home Page 05</a></li>
+                                            <li><a href="index-onepage.html">OnePage Home</a></li>
+                                            <li><a href="index-rtl.html">RTL Home</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="about/about.html">About</a>
+                                        <ul>
+                                            <li><a href="about/about.html">About Us</a></li>
+                                            <li><a href="about/about-2.html">About Creative</a></li>
+                                            <li><a href="team.html">Our Team</a></li>
+                                            <li><a href="pricing.html">Pricing</a></li>
+                                            <li><a href="faq.html">FAQ</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="current dropdown"><a href="services/service.html">Services</a>
+                                        <ul>
+                                            <li><a href="services/core-banking-transformation.html">Core Banking Transformation</a></li>
+                                            <li class="current"><a href="services/application-development.html">Application Development</a></li>
+                                            <li><a href="services/application-and-infrastructure-management.html">Application and Infrastructure Management</a></li>
+                                            <li><a href="services/service-2.html">Digital Transformation</a></li>
+                                            <li><a href="success-aquracy.html">Elite IT Resources</a></li>
+                                            <li><a href="sales-report.html">Testing Services</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="blog/blog.html">Blog</a>
+                                        <ul>
+                                            <li><a href="blog/blog.html">Our Insights</a></li>
+                                            <li><a href="blog/blog-details.html">Article Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact/contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="btn-box">
+                        <a href="contact/contact.html" class="theme-btn btn-one"><i class="icon-7"></i>Free
+                            Consultation</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--sticky Header-->
+            <div class="sticky-header">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo"><a href="index.html"><img src="assets/images/logo.png"
+                                    alt="Wowoni Logo"></a></figure>
+                    </div>
+                    <div class="menu-area clearfix">
+                        <nav class="main-menu clearfix">
+                            <!--Keep This Empty / Menu will come through Javascript-->
+                        </nav>
+                    </div>
+                    <div class="btn-box">
+                        <a href="contact/contact.html" class="theme-btn btn-one"><i class="icon-7"></i>Free
+                            Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt="Wowoni Logo"
+                            title="Wowoni"></a></div>
+                <div class="menu-outer">
+                    <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                </div>
+                <div class="contact-info">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Setiabudi 2, Kuningan, Jakarta Selatan, Indonesia</li>
+                        <li><a href="tel:+919944756502">(+91) 99447 56502</a></li>
+                        <li><a href="mailto:admin@wowonii.com">admin@wowonii.com</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <ul class="clearfix">
+                        <li><a href="https://www.linkedin.com/company/wowonii" target="_blank"
+                                rel="noopener noreferrer"><span class="fab fa-linkedin-in"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div><!-- End Mobile Menu -->
+
+
+        <!-- ==========================================================================
+             Section 1 — Hero Section (Design Template Matching Core Banking Transformation)
+             ========================================================================== -->
+        <section class="cbt-hero">
+            <div class="auto-container">
+                <div class="cbt-hero-inner wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1400ms">
+                    <h1>Application Development</h1>
+
+                    <ul class="cbt-breadcrumbs">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services/service.html">Services</a></li>
+                        <li>Application Development</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             Section 2 — Introduction & Narrative (Two-Column Modern Layout)
+             ========================================================================== -->
+        <section class="cbt-intro-section">
+            <div class="auto-container">
+                <div class="cbt-intro-grid">
+                    <!-- Left: Narrative -->
+                    <div class="cbt-intro-content wow fadeInUp animated" data-wow-delay="00ms"
+                        data-wow-duration="1200ms">
+                        <span class="cbt-eyebrow"><i class="icon-11"></i> Bespoke Software Engineering</span>
+                        <h2>Custom Applications, Powered By The Future Of Technology</h2>
+                        <p class="cbt-intro-lead">
+                            Your business is unique, and your applications should be too. We excel at building bespoke
+                            applications that address your specific challenges and opportunities. Our experienced team
+                            collaborates with you from concept to deployment, ensuring that your software aligns perfectly
+                            with your operational workflows, user expectations, and strategic growth.
+                        </p>
+
+                        <ul class="cbt-feature-list">
+                            <li class="cbt-feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span><strong>Tailored Applications &amp; Scalable Architecture:</strong> High-throughput backends,
+                                    modular microapps, and resilient microservices engineered with Java, .NET, Go Lang, and Node.js.</span>
+                            </li>
+                            <li class="cbt-feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span><strong>Cross-Platform &amp; Native Mobile Engineering:</strong> Fluid, intuitive web and mobile
+                                    interfaces built with Angular, React, TypeScript, Swift iOS, and Android.</span>
+                            </li>
+                            <li class="cbt-feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span><strong>Cloud-Native DevOps &amp; Robust Databases:</strong> Automated CI/CD pipelines, container
+                                    orchestration with Kubernetes, and enterprise database management across PostgreSQL, MySQL, and Oracle.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Right: Visual Architecture & Sprint Planning Diagram -->
+                    <div class="cbt-intro-visual wow fadeInUp animated" data-wow-delay="200ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-intro-image-box">
+                            <img src="assets/images/service/application-development-framework-original.png"
+                                alt="Application Development Agile Architecture and User Flow Blueprint"
+                                class="cbt-intro-diagram-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             Section 3 — Transformation Lifecycle / Strategic Approach (4 Process Cards)
+             ========================================================================== -->
+        <section class="cbt-approach-section">
+            <div class="auto-container">
+                <div class="cbt-section-header wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1200ms">
+                    <span class="cbt-eyebrow"><i class="icon-23"></i> Our Strategic Approach</span>
+                    <h2 class="cbt-section-title">An Agile, Value-Driven Engineering Lifecycle</h2>
+                    <p class="cbt-section-subtitle">
+                        Guiding organizations through every phase of custom application development with iterative sprint
+                        cadences, continuous testing, and transparent collaboration.
+                    </p>
+                </div>
+
+                <div class="cbt-process-grid">
+                    <!-- Phase 01 -->
+                    <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="00ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-process-image-wrap">
+                            <img src="assets/images/service/cbt-approach-01.jpg"
+                                alt="Discovery &amp; Architecture Blueprint" class="cbt-process-img">
+                            <span class="cbt-process-badge">01</span>
+                        </div>
+                        <div class="cbt-process-body">
+                            <div class="cbt-process-head">
+                                <span class="cbt-process-tag">Phase 01</span>
+                                <h3 class="cbt-process-title">Discovery &amp; Architecture Blueprint</h3>
+                            </div>
+                            <div class="cbt-process-info">
+                                <p class="cbt-process-desc">
+                                    Aligning application requirements with business vision, technical stack selection, domain-driven
+                                    API design, and formulating iterative sprint milestones.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 02 -->
+                    <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="100ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-process-image-wrap">
+                            <img src="assets/images/service/cbt-approach-02.jpg"
+                                alt="UX/UI Design &amp; Rapid Prototyping" class="cbt-process-img">
+                            <span class="cbt-process-badge">02</span>
+                        </div>
+                        <div class="cbt-process-body">
+                            <div class="cbt-process-head">
+                                <span class="cbt-process-tag">Phase 02</span>
+                                <h3 class="cbt-process-title">UX/UI Design &amp; Rapid Prototyping</h3>
+                            </div>
+                            <div class="cbt-process-info">
+                                <p class="cbt-process-desc">
+                                    Mapping user journeys, designing high-fidelity wireframes, interactive design systems, and
+                                    testing user flows for intuitive multi-device engagement.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 03 -->
+                    <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="200ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-process-image-wrap">
+                            <img src="assets/images/service/cbt-approach-03.jpg"
+                                alt="Agile Engineering &amp; DevOps Automation" class="cbt-process-img">
+                            <span class="cbt-process-badge">03</span>
+                        </div>
+                        <div class="cbt-process-body">
+                            <div class="cbt-process-head">
+                                <span class="cbt-process-tag">Phase 03</span>
+                                <h3 class="cbt-process-title">Agile Engineering &amp; DevOps Automation</h3>
+                            </div>
+                            <div class="cbt-process-info">
+                                <p class="cbt-process-desc">
+                                    Rapid sprint development across backend microservices and modern frontends, backed by containerized
+                                    CI/CD pipelines and automated testing.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 04 -->
+                    <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="300ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-process-image-wrap">
+                            <img src="assets/images/service/cbt-approach-04.jpg"
+                                alt="Quality Assurance &amp; Cloud Deployment" class="cbt-process-img">
+                            <span class="cbt-process-badge">04</span>
+                        </div>
+                        <div class="cbt-process-body">
+                            <div class="cbt-process-head">
+                                <span class="cbt-process-tag">Phase 04</span>
+                                <h3 class="cbt-process-title">Quality Assurance &amp; Cloud Deployment</h3>
+                            </div>
+                            <div class="cbt-process-info">
+                                <p class="cbt-process-desc">
+                                    Comprehensive end-to-end security audits, load stress tests, zero-downtime containerized launch,
+                                    and continuous post-deployment monitoring.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             Section 4 — Technology Mastery & Platform Capabilities (Interactive Accordion)
+             ========================================================================== -->
+        <section class="cbt-capabilities-section" id="cbt-capabilities">
+            <div class="auto-container">
+                <div class="cbt-section-header wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1200ms">
+                    <span class="cbt-eyebrow" style="color: var(--cbt-blue-eyebrow);"><i class="icon-19"></i> Technology Mastery</span>
+                    <h2 class="cbt-section-title">Comprehensive Application Development Capabilities</h2>
+                    <p class="cbt-section-subtitle">
+                        Deep engineering expertise spanning enterprise backends, responsive web applications, native mobile
+                        ecosystems, and distributed cloud infrastructure.
+                    </p>
+                </div>
+
+                <div class="cbt-pm-grid">
+                    <!-- Capability 1: Backend & Microservices -->
+                    <div class="cbt-pm-card wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1200ms">
+                        <div class="cbt-pm-header" role="button" tabindex="0">
+                            <div class="cbt-pm-header-left">
+                                <span class="cbt-pm-badge">Backend Engineering</span>
+                                <h3 class="cbt-pm-title">Enterprise Backend &amp; Microservices (Java, .NET, Go, Node.js)</h3>
+                            </div>
+                            <button class="cbt-pm-toggle-btn" type="button" aria-label="Toggle details">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="cbt-pm-body">
+                            <p class="cbt-pm-desc">
+                                High-throughput backend systems, distributed microservices, and event-driven architectures built
+                                for enterprise resilience, data integrity, and high concurrency.
+                            </p>
+                            <ul class="cbt-pm-bullets">
+                                <li><i class="fas fa-check-circle"></i> Modular microservices with Java Spring Boot, .NET Core, and Go Lang</li>
+                                <li><i class="fas fa-check-circle"></i> RESTful, gRPC, and GraphQL API design with robust middleware integration</li>
+                                <li><i class="fas fa-check-circle"></i> High concurrency, low-latency transaction processing and event streaming</li>
                             </ul>
                         </div>
                     </div>
-                </div> -->
-          </div>
+
+                    <!-- Capability 2: Modern Web Applications -->
+                    <div class="cbt-pm-card wow fadeInUp animated" data-wow-delay="100ms" data-wow-duration="1200ms">
+                        <div class="cbt-pm-header" role="button" tabindex="0">
+                            <div class="cbt-pm-header-left">
+                                <span class="cbt-pm-badge">Frontend Web</span>
+                                <h3 class="cbt-pm-title">Modern Web Applications (Angular, React JS, TypeScript)</h3>
+                            </div>
+                            <button class="cbt-pm-toggle-btn" type="button" aria-label="Toggle details">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="cbt-pm-body">
+                            <p class="cbt-pm-desc">
+                                High-performance, responsive single-page applications (SPAs) and progressive web apps engineered
+                                with modern JavaScript frameworks and clean design systems.
+                            </p>
+                            <ul class="cbt-pm-bullets">
+                                <li><i class="fas fa-check-circle"></i> Component-driven architecture using React JS and Angular</li>
+                                <li><i class="fas fa-check-circle"></i> Type-safe, maintainable codebases with TypeScript and HTML5</li>
+                                <li><i class="fas fa-check-circle"></i> Cross-browser compatibility, WCAG accessibility, and SEO optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Capability 3: Native Mobile Apps -->
+                    <div class="cbt-pm-card wow fadeInUp animated" data-wow-delay="200ms" data-wow-duration="1200ms">
+                        <div class="cbt-pm-header" role="button" tabindex="0">
+                            <div class="cbt-pm-header-left">
+                                <span class="cbt-pm-badge">Mobile Engineering</span>
+                                <h3 class="cbt-pm-title">Native &amp; Cross-Platform Mobile Apps (Android, Swift iOS)</h3>
+                            </div>
+                            <button class="cbt-pm-toggle-btn" type="button" aria-label="Toggle details">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="cbt-pm-body">
+                            <p class="cbt-pm-desc">
+                                Intuitive, feature-rich mobile applications built natively for iOS and Android, delivering
+                                fluid user experiences, device hardware access, and offline capabilities.
+                            </p>
+                            <ul class="cbt-pm-bullets">
+                                <li><i class="fas fa-check-circle"></i> Native iOS applications engineered with Swift and SwiftUI</li>
+                                <li><i class="fas fa-check-circle"></i> High-performance Android applications built with Kotlin and Jetpack</li>
+                                <li><i class="fas fa-check-circle"></i> Offline-first data caching, push notifications, and biometric authentication</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Capability 4: Cloud-Native & DevOps -->
+                    <div class="cbt-pm-card wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1200ms">
+                        <div class="cbt-pm-header" role="button" tabindex="0">
+                            <div class="cbt-pm-header-left">
+                                <span class="cbt-pm-badge">Cloud &amp; DevOps</span>
+                                <h3 class="cbt-pm-title">Cloud Architecture, Containers &amp; CI/CD (Kubernetes, Docker)</h3>
+                            </div>
+                            <button class="cbt-pm-toggle-btn" type="button" aria-label="Toggle details">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="cbt-pm-body">
+                            <p class="cbt-pm-desc">
+                                Streamlined DevOps workflows, container orchestration, and multi-cloud deployment automation
+                                ensuring rapid, reliable releases with continuous observability.
+                            </p>
+                            <ul class="cbt-pm-bullets">
+                                <li><i class="fas fa-check-circle"></i> Containerization with Docker and multi-cluster Kubernetes orchestration</li>
+                                <li><i class="fas fa-check-circle"></i> Automated CI/CD pipelines with GitHub Actions, GitLab, and Jenkins</li>
+                                <li><i class="fas fa-check-circle"></i> Infrastructure as Code (IaC) with Terraform and cloud monitoring solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Capability 5: Enterprise Database Systems -->
+                    <div class="cbt-pm-card wow fadeInUp animated" data-wow-delay="400ms" data-wow-duration="1200ms">
+                        <div class="cbt-pm-header" role="button" tabindex="0">
+                            <div class="cbt-pm-header-left">
+                                <span class="cbt-pm-badge">Database Architecture</span>
+                                <h3 class="cbt-pm-title">Robust Data Persistence (PostgreSQL, MySQL, Oracle, NoSQL)</h3>
+                            </div>
+                            <button class="cbt-pm-toggle-btn" type="button" aria-label="Toggle details">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="cbt-pm-body">
+                            <p class="cbt-pm-desc">
+                                Scalable, highly available relational and NoSQL database architectures engineered for mission-critical
+                                transactional integrity and high-speed data processing.
+                            </p>
+                            <ul class="cbt-pm-bullets">
+                                <li><i class="fas fa-check-circle"></i> Enterprise RDBMS implementation with PostgreSQL, MySQL, and Oracle</li>
+                                <li><i class="fas fa-check-circle"></i> Distributed NoSQL databases for high-speed unstructured data handling</li>
+                                <li><i class="fas fa-check-circle"></i> Database sharding, active replication, automated backups, and tuning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Capability 6: Agile Delivery & Governance -->
+                    <div class="cbt-pm-card wow fadeInUp animated" data-wow-delay="500ms" data-wow-duration="1200ms">
+                        <div class="cbt-pm-header" role="button" tabindex="0">
+                            <div class="cbt-pm-header-left">
+                                <span class="cbt-pm-badge">Delivery Governance</span>
+                                <h3 class="cbt-pm-title">Agile Methodology, Scrum &amp; Quality Assurance</h3>
+                            </div>
+                            <button class="cbt-pm-toggle-btn" type="button" aria-label="Toggle details">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="cbt-pm-body">
+                            <p class="cbt-pm-desc">
+                                Transparent project management with two-week sprint cadences, continuous client collaboration,
+                                and automated quality gates ensuring zero-defect deliverables.
+                            </p>
+                            <ul class="cbt-pm-bullets">
+                                <li><i class="fas fa-check-circle"></i> Dedicated agile squads with Certified Scrum Masters and Product Owners</li>
+                                <li><i class="fas fa-check-circle"></i> Comprehensive automated unit, integration, end-to-end, and security testing</li>
+                                <li><i class="fas fa-check-circle"></i> Transparent sprint burndowns, regular client demos, and rapid feedback loops</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             Agile Team Collaboration Showcase (Between Technology Mastery & Business Drivers)
+             ========================================================================== -->
+        <section class="cbt-architecture-section">
+            <div class="auto-container">
+                <div class="cbt-architecture-showcase wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1200ms">
+                    <img src="assets/images/service/agile-development-team.jpg"
+                        alt="Agile Application Development Sprint Planning and Team Collaboration"
+                        class="cbt-architecture-img">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             Section 5 — Strategic Business Benefits (Hexaware-inspired Cards & Motion)
+             ========================================================================== -->
+        <section class="cbt-benefits-section">
+            <div class="auto-container">
+                <div class="cbt-section-header wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1200ms">
+                    <span class="cbt-eyebrow"><i class="icon-7"></i> Business Drivers</span>
+                    <h2 class="cbt-section-title">Strategic Advantages of Bespoke Software</h2>
+                    <p class="cbt-section-subtitle">
+                        Custom application development delivers measurable operational, economic, and competitive
+                        advantages tailored to your organizational goals.
+                    </p>
+                </div>
+
+                <div class="cbt-benefits-grid">
+                    <!-- Benefit 1 -->
+                    <div class="cbt-benefit-card wow fadeInUp animated" data-wow-delay="00ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-benefit-header-row">
+                            <div class="cbt-benefit-icon"><i class="fas fa-layer-group"></i></div>
+                            <span class="cbt-benefit-tag">Driver 01</span>
+                        </div>
+                        <h3 class="cbt-benefit-title">Choice of Technology Stack</h3>
+                        <p class="cbt-benefit-desc">
+                            Select best-fit, modern technologies tailored to your exact system requirements without vendor
+                            lock-in, proprietary licensing constraints, or technological debt.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 2 -->
+                    <div class="cbt-benefit-card wow fadeInUp animated" data-wow-delay="100ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-benefit-header-row">
+                            <div class="cbt-benefit-icon"><i class="fas fa-database"></i></div>
+                            <span class="cbt-benefit-tag">Driver 02</span>
+                        </div>
+                        <h3 class="cbt-benefit-title">Robust &amp; Reliable Databases</h3>
+                        <p class="cbt-benefit-desc">
+                            Protect critical business data with high-integrity database architectures, ACID compliance,
+                            strict data governance, and automated disaster recovery.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 3 -->
+                    <div class="cbt-benefit-card wow fadeInUp animated" data-wow-delay="200ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-benefit-header-row">
+                            <div class="cbt-benefit-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <span class="cbt-benefit-tag">Driver 03</span>
+                        </div>
+                        <h3 class="cbt-benefit-title">Faster Iteration &amp; Deployment</h3>
+                        <p class="cbt-benefit-desc">
+                            Accelerate product release cycles through agile two-week sprints, modular component architecture,
+                            and automated continuous integration and delivery (CI/CD).
+                        </p>
+                    </div>
+
+                    <!-- Benefit 4 -->
+                    <div class="cbt-benefit-card wow fadeInUp animated" data-wow-delay="300ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-benefit-header-row">
+                            <div class="cbt-benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                            <span class="cbt-benefit-tag">Driver 04</span>
+                        </div>
+                        <h3 class="cbt-benefit-title">Reduced Development Risks</h3>
+                        <p class="cbt-benefit-desc">
+                            Mitigate project risk through incremental sprint validation, automated quality gates, code reviews,
+                            and active stakeholder demonstration at every stage.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 5 -->
+                    <div class="cbt-benefit-card wow fadeInUp animated" data-wow-delay="400ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-benefit-header-row">
+                            <div class="cbt-benefit-icon"><i class="fas fa-bullseye"></i></div>
+                            <span class="cbt-benefit-tag">Driver 05</span>
+                        </div>
+                        <h3 class="cbt-benefit-title">Tailored Business Fit</h3>
+                        <p class="cbt-benefit-desc">
+                            Build software engineered precisely around your specific business model and operational workflows,
+                            delivering substantial competitive advantages over off-the-shelf software.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 6 -->
+                    <div class="cbt-benefit-card wow fadeInUp animated" data-wow-delay="500ms"
+                        data-wow-duration="1200ms">
+                        <div class="cbt-benefit-header-row">
+                            <div class="cbt-benefit-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+                            <span class="cbt-benefit-tag">Driver 06</span>
+                        </div>
+                        <h3 class="cbt-benefit-title">Future-Proof Scalability</h3>
+                        <p class="cbt-benefit-desc">
+                            Deploy resilient, cloud-ready architecture engineered to effortlessly handle exponential user growth,
+                            increasing transaction volumes, and new feature extensions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- ==========================================================================
+             Footer Section (Existing Project Footer Structure Preserved Exactly)
+             ========================================================================== -->
+        <section class="main-footer">
+            <div class="shape">
+                <div class="shape-1"></div>
+                <div class="shape-2"></div>
+                <div class="shape-3" style="background-image: url(assets/images/shape/shape-21.png);"></div>
+                <div class="shape-4" style="background-image: url(assets/images/shape/shape-22.png);"></div>
+            </div>
+            <div class="auto-container">
+                <div class="footer-top">
+                    <div class="top-inner">
+                        <figure class="footer-logo"><a href="index.html"><img src="assets/images/footer-logo.png"
+                                    alt="Wowoni"></a></figure>
+                        <ul class="social-links clearfix">
+                            <li><a href="https://www.linkedin.com/company/wowonii" target="_blank"
+                                    rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="index.html"><i class="icon-3"></i></a></li>
+                            <li><a href="index.html"><i class="icon-4"></i></a></li>
+                            <li><a href="index.html"><i class="icon-5"></i></a></li>
+                            <li><a href="index.html"><i class="icon-6"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget-section">
+                    <div class="row clearfix">
+                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget about-widget">
+                                <div class="widget-title">
+                                    <h3>About Wowoni</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <p>Empowering financial enterprises, banks, and corporations with high-velocity
+                                        digital transformation, mission-critical banking software, and elite IT
+                                        capabilities across the Asia-Pacific region.</p>
+                                    <ul class="info clearfix">
+                                        <li><i class="icon-2"></i><a href="tel:+919944756502">(+91) 99447 56502</a></li>
+                                        <li><i class="icon-19"></i><a
+                                                href="mailto:admin@wowonii.com">admin@wowonii.com</a></li>
+                                        <li><i class="icon-23"></i>Setiabudi 2, Kuningan, Jakarta Selatan 12940,
+                                            Indonesia</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Quick Links</h3>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 link-column">
+                                        <ul class="links-list clearfix">
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="about/about.html">About Us</a></li>
+                                            <li><a href="services/service.html">Services</a></li>
+                                            <li><a href="blog/blog.html">Our Insights</a></li>
+                                            <li><a href="contact/contact.html">Contact Us</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 link-column">
+                                        <ul class="links-list clearfix">
+                                            <li><a href="services/core-banking-transformation.html">Core Banking</a></li>
+                                            <li><a href="services/application-development.html">Application Development</a></li>
+                                            <li><a href="services/application-and-infrastructure-management.html">Application &amp; Infra</a></li>
+                                            <li><a href="pricing.html">Pricing Plans</a></li>
+                                            <li><a href="faq.html">FAQ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget gallery-widget">
+                                <div class="widget-title">
+                                    <h3>Global Presence</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <p style="color: #625f5f; font-size: 14px; line-height: 1.7; margin-bottom: 16px;">
+                                        Operating worldwide across Indonesia, India, Singapore, Malaysia, Bangladesh,
+                                        and New Zealand.
+                                    </p>
+                                    <ul class="image-list clearfix">
+                                        <li>
+                                            <figure class="image">
+                                                <img src="assets/images/resource/footer-1.jpg" alt="Office 1">
+                                                <a href="assets/images/resource/footer-1.jpg" class="lightbox-image"
+                                                    data-fancybox="gallery"><i class="icon-24"></i></a>
+                                            </figure>
+                                        </li>
+                                        <li>
+                                            <figure class="image">
+                                                <img src="assets/images/resource/footer-2.jpg" alt="Office 2">
+                                                <a href="assets/images/resource/footer-2.jpg" class="lightbox-image"
+                                                    data-fancybox="gallery"><i class="icon-24"></i></a>
+                                            </figure>
+                                        </li>
+                                        <li>
+                                            <figure class="image">
+                                                <img src="assets/images/resource/footer-3.jpg" alt="Office 3">
+                                                <a href="assets/images/resource/footer-3.jpg" class="lightbox-image"
+                                                    data-fancybox="gallery"><i class="icon-24"></i></a>
+                                            </figure>
+                                        </li>
+                                        <li>
+                                            <figure class="image">
+                                                <img src="assets/images/resource/footer-4.jpg" alt="Office 4">
+                                                <a href="assets/images/resource/footer-4.jpg" class="lightbox-image"
+                                                    data-fancybox="gallery"><i class="icon-24"></i></a>
+                                            </figure>
+                                        </li>
+                                        <li>
+                                            <figure class="image">
+                                                <img src="assets/images/resource/footer-5.jpg" alt="Office 5">
+                                                <a href="assets/images/resource/footer-5.jpg" class="lightbox-image"
+                                                    data-fancybox="gallery"><i class="icon-24"></i></a>
+                                            </figure>
+                                        </li>
+                                        <li>
+                                            <figure class="image">
+                                                <img src="assets/images/resource/footer-6.jpg" alt="Office 6">
+                                                <a href="assets/images/resource/footer-6.jpg" class="lightbox-image"
+                                                    data-fancybox="gallery"><i class="icon-24"></i></a>
+                                            </figure>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom centred">
+                    <p><a href="index.html">Wowoni</a> &copy; 2026 All Rights Reserved.</p>
+                </div>
+            </div>
+        </section>
+        <!-- main-footer end -->
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
         </div>
-        <div class="footer-bottom centred">
-          <p><a href="./index.html">Midas</a> &copy; 2025 All Right Reserved</p>
-        </div>
-      </div>
-    </section>
-    <!-- main-footer end -->
+        <!-- Scroll to top end -->
 
-    <!-- Midas Chatbot Widget -->
-    <style>
-      /* Chatbot Styles */
-      #chat-toggle {
-        position: fixed;
-        bottom: 38px;
-        right: 38px;
-        width: 58px;
-        height: 58px;
-        border-radius: 50%;
-        background: #ffffff;
-        border: 1px solid #eee;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
-        transition: transform 0.2s ease, background 0.2s, opacity 0.3s ease;
-        z-index: 9999;
-      }
-
-      #chat-toggle:hover {
-        transform: scale(1.07);
-        background: #ffffff;
-      }
-
-      #chat-toggle:active {
-        transform: scale(0.96);
-      }
-
-      #chat-toggle .icon-chat,
-      #chat-toggle .icon-close {
-        transition: opacity 0.2s, transform 0.25s;
-      }
-
-      #chat-toggle .icon-close {
-        opacity: 0;
-        transform: rotate(-90deg) scale(0.6);
-        position: absolute;
-      }
-
-      #chat-toggle.open .icon-chat {
-        opacity: 0;
-        transform: rotate(90deg) scale(0.5);
-      }
-
-      #chat-toggle.open .icon-close {
-        opacity: 1;
-        transform: rotate(0deg) scale(1);
-      }
-
-      #chat-panel {
-        position: fixed;
-        bottom: 110px;
-        right: 38px;
-        width: 390px;
-        max-height: 580px;
-        background: #ffffff;
-        border: 1px solid #e5e5e5;
-        border-radius: 22px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        z-index: 9998;
-        transform: translateY(24px) scale(0.96);
-        opacity: 0;
-        pointer-events: none;
-        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.22s ease;
-        color: #52565b;
-      }
-
-      #chat-panel.open {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-        pointer-events: all;
-      }
-
-      .chat-header {
-        background: #f8f9fa;
-        border-bottom: 1px solid #e5e5e5;
-        padding: 14px 18px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-shrink: 0;
-      }
-
-      .header-avatar {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        background: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        font-size: 18px;
-        border: 1px solid #eee;
-      }
-
-      .header-info h3 {
-        font-family: 'Ubuntu', sans-serif;
-        font-size: 14px;
-        font-weight: 600;
-        color: #1e1e1e;
-        margin-bottom: 2px;
-      }
-
-      .header-info span {
-        font-size: 11px;
-        color: #677289;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .online-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: #4ade80;
-        display: inline-block;
-      }
-
-      .header-close {
-        margin-left: auto;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #52565b;
-        padding: 4px;
-        border-radius: 6px;
-        transition: color 0.15s, background 0.15s;
-        line-height: 1;
-      }
-
-      .header-close:hover {
-        color: #ff6a00;
-        background: #f0f0f0;
-      }
-
-      #chat-messages {
-        flex: 1;
-        overflow-y: auto;
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        scroll-behavior: smooth;
-        font-family: 'Ubuntu', sans-serif;
-      }
-
-      #chat-messages::-webkit-scrollbar {
-        width: 4px;
-      }
-
-      #chat-messages::-webkit-scrollbar-thumb {
-        background: #e5e5e5;
-        border-radius: 4px;
-      }
-
-      .msg {
-        display: flex;
-        max-width: 90%;
-        animation: fadeUp 0.22s ease;
-      }
-
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(8px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .msg.user {
-        align-self: flex-end;
-      }
-
-      .msg.bot {
-        align-self: flex-start;
-      }
-
-      .msg-bubble {
-        padding: 10px 14px;
-        font-size: 13.5px;
-        line-height: 1.6;
-        word-break: break-word;
-        border-radius: 16px;
-      }
-
-      .msg.bot .msg-bubble {
-        background: #f1f3f5;
-        color: #52565b;
-        border: 1px solid #e9ecef;
-        border-bottom-left-radius: 4px;
-      }
-
-      .msg.user .msg-bubble {
-        background: #ff6a00;
-        color: #fff;
-        border-bottom-right-radius: 4px;
-      }
-
-      .typing-indicator {
-        display: flex;
-        gap: 4px;
-        padding: 12px 14px;
-        background: #f1f3f5;
-        border: 1px solid #e9ecef;
-        border-radius: 16px;
-        border-bottom-left-radius: 4px;
-        width: fit-content;
-      }
-
-      .typing-indicator span {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #adb5bd;
-        animation: bounce 1.2s infinite;
-      }
-
-      .typing-indicator span:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-
-      .typing-indicator span:nth-child(3) {
-        animation-delay: 0.4s;
-      }
-
-      @keyframes bounce {
-
-        0%,
-        60%,
-        100% {
-          transform: translateY(0);
-        }
-
-        30% {
-          transform: translateY(-5px);
-        }
-      }
-
-      .suggestions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        padding: 0 16px 10px;
-      }
-
-      .suggestion-chip {
-        background: #fff;
-        border: 1px solid #dee2e6;
-        border-radius: 20px;
-        padding: 5px 11px;
-        font-size: 12px;
-        color: #677289;
-        cursor: pointer;
-        font-family: 'Ubuntu', sans-serif;
-        transition: all 0.15s;
-      }
-
-      .suggestion-chip:hover {
-        border-color: #ff6a00;
-        color: #ff6a00;
-        background: #fffcf5;
-      }
-
-      .chat-footer {
-        padding: 10px 12px;
-        border-top: 1px solid #e5e5e5;
-        display: flex;
-        gap: 8px;
-        align-items: flex-end;
-        flex-shrink: 0;
-        background: #ffffff;
-      }
-
-      #chat-input {
-        flex: 1;
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 12px;
-        padding: 10px 13px;
-        font-family: 'Ubuntu', sans-serif;
-        font-size: 13.5px;
-        color: #52565b;
-        resize: none;
-        outline: none;
-        max-height: 100px;
-        line-height: 1.45;
-        transition: border-color 0.15s;
-        overflow-y: auto;
-      }
-
-      #chat-input:focus {
-        border-color: #ff6a00;
-        background: #fff;
-      }
-
-      #chat-input::placeholder {
-        color: #adb5bd;
-      }
-
-      #send-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        background: #ff6a00;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        transition: background 0.15s, transform 0.1s;
-      }
-
-      #send-btn:hover {
-        background: #e55f00;
-      }
-
-      #send-btn:active {
-        transform: scale(0.93);
-      }
-
-      #send-btn:disabled {
-        background: #e9ecef;
-        cursor: not-allowed;
-      }
-
-      @media (max-width: 440px) {
-        #chat-panel {
-          width: calc(100vw - 20px);
-          right: 10px;
-          bottom: 108px;
-        }
-      }
-    </style>
-
-    <button id="chat-toggle" aria-label="Open chat">
-      <img class="icon-chat" src="./assets/images/icons/chat-icon-64.webp"
-        srcset="./assets/images/icons/chat-icon-64.webp 1x, ./assets/images/icons/chat-icon-128.webp 2x" width="28"
-        height="28" alt="Chat" style="display:block;" />
-      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-        stroke="#52565b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18" />
-        <line x1="6" y1="6" x2="18" y2="18" />
-      </svg>
-    </button>
-
-    <div id="chat-panel" role="dialog" aria-label="Midas Assistant">
-      <div class="chat-header">
-        <div class="header-avatar">
-          <img src="./assets/images/icons/chat-icon-64.webp"
-            srcset="./assets/images/icons/chat-icon-64.webp 1x, ./assets/images/icons/chat-icon-128.webp 2x" width="24"
-            height="24" alt="Midas Assistant" />
-        </div>
-        <div class="header-info">
-          <h3>Midas Assistant</h3>
-          <span><span class="online-dot">
-        </div>
-        <button class="header-close" id="chat-close" aria-label="Close">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
-      </div>
-
-      <div id="chat-messages"></div>
-      <div class="suggestions" id="suggestions"></div>
-
-      <div class="chat-footer">
-        <textarea id="chat-input" rows="1" placeholder="Ask about Midas Teknologi…"></textarea>
-        <button id="send-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff"
-            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13" />
-            <polygon points="22 2 15 22 11 13 2 9 22 2" />
-          </svg>
-        </button>
-      </div>
     </div>
 
+    <!-- jquery plugins -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/jquery.fancybox.js"></script>
+    <script src="assets/js/appear.js"></script>
+    <script src="assets/js/parallax-scroll.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/data-animation.js"></script>
+    <script src="assets/js/bxslider.js"></script>
+    <script src="assets/js/isotope.js"></script>
+
+    <!-- main-js -->
+    <script src="assets/js/script.js"></script>
+
+    <!-- Technology Mastery Interactive Accordion Script -->
     <script>
-      (function () {
-        const PROXY_URL = './ai-proxy.php';
-        const WELCOME_MSG = "Hi! 👋 I'm the Midas Assistant. Ask me anything about Midas Teknologi — our solutions, services, AI offerings, office locations, or how to get in touch!";
-        const SUGGESTIONS = [
-          "What does Midas do?",
-          "What solutions do you offer?",
-          "Where are your offices?",
-        ];
+        (function ($) {
+            $(document).ready(function () {
+                $('.cbt-pm-card .cbt-pm-header').on('click', function (e) {
+                    e.preventDefault();
+                    var $card = $(this).closest('.cbt-pm-card');
+                    var $body = $card.find('.cbt-pm-body');
+                    var $btn = $card.find('.cbt-pm-toggle-btn');
+                    var $icon = $btn.find('i');
 
-        const excludedPages = ['error.html', 'coming-soon.html'];
-        const path = window.location.pathname;
-        const isExcluded = excludedPages.some(page => path.includes(page)) || path.includes('/admin/');
-
-        if (isExcluded) {
-          document.getElementById('chat-toggle').style.display = 'none';
-          document.getElementById('chat-panel').style.display = 'none';
-          return;
-        }
-
-        let history = [];
-        let isTyping = false;
-
-        const toggle = document.getElementById("chat-toggle");
-        const panel = document.getElementById("chat-panel");
-        const closeBtn = document.getElementById("chat-close");
-        const messagesEl = document.getElementById("chat-messages");
-        const suggestEl = document.getElementById("suggestions");
-        const input = document.getElementById("chat-input");
-        const sendBtn = document.getElementById("send-btn");
-
-        /* Suggestion chips */
-        suggestEl.innerHTML = SUGGESTIONS.map(s =>
-          `<button class="suggestion-chip">${s}</button>`
-        ).join("");
-        suggestEl.querySelectorAll(".suggestion-chip").forEach(btn => {
-          btn.addEventListener("click", () => {
-            input.value = btn.textContent;
-            suggestEl.style.display = "none";
-            sendMessage();
-          });
-        });
-
-        /* Open / close */
-        toggle.addEventListener("click", () =>
-          panel.classList.contains("open") ? closePanel() : openPanel()
-        );
-        closeBtn.addEventListener("click", closePanel);
-        function openPanel() { panel.classList.add("open"); toggle.classList.add("open"); input.focus(); }
-        function closePanel() { panel.classList.remove("open"); toggle.classList.remove("open"); }
-
-        /* Scroll behavior: hide while scrolling, show on stop */
-        let isScrolling;
-        window.addEventListener('scroll', () => {
-          if (!panel.classList.contains("open")) {
-            toggle.style.opacity = '0';
-            toggle.style.pointerEvents = 'none';
-
-            window.clearTimeout(isScrolling);
-            isScrolling = setTimeout(() => {
-              toggle.style.opacity = '1';
-              toggle.style.pointerEvents = 'all';
-            }, 250);
-          }
-        }, { passive: true });
-
-        /* Auto-grow textarea */
-        input.addEventListener("input", () => {
-          input.style.height = "auto";
-          input.style.height = Math.min(input.scrollHeight, 100) + "px";
-        });
-        input.addEventListener("keydown", e => {
-          if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
-        });
-        sendBtn.addEventListener("click", sendMessage);
-
-        /* Add message bubble */
-        function addMessage(role, text) {
-          const wrap = document.createElement("div");
-          wrap.className = "msg " + role;
-          const bubble = document.createElement("div");
-          bubble.className = "msg-bubble";
-
-          // Escape HTML to prevent XSS
-          let html = text.replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-
-          // Convert URLs to hyperlinks
-          const urlRegex = /(https?:\/\/[^\s]+)/g;
-          html = html.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
-
-          // Convert Email IDs to mailto links
-          const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
-          html = html.replace(emailRegex, '<a href="mailto:$1" style="color: inherit; text-decoration: underline; font-weight: 600;">$1</a>');
-
-          bubble.innerHTML = html;
-          wrap.appendChild(bubble);
-          messagesEl.appendChild(wrap);
-          messagesEl.scrollTop = messagesEl.scrollHeight;
-        }
-
-        /* Typing indicator */
-        function showTyping() {
-          const wrap = document.createElement("div");
-          wrap.className = "msg bot"; wrap.id = "typing-wrap";
-          wrap.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
-          messagesEl.appendChild(wrap);
-          messagesEl.scrollTop = messagesEl.scrollHeight;
-        }
-        function hideTyping() { const el = document.getElementById("typing-wrap"); if (el) el.remove(); }
-
-        async function sendMessage() {
-          const text = input.value.trim();
-          if (!text || isTyping) return;
-
-          suggestEl.style.display = "none";
-          input.value = ""; input.style.height = "auto";
-          addMessage("user", text);
-
-          history.push({ role: "user", content: text });
-          const recentHistory = history.slice(-4);
-
-          isTyping = true; sendBtn.disabled = true;
-          showTyping();
-
-          try {
-            const res = await fetch(PROXY_URL, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ messages: recentHistory })
+                    if ($card.hasClass('active')) {
+                        $body.slideUp(300);
+                        $card.removeClass('active');
+                        $icon.removeClass('fa-minus').addClass('fa-plus');
+                    } else {
+                        $body.slideDown(300);
+                        $card.addClass('active');
+                        $icon.removeClass('fa-plus').addClass('fa-minus');
+                    }
+                });
             });
-
-            const data = await res.json();
-            hideTyping();
-
-            if (!res.ok) {
-              addMessage("bot", "⚠️ " + (data?.error?.message || data?.error || "Something went wrong."));
-              history.pop(); return;
-            }
-
-            const reply = data.choices[0].message.content;
-            addMessage("bot", reply);
-            history.push({ role: "assistant", content: reply });
-
-          } catch {
-            hideTyping();
-            addMessage("bot", "⚠️ Network error. Please check your connection.");
-            history.pop();
-          } finally {
-            isTyping = false; sendBtn.disabled = false; input.focus();
-          }
-        }
-
-        addMessage("bot", WELCOME_MSG);
-      })();
+        })(jQuery);
     </script>
 
-    <!--Scroll to top-->
-    <div class="scroll-to-top">
-      <div>
-        <div class="scroll-top-inner">
-          <div class="scroll-bar">
-            <div class="bar-inner"></div>
-          </div>
-          <div class="scroll-bar-text">Go To Top</div>
-        </div>
-      </div>
-    </div>
-    <!-- Scroll to top end -->
-  </div>
-
-  <!-- jequery plugins -->
-  <script defer src="./assets/js/jquery.js"></script>
-  <script defer src="./assets/js/popper.min.js"></script>
-  <script defer src="./assets/js/bootstrap.min.js"></script>
-  <script defer src="./assets/js/owl.js"></script>
-  <script defer src="./assets/js/validation.js"></script>
-  <script defer src="./assets/js/jquery.fancybox.js"></script>
-  <script defer src="./assets/js/isotope.js"></script>
-
-  <!-- main-js -->
-  <script defer src="./assets/js/script.js"></script>
-</body>
-<!-- End of .page_wrapper -->
+</body><!-- End of .page_wrapper -->
 
 </html>

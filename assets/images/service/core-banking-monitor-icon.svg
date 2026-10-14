@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Core banking monitor</title>
+  <defs>
+    <linearGradient id="banking-blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4ed2d8" />
+      <stop offset="1" stop-color="#0754b8" />
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="254" fill="url(#banking-blue)" />
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="96" y="111" width="320" height="222" rx="42" stroke-width="9" />
+    <path d="M99 290h314M216 334l-16 45m96-45 16 45M187 379h138v28H187z" stroke-width="9" />
+    <path d="m116 171 73-44 73 44H116zm15 8h116m-103 0v79m35-79v79m35-79v79m-86 0h102m-111 14h120v12H119z" stroke-width="8" />
+    <path d="M175 154h29" stroke-width="8" />
+    <rect x="317" y="176" width="87" height="58" rx="10" stroke-width="8" />
+    <path d="M323 192h75m-65 27h10m-47-14h-32m0 0 12-12m-12 12 12 12" stroke-width="8" />
+    <path d="M244 311h26m91 0h13" stroke-width="8" />
+  </g>
+</svg>

@@ -1,0 +1,1403 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+/* ==========================================================================
+   Wowoni Core Banking Transformation Service Page Stylesheet
+   Isolated Page Stylesheet: All selectors scoped under .cbt-page
+   ========================================================================== */
+
+/* Page-scoped Design Tokens */
+.cbt-page {
+  --cbt-navy-deep: #040c42;
+  --cbt-navy-mid: #0a1c66;
+  --cbt-navy-surface: #132047;
+  --cbt-blue-primary: #0d7dfc;
+  --cbt-blue-accent: #376cfd;
+  --cbt-blue-light: #4e79ed;
+  --cbt-blue-eyebrow: #6087f1;
+  --cbt-blue-soft: rgba(13, 125, 252, 0.08);
+  --cbt-blue-glow: rgba(55, 108, 253, 0.18);
+  --cbt-orange: #ff9360;
+  --cbt-orange-soft: rgba(255, 147, 96, 0.12);
+  --cbt-text-dark: #1b2538;
+  --cbt-text-body: #3e485e;
+  --cbt-text-muted: #5e6b84;
+  --cbt-bg-light: #f8fafd;
+  --cbt-bg-card: #f0f4fd;
+  --cbt-border-light: rgba(13, 125, 252, 0.12);
+  --cbt-border-card: rgba(19, 32, 71, 0.08);
+  --cbt-white: #ffffff;
+  --cbt-shadow-sm: 0 4px 16px rgba(19, 32, 71, 0.05);
+  --cbt-shadow-md: 0 12px 32px rgba(19, 32, 71, 0.08);
+  --cbt-shadow-lg: 0 20px 48px rgba(19, 32, 71, 0.12);
+  --cbt-radius-sm: 8px;
+  --cbt-radius-md: 14px;
+  --cbt-radius-lg: 20px;
+}
+
+/* Guarantee visibility for WOW animations */
+.cbt-page .wow {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   1. Hero Section
+   ========================================================================== */
+.cbt-page .cbt-hero {
+  position: relative;
+  margin: 0 150px;
+  border-radius: 20px;
+  min-height: 568px;
+  padding: 87px 0;
+  display: flex;
+  align-items: center;
+  background: url('../images/banner/core-banking-service.webp') no-repeat center center / cover;
+  color: var(--cbt-white);
+  overflow: hidden;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.cbt-page .cbt-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  opacity: 0.6;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cbt-page .cbt-hero .auto-container {
+  width: 100%;
+}
+
+.cbt-page .cbt-hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.cbt-page .cbt-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #aadaff;
+  margin-bottom: 22px;
+}
+
+.cbt-page .cbt-hero-badge i {
+  color: var(--cbt-orange);
+  font-size: 11px;
+}
+
+.cbt-page .cbt-hero h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 110px;
+  color: var(--cbt-white);
+  text-transform: uppercase;
+  letter-spacing: normal;
+  text-align: center;
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.cbt-page .cbt-hero-subtitle {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 30px;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.cbt-page .cbt-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.cbt-page .cbt-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, var(--cbt-blue-primary), var(--cbt-blue-accent));
+  color: var(--cbt-white);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(13, 125, 252, 0.35);
+  transition: all 0.3s ease;
+}
+
+.cbt-page .cbt-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(13, 125, 252, 0.45);
+  color: var(--cbt-white);
+}
+
+.cbt-page .cbt-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--cbt-white);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.cbt-page .cbt-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: var(--cbt-white);
+  transform: translateY(-2px);
+}
+
+.cbt-page .cbt-breadcrumbs {
+  display: block;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.cbt-page .cbt-breadcrumbs li {
+  position: relative;
+  display: inline-block;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 700;
+  color: var(--cbt-white);
+  padding-right: 14px;
+  margin-right: 5px;
+  letter-spacing: normal;
+}
+
+.cbt-page .cbt-breadcrumbs li a {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: normal;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cbt-page .cbt-breadcrumbs li a:hover {
+  color: var(--cbt-orange);
+}
+
+.cbt-page .cbt-breadcrumbs li:before {
+  position: absolute;
+  content: '';
+  background: var(--cbt-white);
+  width: 6px;
+  height: 2px;
+  top: 14px;
+  right: 0px;
+}
+
+.cbt-page .cbt-breadcrumbs li:last-child:before {
+  display: none;
+}
+
+.cbt-page .cbt-breadcrumbs li:not(:last-child)::after {
+  display: none;
+}
+
+/* Hero Trust Strip (Hexaware-inspired Enterprise Proof Points) */
+.cbt-page .cbt-hero-trust {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.cbt-page .cbt-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 16px;
+  border-radius: var(--cbt-radius-sm);
+  backdrop-filter: blur(4px);
+}
+
+.cbt-page .cbt-trust-item i {
+  font-size: 20px;
+  color: #55a2ff;
+  flex-shrink: 0;
+}
+
+.cbt-page .cbt-trust-text {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.35;
+  letter-spacing: normal;
+}
+
+/* ==========================================================================
+   2. Executive Overview / Introduction Section
+   ========================================================================== */
+.cbt-page .cbt-intro-section {
+  padding: 95px 0 85px;
+  background: var(--cbt-white);
+  position: relative;
+}
+
+.cbt-page .cbt-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.cbt-page .cbt-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--cbt-blue-eyebrow);
+  margin-bottom: 14px;
+}
+
+.cbt-page .cbt-eyebrow i {
+  font-size: 12px;
+}
+
+.cbt-page .cbt-intro-content h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--cbt-navy-deep);
+  line-height: 1.25;
+  margin: 0 0 20px;
+  letter-spacing: -0.4px;
+}
+
+.cbt-page .cbt-intro-lead {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--cbt-text-body);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.cbt-page .cbt-intro-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--cbt-text-muted);
+  margin-bottom: 28px;
+}
+
+.cbt-page .cbt-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cbt-page .cbt-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--cbt-text-dark);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.cbt-page .cbt-feature-item i {
+  color: var(--cbt-blue-primary);
+  font-size: 16px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* Intro Architecture Diagram Box (Replaces Enterprise Capability Card) */
+.cbt-page .cbt-intro-image-box {
+  background: #ffffff;
+  border: 1px solid rgba(13, 125, 252, 0.14);
+  border-radius: var(--cbt-radius-lg);
+  padding: 8px;
+  box-shadow: 0 16px 36px rgba(10, 25, 47, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  overflow: hidden;
+}
+
+.cbt-page .cbt-intro-image-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px rgba(13, 125, 252, 0.15);
+}
+
+.cbt-page .cbt-intro-diagram-img {
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--cbt-radius-lg) - 4px);
+  display: block;
+}
+
+/* Intro Showcase Visual Card */
+.cbt-page .cbt-intro-card {
+  background: linear-gradient(145deg, #f0f4fd 0%, #e8effc 100%);
+  border: 1px solid rgba(13, 125, 252, 0.16);
+  border-radius: var(--cbt-radius-lg);
+  padding: 44px 38px;
+  box-shadow: var(--cbt-shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.cbt-page .cbt-card-badge {
+  display: inline-block;
+  background: var(--cbt-blue-primary);
+  color: var(--cbt-white);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.cbt-page .cbt-icon-wrapper {
+  width: 96px;
+  height: 96px;
+  background: var(--cbt-white);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(13, 125, 252, 0.15);
+  margin-bottom: 26px;
+  border: 1px solid rgba(13, 125, 252, 0.12);
+}
+
+.cbt-page .cbt-icon-wrapper img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.cbt-page .cbt-intro-card h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--cbt-navy-deep);
+  margin: 0 0 14px;
+}
+
+.cbt-page .cbt-intro-card p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--cbt-text-body);
+  margin-bottom: 26px;
+}
+
+.cbt-page .cbt-metric-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(13, 125, 252, 0.15);
+}
+
+.cbt-page .cbt-metric-box {
+  background: var(--cbt-white);
+  padding: 14px 16px;
+  border-radius: var(--cbt-radius-sm);
+  border: 1px solid rgba(13, 125, 252, 0.1);
+}
+
+.cbt-page .cbt-metric-number {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--cbt-blue-primary);
+  line-height: 1.2;
+}
+
+.cbt-page .cbt-metric-label {
+  font-size: 12px;
+  color: var(--cbt-text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   3. Strategic Transformation Lifecycle / Approach Section
+   ========================================================================== */
+.cbt-page .cbt-approach-section {
+  padding: 100px 0;
+  background: var(--cbt-bg-light);
+  position: relative;
+}
+
+.cbt-page .cbt-section-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 55px;
+}
+
+.cbt-page .cbt-section-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--cbt-navy-deep);
+  line-height: 1.25;
+  margin: 0 0 16px;
+  letter-spacing: -0.4px;
+}
+
+.cbt-page .cbt-section-subtitle {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--cbt-text-muted);
+  margin: 0;
+}
+
+.cbt-page .cbt-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.cbt-page .cbt-process-card {
+  background: var(--cbt-white, #ffffff);
+  border: 1px solid var(--cbt-border-card, #e2e8f0);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(10, 25, 47, 0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 360px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  cursor: pointer;
+}
+
+.cbt-page .cbt-process-card:hover,
+.cbt-page .cbt-process-card.is-hovered {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(13, 125, 252, 0.16);
+  border-color: rgba(13, 125, 252, 0.3);
+}
+
+/* Image wrapper at top of card */
+.cbt-page .cbt-process-image-wrap {
+  width: 100%;
+  height: 210px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0a192f;
+}
+
+.cbt-page .cbt-process-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cbt-page .cbt-process-card:hover .cbt-process-img,
+.cbt-page .cbt-process-card.is-hovered .cbt-process-img {
+  transform: scale(1.08);
+}
+
+.cbt-page .cbt-process-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(10, 25, 47, 0.72);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.cbt-page .cbt-process-card:hover .cbt-process-badge,
+.cbt-page .cbt-process-card.is-hovered .cbt-process-badge {
+  background: var(--cbt-blue-primary, #0d7dfc);
+}
+
+/* Content block with upward sliding animation */
+.cbt-page .cbt-process-body {
+  position: absolute;
+  top: 210px;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 20px 22px 24px;
+  border-top: 1px solid rgba(13, 125, 252, 0.08);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 -8px 24px rgba(10, 25, 47, 0.05);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+  z-index: 3;
+  min-height: 260px;
+}
+
+.cbt-page .cbt-process-card:hover .cbt-process-body,
+.cbt-page .cbt-process-card.is-hovered .cbt-process-body {
+  transform: translateY(-145px);
+  box-shadow: 0 -14px 36px rgba(10, 25, 47, 0.12);
+}
+
+.cbt-page .cbt-process-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.cbt-page .cbt-process-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--cbt-blue-primary, #0d7dfc);
+}
+
+.cbt-page .cbt-process-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cbt-navy-deep, #0a192f);
+  margin: 0;
+  line-height: 1.35;
+  letter-spacing: -0.2px;
+}
+
+/* Sliding & fading information */
+.cbt-page .cbt-process-info {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.35s ease 0.08s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cbt-page .cbt-process-card:hover .cbt-process-info,
+.cbt-page .cbt-process-card.is-hovered .cbt-process-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cbt-page .cbt-process-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--cbt-text-body, #4b5563);
+  margin: 0;
+}
+
+.cbt-page .cbt-process-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--cbt-blue-primary, #0d7dfc);
+  text-decoration: none;
+  transition: gap 0.25s ease, color 0.25s ease;
+  margin-top: 2px;
+}
+
+.cbt-page .cbt-process-link:hover {
+  color: var(--cbt-navy-deep, #0a192f);
+  gap: 12px;
+}
+
+.cbt-page .cbt-process-link i {
+  font-size: 12px;
+  transition: transform 0.25s ease;
+}
+
+.cbt-page .cbt-process-link:hover i {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   Architecture Ecosystem Showcase (Between Platform Mastery & The Future-Ready Core)
+   ========================================================================== */
+.cbt-page .cbt-architecture-section {
+  padding: 0 0 90px;
+  background: #ffffff;
+  position: relative;
+}
+
+.cbt-page .cbt-architecture-showcase {
+  background: #ffffff;
+  border: 1px solid rgba(13, 125, 252, 0.14);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(10, 25, 47, 0.06);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cbt-page .cbt-architecture-showcase:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(13, 125, 252, 0.12);
+}
+
+.cbt-page .cbt-architecture-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+/* ==========================================================================
+   4. Platform Mastery (Screenshot-inspired Interactive Accordion Cards)
+   ========================================================================== */
+.cbt-page .cbt-capabilities-section {
+  padding: 100px 0 35px;
+  background: #ffffff;
+  position: relative;
+}
+
+.cbt-page .cbt-capabilities-section .cbt-eyebrow {
+  color: var(--cbt-blue-eyebrow) !important;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.cbt-page .cbt-pm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.cbt-page .cbt-pm-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(19, 32, 71, 0.03);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+}
+
+.cbt-page .cbt-pm-card:hover {
+  border-color: rgba(13, 125, 252, 0.35);
+  box-shadow: 0 8px 24px rgba(13, 125, 252, 0.08);
+}
+
+.cbt-page .cbt-pm-card.active {
+  border-color: var(--cbt-blue-primary, #0d7dfc);
+  box-shadow: 0 10px 30px rgba(13, 125, 252, 0.12);
+}
+
+.cbt-page .cbt-pm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 24px;
+  cursor: pointer;
+  user-select: none;
+  background: #ffffff;
+}
+
+.cbt-page .cbt-pm-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 16px;
+}
+
+.cbt-page .cbt-pm-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--cbt-blue-primary, #0d7dfc);
+}
+
+.cbt-page .cbt-pm-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cbt-navy-deep, #040c42);
+  margin: 0;
+  line-height: 1.35;
+  transition: color 0.3s ease;
+}
+
+.cbt-page .cbt-pm-card:hover .cbt-pm-title,
+.cbt-page .cbt-pm-card.active .cbt-pm-title {
+  color: var(--cbt-blue-primary, #0d7dfc);
+}
+
+.cbt-page .cbt-pm-toggle-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--cbt-blue-primary, #0d7dfc);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: 13px;
+  flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(13, 125, 252, 0.35);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cbt-page .cbt-pm-card:hover .cbt-pm-toggle-btn {
+  transform: scale(1.08);
+}
+
+.cbt-page .cbt-pm-card.active .cbt-pm-toggle-btn {
+  background: var(--cbt-navy-deep, #040c42);
+}
+
+.cbt-page .cbt-pm-body {
+  display: none;
+  padding: 0 24px 24px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+}
+
+.cbt-page .cbt-pm-desc {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--cbt-text-body, #3e485e);
+  margin-bottom: 16px;
+}
+
+.cbt-page .cbt-pm-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cbt-page .cbt-pm-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 13.5px;
+  color: var(--cbt-text-dark, #1b2538);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.cbt-page .cbt-pm-bullets li i {
+  color: var(--cbt-blue-primary, #0d7dfc);
+  font-size: 13px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+  .cbt-page .cbt-pm-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   5. Strategic Value Cards (Hexaware-inspired Design & Signature Motion)
+   ========================================================================== */
+.cbt-page .cbt-benefits-section {
+  padding: 100px 0;
+  background: var(--cbt-bg-light, #f8fafd);
+  position: relative;
+}
+
+.cbt-page .cbt-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.cbt-page .cbt-benefit-card {
+  background: #ffffff;
+  border: 1px solid #e7ebf3;
+  border-radius: 16px;
+  padding: 36px 30px;
+  box-shadow: 0 4px 20px rgba(4, 12, 66, 0.04);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hexaware signature top gradient accent line */
+.cbt-page .cbt-benefit-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #0D7DFC, #376cfd);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 16px 16px 0 0;
+}
+
+.cbt-page .cbt-benefit-card:hover {
+  transform: translateY(-8px);
+  border-color: #0d7dfc;
+  box-shadow: 0 20px 40px rgba(13, 125, 252, 0.12), 0 8px 16px rgba(4, 12, 66, 0.05);
+}
+
+.cbt-page .cbt-benefit-card:hover::before {
+  transform: scaleX(1);
+}
+
+.cbt-page .cbt-benefit-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.cbt-page .cbt-benefit-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(13, 125, 252, 0.08);
+  color: var(--cbt-blue-primary, #0d7dfc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cbt-page .cbt-benefit-card:hover .cbt-benefit-icon {
+  background: var(--cbt-blue-primary, #0D7DFC);
+  color: #ffffff;
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 8px 20px rgba(13, 125, 252, 0.3);
+}
+
+.cbt-page .cbt-benefit-tag {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(13, 125, 252, 0.06);
+  color: var(--cbt-blue-primary, #0d7dfc);
+}
+
+.cbt-page .cbt-benefit-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cbt-navy-deep, #040c42);
+  line-height: 1.35;
+  margin: 0 0 12px;
+  transition: color 0.3s ease;
+}
+
+.cbt-page .cbt-benefit-card:hover .cbt-benefit-title {
+  color: var(--cbt-blue-primary, #0d7dfc);
+}
+
+.cbt-page .cbt-benefit-desc {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #5e6b84;
+  margin: 0 0 24px;
+  flex-grow: 1;
+}
+
+/* Hexaware Signature Underline CTA with Dual-Arrow Swap */
+.cbt-page .cbt-benefit-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--cbt-navy-deep, #040c42);
+  text-decoration: none !important;
+  padding-bottom: 4px;
+  align-self: flex-start;
+  transition: color 0.3s ease;
+}
+
+.cbt-page .cbt-benefit-cta::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--cbt-blue-primary, #0d7dfc);
+  transition: width 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.cbt-page .cbt-benefit-cta .arrow-wrap {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cbt-page .cbt-benefit-cta .arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 13px;
+  line-height: 16px;
+  transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.cbt-page .cbt-benefit-cta .arrow_default {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.cbt-page .cbt-benefit-cta .arrow_hover {
+  transform: translate(-100%, 100%);
+  opacity: 0;
+  color: var(--cbt-blue-primary, #0d7dfc);
+}
+
+.cbt-page .cbt-benefit-card:hover .cbt-benefit-cta {
+  color: var(--cbt-blue-primary, #0d7dfc);
+}
+
+.cbt-page .cbt-benefit-card:hover .cbt-benefit-cta::after {
+  width: 100%;
+}
+
+.cbt-page .cbt-benefit-card:hover .cbt-benefit-cta .arrow_default {
+  transform: translate(100%, -100%);
+  opacity: 0;
+}
+
+.cbt-page .cbt-benefit-card:hover .cbt-benefit-cta .arrow_hover {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+@media (max-width: 1199px) {
+  .cbt-page .cbt-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .cbt-page .cbt-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   6. Specialized Testing & Resource Augmentation
+   ========================================================================== */
+.cbt-page .cbt-specialized-section {
+  padding: 95px 0 100px;
+  background: var(--cbt-white);
+  position: relative;
+}
+
+.cbt-page .cbt-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.cbt-page .cbt-spec-card {
+  background: linear-gradient(145deg, #f7f9fd 0%, #eef3fc 100%);
+  border: 1px solid rgba(13, 125, 252, 0.14);
+  border-radius: var(--cbt-radius-lg);
+  padding: 44px 38px;
+  box-shadow: var(--cbt-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s ease;
+}
+
+.cbt-page .cbt-spec-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--cbt-shadow-md);
+  border-color: rgba(13, 125, 252, 0.3);
+}
+
+.cbt-page .cbt-spec-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.cbt-page .cbt-spec-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: rgba(13, 125, 252, 0.08);
+  border: 1px solid rgba(13, 125, 252, 0.16);
+  color: var(--cbt-blue-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 6px 16px rgba(13, 125, 252, 0.12);
+  flex-shrink: 0;
+}
+
+.cbt-page .cbt-spec-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--cbt-navy-deep);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cbt-page .cbt-spec-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--cbt-text-body);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.cbt-page .cbt-spec-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cbt-page .cbt-spec-tag {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 6px 14px;
+  background: var(--cbt-white);
+  border: 1px solid rgba(13, 125, 252, 0.15);
+  border-radius: 20px;
+  color: var(--cbt-navy-deep);
+}
+
+/* ==========================================================================
+   7. Call to Action (CTA) Section
+   ========================================================================== */
+.cbt-page .cbt-cta-section {
+  padding: 90px 0;
+  background: var(--cbt-bg-light);
+  position: relative;
+}
+
+.cbt-page .cbt-cta-card {
+  background: linear-gradient(175deg, #376cfd 0%, #4684ff 25%, #4f93fe 50%, #6daffd 75%, #9bc5fd 100%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--cbt-radius-lg);
+  padding: 65px 55px;
+  color: var(--cbt-white);
+  box-shadow: 0 20px 48px rgba(55, 108, 253, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.cbt-page .cbt-cta-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 55px rgba(55, 108, 253, 0.35);
+}
+
+.cbt-page .cbt-cta-card::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cbt-page .cbt-cta-text {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.cbt-page .cbt-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ff5023;
+  background: #ffffff;
+  padding: 6px 16px;
+  border-radius: 30px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cbt-page .cbt-cta-title {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #132047;
+  margin: 0 0 16px;
+  letter-spacing: -0.4px;
+}
+
+.cbt-page .cbt-cta-subtitle {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: rgba(19, 32, 71, 0.9);
+  margin: 0;
+  font-weight: 500;
+}
+
+.cbt-page .cbt-cta-action {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.cbt-page .cbt-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--cbt-white);
+  color: #040c42;
+  font-size: 15.5px;
+  font-weight: 800;
+  padding: 16px 36px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+}
+
+.cbt-page .cbt-cta-btn:hover {
+  background: #040c42;
+  color: var(--cbt-white);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(4, 12, 66, 0.25);
+}
+
+/* ==========================================================================
+   8. Responsive Design & Media Queries
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .cbt-page .cbt-hero {
+    margin: 0 30px;
+  }
+
+  .cbt-page .cbt-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cbt-page .cbt-process-card {
+    height: 410px;
+  }
+}
+
+@media (max-width: 991px) {
+  .cbt-page .cbt-process-card {
+    height: auto !important;
+  }
+
+  .cbt-page .cbt-process-body {
+    position: static !important;
+    transform: none !important;
+    border-radius: 0 0 16px 16px !important;
+    box-shadow: none !important;
+    padding: 20px 22px 24px !important;
+  }
+
+  .cbt-page .cbt-process-info {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .cbt-page .cbt-hero {
+    margin: 0 30px;
+    padding: 80px 0 60px;
+    min-height: auto;
+  }
+
+  .cbt-page .cbt-hero h1 {
+    font-size: 52px;
+    line-height: 68px;
+  }
+
+  .cbt-page .cbt-hero-subtitle {
+    font-size: 16.5px;
+  }
+
+  .cbt-page .cbt-hero-trust {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cbt-page .cbt-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cbt-page .cbt-cap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cbt-page .cbt-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cbt-page .cbt-spec-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cbt-page .cbt-cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 45px 35px;
+  }
+
+  .cbt-page .cbt-cta-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cbt-page .cbt-hero {
+    margin: 0 15px;
+    padding: 70px 0 50px;
+    border-radius: 14px;
+    min-height: auto;
+  }
+
+  .cbt-page .cbt-hero h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .cbt-page .cbt-hero-subtitle {
+    font-size: 15px;
+  }
+
+  .cbt-page .cbt-hero-trust {
+    grid-template-columns: 1fr;
+  }
+
+  .cbt-page .cbt-section-title {
+    font-size: 28px;
+  }
+
+  .cbt-page .cbt-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cbt-page .cbt-cap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cbt-page .cbt-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cbt-page .cbt-intro-content h2 {
+    font-size: 28px;
+  }
+
+  .cbt-page .cbt-intro-card {
+    padding: 30px 22px;
+  }
+
+  .cbt-page .cbt-architecture-showcase {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .cbt-page .cbt-intro-image-box {
+    padding: 12px;
+  }
+
+  .cbt-page .cbt-cta-card {
+    padding: 36px 24px;
+  }
+
+  .cbt-page .cbt-cta-title {
+    font-size: 24px;
+  }
+
+  .cbt-page .cbt-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

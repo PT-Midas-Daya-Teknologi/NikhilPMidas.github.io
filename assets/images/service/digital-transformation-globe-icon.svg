@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 366 346" role="img" aria-labelledby="title">
+  <title id="title">Digital transformation globe and gear</title>
+  <defs>
+    <linearGradient id="digital-gradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#08ddd4" />
+      <stop offset="0.52" stop-color="#448cdd" />
+      <stop offset="1" stop-color="#9811c8" />
+    </linearGradient>
+    <clipPath id="globe-clip">
+      <circle cx="181" cy="177" r="82" />
+    </clipPath>
+  </defs>
+  <path fill="url(#digital-gradient)" d="M151 13h18v61c-47 4-85 45-85 96s38 91 85 96v78h-18v-30c-13-3-25-8-36-15l-15 15c-6 6-15 6-21 0l-29-29c-6-6-6-15 0-21l15-15c-7-11-12-23-15-36H33c-8 0-14-6-14-14v-28c0-8 6-14 14-14h18c3-13 8-25 15-36l-15-15c-6-6-6-15 0-21l29-29c6-6 15-6 21 0l15 15c11-7 23-12 36-15V28c0-8 6-15 14-15z" />
+  <g fill="none" stroke="url(#digital-gradient)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M184 100V86h116V84M278 177h38M247 222h50v34" />
+  </g>
+  <g fill="url(#digital-gradient)">
+    <circle cx="300" cy="67" r="20" />
+    <circle cx="335" cy="179" r="20" />
+    <circle cx="300" cy="273" r="20" />
+  </g>
+  <circle cx="181" cy="177" r="82" fill="url(#digital-gradient)" />
+  <g clip-path="url(#globe-clip)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7">
+    <path d="M95 143h172M95 177h172M95 211h172" />
+    <path d="M181 94c-27 22-42 50-42 83s15 61 42 83m0-166c27 22 42 50 42 83s-15 61-42 83" />
+    <path d="M121 118c17 14 37 21 60 21s43-7 60-21m-120 118c17-14 37-21 60-21s43 7 60 21" />
+  </g>
+</svg>

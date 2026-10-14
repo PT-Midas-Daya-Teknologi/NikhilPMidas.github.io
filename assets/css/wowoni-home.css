@@ -1,0 +1,907 @@
+:root {
+  --wowoni-blue: #0000ff;
+  --wowoni-navy: #000f2b;
+  --wowoni-copy: #625f5f;
+}
+
+body {
+  color: var(--wowoni-copy);
+}
+
+.main-menu .navigation > li.current > a,
+.main-menu .navigation > li:hover > a,
+.main-menu .navigation > li > ul > li > a:hover,
+.main-menu .navigation > li > .megamenu li > a:hover,
+.main-menu .navigation > li > ul > li > ul > li > a:hover,
+.header-style-four .menu-area .nav-btn:hover,
+.g_color {
+  color: var(--wowoni-blue) !important;
+}
+
+.theme-btn.btn-one,
+.theme-btn.btn-three {
+  background: linear-gradient(270deg, var(--wowoni-blue), var(--wowoni-navy));
+}
+
+.wowoni-hero .theme-btn.btn-three,
+.wowoni-hero .theme-btn.btn-three:before {
+  background: linear-gradient(90deg, var(--wowoni-navy) 0%, #427ffe 100%);
+}
+
+.theme-btn.btn-one:before,
+.theme-btn.btn-three:before {
+  background: linear-gradient(270deg, var(--wowoni-navy), var(--wowoni-blue));
+}
+
+.banner-style-four .content-box h2,
+.about-style-four .sec-title h2 {
+  color: var(--wowoni-navy);
+}
+
+.sec-title h5,
+.sec-title h5 i {
+  background: var(--wowoni-blue);
+}
+
+.service-block-one .inner-box .text {
+  background: var(--wowoni-blue);
+}
+
+.service-block-one .inner-box .overlay-content {
+  background: linear-gradient(270deg, var(--wowoni-blue), var(--wowoni-navy));
+}
+
+.wowoni-service-cards {
+  margin: 0;
+  padding: 72px 0 28px;
+  background: #fff;
+  scroll-margin-top: 24px;
+}
+
+.wowoni-service-cards .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.wowoni-service-cards .service-block {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.wowoni-service-cards .service-block:nth-child(2),
+.wowoni-service-cards .service-block:last-child {
+  padding-top: 0;
+}
+
+.wowoni-service-card {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  padding: 36px 32px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(0, 15, 43, 0.1);
+  position: relative;
+  text-align: center;
+  transition: transform 600ms cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 600ms ease;
+}
+
+.wowoni-service-card-reveal {
+  animation: none;
+  transition: opacity 1000ms ease, transform 1000ms cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 600ms ease;
+}
+
+.wowoni-service-card-reveal.is-restarting {
+  transition: none;
+}
+
+.wowoni-service-card-reveal.is-pending {
+  opacity: 0;
+  transform: translateY(26px) scale(0.975);
+}
+
+.wowoni-service-card-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: var(--wowoni-service-reveal-delay, 0ms), var(--wowoni-service-reveal-delay, 0ms), 0ms;
+}
+
+.wowoni-service-card::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  margin: 0 auto;
+  background: #427ffe;
+  content: "";
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 300ms ease;
+}
+
+.wowoni-service-card-link {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.wowoni-service-icon {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 28px;
+  object-fit: contain;
+  transition: transform 500ms cubic-bezier(0.22, 0.61, 0.36, 1), filter 500ms ease;
+}
+
+.wowoni-service-card h3 {
+  margin: 0 0 16px;
+  color: var(--wowoni-navy);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.wowoni-service-card p {
+  max-width: 370px;
+  margin: 0 auto;
+  color: #1e1e1e;
+  font-size: 16px;
+  line-height: 25.6px;
+  text-align: center;
+}
+
+.wowoni-service-cards .wowoni-service-card-link:hover .wowoni-service-icon,
+.wowoni-service-cards .wowoni-service-card:focus-within .wowoni-service-icon {
+  filter: drop-shadow(0 4px 7px rgba(0, 0, 255, 0.16));
+  transform: translateY(-4px) scale(1.14);
+}
+
+.wowoni-service-cards .wowoni-service-card:hover,
+.wowoni-service-cards .wowoni-service-card:focus-within {
+  transform: translateY(-10px) scale(1.02) !important;
+  box-shadow: 0 22px 44px rgba(0, 15, 43, 0.18);
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wowoni-service-cards .wowoni-service-card:hover::after,
+.wowoni-service-cards .wowoni-service-card:focus-within::after {
+  transform: translateY(-3px) scaleX(1);
+}
+
+.wowoni-service-cards .wowoni-service-card-link:hover h3,
+.wowoni-service-cards .wowoni-service-card:focus-within h3 {
+  color: #427ffe;
+  transform: translateY(-3px);
+}
+
+.wowoni-service-cards .wowoni-service-icon {
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1), filter 600ms ease;
+}
+
+.wowoni-service-cards .wowoni-service-card h3 {
+  transition: color 300ms ease, transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wowoni-service-card-link:focus-visible {
+  outline: 2px solid var(--wowoni-blue);
+  outline-offset: 6px;
+}
+
+.wowoni-services-action {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0 0;
+}
+
+.wowoni-services-action a {
+  display: inline-flex;
+  width: 260px;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #427ffe;
+  border-radius: 50px;
+  background: #fff;
+  color: #427ffe;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.wowoni-services-action a:hover {
+  border-color: #427ffe;
+  background: #427ffe;
+  color: #fff;
+}
+
+.wowoni-services-action a:focus-visible {
+  outline: 2px solid #427ffe;
+  outline-offset: 4px;
+}
+
+.wowoni-service-page-banner {
+  padding: 150px 0 80px;
+  background: linear-gradient(135deg, rgba(0, 15, 43, 0.96), rgba(0, 0, 255, 0.72)), url("../images/banner/hero-homepage-wowoni.webp") center/cover no-repeat;
+  color: #fff;
+}
+
+.wowoni-service-breadcrumbs {
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wowoni-service-breadcrumbs a,
+.wowoni-service-breadcrumbs span {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wowoni-service-banner-copy {
+  max-width: 760px;
+}
+
+.wowoni-service-banner-copy h1 {
+  margin: 0 0 18px;
+  color: #fff;
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.wowoni-service-banner-copy p {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.wowoni-service-overview {
+  padding: 88px 0 26px;
+  background: #f4f7ff;
+}
+
+.wowoni-service-copy {
+  max-width: 620px;
+}
+
+.wowoni-kicker {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--wowoni-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.wowoni-service-copy h2 {
+  margin: 0 0 18px;
+  color: var(--wowoni-navy);
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.2;
+}
+
+.wowoni-service-copy p {
+  color: var(--wowoni-copy);
+  font-size: 1.02rem;
+  line-height: 1.9;
+}
+
+.wowoni-service-list {
+  margin: 20px 0 0;
+  padding-left: 18px;
+  color: var(--wowoni-navy);
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.wowoni-service-figure {
+  display: block;
+  padding: 12px 0 0;
+}
+
+.wowoni-service-figure img {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  margin-left: auto;
+  border-radius: 26px;
+  box-shadow: 0 12px 30px rgba(0, 15, 43, 0.14);
+}
+
+.wowoni-service-grid {
+  padding: 48px 0 90px;
+  background: #fff;
+}
+
+.wowoni-service-card-wrap {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.wowoni-service-card {
+  min-height: 100%;
+}
+
+.wowoni-service-card h3 {
+  font-size: 1.35rem;
+}
+
+@media (max-width: 991px) {
+  .wowoni-service-page-banner {
+    padding-top: 120px;
+  }
+
+  .wowoni-service-overview {
+    padding-top: 68px;
+  }
+
+  .wowoni-service-figure {
+    margin-top: 26px;
+  }
+
+  .wowoni-service-figure img {
+    margin-left: 0;
+  }
+}
+
+.wowoni-home-partners {
+  padding: 48px 0 72px;
+  background: #fff;
+}
+
+.wowoni-home-partners h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 48px 0 28px;
+  color: #427ffe;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.wowoni-home-partners h2 i {
+  color: #427ffe;
+  font-size: 15px;
+}
+
+.wowoni-home-partners h2 .wowoni-partners-title-label {
+  color: #427ffe;
+}
+
+.wowoni-partner-carousel {
+  width: 100%;
+}
+
+.wowoni-partner-stage {
+  position: relative;
+  display: grid;
+  width: 100%;
+  height: 100px;
+  place-items: center;
+  overflow: hidden;
+}
+
+.wowoni-partner-stage img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: min(216px, 72vw);
+  height: 75px;
+  margin: auto;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateX(12px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  pointer-events: none;
+}
+
+.wowoni-partner-stage img.is-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.wowoni-partner-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 16px;
+  margin-top: 10px;
+}
+
+.wowoni-partner-dots button {
+  display: block;
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #d6d6d6;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.wowoni-partner-dots button.is-active {
+  background: #111;
+}
+
+.wowoni-partner-dots button:hover {
+  transform: scale(1.2);
+}
+
+.wowoni-partner-dots button:focus-visible {
+  outline: 2px solid var(--wowoni-blue);
+  outline-offset: 3px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .wowoni-service-cards .service-block {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .wowoni-service-cards .service-block:last-child {
+    margin-left: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  .wowoni-service-cards {
+    padding: 72px 0 28px;
+  }
+
+  .wowoni-service-card {
+    padding: 32px 24px;
+  }
+
+  .wowoni-service-icon {
+    margin-bottom: 24px;
+  }
+
+  .wowoni-home-partners {
+    padding: 36px 0 52px;
+  }
+
+  .wowoni-home-partners h2,
+  .wowoni-home-partners h2 i {
+    font-size: 14px;
+  }
+
+  .wowoni-partner-stage {
+    height: 100px;
+  }
+
+  .wowoni-partner-stage img {
+    width: min(216px, 72vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wowoni-service-card,
+  .wowoni-service-icon,
+  .wowoni-service-card h3,
+  .wowoni-partner-stage img,
+  .wowoni-partner-dots button {
+    transition: none;
+  }
+
+  .wowoni-service-card-reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    visibility: visible !important;
+  }
+
+  .wowoni-service-card:hover {
+    transform: none !important;
+  }
+
+  .wowoni-service-card-link:hover .wowoni-service-icon,
+  .wowoni-service-card-link:hover h3 {
+    transform: none;
+  }
+
+  .wowoni-service-card:hover .wowoni-service-icon,
+  .wowoni-service-card:focus-within .wowoni-service-icon {
+    filter: none;
+  }
+
+}
+
+.main-footer.style-three.wowoni-home-footer {
+  background-color: var(--wowoni-navy);
+}
+
+.main-footer .social-links li a:hover,
+.main-footer .links-widget .links-list li a:hover {
+  color: var(--wowoni-blue);
+}
+
+.wowoni-home-footer .links-widget {
+  margin-left: 0;
+}
+
+.wowoni-home-footer > .auto-container {
+  width: 100%;
+  max-width: none;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.main-footer.style-three.wowoni-home-footer .widget-section {
+  padding: 75px 0 0;
+}
+
+.wowoni-home-footer .wowoni-footer-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 22px;
+}
+
+.wowoni-home-footer .wowoni-footer-brand {
+  max-width: 480px;
+}
+
+.wowoni-home-footer .wowoni-footer-brand .footer-logo {
+  margin-bottom: 0;
+}
+
+.wowoni-home-footer .wowoni-footer-brand .footer-logo img {
+  display: block;
+  width: 240px;
+  max-width: 100%;
+  height: auto;
+}
+
+.wowoni-home-footer .wowoni-footer-social {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.wowoni-home-footer .wowoni-footer-social li {
+  display: block;
+  float: none;
+}
+
+.wowoni-home-footer .wowoni-footer-social li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  line-height: 1;
+  font-size: 26px;
+}
+
+.wowoni-home-footer .wowoni-footer-divider {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 73px;
+  background: linear-gradient(90deg, #ff9360 0 24px, rgba(80, 157, 255, 0.8) 24px 100%);
+}
+
+.wowoni-home-footer .about-widget .wowoni-footer-info li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: start;
+  min-height: 40px;
+  margin-bottom: 12px;
+  padding-left: 0;
+  font-size: 15px;
+  line-height: 24px;
+  overflow-wrap: break-word;
+}
+
+.wowoni-home-footer .about-widget .wowoni-footer-info li i {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  color: #6b7788;
+  background: #f1f3f5;
+}
+
+.wowoni-home-footer .about-widget .wowoni-footer-info li:nth-child(2),
+.wowoni-home-footer .about-widget .wowoni-footer-info li:nth-child(3) {
+  align-items: center;
+}
+
+.wowoni-home-footer .about-widget .wowoni-footer-info li:nth-child(2) i,
+.wowoni-home-footer .about-widget .wowoni-footer-info li:nth-child(3) i {
+  color: #6b7788;
+  background-color: #f1f3f5;
+}
+
+.wowoni-home-footer .about-widget .wowoni-footer-info li:last-child i {
+  top: 0;
+  margin-bottom: 0;
+  color: #6b7788;
+  background-color: #f1f3f5;
+}
+
+.wowoni-home-footer .about-widget .wowoni-footer-info li i.icon-19,
+.wowoni-home-footer .about-widget .wowoni-footer-info li i.icon-2 {
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.wowoni-home-footer .about-widget .wowoni-footer-info li i.icon-23:hover,
+.wowoni-home-footer .about-widget .wowoni-footer-info li i.icon-19:hover,
+.wowoni-home-footer .about-widget .wowoni-footer-info li i.icon-2:hover {
+  color: #fff;
+  background-color: var(--wowoni-blue);
+}
+
+.wowoni-home-footer .about-widget .wowoni-footer-info li:last-child {
+  margin-bottom: 0;
+}
+
+.wowoni-home-footer .about-widget .wowoni-footer-info li a {
+  color: #fff;
+}
+
+.wowoni-home-footer .about-widget .wowoni-footer-info li a:hover {
+  text-decoration: underline;
+}
+
+.wowoni-home-footer .wowoni-footer-details {
+  padding-bottom: 17px;
+}
+
+.wowoni-home-footer .links-widget .widget-title {
+  margin-bottom: 17px;
+}
+
+.wowoni-home-footer .links-widget .links-list li {
+  margin-bottom: 0;
+  line-height: 24px;
+}
+
+.wowoni-home-footer .links-widget .links-list li a {
+  line-height: 24px;
+}
+
+.wowoni-home-footer .links-widget .links-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+}
+
+.wowoni-home-footer .footer-bottom p {
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
+.wowoni-home-footer .footer-bottom {
+  padding-bottom: 26px;
+}
+
+@media (min-width: 768px) {
+  .wowoni-home-footer .wowoni-footer-details {
+    display: grid;
+    grid-template-columns: 55% 40%;
+    column-gap: 5%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .wowoni-home-footer .wowoni-footer-details > .footer-column {
+    width: 100%;
+    max-width: none;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .wowoni-home-footer .wowoni-footer-info {
+    max-width: 420px;
+  }
+
+  .wowoni-home-footer .links-widget {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wowoni-home-footer .wowoni-footer-brand-row {
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 24px;
+  }
+
+  .wowoni-home-footer .wowoni-footer-brand {
+    max-width: calc(100% - 60px);
+  }
+
+  .wowoni-home-footer .wowoni-footer-divider {
+    margin-bottom: 28px;
+  }
+
+  .wowoni-home-footer .wowoni-footer-details {
+    padding-bottom: 0;
+  }
+}
+
+.main-header.header-style-four {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 18px;
+  z-index: 1000;
+}
+
+.main-header.header-style-four .sticky-header {
+  display: none;
+}
+
+.header-style-four .header-lower .auto-container {
+  padding-right: 18px;
+  padding-left: 18px;
+}
+
+.header-style-four .header-lower .outer-box {
+  min-height: 76px;
+  padding: 0 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 32px rgba(0, 15, 43, 0.12);
+}
+
+.header-style-four .main-menu .navigation > li {
+  margin: 0 3px;
+}
+
+.header-style-four .main-menu .navigation > li > a {
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.header-style-four .main-menu .navigation > li.current > a,
+.header-style-four .main-menu .navigation > li.current:hover > a {
+  color: #fff !important;
+  background: var(--wowoni-blue);
+}
+
+.header-style-four .main-menu .navigation > li.current > a:after {
+  display: none;
+}
+
+.header-style-four .sticky-header {
+  top: 12px;
+  left: 50%;
+  width: calc(100% - 36px);
+  max-width: 1320px;
+  transform: translateX(-50%);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 32px rgba(0, 15, 43, 0.12);
+}
+
+.header-style-four .sticky-header .outer-box {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+@media (max-width: 767px) {
+  .header-style-four .header-lower .auto-container {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .header-style-four .header-lower .outer-box {
+    min-height: 68px;
+    padding-right: 16px;
+    padding-left: 16px;
+    border-radius: 10px;
+  }
+}
+
+.wowoni-hero {
+  display: flex;
+  align-items: center;
+  min-height: 700px;
+  min-height: max(700px, 100svh);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 160px 0 88px;
+  overflow: hidden;
+  background-image: linear-gradient(90deg, rgba(0, 15, 43, 0.22) 0%, rgba(0, 15, 43, 0.1) 54%, rgba(0, 15, 43, 0) 100%), url("../images/banner/hero-homepage-wowoni.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.wowoni-hero .auto-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.wowoni-hero .content-box {
+  max-width: 720px;
+}
+
+.wowoni-hero .content-box h2,
+.wowoni-hero .content-box p {
+  color: #fff;
+  text-shadow: 0 2px 14px rgba(0, 15, 43, 0.28);
+}
+
+ .wowoni-hero .content-box h2 {
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.wowoni-hero .content-box p {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+@media (max-width: 1199px) {
+  .wowoni-hero .content-box h2 {
+    font-size: 38px;
+  }
+
+  .wowoni-hero .content-box p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wowoni-hero {
+    min-height: 700px;
+    min-height: max(700px, 100svh);
+    margin-top: 0;
+    padding: 136px 0 72px;
+    background-position: 42% center;
+  }
+
+  .wowoni-hero .content-box {
+    max-width: 100%;
+  }
+
+  .wowoni-hero .content-box h2 {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .wowoni-hero .content-box p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
