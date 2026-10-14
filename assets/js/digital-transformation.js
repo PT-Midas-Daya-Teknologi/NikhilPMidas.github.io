@@ -11,10 +11,10 @@
     }
 
     revealItems.forEach(function(item, index) {
-        var benefitIndex = item.classList.contains("wowoni-dt-benefit")
+        var benefitIndex = item.classList.contains("dt-benefit")
             ? Array.prototype.indexOf.call(item.parentNode.children, item)
             : 0;
-        var delay = item.classList.contains("wowoni-dt-benefit") ? benefitIndex * 70 : 0;
+        var delay = item.classList.contains("dt-benefit") ? benefitIndex * 70 : 0;
         item.style.setProperty("--dt-reveal-delay", delay + "ms");
     });
 

@@ -20,7 +20,7 @@
 		if (!sharedCss) {
 			sharedCss = document.createElement("link");
 			sharedCss.rel = "stylesheet";
-			sharedCss.href = new URL("assets/css/wowoni-shared.css", siteRoot).href;
+			sharedCss.href = new URL("assets/css/main.css", siteRoot).href;
 			sharedCss.setAttribute("data-wowoni-shared-css", "");
 			document.head.appendChild(sharedCss);
 		}
@@ -35,16 +35,16 @@
 		});
 
 		var routes = {
-			home: "index-4.html",
+			home: "index.html",
 			services: "services/service.html",
 			about: "about/about.html",
 			career: "career/career.html",
 			"open-positions": "career/open-positions.html",
 			contact: "contact/contact.html",
-			"core-banking-transformation": "https://www.wowonii.com/core-banking-transformation/",
+			"core-banking-transformation": "services/core-banking-transformation.html",
 			"digital-transformation": "services/digital-transformation.html",
-			"application-development": "https://www.wowonii.com/application-development/",
-			"application-infrastructure-management": "contact/contact.html?service=application-infrastructure-management",
+			"application-development": "services/application-development.html",
+			"application-infrastructure-management": "services/application-and-infrastructure-management.html",
 			"elite-it-resources": "services/elite-it-resources.html",
 			"testing-services": "services/testing-services.html"
 		};
@@ -62,7 +62,7 @@
 			: pageName.indexOf("about") === 0 ? "about"
 			: pageName.indexOf("service") === 0 || pageName === "services" ? "services"
 			: pageName.indexOf("index") === 0 || pageName === "" ? "home" : "";
-		document.body.classList.toggle("wowoni-home-page", currentRoute === "home");
+		document.body.classList.toggle("home-page", currentRoute === "home");
 
 		function prepareFragment(fragment) {
 			Array.prototype.forEach.call(fragment.querySelectorAll("[data-wowoni-route]"), function(link) {
@@ -99,7 +99,13 @@
 
 		var componentsReady = Promise.all(slots.map(function(slot) {
 			var component = slot.getAttribute("data-wowoni-include");
-			return fetch(new URL("inc/" + component + ".html", siteRoot).href)
+			return fetch(new URL("component/" + component + ".html", siteRoot).href)
+				.then(function(response) {
+					if (!response.ok) {
+						return fetch(new URL("inc/" + component + ".html", siteRoot).href);
+					}
+					return response;
+				})
 				.then(function(response) {
 					if (!response.ok) {
 						throw new Error("Unable to load shared component: " + component);
@@ -111,9 +117,9 @@
 					template.innerHTML = markup;
 					prepareFragment(template.content);
 					if (component === "header") {
-						slot.classList.add("wowoni-shared-header-slot");
+						slot.classList.add("shared-header-slot");
 						if (currentRoute === "home") {
-							slot.classList.add("wowoni-home-header-slot");
+							slot.classList.add("home-header-slot");
 						}
 					}
 					slot.replaceChildren(template.content);
@@ -121,11 +127,11 @@
 		}));
 
 		return Promise.all([componentsReady, cssReady]).then(function() {
-			var mainMenu = document.querySelector(".wowoni-shared-header .main-menu");
+			var mainMenu = document.querySelector(".shared-header .main-menu");
 			if (mainMenu) {
 				var menuMarkup = mainMenu.innerHTML;
 				var mobileMenu = document.querySelector(".mobile-menu .menu-outer");
-				var stickyMenu = document.querySelector(".wowoni-shared-header .sticky-header .main-menu");
+				var stickyMenu = document.querySelector(".shared-header .sticky-header .main-menu");
 				if (mobileMenu) {
 					mobileMenu.innerHTML = menuMarkup;
 				}
@@ -257,9 +263,9 @@
 	}
 
 	// Elements Animation
-	if ($('.wowoni-service-card-reveal').length) {
+	if ($('.service-card-reveal').length) {
 		var wowoniServiceCardAnimation = new WOW({
-			boxClass: 'wowoni-service-card-reveal',
+			boxClass: 'service-card-reveal',
 			mobile: true,
 			live: false
 		});

@@ -1,7 +1,7 @@
 (function() {
     "use strict";
 
-    var cards = Array.prototype.slice.call(document.querySelectorAll(".wowoni-service-cards .wowoni-service-card-reveal"));
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".service-cards .service-card-reveal"));
     if (!cards.length) {
         return;
     }
@@ -40,7 +40,7 @@
         observer.observe(card);
     });
 
-    var discoverMore = document.querySelector('.wowoni-hero .theme-btn.btn-three[href="#services"]');
+    var discoverMore = document.querySelector('.hero .theme-btn.btn-three[href="#services"]');
     if (discoverMore) {
         discoverMore.addEventListener("click", function() {
             if (motionPreference.matches) {
