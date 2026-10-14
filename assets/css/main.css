@@ -26990,7 +26990,7 @@ Image Hover
 
 /* ===== Consolidated from style.css ===== */
  
-/* Css For BitFix */
+/* Core Corporate Application Styles */
 
 /************ TABLE OF CONTENTS ***************
 1. Fonts
@@ -41816,16 +41816,16 @@ body.home-page {
   }
 }
 
+.banner-style-four.hero,
 .hero {
   position: relative;
   isolation: isolate;
   display: flex;
   align-items: center;
-  min-height: 700px;
-  min-height: max(700px, 100svh);
+  min-height: 520px;
   margin-top: 0;
   margin-bottom: 0;
-  padding: 160px 0 88px;
+  padding: 80px 0;
   overflow: hidden;
   background-color: #f5f7fb;
   background-image: none;
@@ -41834,15 +41834,15 @@ body.home-page {
 .hero::before {
   content: "";
   position: absolute;
-  top: 24px;
-  bottom: 44px;
+  top: 16px;
+  bottom: 16px;
   left: 50%;
   width: calc(100% - 48px);
   max-width: 1240px;
   z-index: -1;
   transform: translateX(-50%);
-  border-radius: 22px;
-  background-image: linear-gradient(90deg, rgba(0, 15, 43, 0.22) 0%, rgba(0, 15, 43, 0.1) 54%, rgba(0, 15, 43, 0) 100%), url("../images/banner/hero-homepage-wowoni.webp");
+  border-radius: 20px;
+  background-image: linear-gradient(90deg, rgba(0, 15, 43, 0.28) 0%, rgba(0, 15, 43, 0.12) 54%, rgba(0, 15, 43, 0) 100%), url("../images/banner/hero-homepage-wowoni.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -41866,43 +41866,51 @@ body.home-page {
 }
 
 .hero .content-box h2 {
-  font-size: 42px;
-  line-height: 1.2;
+  font-size: 40px;
+  line-height: 1.25;
+  margin-bottom: 20px;
 }
 
 .hero .content-box p {
-  font-size: 20px;
-  line-height: 1.4;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 28px;
 }
 
 .hero .theme-btn.btn-three {
-  padding: 20px 46px;
-  font-size: 16px;
+  padding: 16px 38px;
+  font-size: 15px;
   line-height: 18px;
 }
 
 @media (max-width: 1199px) {
+  .banner-style-four.hero,
+  .hero {
+    min-height: 480px;
+    padding: 70px 0;
+  }
+
   .hero .content-box h2 {
-    font-size: 38px;
+    font-size: 36px;
   }
 
   .hero .content-box p {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 
 @media (max-width: 767px) {
+  .banner-style-four.hero,
   .hero {
-    min-height: 700px;
-    min-height: max(700px, 100svh);
+    min-height: auto;
     margin-top: 0;
-    padding: 136px 0 72px;
+    padding: 56px 0 60px;
   }
 
   .hero::before {
-    top: 14px;
-    bottom: 24px;
-    width: calc(100% - 32px);
+    top: 10px;
+    bottom: 10px;
+    width: calc(100% - 24px);
     border-radius: 16px;
     background-position: 42% center;
   }
@@ -41912,13 +41920,20 @@ body.home-page {
   }
 
   .hero .content-box h2 {
-    font-size: 32px;
+    font-size: 28px;
     line-height: 1.25;
+    margin-bottom: 16px;
   }
 
   .hero .content-box p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .hero .theme-btn.btn-three {
+    padding: 14px 30px;
+    font-size: 14px;
   }
 }
 
