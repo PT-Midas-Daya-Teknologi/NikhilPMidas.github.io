@@ -13,8 +13,17 @@
 <!-- Fav Icon -->
 <link rel="icon" href="assets/images/wowoni-logo.webp" type="image/webp">
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<!-- Google Fonts Preconnect & Async Load -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap">
+</noscript>
+
+<!-- Preload LCP Hero Banner Image -->
+<link rel="preload" as="image" href="assets/images/banner/hero-homepage-wowoni.webp" type="image/webp" fetchpriority="high">
 
 <!-- Stylesheets -->
 <link href="assets/css/main.css" rel="stylesheet">
@@ -66,7 +75,7 @@
         <div id="search-popup" class="search-popup">
             <div class="popup-inner">
                 <div class="upper-box clearfix">
-                    <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/wowoni-logo.webp" alt="Wowoni Private Limited"></a></figure>
+                    <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/wowoni-logo.webp" alt="Wowoni Private Limited" width="180" height="68"></a></figure>
                     <div class="close-search pull-right"><span class="far fa-times"></span></div>
                 </div>
                 <div class="overlay-layer"></div>
@@ -102,7 +111,7 @@
                         <div class="sidebar-info-contents">
                             <div class="content-inner">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/images/wowoni-logo.webp" alt="Wowoni Private Limited" /></a>
+                                    <a href="index.html"><img src="assets/images/wowoni-logo.webp" alt="Wowoni Private Limited" width="180" height="68" /></a>
                                 </div>
                                 <div class="content-box">
                                     <h4>About Us</h4>
@@ -128,7 +137,7 @@
         <!-- END sidebar widget item -->
 
 
-        <div data-wowoni-include="header"></div>
+        <div class="shared-header-slot home-header-slot" data-wowoni-include="header"></div>
 
         <div data-wowoni-include="mobile-menu"></div>
 
@@ -243,24 +252,16 @@
     </div>
 
 
-    <!-- jequery plugins -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/wow.js"></script>
-    <script src="assets/js/validation.js"></script>
-    <script src="assets/js/jquery.fancybox.js"></script>
-    <script src="assets/js/appear.js"></script>
-    <script src="assets/js/parallax-scroll.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script> 
-    <script src="assets/js/data-animation.js"></script>
-    <script src="assets/js/bxslider.js"></script>
-    <script src="assets/js/jquery.countTo.js"></script>
-    <script src="assets/js/nav-tool.js"></script>
+    <!-- Vendor scripts -->
+    <script defer src="assets/js/jquery.js"></script>
+    <script defer src="assets/js/popper.min.js"></script>
+    <script defer src="assets/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/wow.js"></script>
+    <script defer src="assets/js/appear.js"></script>
+    <script defer src="assets/js/nav-tool.js"></script>
 
-    <!-- main-js -->
-    <script src="assets/js/main.js"></script>
+    <!-- Main scripts -->
+    <script defer src="assets/js/main.js"></script>
 
 </body><!-- End of .page_wrapper -->
 </html>
