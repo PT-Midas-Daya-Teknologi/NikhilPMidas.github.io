@@ -22,7 +22,7 @@
     <link href="assets/css/main.css" rel="stylesheet">
     <style>
         .aim-page .cbt-hero {
-            background: url('assets/images/service/aim-strategy-presentation.jpg') no-repeat center center / cover !important;
+            background: url('assets/images/service/aim-strategy-presentation.webp') no-repeat center center / cover !important;
         }
         .aim-page .cbt-hero::before {
             content: "" !important;
@@ -149,11 +149,11 @@
                         </ul>
                     </div>
 
-                    <!-- Right: Visual Card with User Image (aim-team-operations.jpg) -->
+                    <!-- Right: Visual Card with User Image (aim-team-operations.webp) -->
                     <div class="cbt-intro-visual wow fadeInUp animated" data-wow-delay="200ms"
                         data-wow-duration="1200ms">
                         <div class="cbt-intro-image-box">
-                            <img src="assets/images/service/aim-team-operations.jpg"
+                            <img src="assets/images/service/aim-team-operations.webp"
                                 alt="Application and Infrastructure Management Operations Team"
                                 class="cbt-intro-diagram-img">
                         </div>
@@ -184,7 +184,7 @@
                     <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="00ms"
                         data-wow-duration="1200ms">
                         <div class="cbt-process-image-wrap">
-                            <img src="assets/images/service/cbt-approach-01.jpg" alt="Service Design &amp; Architecture"
+                            <img src="assets/images/service/cbt-approach-01.webp" alt="Service Design &amp; Architecture"
                                 class="cbt-process-img">
                             <span class="cbt-process-badge">01</span>
                         </div>
@@ -206,7 +206,7 @@
                     <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="100ms"
                         data-wow-duration="1200ms">
                         <div class="cbt-process-image-wrap">
-                            <img src="assets/images/service/cbt-approach-02.jpg"
+                            <img src="assets/images/service/cbt-approach-02.webp"
                                 alt="Production Tuning &amp; Optimization" class="cbt-process-img">
                             <span class="cbt-process-badge">02</span>
                         </div>
@@ -229,7 +229,7 @@
                     <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="200ms"
                         data-wow-duration="1200ms">
                         <div class="cbt-process-image-wrap">
-                            <img src="assets/images/service/cbt-approach-03.jpg"
+                            <img src="assets/images/service/cbt-approach-03.webp"
                                 alt="24/7 Monitoring &amp; Incident Control" class="cbt-process-img">
                             <span class="cbt-process-badge">03</span>
                         </div>
@@ -251,7 +251,7 @@
                     <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="300ms"
                         data-wow-duration="1200ms">
                         <div class="cbt-process-image-wrap">
-                            <img src="assets/images/service/cbt-approach-04.jpg"
+                            <img src="assets/images/service/cbt-approach-04.webp"
                                 alt="Governance &amp; Continual Improvement" class="cbt-process-img">
                             <span class="cbt-process-badge">04</span>
                         </div>
@@ -471,7 +471,7 @@
             <div class="auto-container">
                 <div class="cbt-architecture-showcase wow fadeInUp animated" data-wow-delay="00ms"
                     data-wow-duration="1200ms">
-                    <img src="assets/images/service/aim-executive-analytics.jpg"
+                    <img src="assets/images/service/aim-executive-analytics.webp"
                         alt="Application and Infrastructure Management Executive Analytics and SLA Performance Dashboard"
                         class="cbt-architecture-img">
                 </div>
@@ -622,32 +622,7 @@
     <script src="assets/js/isotope.js"></script>
 
     <!-- main-js -->
-    <script src="assets/js/script.js"></script>
-
-    <!-- Platform Mastery Interactive Accordion Script -->
-    <script>
-        (function ($) {
-            $(document).ready(function () {
-                $('.cbt-pm-card .cbt-pm-header').on('click', function (e) {
-                    e.preventDefault();
-                    var $card = $(this).closest('.cbt-pm-card');
-                    var $body = $card.find('.cbt-pm-body');
-                    var $btn = $card.find('.cbt-pm-toggle-btn');
-                    var $icon = $btn.find('i');
-
-                    if ($card.hasClass('active')) {
-                        $body.slideUp(300);
-                        $card.removeClass('active');
-                        $icon.removeClass('fa-minus').addClass('fa-plus');
-                    } else {
-                        $body.slideDown(300);
-                        $card.addClass('active');
-                        $icon.removeClass('fa-plus').addClass('fa-minus');
-                    }
-                });
-            });
-        })(jQuery);
-    </script>
+    <script src="assets/js/main.js"></script>
 
 </body><!-- End of .page_wrapper -->
 

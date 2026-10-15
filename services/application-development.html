@@ -22,7 +22,7 @@
     <link href="assets/css/main.css" rel="stylesheet">
     <style>
         .app-dev-page .cbt-hero {
-            background: url('assets/images/banner/application-development-hero-bg.png') no-repeat center center / cover !important;
+            background: url('assets/images/banner/application-development-hero-bg.webp') no-repeat center center / cover !important;
         }
         .app-dev-page .cbt-hero::before {
             content: "" !important;
@@ -144,7 +144,7 @@
                     <div class="cbt-intro-visual wow fadeInUp animated" data-wow-delay="200ms"
                         data-wow-duration="1200ms">
                         <div class="cbt-intro-image-box">
-                            <img src="assets/images/service/application-development-framework-original.png"
+                            <img src="assets/images/service/application-development-framework-original.webp"
                                 alt="Application Development Agile Architecture and User Flow Blueprint"
                                 class="cbt-intro-diagram-img">
                         </div>
@@ -173,7 +173,7 @@
                     <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="00ms"
                         data-wow-duration="1200ms">
                         <div class="cbt-process-image-wrap">
-                            <img src="assets/images/service/cbt-approach-01.jpg"
+                            <img src="assets/images/service/cbt-approach-01.webp"
                                 alt="Discovery &amp; Architecture Blueprint" class="cbt-process-img">
                             <span class="cbt-process-badge">01</span>
                         </div>
@@ -195,7 +195,7 @@
                     <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="100ms"
                         data-wow-duration="1200ms">
                         <div class="cbt-process-image-wrap">
-                            <img src="assets/images/service/cbt-approach-02.jpg"
+                            <img src="assets/images/service/cbt-approach-02.webp"
                                 alt="UX/UI Design &amp; Rapid Prototyping" class="cbt-process-img">
                             <span class="cbt-process-badge">02</span>
                         </div>
@@ -217,7 +217,7 @@
                     <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="200ms"
                         data-wow-duration="1200ms">
                         <div class="cbt-process-image-wrap">
-                            <img src="assets/images/service/cbt-approach-03.jpg"
+                            <img src="assets/images/service/cbt-approach-03.webp"
                                 alt="Agile Engineering &amp; DevOps Automation" class="cbt-process-img">
                             <span class="cbt-process-badge">03</span>
                         </div>
@@ -239,7 +239,7 @@
                     <div class="cbt-process-card wow fadeInUp animated" data-wow-delay="300ms"
                         data-wow-duration="1200ms">
                         <div class="cbt-process-image-wrap">
-                            <img src="assets/images/service/cbt-approach-04.jpg"
+                            <img src="assets/images/service/cbt-approach-04.webp"
                                 alt="Quality Assurance &amp; Cloud Deployment" class="cbt-process-img">
                             <span class="cbt-process-badge">04</span>
                         </div>
@@ -430,7 +430,7 @@
         <section class="cbt-architecture-section">
             <div class="auto-container">
                 <div class="cbt-architecture-showcase wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1200ms">
-                    <img src="assets/images/service/agile-development-team.jpg"
+                    <img src="assets/images/service/agile-development-team.webp"
                         alt="Agile Application Development Sprint Planning and Team Collaboration"
                         class="cbt-architecture-img">
                 </div>
@@ -576,32 +576,7 @@
     <script src="assets/js/isotope.js"></script>
 
     <!-- main-js -->
-    <script src="assets/js/script.js"></script>
-
-    <!-- Technology Mastery Interactive Accordion Script -->
-    <script>
-        (function ($) {
-            $(document).ready(function () {
-                $('.cbt-pm-card .cbt-pm-header').on('click', function (e) {
-                    e.preventDefault();
-                    var $card = $(this).closest('.cbt-pm-card');
-                    var $body = $card.find('.cbt-pm-body');
-                    var $btn = $card.find('.cbt-pm-toggle-btn');
-                    var $icon = $btn.find('i');
-
-                    if ($card.hasClass('active')) {
-                        $body.slideUp(300);
-                        $card.removeClass('active');
-                        $icon.removeClass('fa-minus').addClass('fa-plus');
-                    } else {
-                        $body.slideDown(300);
-                        $card.addClass('active');
-                        $icon.removeClass('fa-plus').addClass('fa-minus');
-                    }
-                });
-            });
-        })(jQuery);
-    </script>
+    <script src="assets/js/main.js"></script>
 
 </body><!-- End of .page_wrapper -->
 

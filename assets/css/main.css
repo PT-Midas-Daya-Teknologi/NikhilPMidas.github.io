@@ -34362,7 +34362,7 @@ div#mCSB_1_container{
   width:20%;
   transform: scaleX(0);
   transform-origin: left center;
-  cursor:url(../images/icons/cross-out.png),
+  cursor:url(../images/icons/cross-out.webp),
   pointer; 
   z-index: 9999999;
   border-right: 1px solid rgba(255, 255, 255, 0.10);
@@ -45377,7 +45377,7 @@ body.open-positions-page {
   position: relative;
   margin: 0 150px;
   border-radius: 20px;
-  background: url('../images/background/contact-hero-banner.jpg') no-repeat center center / cover !important;
+  background: url('../images/background/contact-hero-banner.webp') no-repeat center center / cover !important;
   min-height: 568px;
   padding: 87px 0;
   display: flex;
@@ -46796,7 +46796,7 @@ body.open-positions-page {
   position: relative;
   margin: 0 100px;
   border-radius: 20px;
-  background: url('../images/background/about-hero-banner.jpg') no-repeat center center / cover;
+  background: url('../images/background/about-hero-banner.webp') no-repeat center center / cover;
   min-height: 568px;
   padding: 87px 0;
   display: flex;
@@ -49180,7 +49180,7 @@ body.open-positions-page {
   padding: 87px 0;
   display: flex;
   align-items: center;
-  background: url('../images/banner/application-development-hero-bg.png') no-repeat center center / cover;
+  background: url('../images/banner/application-development-hero-bg.webp') no-repeat center center / cover;
   color: var(--cbt-white);
   overflow: hidden;
   font-family: 'Ubuntu', sans-serif;
@@ -50621,7 +50621,7 @@ body.open-positions-page {
   padding: 87px 0;
   display: flex;
   align-items: center;
-  background: url('../images/service/aim-strategy-presentation.jpg') no-repeat center center / cover;
+  background: url('../images/service/aim-strategy-presentation.webp') no-repeat center center / cover;
   color: var(--cbt-white);
   overflow: hidden;
   font-family: 'Ubuntu', sans-serif;
@@ -52009,3 +52009,5 @@ body.open-positions-page {
   }
 }
 
+
+/*# sourceMappingURL=main.css.map */
