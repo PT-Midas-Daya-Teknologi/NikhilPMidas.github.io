@@ -41259,7 +41259,7 @@ body.home-page {
 
 .service-cards {
   margin: 0;
-  padding: 72px 0 28px;
+  padding: 96px 0 48px;
   background: #fff;
   scroll-margin-top: 24px;
 }
@@ -41570,7 +41570,7 @@ body.home-page {
 }
 
 .home-partners {
-  padding: 48px 0 72px;
+  padding: 48px 0 96px;
   background: #fff;
 }
 
@@ -41667,6 +41667,10 @@ body.home-page {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .service-cards {
+    padding: 72px 0 36px;
+  }
+
   .service-cards .service-block {
     flex: 0 0 50%;
     max-width: 50%;
@@ -41675,11 +41679,15 @@ body.home-page {
   .service-cards .service-block:last-child {
     margin-left: 25%;
   }
+
+  .home-partners {
+    padding: 36px 0 72px;
+  }
 }
 
 @media (max-width: 767px) {
   .service-cards {
-    padding: 72px 0 28px;
+    padding: 52px 0 28px;
   }
 
   .service-card {
@@ -41822,27 +41830,29 @@ body.home-page {
   isolation: isolate;
   display: flex;
   align-items: center;
-  min-height: 520px;
+  width: 100%;
+  min-height: 580px;
   margin-top: 0;
   margin-bottom: 0;
-  padding: 80px 0;
+  padding: 150px 0 90px;
   overflow: hidden;
-  background-color: #f5f7fb;
+  background-color: #000f2b;
   background-image: none;
 }
 
 .hero::before {
   content: "";
   position: absolute;
-  top: 16px;
-  bottom: 16px;
-  left: 50%;
-  width: calc(100% - 48px);
-  max-width: 1240px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
-  transform: translateX(-50%);
-  border-radius: 20px;
-  background-image: linear-gradient(90deg, rgba(0, 15, 43, 0.28) 0%, rgba(0, 15, 43, 0.12) 54%, rgba(0, 15, 43, 0) 100%), url("../images/banner/hero-homepage-wowoni.webp");
+  border-radius: 0;
+  transform: none;
+  background-image: linear-gradient(90deg, rgba(0, 15, 43, 0.72) 0%, rgba(0, 15, 43, 0.45) 55%, rgba(0, 15, 43, 0.15) 100%), url("../images/banner/hero-homepage-wowoni.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -41852,28 +41862,44 @@ body.home-page {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1240px;
+  max-width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+.hero .row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.hero .content-column {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .hero .content-box {
   max-width: 720px;
+  margin-bottom: 0;
+  padding: 0;
 }
 
 .hero .content-box h2,
 .hero .content-box p {
   color: #fff;
-  text-shadow: 0 2px 14px rgba(0, 15, 43, 0.28);
+  text-shadow: 0 2px 14px rgba(0, 15, 43, 0.35);
 }
 
 .hero .content-box h2 {
-  font-size: 40px;
+  font-size: 42px;
   line-height: 1.25;
   margin-bottom: 20px;
+  word-break: break-word;
 }
 
 .hero .content-box p {
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.55;
   margin-bottom: 28px;
 }
 
@@ -41886,16 +41912,42 @@ body.home-page {
 @media (max-width: 1199px) {
   .banner-style-four.hero,
   .hero {
-    min-height: 480px;
-    padding: 70px 0;
+    min-height: 520px;
+    padding: 130px 0 80px;
+    margin-bottom: 0;
   }
 
   .hero .content-box h2 {
     font-size: 36px;
+    line-height: 1.25;
   }
 
   .hero .content-box p {
     font-size: 17px;
+  }
+}
+
+@media (max-width: 991px) {
+  .banner-style-four.hero,
+  .hero {
+    min-height: auto;
+    margin-bottom: 0;
+    padding: 120px 0 70px;
+  }
+
+  .hero .auto-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero .content-box {
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+
+  .hero .content-box h2 {
+    font-size: 32px;
+    line-height: 1.25;
   }
 }
 
@@ -41904,36 +41956,85 @@ body.home-page {
   .hero {
     min-height: auto;
     margin-top: 0;
-    padding: 56px 0 60px;
+    margin-bottom: 0;
+    padding: 110px 0 60px;
   }
 
   .hero::before {
-    top: 10px;
-    bottom: 10px;
-    width: calc(100% - 24px);
-    border-radius: 16px;
-    background-position: 42% center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+    transform: none;
+    background-image: linear-gradient(180deg, rgba(0, 15, 43, 0.78) 0%, rgba(0, 15, 43, 0.62) 100%), url("../images/banner/hero-homepage-wowoni.webp");
+    background-position: center center;
+  }
+
+  .hero .auto-container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+
+  .hero .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .hero .content-column {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
   }
 
   .hero .content-box {
     max-width: 100%;
+    margin-bottom: 0;
+    padding: 0;
   }
 
   .hero .content-box h2 {
-    font-size: 28px;
+    font-size: clamp(23px, 6vw, 28px);
     line-height: 1.25;
     margin-bottom: 16px;
+    word-break: break-word;
   }
 
   .hero .content-box p {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: clamp(14px, 3.8vw, 16px);
+    line-height: 1.55;
     margin-bottom: 24px;
   }
 
   .hero .theme-btn.btn-three {
-    padding: 14px 30px;
+    padding: 13px 28px;
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero .auto-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero .content-box h2 {
+    font-size: 22px;
+    line-height: 1.28;
+    margin-bottom: 14px;
+  }
+
+  .hero .content-box p {
     font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .hero .theme-btn.btn-three {
+    padding: 12px 24px;
+    font-size: 13px;
   }
 }
 
@@ -41965,37 +42066,61 @@ body.wowoni-services-page > .boxed_wrapper > .subscribe-section {
 
 .services-hero,
 .wowoni-services-hero {
-  padding: 40px 0;
-  background: #f5f7fb;
+  padding: 0;
+  background: transparent;
 }
 
 .services-hero > .auto-container,
 .wowoni-services-hero > .auto-container {
-  width: calc(100% - 48px);
-  max-width: 1200px;
+  width: 100%;
+  max-width: none;
   padding: 0;
 }
 
 .services-hero-frame,
 .wowoni-services-hero-frame {
   position: relative;
+  margin: 0 150px;
+  border-radius: 20px;
+  min-height: 568px;
   overflow: hidden;
-  border-radius: 24px;
   background: #000f2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .services-hero-image,
 .wowoni-services-hero-image {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .services-hero-overlay,
 .wowoni-services-hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 15, 43, 0.28);
+  background: rgba(0, 15, 43, 0.45);
+  border-radius: inherit;
+}
+
+@media (max-width: 1200px) {
+  .services-hero-frame,
+  .wowoni-services-hero-frame {
+    margin: 0 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .services-hero-frame,
+  .wowoni-services-hero-frame {
+    margin: 0 30px;
+    padding: 80px 0 60px;
+    min-height: auto;
+  }
 }
 
 .services-hero-content,
@@ -42097,25 +42222,27 @@ body.wowoni-services-page > .boxed_wrapper > .subscribe-section {
 
 .services-intro > .auto-container,
 .wowoni-services-intro > .auto-container {
-  width: calc(100% - 54px);
-  max-width: 1866px;
-  padding-right: 0;
-  padding-left: 0;
+  width: 100%;
+  max-width: 1200px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 0 auto;
 }
 
 .services-intro .row,
 .wowoni-services-intro .row {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.9fr);
-  column-gap: clamp(56px, 7vw, 140px);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  column-gap: clamp(40px, 5vw, 64px);
   row-gap: 38px;
   margin-right: 0;
   margin-left: 0;
+  align-items: center;
 }
 
 .services-intro .row > [class*="col-"],
 .wowoni-services-intro .row > [class*="col-"] {
-  width: auto;
+  width: 100%;
   max-width: none;
   padding-right: 0;
   padding-left: 0;
@@ -42123,12 +42250,12 @@ body.wowoni-services-page > .boxed_wrapper > .subscribe-section {
 
 .services-intro .row > :first-child,
 .wowoni-services-intro .row > :first-child {
-  transform: translateX(-8px);
+  transform: none;
 }
 
 .services-intro .row > :nth-child(2),
 .wowoni-services-intro .row > :nth-child(2) {
-  transform: translateX(8px);
+  transform: none;
 }
 
 .services-intro-visual,
@@ -42325,7 +42452,7 @@ body.wowoni-services-page > .boxed_wrapper > .subscribe-section {
 
 .services-catalog,
 .wowoni-services-catalog {
-  padding: 84px 0 96px;
+  padding: 96px 0;
   background: #f5f7fb;
 }
 
@@ -42371,6 +42498,16 @@ body.wowoni-services-page > .boxed_wrapper > .subscribe-section {
 }
 
 @media (max-width: 991px) {
+  .services-intro,
+  .wowoni-services-intro {
+    padding: 72px 0 60px;
+  }
+
+  .services-catalog,
+  .wowoni-services-catalog {
+    padding: 72px 0;
+  }
+
   .services-catalog h2,
   .wowoni-services-catalog h2 {
     font-size: 36px;
@@ -42388,8 +42525,11 @@ body.wowoni-services-page > .boxed_wrapper > .subscribe-section {
 
   .services-intro > .auto-container,
   .wowoni-services-intro > .auto-container {
-    width: calc(100% - 48px);
+    width: 100%;
     max-width: 720px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
   }
 
   .services-intro .row,
@@ -42733,17 +42873,20 @@ body.wowoni-services-page > .boxed_wrapper > .subscribe-section {
 @media (max-width: 767px) {
   .services-hero,
   .wowoni-services-hero {
-    padding: 22px 0;
+    padding: 0;
   }
 
   .services-hero > .auto-container,
   .wowoni-services-hero > .auto-container {
-    width: calc(100% - 32px);
+    width: 100%;
   }
 
   .services-hero-frame,
   .wowoni-services-hero-frame {
-    border-radius: 16px;
+    margin: 0 15px;
+    padding: 70px 0 50px;
+    border-radius: 14px;
+    min-height: auto;
   }
 
   .services-hero-content,
@@ -42764,10 +42907,20 @@ body.wowoni-services-page > .boxed_wrapper > .subscribe-section {
   }
 
   .services-intro,
+  .wowoni-services-intro {
+    padding: 52px 0 44px;
+  }
+
   .services-catalog,
-  .wowoni-services-intro,
   .wowoni-services-catalog {
-    padding: 64px 0;
+    padding: 52px 0;
+  }
+
+  .services-intro > .auto-container,
+  .wowoni-services-intro > .auto-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
   }
 
   .services-intro-visual,
@@ -42896,30 +43049,7 @@ body.wowoni-services-page > .boxed_wrapper > .subscribe-section {
   }
 }
 
-@media (max-width: 991px) {
-  .services-card h3,
-  .wowoni-services-card h3 {
-    font-size: 16px;
-  }
 
-  .services-intro .row,
-  .wowoni-services-intro .row {
-    grid-template-columns: minmax(0, 1fr);
-    column-gap: 0;
-  }
-
-  .services-intro .row > :first-child,
-  .services-intro .row > :nth-child(2),
-  .wowoni-services-intro .row > :first-child,
-  .wowoni-services-intro .row > :nth-child(2) {
-    transform: none;
-  }
-
-  .services-intro .row > [class*="col-"],
-  .wowoni-services-intro .row > [class*="col-"] {
-    width: 100%;
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .intro-image-reveal,
@@ -43003,36 +43133,67 @@ body.service-detail-page {
   font-family: "Inter", sans-serif;
 }
 
-.service-detail-page .dt-hero {
-  padding: 24px 0;
-  background: #f5f7fb;
+.service-detail-page .dt-hero,
+.elite-resources-page .dt-hero {
+  padding: 0;
+  background: transparent;
 }
 
-.dt-hero-frame {
+.dt-hero-frame,
+.elite-resources-page .dt-hero-frame,
+.testing-hero .dt-hero-frame {
   position: relative;
-  width: calc(100% - 48px);
-  max-width: 1045px;
-  margin: 0 auto;
+  margin: 0 150px;
+  width: auto;
+  max-width: none;
+  min-height: 568px;
+  aspect-ratio: auto;
   overflow: hidden;
   border-radius: 20px;
   background: #07172f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .service-detail-hero .dt-hero-frame {
-  min-height: 300px;
+  min-height: 568px;
   background: linear-gradient(112deg, #07172f 0%, #2868ff 58%, #8abafa 100%);
 }
 
-.dt-hero-frame > img {
-  display: block;
+.dt-hero-frame > img,
+.elite-resources-page .dt-hero-frame > img,
+.testing-hero .dt-hero-frame > img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .dt-hero-shade {
   position: absolute;
   inset: 0;
   background: rgba(0, 15, 43, 0.45);
+  border-radius: inherit;
+}
+
+@media (max-width: 1200px) {
+  .dt-hero-frame,
+  .elite-resources-page .dt-hero-frame,
+  .testing-hero .dt-hero-frame {
+    margin: 0 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .dt-hero-frame,
+  .elite-resources-page .dt-hero-frame,
+  .testing-hero .dt-hero-frame {
+    margin: 0 30px;
+    padding: 80px 0 60px;
+    min-height: auto;
+  }
 }
 
 .dt-hero-content {
@@ -43093,7 +43254,10 @@ body.service-detail-page {
   color: #a9c5ff;
 }
 
-.dt-intro,
+.dt-intro {
+  padding: 96px 0 88px;
+}
+
 .dt-omni {
   padding: 96px 0;
 }
@@ -43277,7 +43441,7 @@ body.service-detail-page {
 }
 
 .dt-benefits {
-  padding: 94px 0 100px;
+  padding: 96px 0;
   background: #fff;
 }
 
@@ -43558,6 +43722,15 @@ body.service-detail-page {
 }
 
 @media (max-width: 991px) {
+  .dt-intro {
+    padding: 72px 0 60px;
+  }
+
+  .dt-omni,
+  .dt-benefits {
+    padding: 72px 0;
+  }
+
   .dt-hero h1 {
     font-size: 48px;
   }
@@ -43601,13 +43774,19 @@ body.service-detail-page {
 }
 
 @media (max-width: 767px) {
-  .service-detail-page .dt-hero {
-    padding: 14px 0;
+  .service-detail-page .dt-hero,
+  .elite-resources-page .dt-hero {
+    padding: 0;
   }
 
-  .dt-hero-frame {
-    width: calc(100% - 32px);
-    border-radius: 16px;
+  .dt-hero-frame,
+  .elite-resources-page .dt-hero-frame,
+  .testing-hero .dt-hero-frame {
+    margin: 0 15px;
+    width: auto;
+    padding: 70px 0 50px;
+    border-radius: 14px;
+    min-height: auto;
   }
 
   .dt-hero-content {
@@ -43629,9 +43808,12 @@ body.service-detail-page {
     margin-right: 6px;
   }
 
-  .dt-intro,
+  .dt-intro {
+    padding: 52px 0 44px;
+  }
+
   .dt-omni {
-    padding: 64px 0;
+    padding: 52px 0;
   }
 
   .dt-split {
@@ -43670,7 +43852,7 @@ body.service-detail-page {
   }
 
   .dt-benefits {
-    padding: 66px 0 72px;
+    padding: 52px 0;
   }
 
   .dt-benefit-grid {
@@ -43762,15 +43944,7 @@ body.service-detail-page {
    9. ELITE IT RESOURCES (services/elite-it-resources.html)
    ========================================================================== */
 .elite-resources-page .dt-hero {
-  padding: 24px 0;
-  background: #fff;
-}
-
-.elite-resources-page .dt-hero-frame {
-  width: calc(100% - 48px);
-  max-width: 1045px;
-  aspect-ratio: 1690 / 931;
-  border-radius: 20px;
+  padding: 0;
   background: transparent;
 }
 
@@ -43880,7 +44054,7 @@ body.service-detail-page {
 }
 
 .elite-resources-page .elite-projects {
-  padding-top: 94px;
+  padding-top: 96px;
 }
 
 .elite-resources-page .elite-project-grid {
@@ -43905,7 +44079,7 @@ body.service-detail-page {
 }
 
 .elite-resources-page .elite-engagement {
-  padding: 94px 0 100px;
+  padding: 96px 0;
 }
 
 .elite-resources-page .elite-engagement-heading {
@@ -43918,7 +44092,7 @@ body.service-detail-page {
 }
 
 .elite-resources-page .elite-expertise {
-  padding: 94px 0 100px;
+  padding: 96px 0;
 }
 
 .elite-resources-page .elite-expertise-heading {
@@ -43959,6 +44133,19 @@ body.service-detail-page {
 }
 
 @media (max-width: 991px) {
+  .elite-resources-page .elite-projects {
+    padding-top: 72px;
+  }
+
+  .elite-resources-page .elite-engagement,
+  .elite-resources-page .elite-expertise {
+    padding: 72px 0;
+  }
+
+  .elite-resources-page .elite-engagement-visual {
+    padding: 0 0 36px;
+  }
+
   .elite-resources-page .elite-project-grid,
   .elite-resources-page .elite-engagement-grid,
   .elite-resources-page .elite-skill-grid {
@@ -43968,26 +44155,30 @@ body.service-detail-page {
 
 @media (max-width: 767px) {
   .elite-resources-page .dt-hero {
-    padding: 14px 0;
+    padding: 0;
   }
 
   .elite-resources-page .dt-hero-frame {
-    width: calc(100% - 32px);
-    border-radius: 16px;
+    margin: 0 15px;
+    width: auto;
+    border-radius: 14px;
   }
 
   .elite-resources-page .dt-hero h1 {
     font-size: clamp(16px, 5.8vw, 32px);
   }
 
-  .elite-resources-page .elite-projects,
+  .elite-resources-page .elite-projects {
+    padding-top: 52px;
+  }
+
   .elite-resources-page .elite-engagement,
   .elite-resources-page .elite-expertise {
-    padding: 66px 0 72px;
+    padding: 52px 0;
   }
 
   .elite-resources-page .elite-engagement-visual {
-    padding: 0 0 30px;
+    padding: 0 0 24px;
   }
 
   .elite-resources-page .elite-engagement-visual .dt-photo {
@@ -44027,7 +44218,7 @@ body.service-detail-page {
 }
 
 .testing-hero .dt-hero-frame {
-  aspect-ratio: 1690 / 931;
+  aspect-ratio: auto;
 }
 
 .testing-hero .dt-hero-frame > img {
@@ -44040,7 +44231,7 @@ body.service-detail-page {
 
 .testing-challenges,
 .testing-capabilities {
-  padding-top: 94px;
+  padding-top: 96px;
 }
 
 .testing-visual {
@@ -44177,7 +44368,7 @@ body.service-detail-page {
 }
 
 .testing-approach {
-  padding: 94px 0 100px;
+  padding: 96px 0;
 }
 
 .testing-section-heading {
@@ -44232,6 +44423,19 @@ body.service-detail-page {
 }
 
 @media (max-width: 991px) {
+  .testing-challenges,
+  .testing-capabilities {
+    padding-top: 72px;
+  }
+
+  .testing-approach {
+    padding: 72px 0;
+  }
+
+  .testing-visual {
+    padding: 0 0 36px;
+  }
+
   .testing-challenge-grid,
   .testing-method-grid,
   .testing-tool-grid,
@@ -44242,13 +44446,16 @@ body.service-detail-page {
 
 @media (max-width: 767px) {
   .testing-challenges,
-  .testing-approach,
   .testing-capabilities {
-    padding: 66px 0 72px;
+    padding-top: 52px;
+  }
+
+  .testing-approach {
+    padding: 52px 0;
   }
 
   .testing-visual {
-    padding: 0 0 30px;
+    padding: 0 0 24px;
   }
 
   .testing-visual .dt-photo {
@@ -44442,7 +44649,7 @@ body.career-page {
 }
 
 .career-intro {
-  padding: 92px 0 96px;
+  padding: 96px 0 88px;
 }
 
 .career-intro-grid {
@@ -44498,7 +44705,7 @@ body.career-page {
 }
 
 .career-culture {
-  padding: 88px 0 100px;
+  padding: 96px 0;
   background: #f5f7fb;
 }
 
@@ -44663,6 +44870,14 @@ body.career-page {
 }
 
 @media (max-width: 991px) {
+  .career-intro {
+    padding: 72px 0 60px;
+  }
+
+  .career-culture {
+    padding: 72px 0;
+  }
+
   .career-hero-frame {
     min-height: 510px;
   }
@@ -44739,9 +44954,12 @@ body.career-page {
     font-size: 10px;
   }
 
-  .career-intro,
+  .career-intro {
+    padding: 52px 0 44px;
+  }
+
   .career-culture {
-    padding: 66px 0 72px;
+    padding: 52px 0;
   }
 
   .career-culture > .auto-container {
@@ -44750,7 +44968,7 @@ body.career-page {
   }
 
   .career-connect {
-    padding: 0 0 62px;
+    padding: 0 0 52px;
   }
 
   .career-connect-banner {
@@ -44941,7 +45159,7 @@ body.open-positions-page {
 }
 
 .positions-listing {
-  padding: 80px 0 96px;
+  padding: 96px 0;
   scroll-margin-top: 24px;
 }
 
@@ -45028,6 +45246,12 @@ body.open-positions-page {
   text-decoration: none;
 }
 
+@media (max-width: 991px) {
+  .positions-listing {
+    padding: 72px 0;
+  }
+}
+
 @media (max-width: 767px) {
   .positions-hero {
     padding: 14px 0 24px;
@@ -45057,7 +45281,7 @@ body.open-positions-page {
   }
 
   .positions-listing {
-    padding: 48px 0 72px;
+    padding: 52px 0;
   }
 
   .positions-empty-card {
@@ -45151,8 +45375,8 @@ body.open-positions-page {
    ========================================================================== */
 .contact-page-hero {
   position: relative;
-  margin: 24px 24px 0;
-  border-radius: 22px;
+  margin: 0 150px;
+  border-radius: 20px;
   background: url('../images/background/contact-hero-banner.jpg') no-repeat center center / cover !important;
   min-height: 568px;
   padding: 87px 0;
@@ -45161,6 +45385,20 @@ body.open-positions-page {
   color: #ffffff;
   overflow: hidden;
   font-family: 'Ubuntu', sans-serif;
+}
+
+@media (max-width: 1200px) {
+  .contact-page-hero {
+    margin: 0 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .contact-page-hero {
+    margin: 0 30px;
+    padding: 80px 0 60px;
+    min-height: auto;
+  }
 }
 
 .contact-page-hero::before {
@@ -45537,7 +45775,7 @@ body.open-positions-page {
    4. Main Contact Grid (Clean 'Get in touch' Form & Friendly Team Image)
    ========================================================================== */
 .contact-main-section {
-  padding: 60px 0 80px;
+  padding: 72px 0 96px;
   background: #f8fafc;
   position: relative;
 }
@@ -45887,7 +46125,7 @@ body.open-positions-page {
    5. Worldwide Office Locations Section (Hexaware-Inspired Enterprise Grid)
    ========================================================================== */
 .contact-offices-section {
-  padding: 95px 0 100px;
+  padding: 96px 0;
   background: var(--contact-bg-light);
   border-top: 1px solid var(--contact-border);
   position: relative;
@@ -46101,7 +46339,7 @@ body.open-positions-page {
    6. Map & Embed Section (Interactive Google Map Experience)
    ========================================================================== */
 .contact-map-section {
-  padding: 0 0 95px;
+  padding: 0 0 96px;
   background: var(--contact-bg-light);
 }
 
@@ -46416,6 +46654,18 @@ body.open-positions-page {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
+  .contact-main-section {
+    padding: 56px 0 72px;
+  }
+
+  .contact-offices-section {
+    padding: 72px 0;
+  }
+
+  .contact-map-section {
+    padding: 0 0 72px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -46433,8 +46683,8 @@ body.open-positions-page {
   }
 
   .contact-page-hero {
-    margin: 14px 16px 0;
-    border-radius: 16px;
+    margin: 0 15px;
+    border-radius: 14px;
     padding: 70px 0 50px;
     min-height: auto;
   }
@@ -46442,6 +46692,18 @@ body.open-positions-page {
   .contact-page-hero h1 {
     font-size: 40px;
     line-height: 50px;
+  }
+
+  .contact-main-section {
+    padding: 40px 0 52px;
+  }
+
+  .contact-offices-section {
+    padding: 52px 0;
+  }
+
+  .contact-map-section {
+    padding: 0 0 52px;
   }
 
   .contact-card-wrapper {
@@ -46532,8 +46794,8 @@ body.open-positions-page {
    ========================================================================== */
 .about-page-hero {
   position: relative;
-  margin: 24px 24px 0;
-  border-radius: 22px;
+  margin: 0 100px;
+  border-radius: 20px;
   background: url('../images/background/about-hero-banner.jpg') no-repeat center center / cover;
   min-height: 568px;
   padding: 87px 0;
@@ -46542,6 +46804,20 @@ body.open-positions-page {
   color: #ffffff;
   overflow: hidden;
   font-family: 'Ubuntu', sans-serif;
+}
+
+@media (max-width: 1200px) {
+  .about-page-hero {
+    margin: 0 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .about-page-hero {
+    margin: 0 30px;
+    padding: 80px 0 60px;
+    min-height: auto;
+  }
 }
 
 .about-page-hero::before {
@@ -46648,7 +46924,7 @@ body.open-positions-page {
    2. Who We Are Section (Unified Modern Card Matching Reference Design)
    ========================================================================== */
 .about-intro-section {
-  padding: 85px 0 75px;
+  padding: 96px 0 88px;
   background: var(--about-white);
   position: relative;
 }
@@ -46744,7 +47020,7 @@ body.open-positions-page {
    3. Our Core Expertise Section (6 Pillars from Wowoni Website)
    ========================================================================== */
 .about-expertise-section {
-  padding: 95px 0 100px;
+  padding: 96px 0;
   background: var(--about-bg-light);
   border-top: 1px solid var(--about-border);
   position: relative;
@@ -46846,7 +47122,7 @@ body.open-positions-page {
    4. Strategic Partnership — PT Midas Daya Teknologi & Oracle FLEXCUBE
    ========================================================================== */
 .about-partnership-section {
-  padding: 100px 0 105px;
+  padding: 96px 0;
   background: linear-gradient(175deg, #376cfd 0%, #4684ff 25%, #4f93fe 50%, #6daffd 75%, #9bc5fd 100%);
   position: relative;
   overflow: hidden;
@@ -47007,7 +47283,7 @@ body.open-positions-page {
    5. Value Proposition Section
    ========================================================================== */
 .about-values-section {
-  padding: 95px 0 100px;
+  padding: 96px 0;
   background: var(--about-white);
   position: relative;
 }
@@ -47093,7 +47369,7 @@ body.open-positions-page {
    6. Call to Action (CTA) Section
    ========================================================================== */
 .about-cta-section {
-  padding: 0 0 95px;
+  padding: 0 0 96px;
   background: var(--about-white);
 }
 
@@ -47242,23 +47518,37 @@ body.open-positions-page {
   }
 
   .about-banner-card {
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1fr;
+    border-radius: 18px;
   }
 
   .about-banner-content {
-    padding: 36px 30px;
+    padding: 42px 34px;
   }
 
   .about-banner-title {
-    font-size: 24px;
-    margin-bottom: 14px;
+    font-size: 28px;
+    margin-bottom: 16px;
   }
 
   .about-banner-text,
   .about-banner-subtext {
-    font-size: 13.5px;
-    line-height: 1.6;
-    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .about-banner-image {
+    width: 100%;
+    min-height: 320px;
+    max-height: 400px;
+    height: 360px;
+  }
+
+  .about-banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .about-title {
@@ -47278,18 +47568,32 @@ body.open-positions-page {
   .about-cta-text {
     max-width: 100%;
   }
+
+  .about-intro-section {
+    padding: 72px 0 60px;
+  }
+
+  .about-expertise-section,
+  .about-partnership-section,
+  .about-values-section {
+    padding: 72px 0;
+  }
+
+  .about-cta-section {
+    padding: 0 0 72px;
+  }
 }
 
 @media (max-width: 767px) {
   .about-page-hero {
-    margin: 14px 16px 0;
-    border-radius: 16px;
-    min-height: 420px;
-    padding: 60px 0;
+    margin: 0 15px;
+    border-radius: 14px;
+    min-height: auto;
+    padding: 70px 0 50px;
   }
 
   .about-page-hero::before {
-    border-radius: 16px;
+    border-radius: 14px;
   }
 
   .about-page-hero h1 {
@@ -47298,24 +47602,52 @@ body.open-positions-page {
     margin-bottom: 14px;
   }
 
-  .about-intro-section,
+  .about-intro-section {
+    padding: 52px 0 44px;
+  }
+
   .about-expertise-section,
   .about-partnership-section,
   .about-values-section {
-    padding: 60px 0;
+    padding: 52px 0;
   }
 
-  .about-banner-image {
-    min-height: 240px;
-    max-height: 300px;
+  .about-cta-section {
+    padding: 0 0 52px;
+  }
+
+  .about-banner-card {
+    grid-template-columns: 1fr;
+    border-radius: 16px;
   }
 
   .about-banner-content {
-    padding: 30px 20px;
+    padding: 28px 18px;
   }
 
   .about-banner-title {
-    font-size: 24px;
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .about-banner-text,
+  .about-banner-subtext {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .about-banner-image {
+    width: 100%;
+    min-height: 220px;
+    max-height: 280px;
+    height: 250px;
+  }
+
+  .about-banner-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .about-title,
@@ -47636,7 +47968,7 @@ body.open-positions-page {
    2. Executive Overview / Introduction Section
    ========================================================================== */
 .cbt-page .cbt-intro-section {
-  padding: 95px 0 85px;
+  padding: 96px 0 88px;
   background: var(--cbt-white);
   position: relative;
 }
@@ -47827,7 +48159,7 @@ body.open-positions-page {
    3. Strategic Transformation Lifecycle / Approach Section
    ========================================================================== */
 .cbt-page .cbt-approach-section {
-  padding: 100px 0;
+  padding: 96px 0;
   background: var(--cbt-bg-light);
   position: relative;
 }
@@ -48029,7 +48361,7 @@ body.open-positions-page {
    Architecture Ecosystem Showcase (Between Platform Mastery & The Future-Ready Core)
    ========================================================================== */
 .cbt-page .cbt-architecture-section {
-  padding: 0 0 90px;
+  padding: 0 0 96px;
   background: #ffffff;
   position: relative;
 }
@@ -48063,7 +48395,7 @@ body.open-positions-page {
    4. Platform Mastery (Screenshot-inspired Interactive Accordion Cards)
    ========================================================================== */
 .cbt-page .cbt-capabilities-section {
-  padding: 100px 0 35px;
+  padding: 96px 0 35px;
   background: #ffffff;
   position: relative;
 }
@@ -48213,7 +48545,7 @@ body.open-positions-page {
    5. Strategic Value Cards (Hexaware-inspired Design & Signature Motion)
    ========================================================================== */
 .cbt-page .cbt-benefits-section {
-  padding: 100px 0;
+  padding: 96px 0;
   background: var(--cbt-bg-light, #f8fafd);
   position: relative;
 }
@@ -48414,7 +48746,7 @@ body.open-positions-page {
    6. Specialized Testing & Resource Augmentation
    ========================================================================== */
 .cbt-page .cbt-specialized-section {
-  padding: 95px 0 100px;
+  padding: 96px 0;
   background: var(--cbt-white);
   position: relative;
 }
@@ -48500,7 +48832,7 @@ body.open-positions-page {
    7. Call to Action (CTA) Section
    ========================================================================== */
 .cbt-page .cbt-cta-section {
-  padding: 90px 0;
+  padding: 96px 0;
   background: var(--cbt-bg-light);
   position: relative;
 }
@@ -48685,6 +49017,25 @@ body.open-positions-page {
   .cbt-page .cbt-cta-title {
     font-size: 28px;
   }
+
+  .cbt-page .cbt-intro-section {
+    padding: 72px 0 60px;
+  }
+
+  .cbt-page .cbt-approach-section,
+  .cbt-page .cbt-benefits-section,
+  .cbt-page .cbt-specialized-section,
+  .cbt-page .cbt-cta-section {
+    padding: 72px 0;
+  }
+
+  .cbt-page .cbt-capabilities-section {
+    padding: 72px 0 24px;
+  }
+
+  .cbt-page .cbt-architecture-section {
+    padding: 0 0 72px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -48706,6 +49057,25 @@ body.open-positions-page {
 
   .cbt-page .cbt-hero-trust {
     grid-template-columns: 1fr;
+  }
+
+  .cbt-page .cbt-intro-section {
+    padding: 52px 0 44px;
+  }
+
+  .cbt-page .cbt-approach-section,
+  .cbt-page .cbt-benefits-section,
+  .cbt-page .cbt-specialized-section,
+  .cbt-page .cbt-cta-section {
+    padding: 52px 0;
+  }
+
+  .cbt-page .cbt-capabilities-section {
+    padding: 52px 0 20px;
+  }
+
+  .cbt-page .cbt-architecture-section {
+    padding: 0 0 48px;
   }
 
   .cbt-page .cbt-section-title {
@@ -49036,7 +49406,7 @@ body.open-positions-page {
    2. Executive Overview / Introduction Section
    ========================================================================== */
 .app-dev-page .cbt-intro-section {
-  padding: 95px 0 85px;
+  padding: 96px 0 88px;
   background: var(--cbt-white);
   position: relative;
 }
@@ -49227,7 +49597,7 @@ body.open-positions-page {
    3. Strategic Transformation Lifecycle / Approach Section
    ========================================================================== */
 .app-dev-page .cbt-approach-section {
-  padding: 100px 0;
+  padding: 96px 0;
   background: var(--cbt-bg-light);
   position: relative;
 }
@@ -49429,7 +49799,7 @@ body.open-positions-page {
    Agile Team Collaboration Showcase (Between Technology Mastery & Business Drivers)
    ========================================================================== */
 .app-dev-page .cbt-architecture-section {
-  padding: 0 0 90px;
+  padding: 0 0 96px;
   background: #ffffff;
   position: relative;
 }
@@ -49463,7 +49833,7 @@ body.open-positions-page {
    4. Platform Mastery (Screenshot-inspired Interactive Accordion Cards)
    ========================================================================== */
 .app-dev-page .cbt-capabilities-section {
-  padding: 100px 0 35px;
+  padding: 96px 0 35px;
   background: #ffffff;
   position: relative;
 }
@@ -49613,7 +49983,7 @@ body.open-positions-page {
    5. Strategic Value Cards (Hexaware-inspired Design & Signature Motion)
    ========================================================================== */
 .app-dev-page .cbt-benefits-section {
-  padding: 100px 0;
+  padding: 96px 0;
   background: var(--cbt-bg-light, #f8fafd);
   position: relative;
 }
@@ -49814,7 +50184,7 @@ body.open-positions-page {
    6. Specialized Testing & Resource Augmentation
    ========================================================================== */
 .app-dev-page .cbt-specialized-section {
-  padding: 95px 0 100px;
+  padding: 96px 0;
   background: var(--cbt-white);
   position: relative;
 }
@@ -49900,7 +50270,7 @@ body.open-positions-page {
    7. Call to Action (CTA) Section
    ========================================================================== */
 .app-dev-page .cbt-cta-section {
-  padding: 90px 0;
+  padding: 96px 0;
   background: var(--cbt-bg-light);
   position: relative;
 }
@@ -50088,6 +50458,25 @@ body.open-positions-page {
   .app-dev-page .cbt-cta-title {
     font-size: 28px;
   }
+
+  .app-dev-page .cbt-intro-section {
+    padding: 72px 0 60px;
+  }
+
+  .app-dev-page .cbt-approach-section,
+  .app-dev-page .cbt-benefits-section,
+  .app-dev-page .cbt-specialized-section,
+  .app-dev-page .cbt-cta-section {
+    padding: 72px 0;
+  }
+
+  .app-dev-page .cbt-capabilities-section {
+    padding: 72px 0 24px;
+  }
+
+  .app-dev-page .cbt-architecture-section {
+    padding: 0 0 72px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -50109,6 +50498,25 @@ body.open-positions-page {
 
   .app-dev-page .cbt-hero-trust {
     grid-template-columns: 1fr;
+  }
+
+  .app-dev-page .cbt-intro-section {
+    padding: 52px 0 44px;
+  }
+
+  .app-dev-page .cbt-approach-section,
+  .app-dev-page .cbt-benefits-section,
+  .app-dev-page .cbt-specialized-section,
+  .app-dev-page .cbt-cta-section {
+    padding: 52px 0;
+  }
+
+  .app-dev-page .cbt-capabilities-section {
+    padding: 52px 0 20px;
+  }
+
+  .app-dev-page .cbt-architecture-section {
+    padding: 0 0 48px;
   }
 
   .app-dev-page .cbt-section-title {
@@ -50440,7 +50848,7 @@ body.open-positions-page {
    2. Executive Overview / Introduction Section
    ========================================================================== */
 .aim-page .cbt-intro-section {
-  padding: 95px 0 85px;
+  padding: 96px 0 88px;
   background: var(--cbt-white);
   position: relative;
 }
@@ -50631,7 +51039,7 @@ body.open-positions-page {
    3. Strategic Transformation Lifecycle / Approach Section
    ========================================================================== */
 .aim-page .cbt-approach-section {
-  padding: 100px 0;
+  padding: 96px 0;
   background: var(--cbt-bg-light);
   position: relative;
 }
@@ -50833,8 +51241,8 @@ body.open-positions-page {
    Architecture Ecosystem Showcase (Between Approach & Platform Mastery)
    ========================================================================== */
 .aim-page .cbt-architecture-section {
-  padding: 10px 0 90px;
-  background: var(--cbt-bg-light);
+  padding: 0 0 96px;
+  background: #ffffff;
   position: relative;
 }
 
@@ -50864,14 +51272,14 @@ body.open-positions-page {
 
 .aim-page .cbt-architecture-section-white {
   background: #ffffff;
-  padding: 0 0 90px;
+  padding: 0 0 96px;
 }
 
 /* ==========================================================================
    4. Platform Mastery (Screenshot-inspired Interactive Accordion Cards)
    ========================================================================== */
 .aim-page .cbt-capabilities-section {
-  padding: 100px 0;
+  padding: 96px 0 35px;
   background: #ffffff;
   position: relative;
 }
@@ -51021,7 +51429,7 @@ body.open-positions-page {
    5. Strategic Value Cards (Hexaware-inspired Design & Signature Motion)
    ========================================================================== */
 .aim-page .cbt-benefits-section {
-  padding: 100px 0;
+  padding: 96px 0;
   background: var(--cbt-bg-light, #f8fafd);
   position: relative;
 }
@@ -51222,7 +51630,7 @@ body.open-positions-page {
    6. Specialized Testing & Resource Augmentation
    ========================================================================== */
 .aim-page .cbt-specialized-section {
-  padding: 95px 0 100px;
+  padding: 96px 0;
   background: var(--cbt-white);
   position: relative;
 }
@@ -51308,7 +51716,7 @@ body.open-positions-page {
    7. Call to Action (CTA) Section
    ========================================================================== */
 .aim-page .cbt-cta-section {
-  padding: 90px 0;
+  padding: 96px 0;
   background: var(--cbt-bg-light);
   position: relative;
 }
@@ -51491,6 +51899,26 @@ body.open-positions-page {
   .aim-page .cbt-cta-title {
     font-size: 28px;
   }
+
+  .aim-page .cbt-intro-section {
+    padding: 72px 0 60px;
+  }
+
+  .aim-page .cbt-approach-section,
+  .aim-page .cbt-benefits-section,
+  .aim-page .cbt-specialized-section,
+  .aim-page .cbt-cta-section {
+    padding: 72px 0;
+  }
+
+  .aim-page .cbt-capabilities-section {
+    padding: 72px 0 24px;
+  }
+
+  .aim-page .cbt-architecture-section,
+  .aim-page .cbt-architecture-section-white {
+    padding: 0 0 72px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -51512,6 +51940,26 @@ body.open-positions-page {
 
   .aim-page .cbt-hero-trust {
     grid-template-columns: 1fr;
+  }
+
+  .aim-page .cbt-intro-section {
+    padding: 52px 0 44px;
+  }
+
+  .aim-page .cbt-approach-section,
+  .aim-page .cbt-benefits-section,
+  .aim-page .cbt-specialized-section,
+  .aim-page .cbt-cta-section {
+    padding: 52px 0;
+  }
+
+  .aim-page .cbt-capabilities-section {
+    padding: 52px 0 20px;
+  }
+
+  .aim-page .cbt-architecture-section,
+  .aim-page .cbt-architecture-section-white {
+    padding: 0 0 48px;
   }
 
   .aim-page .cbt-section-title {
