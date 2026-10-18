@@ -46,6 +46,23 @@
 (function($) {
 	"use strict";
 
+	function enableAsyncStylesheets() {
+		var stylesheets = document.querySelectorAll("[data-wowoni-async-stylesheet]");
+		Array.prototype.forEach.call(stylesheets, function(stylesheet) {
+			function enableStylesheet() {
+				stylesheet.media = "all";
+			}
+
+			if (stylesheet.sheet) {
+				enableStylesheet();
+			} else {
+				stylesheet.addEventListener("load", enableStylesheet, { once: true });
+			}
+		});
+	}
+
+	enableAsyncStylesheets();
+
 	/* ==========================================================================
 	   1. CORE & SHARED UTILITIES (Global)
 	   ========================================================================== */
@@ -1069,6 +1086,40 @@
 	   ========================================================================== */
 	function initEliteItResources() {
 		var items = Array.prototype.slice.call(document.querySelectorAll("[data-elite-reveal]"));
+		var engagementCards = Array.prototype.slice.call(document.querySelectorAll(".elite-engagement-grid .elite-engagement-card"));
+
+		engagementCards.forEach(function(card) {
+			var trigger = card.querySelector(".elite-engagement-trigger");
+			if (!trigger) return;
+
+			trigger.addEventListener("click", function() {
+				var shouldOpen = !card.classList.contains("is-open");
+				var animationDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 300;
+
+				engagementCards.forEach(function(otherCard) {
+					var otherTrigger = otherCard.querySelector(".elite-engagement-trigger");
+					var otherPanel = otherCard.querySelector(".elite-engagement-panel");
+					var otherIcon = otherCard.querySelector(".elite-engagement-toggle-icon i");
+					if (!otherTrigger || !otherPanel || !otherIcon) return;
+
+					var isOpen = otherCard === card && shouldOpen;
+					otherCard.classList.toggle("is-open", isOpen);
+					otherTrigger.setAttribute("aria-expanded", String(isOpen));
+					otherPanel.setAttribute("aria-hidden", String(!isOpen));
+					otherPanel.inert = !isOpen;
+					otherIcon.classList.toggle("fa-minus", isOpen);
+					otherIcon.classList.toggle("fa-plus", !isOpen);
+
+					$(otherPanel).stop(true, true);
+					if (isOpen) {
+						$(otherPanel).slideDown(animationDuration);
+					} else {
+						$(otherPanel).slideUp(animationDuration);
+					}
+				});
+			});
+		});
+
 		if (!items.length) return;
 
 		var motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");

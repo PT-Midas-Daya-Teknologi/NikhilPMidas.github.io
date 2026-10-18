@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap" media="print" data-wowoni-async-stylesheet>
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap">
 </noscript>
@@ -22,6 +22,7 @@
 <link rel="preload" as="image" href="../assets/images/background/elite-it-resources-hero.webp" type="image/webp" fetchpriority="high">
 
 <link href="../assets/css/main.css" rel="stylesheet">
+
 </head>
 <body class="service-detail-page elite-resources-page">
     <div class="boxed_wrapper">
@@ -36,7 +37,7 @@
                     <div class="auto-container dt-hero-content">
                         <h1 id="elite-page-title">ELITE IT RESOURCES</h1>
                         <nav aria-label="Breadcrumb">
-                            <ol class="dt-breadcrumb">
+                            <ol class="dt-breadcrumb desktop-breadcrumbs">
                                 <li><a href="../index.html">Home</a></li>
                                 <li><a href="service.html">Services</a></li>
                                 <li aria-current="page">Elite IT Resources</li>
@@ -45,6 +46,17 @@
                     </div>
                 </div>
             </section>
+
+        <!-- Mobile Breadcrumbs: displayed below hero image on mobile devices -->
+        <nav class="dt-breadcrumbs-mobile" aria-label="Breadcrumb">
+            <div class="auto-container">
+                <ol class="dt-breadcrumb">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li aria-current="page">Elite IT Resources</li>
+                </ol>
+            </div>
+        </nav>
 
             <section class="dt-intro" aria-labelledby="elite-intro-title">
                 <div class="auto-container dt-split">
@@ -67,33 +79,75 @@
                         <p>Experienced resources can contribute to work where technical complexity, operational scale, and delivery continuity matter.</p>
                     </div>
                     <div class="dt-benefit-grid elite-project-grid">
-                        <article class="dt-benefit drive-card" data-elite-reveal>
-                            <span class="drive-tag">DRIVER 01</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></span>
-                            <h3>Working through complex challenges</h3>
-                            <p>Our teams have worked with intricate architectures, connected different systems, and addressed high-impact technical problems across initiatives with many dependencies and stakeholders in multiple regions. They are prepared to help when projects encounter difficult technical obstacles.</p>
+                        <article class="dt-benefit elite-process-card" data-elite-reveal tabindex="0" aria-expanded="false">
+                            <div class="elite-process-image-wrap">
+                                <img class="elite-process-img" src="../assets/images/service/cbt-approach-02.webp" alt="">
+                                <span class="elite-process-badge" aria-hidden="true">01</span>
+                            </div>
+                            <div class="elite-process-body">
+                                <div class="elite-process-head">
+                                    <div class="elite-process-meta">
+                                        <span class="drive-tag">PHASE 01</span>
+                                    </div>
+                                    <h3 class="elite-process-title">Working through complex challenges</h3>
+                                </div>
+                                <div class="elite-process-info">
+                                    <p>Our teams tackle complex architectures, system integrations, and technical challenges across projects with many dependencies and stakeholders.</p>
+                                </div>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-elite-reveal>
-                            <span class="drive-tag">DRIVER 02</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-expand-arrows-alt" aria-hidden="true"></i></span>
-                            <h3>Supporting enterprise-scale delivery</h3>
-                            <p>We have contributed to and led work serving millions of users, operating on large datasets, and relying on enterprise infrastructure. This experience informs the attention teams need to give scalability, performance, and resilience in business-critical operations.</p>
+                        <article class="dt-benefit elite-process-card" data-elite-reveal tabindex="0" aria-expanded="false">
+                            <div class="elite-process-image-wrap">
+                                <img class="elite-process-img" src="../assets/images/service/cbt-approach-01.webp" alt="">
+                                <span class="elite-process-badge" aria-hidden="true">02</span>
+                            </div>
+                            <div class="elite-process-body">
+                                <div class="elite-process-head">
+                                    <div class="elite-process-meta">
+                                        <span class="drive-tag">PHASE 02</span>
+                                    </div>
+                                    <h3 class="elite-process-title">Supporting enterprise-scale delivery</h3>
+                                </div>
+                                <div class="elite-process-info">
+                                    <p>Our teams support enterprise-scale systems, large datasets, and business-critical operations with a focus on performance, scalability, and resilience.</p>
+                                </div>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-elite-reveal>
-                            <span class="drive-tag">DRIVER 03</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-route" aria-hidden="true"></i></span>
-                            <h3>Capability across the project lifecycle</h3>
-                            <p>Resource expertise can support initial concept development and architecture through implementation, deployment, and ongoing optimization, helping maintain quality and alignment with project objectives from one stage to the next.</p>
+                        <article class="dt-benefit elite-process-card" data-elite-reveal tabindex="0" aria-expanded="false">
+                            <div class="elite-process-image-wrap">
+                                <img class="elite-process-img" src="../assets/images/service/cbt-approach-03.webp" alt="">
+                                <span class="elite-process-badge" aria-hidden="true">03</span>
+                            </div>
+                            <div class="elite-process-body">
+                                <div class="elite-process-head">
+                                    <div class="elite-process-meta">
+                                        <span class="drive-tag">PHASE 03</span>
+                                    </div>
+                                    <h3 class="elite-process-title">Capability across the project lifecycle</h3>
+                                </div>
+                                <div class="elite-process-info">
+                                    <p>From concept and architecture through implementation, deployment, and optimization, our specialists help maintain quality and delivery continuity.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="dt-benefit elite-process-card" data-elite-reveal tabindex="0" aria-expanded="false">
+                            <div class="elite-process-image-wrap">
+                                <img class="elite-process-img" src="../assets/images/service/cbt-approach-04.webp" alt="Technology specialist working with a tablet">
+                                <span class="elite-process-badge" aria-hidden="true">04</span>
+                            </div>
+                            <div class="elite-process-body">
+                                <div class="elite-process-head">
+                                    <div class="elite-process-meta">
+                                        <span class="drive-tag">PHASE 04</span>
+                                    </div>
+                                    <h3 class="elite-process-title">Specialist expertise on demand</h3>
+                                </div>
+                                <div class="elite-process-info">
+                                    <p>Access pre-vetted cloud, AI, cybersecurity, development, and data specialists to close skills gaps and keep projects moving.</p>
+                                </div>
+                            </div>
                         </article>
                     </div>
-                </div>
-            </section>
-
-            <section class="elite-engagement-visual" aria-label="Flexible engagement models">
-                <div class="auto-container">
-                    <figure class="dt-photo" data-elite-reveal>
-                        <img src="../assets/images/resource/elite-It-services2.webp" alt="Technology professionals collaborating in flexible delivery teams" loading="lazy">
-                    </figure>
                 </div>
             </section>
 
@@ -104,30 +158,55 @@
                         <p>Engagement can be shaped around operational preferences and budget requirements, so teams can collaborate effectively across locations.</p>
                     </div>
                     <div class="dt-benefit-grid elite-engagement-grid">
-                        <article class="dt-benefit drive-card" data-elite-reveal>
-                            <span class="drive-tag">DRIVER 01</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-globe" aria-hidden="true"></i></span>
-                            <h3>Global access, local impact</h3>
-                            <p>Access professionals from a broad talent network, bringing varied perspectives and focused specialist skills to the work wherever your project needs them.</p>
+                        <article class="dt-benefit drive-card elite-engagement-card" data-elite-reveal>
+                            <button class="elite-engagement-trigger" type="button" aria-expanded="false" aria-controls="elite-engagement-panel-1">
+                                <span class="elite-engagement-title" role="heading" aria-level="3">Global access, local impact</span>
+                                <span class="elite-engagement-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                            </button>
+                            <div class="elite-engagement-panel" id="elite-engagement-panel-1" aria-hidden="true" inert>
+                                <div class="elite-engagement-panel-inner">
+                                    <p>Access professionals from a broad talent network, bringing varied perspectives and focused specialist skills to the work wherever your project needs them.</p>
+                                </div>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-elite-reveal>
-                            <span class="drive-tag">DRIVER 02</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-building" aria-hidden="true"></i></span>
-                            <h3>Onsite collaboration</h3>
-                            <p>When a project benefits from close in-person work and direct participation in your team’s culture, professionals can work at your premises to support quick communication and close collaboration.</p>
+                        <article class="dt-benefit drive-card elite-engagement-card" data-elite-reveal>
+                            <button class="elite-engagement-trigger" type="button" aria-expanded="false" aria-controls="elite-engagement-panel-2">
+                                <span class="elite-engagement-title" role="heading" aria-level="3">Onsite collaboration</span>
+                                <span class="elite-engagement-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                            </button>
+                            <div class="elite-engagement-panel" id="elite-engagement-panel-2" aria-hidden="true" inert>
+                                <div class="elite-engagement-panel-inner">
+                                    <p>When a project benefits from close in-person work and direct participation in your team’s culture, professionals can work at your premises to support quick communication and close collaboration.</p>
+                                </div>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-elite-reveal>
-                            <span class="drive-tag">DRIVER 03</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-laptop" aria-hidden="true"></i></span>
-                            <h3>Optimized offshore delivery</h3>
-                            <p>Distributed offshore support offers a cost-conscious option while maintaining a focus on quality. Clear communication, visible project coordination, and cultural alignment help remote teams work productively together.</p>
+                        <article class="dt-benefit drive-card elite-engagement-card" data-elite-reveal>
+                            <button class="elite-engagement-trigger" type="button" aria-expanded="false" aria-controls="elite-engagement-panel-3">
+                                <span class="elite-engagement-title" role="heading" aria-level="3">Optimized offshore delivery</span>
+                                <span class="elite-engagement-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                            </button>
+                            <div class="elite-engagement-panel" id="elite-engagement-panel-3" aria-hidden="true" inert>
+                                <div class="elite-engagement-panel-inner">
+                                    <p>Distributed offshore support offers a cost-conscious option while maintaining a focus on quality. Clear communication, visible project coordination, and cultural alignment help remote teams work productively together.</p>
+                                </div>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-elite-reveal>
-                            <span class="drive-tag">DRIVER 04</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-code-branch" aria-hidden="true"></i></span>
-                            <h3>Strategic hybrid teams</h3>
-                            <p>Combine onsite coordination for critical collaboration with offshore capability for development, testing, and support. This arrangement can balance efficiency with the pace and coordination your timelines require.</p>
+                        <article class="dt-benefit drive-card elite-engagement-card" data-elite-reveal>
+                            <button class="elite-engagement-trigger" type="button" aria-expanded="false" aria-controls="elite-engagement-panel-4">
+                                <span class="elite-engagement-title" role="heading" aria-level="3">Strategic hybrid teams</span>
+                                <span class="elite-engagement-toggle-icon" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                            </button>
+                            <div class="elite-engagement-panel" id="elite-engagement-panel-4" aria-hidden="true" inert>
+                                <div class="elite-engagement-panel-inner">
+                                    <p>Combine onsite coordination for critical collaboration with offshore capability for development, testing, and support. This arrangement can balance efficiency with the pace and coordination your timelines require.</p>
+                                </div>
+                            </div>
                         </article>
+                    </div>
+                    <div class="elite-engagement-visual" aria-label="Flexible engagement models">
+                        <figure class="dt-photo" data-elite-reveal>
+                            <img src="../assets/images/resource/elite-It-services2.webp" alt="Technology professionals collaborating in flexible delivery teams" loading="lazy">
+                        </figure>
                     </div>
                 </div>
             </section>

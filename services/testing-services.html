@@ -13,13 +13,310 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap" media="print" data-wowoni-async-stylesheet>
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap">
 </noscript>
 <link href="../assets/css/main.css" rel="stylesheet">
+<style>
+    .testing-services-page .testing-challenge-grid {
+        align-items: start;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .testing-services-page .testing-challenge-card {
+        position: relative;
+        display: flex;
+        height: 360px;
+        min-height: 0;
+        padding: 0;
+        overflow: hidden;
+        flex-direction: column;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 4px 20px rgba(10, 25, 47, 0.05);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+
+    .testing-services-page .testing-challenge-card:hover,
+    .testing-services-page .testing-challenge-card.is-hovered,
+    .testing-services-page .testing-challenge-card:focus-within {
+        transform: translateY(-6px);
+        border-color: rgba(13, 125, 252, 0.3);
+        box-shadow: 0 20px 40px rgba(13, 125, 252, 0.16);
+    }
+
+    .testing-services-page .testing-challenge-image-wrap {
+        position: relative;
+        width: 100%;
+        height: 210px;
+        flex-shrink: 0;
+        overflow: hidden;
+        background: #0a192f;
+    }
+
+    .testing-services-page .testing-challenge-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .testing-services-page .testing-challenge-card:hover .testing-challenge-image,
+    .testing-services-page .testing-challenge-card.is-hovered .testing-challenge-image,
+    .testing-services-page .testing-challenge-card:focus-within .testing-challenge-image {
+        transform: scale(1.08);
+    }
+
+    .testing-services-page .testing-challenge-badge {
+        position: absolute;
+        z-index: 2;
+        top: 14px;
+        right: 14px;
+        padding: 4px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        background: rgba(10, 25, 47, 0.72);
+        color: #fff;
+        font-size: 11.5px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        backdrop-filter: blur(6px);
+        transition: background 0.3s ease;
+    }
+
+    .testing-services-page .testing-challenge-card:hover .testing-challenge-badge,
+    .testing-services-page .testing-challenge-card.is-hovered .testing-challenge-badge,
+    .testing-services-page .testing-challenge-card:focus-within .testing-challenge-badge {
+        background: #0d7dfc;
+    }
+
+    .testing-services-page .testing-challenge-body {
+        position: absolute;
+        z-index: 3;
+        top: 210px;
+        right: 0;
+        left: 0;
+        display: flex;
+        min-height: 260px;
+        padding: 20px 22px 24px;
+        flex-direction: column;
+        border-top: 1px solid rgba(13, 125, 252, 0.08);
+        border-radius: 16px 16px 0 0;
+        background: #fff;
+        box-shadow: 0 -8px 24px rgba(10, 25, 47, 0.05);
+        transform: translateY(0);
+        transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+    }
+
+    .testing-services-page .testing-challenge-card:hover .testing-challenge-body,
+    .testing-services-page .testing-challenge-card.is-hovered .testing-challenge-body,
+    .testing-services-page .testing-challenge-card:focus-within .testing-challenge-body {
+        transform: translateY(-145px);
+        box-shadow: 0 -14px 36px rgba(10, 25, 47, 0.12);
+    }
+
+    .testing-services-page .testing-challenge-title {
+        margin: 0 0 12px;
+        color: #040c42;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.35;
+        letter-spacing: -0.2px;
+    }
+
+    .testing-services-page .testing-challenge-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.35s ease 0.08s, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+    }
+
+    .testing-services-page .testing-challenge-card:hover .testing-challenge-info,
+    .testing-services-page .testing-challenge-card.is-hovered .testing-challenge-info,
+    .testing-services-page .testing-challenge-card:focus-within .testing-challenge-info {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .testing-services-page .testing-challenge-info p {
+        margin: 0;
+        color: #3e485e;
+        font-size: 13.5px;
+        line-height: 1.55;
+    }
+
+    .testing-services-page .testing-method-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-bottom: 48px;
+    }
+
+    .testing-services-page .testing-method-card {
+        display: block;
+        min-height: 0;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 14px;
+        box-shadow: 0 2px 10px rgba(19, 32, 71, 0.03);
+        transform: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testing-services-page .testing-method-card::before {
+        display: none;
+    }
+
+    .testing-services-page .testing-method-card:hover,
+    .testing-services-page .testing-method-card:focus-within {
+        transform: none;
+        border-color: rgba(13, 125, 252, 0.35);
+        box-shadow: 0 8px 24px rgba(13, 125, 252, 0.08);
+    }
+
+    .testing-services-page .testing-method-card.is-open {
+        border-color: #0d7dfc;
+        box-shadow: 0 10px 30px rgba(13, 125, 252, 0.12);
+    }
+
+    .testing-services-page .testing-method-trigger {
+        display: flex;
+        width: 100%;
+        min-height: 76px;
+        padding: 22px 24px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        text-align: left;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .testing-services-page .testing-method-trigger:focus-visible {
+        outline: 3px solid rgba(13, 125, 252, 0.4);
+        outline-offset: -4px;
+        border-radius: 8px;
+    }
+
+    .testing-services-page .testing-method-title {
+        display: block;
+        flex: 1 1 auto;
+        color: #102344;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.35;
+        transition: color 0.3s ease;
+    }
+
+    .testing-services-page .testing-method-card:hover .testing-method-title,
+    .testing-services-page .testing-method-card.is-open .testing-method-title {
+        color: #0d7dfc;
+    }
+
+    .testing-services-page .testing-method-toggle {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        flex: 0 0 32px;
+        place-items: center;
+        border-radius: 50%;
+        background: #0d7dfc;
+        box-shadow: 0 3px 8px rgba(13, 125, 252, 0.35);
+        color: #fff;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .testing-services-page .testing-method-card.is-open .testing-method-toggle {
+        background: #040c42;
+    }
+
+    .testing-services-page .testing-method-card:hover .testing-method-toggle {
+        transform: scale(1.08);
+    }
+
+    .testing-services-page .testing-method-panel {
+        display: none;
+        padding: 16px 24px 24px;
+        border-top: 1px solid transparent;
+    }
+
+    .testing-services-page .testing-method-card.is-open .testing-method-panel {
+        border-color: #f1f5f9;
+    }
+
+    .testing-services-page .testing-method-panel p {
+        margin: 0;
+        color: #3e485e;
+        font-size: 14.5px;
+        line-height: 1.65;
+    }
+
+    @media (max-width: 767px) {
+        .testing-services-page .testing-method-grid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .testing-services-page .testing-method-grid .testing-wide-card {
+            grid-column: auto;
+        }
+    }
+
+    .testing-services-page .testing-challenge-card:focus-visible {
+        outline: 3px solid rgba(13, 125, 252, 0.4);
+        outline-offset: 3px;
+    }
+
+    @media (max-width: 1200px) {
+        .testing-services-page .testing-challenge-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 767px) {
+        .testing-services-page .testing-challenge-grid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+
+    @media (max-width: 991px) {
+        .testing-services-page .testing-challenge-card {
+            height: auto;
+        }
+
+        .testing-services-page .testing-challenge-body {
+            position: static;
+            min-height: 0;
+            padding: 20px 22px 24px;
+            border-radius: 0 0 16px 16px;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .testing-services-page .testing-challenge-info {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .testing-services-page .testing-challenge-card,
+        .testing-services-page .testing-challenge-image,
+        .testing-services-page .testing-challenge-badge,
+        .testing-services-page .testing-challenge-body,
+        .testing-services-page .testing-challenge-info {
+            transition-duration: 0.01ms;
+        }
+    }
+</style>
 </head>
-<body class="service-detail-page">
+<body class="service-detail-page testing-services-page">
     <div class="boxed_wrapper">
         <div class="shared-header-slot" data-wowoni-include="header"></div>
         <div data-wowoni-include="mobile-menu"></div>
@@ -32,7 +329,7 @@
                     <div class="auto-container dt-hero-content">
                         <h1 id="testing-title">TESTING SERVICES</h1>
                         <nav aria-label="Breadcrumb">
-                            <ol class="dt-breadcrumb">
+                            <ol class="dt-breadcrumb desktop-breadcrumbs">
                                 <li><a href="../index.html">Home</a></li>
                                 <li><a href="service.html">Services</a></li>
                                 <li aria-current="page">Testing Services</li>
@@ -41,6 +338,17 @@
                     </div>
                 </div>
             </section>
+
+        <!-- Mobile Breadcrumbs: displayed below hero image on mobile devices -->
+        <nav class="dt-breadcrumbs-mobile" aria-label="Breadcrumb">
+            <div class="auto-container">
+                <ol class="dt-breadcrumb">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li aria-current="page">Testing Services</li>
+                </ol>
+            </div>
+        </nav>
 
             <section class="dt-intro" aria-labelledby="testing-intro-title">
                 <div class="auto-container dt-split">
@@ -63,41 +371,83 @@
                         <p>Financial applications face high-stakes demands that call for targeted, thorough quality assurance.</p>
                     </div>
                     <div class="dt-benefit-grid testing-challenge-grid">
-                        <article class="dt-benefit drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 01</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-clipboard-check" aria-hidden="true"></i></span>
-                            <h3>Regulatory compliance</h3>
-                            <p>Assess adherence to requirements such as PCI DSS, GDPR, and applicable local banking laws, with verifiable evidence and clear records to support audits.</p>
+                        <article class="dt-benefit testing-challenge-card" data-dt-reveal tabindex="0">
+                            <div class="testing-challenge-image-wrap">
+                                <img class="testing-challenge-image" src="../assets/images/service/cbt-approach-01.webp" alt="Banking professionals collaborating on a technology project">
+                                <span class="testing-challenge-badge" aria-hidden="true">01</span>
+                            </div>
+                            <div class="testing-challenge-body">
+                                <span class="drive-tag">PHASE 01</span>
+                                <h3 class="testing-challenge-title">Regulatory compliance</h3>
+                                <div class="testing-challenge-info">
+                                    <p>Assess adherence to requirements such as PCI DSS, GDPR, and applicable local banking laws, with verifiable evidence and clear records to support audits.</p>
+                                </div>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 02</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-lock" aria-hidden="true"></i></span>
-                            <h3>Financial data security</h3>
-                            <p>Help protect sensitive financial and personal information through security protocols and ongoing vulnerability assessment.</p>
+                        <article class="dt-benefit testing-challenge-card" data-dt-reveal tabindex="0">
+                            <div class="testing-challenge-image-wrap">
+                                <img class="testing-challenge-image" src="../assets/images/service/cbt-approach-02.webp" alt="Team planning a technology project with delivery milestones">
+                                <span class="testing-challenge-badge" aria-hidden="true">02</span>
+                            </div>
+                            <div class="testing-challenge-body">
+                                <span class="drive-tag">PHASE 02</span>
+                                <h3 class="testing-challenge-title">Financial data security</h3>
+                                <div class="testing-challenge-info">
+                                    <p>Help protect sensitive financial and personal information through security protocols and ongoing vulnerability assessment.</p>
+                                </div>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 03</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-exchange-alt" aria-hidden="true"></i></span>
-                            <h3>Transaction integrity</h3>
-                            <p>Verify that transactions are processed as expected and that their records remain accurate and consistent.</p>
+                        <article class="dt-benefit testing-challenge-card" data-dt-reveal tabindex="0">
+                            <div class="testing-challenge-image-wrap">
+                                <img class="testing-challenge-image" src="../assets/images/service/cbt-approach-03.webp" alt="Colleagues reviewing project integrations">
+                                <span class="testing-challenge-badge" aria-hidden="true">03</span>
+                            </div>
+                            <div class="testing-challenge-body">
+                                <span class="drive-tag">PHASE 03</span>
+                                <h3 class="testing-challenge-title">Transaction integrity</h3>
+                                <div class="testing-challenge-info">
+                                    <p>Verify that transactions are processed as expected and that their records remain accurate and consistent.</p>
+                                </div>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 04</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-tachometer-alt" aria-hidden="true"></i></span>
-                            <h3>Performance and scalability</h3>
-                            <p>Evaluate system responsiveness and stability during heavy workloads, and assess how services can scale as demand grows.</p>
+                        <article class="dt-benefit testing-challenge-card" data-dt-reveal tabindex="0">
+                            <div class="testing-challenge-image-wrap">
+                                <img class="testing-challenge-image" src="../assets/images/service/cbt-approach-04.webp" alt="Technology specialist preparing a project delivery plan">
+                                <span class="testing-challenge-badge" aria-hidden="true">04</span>
+                            </div>
+                            <div class="testing-challenge-body">
+                                <span class="drive-tag">PHASE 04</span>
+                                <h3 class="testing-challenge-title">Performance and scalability</h3>
+                                <div class="testing-challenge-info">
+                                    <p>Evaluate system responsiveness and stability during heavy workloads, and assess how services can scale as demand grows.</p>
+                                </div>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 05</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></span>
-                            <h3>Complex ecosystem integration</h3>
-                            <p>Check connections and data exchange among interdependent applications, APIs, and third-party services.</p>
+                        <article class="dt-benefit testing-challenge-card" data-dt-reveal tabindex="0">
+                            <div class="testing-challenge-image-wrap">
+                                <img class="testing-challenge-image" src="../assets/images/service/cbt-approach-05.webp" alt="Professional working on a laptop at her desk">
+                                <span class="testing-challenge-badge" aria-hidden="true">05</span>
+                            </div>
+                            <div class="testing-challenge-body">
+                                <span class="drive-tag">PHASE 05</span>
+                                <h3 class="testing-challenge-title">Complex ecosystem integration</h3>
+                                <div class="testing-challenge-info">
+                                    <p>Check connections and data exchange among interdependent applications, APIs, and third-party services.</p>
+                                </div>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 06</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-rocket" aria-hidden="true"></i></span>
-                            <h3>Speed to market</h3>
-                            <p>Support faster introduction of features and services while keeping quality and security considerations in view.</p>
+                        <article class="dt-benefit testing-challenge-card" data-dt-reveal tabindex="0">
+                            <div class="testing-challenge-image-wrap">
+                                <img class="testing-challenge-image" src="../assets/images/service/cbt-approach-06.webp" alt="Professional working on a laptop at home">
+                                <span class="testing-challenge-badge" aria-hidden="true">06</span>
+                            </div>
+                            <div class="testing-challenge-body">
+                                <span class="drive-tag">PHASE 06</span>
+                                <h3 class="testing-challenge-title">Speed to market</h3>
+                                <div class="testing-challenge-info">
+                                    <p>Support faster introduction of features and services while keeping quality and security considerations in view.</p>
+                                </div>
+                            </div>
                         </article>
                     </div>
                 </div>
@@ -114,35 +464,50 @@
                         <p>A multi-faceted testing strategy helps provide broad, considered coverage across application behavior and quality attributes.</p>
                     </div>
                     <div class="dt-benefit-grid testing-method-grid">
-                        <article class="dt-benefit drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 01</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-user-check" aria-hidden="true"></i></span>
-                            <h3>Black Box Testing</h3>
-                            <p>Evaluate user-facing behavior—including interfaces, workflows, and transactions—from the customer’s perspective to check for accurate, intuitive experiences.</p>
+                        <article class="dt-benefit drive-card testing-method-card" data-dt-reveal>
+                            <button class="testing-method-trigger" type="button" aria-expanded="false" aria-controls="testing-method-panel-1">
+                                <span class="testing-method-title" role="heading" aria-level="4">Black Box Testing</span>
+                                <span class="testing-method-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                            </button>
+                            <div class="testing-method-panel" id="testing-method-panel-1" aria-hidden="true" inert>
+                                <p>Evaluate user-facing behavior—including interfaces, workflows, and transactions—from the customer’s perspective to check for accurate, intuitive experiences.</p>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 02</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-code" aria-hidden="true"></i></span>
-                            <h3>White Box Testing</h3>
-                            <p>Inspect internal code, logic, and design to assess financial calculations, data encryption, and error handling—important areas for security and integrity.</p>
+                        <article class="dt-benefit drive-card testing-method-card" data-dt-reveal>
+                            <button class="testing-method-trigger" type="button" aria-expanded="false" aria-controls="testing-method-panel-2">
+                                <span class="testing-method-title" role="heading" aria-level="4">White Box Testing</span>
+                                <span class="testing-method-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                            </button>
+                            <div class="testing-method-panel" id="testing-method-panel-2" aria-hidden="true" inert>
+                                <p>Inspect internal code, logic, and design to assess financial calculations, data encryption, and error handling—important areas for security and integrity.</p>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 03</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-adjust" aria-hidden="true"></i></span>
-                            <h3>Gray Box Testing</h3>
-                            <p>Use partial knowledge of internal systems to target testing of APIs, middleware, and complex integrations efficiently.</p>
+                        <article class="dt-benefit drive-card testing-method-card" data-dt-reveal>
+                            <button class="testing-method-trigger" type="button" aria-expanded="false" aria-controls="testing-method-panel-3">
+                                <span class="testing-method-title" role="heading" aria-level="4">Gray Box Testing</span>
+                                <span class="testing-method-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                            </button>
+                            <div class="testing-method-panel" id="testing-method-panel-3" aria-hidden="true" inert>
+                                <p>Use partial knowledge of internal systems to target testing of APIs, middleware, and complex integrations efficiently.</p>
+                            </div>
                         </article>
-                        <article class="dt-benefit drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 04</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <h3>Manual Testing</h3>
-                            <p>Apply skilled tester judgment to exploratory work, usability checks, ad-hoc scenarios, and User Acceptance Testing (UAT), helping identify subtle issues and review critical user journeys.</p>
+                        <article class="dt-benefit drive-card testing-method-card" data-dt-reveal>
+                            <button class="testing-method-trigger" type="button" aria-expanded="false" aria-controls="testing-method-panel-4">
+                                <span class="testing-method-title" role="heading" aria-level="4">Manual Testing</span>
+                                <span class="testing-method-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                            </button>
+                            <div class="testing-method-panel" id="testing-method-panel-4" aria-hidden="true" inert>
+                                <p>Apply skilled tester judgment to exploratory work, usability checks, ad-hoc scenarios, and User Acceptance Testing (UAT), helping identify subtle issues and review critical user journeys.</p>
+                            </div>
                         </article>
-                        <article class="dt-benefit testing-wide-card drive-card" data-dt-reveal>
-                            <span class="drive-tag">DRIVER 05</span>
-                            <span class="dt-benefit-icon"><i class="fas fa-check-double" aria-hidden="true"></i></span>
-                            <h3>Functional &amp; Non-Functional Testing</h3>
-                            <p>Validate that features behave as intended and assess performance, security, usability, reliability, and compliance as part of a wider view of application quality.</p>
+                        <article class="dt-benefit drive-card testing-method-card" data-dt-reveal>
+                            <button class="testing-method-trigger" type="button" aria-expanded="false" aria-controls="testing-method-panel-5">
+                                <span class="testing-method-title" role="heading" aria-level="4">Functional &amp; Non-Functional Testing</span>
+                                <span class="testing-method-toggle" aria-hidden="true"><i class="fas fa-plus"></i></span>
+                            </button>
+                            <div class="testing-method-panel" id="testing-method-panel-5" aria-hidden="true" inert>
+                                <p>Validate that features behave as intended and assess performance, security, usability, reliability, and compliance as part of a wider view of application quality.</p>
+                            </div>
                         </article>
                     </div>
 
@@ -240,5 +605,40 @@
     <script defer src="../assets/js/bxslider.js"></script>
     <script defer src="../assets/js/isotope.js"></script>
     <script defer src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var methodCards = document.querySelectorAll(".testing-method-grid .testing-method-card");
+
+            methodCards.forEach(function(card) {
+                var trigger = card.querySelector(".testing-method-trigger");
+
+                trigger.addEventListener("click", function() {
+                    var shouldOpen = !card.classList.contains("is-open");
+                    var animationDuration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 300;
+
+                    methodCards.forEach(function(otherCard) {
+                        var otherTrigger = otherCard.querySelector(".testing-method-trigger");
+                        var otherPanel = otherCard.querySelector(".testing-method-panel");
+                        var otherIcon = otherCard.querySelector(".testing-method-toggle i");
+                        var isOpen = otherCard === card && shouldOpen;
+
+                        otherCard.classList.toggle("is-open", isOpen);
+                        otherTrigger.setAttribute("aria-expanded", String(isOpen));
+                        otherPanel.setAttribute("aria-hidden", String(!isOpen));
+                        otherPanel.inert = !isOpen;
+                        otherIcon.classList.toggle("fa-minus", isOpen);
+                        otherIcon.classList.toggle("fa-plus", !isOpen);
+
+                        window.jQuery(otherPanel).stop(true, true);
+                        if (isOpen) {
+                            window.jQuery(otherPanel).slideDown(animationDuration);
+                        } else {
+                            window.jQuery(otherPanel).slideUp(animationDuration);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
